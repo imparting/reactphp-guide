@@ -1,0 +1,20 @@
+{
+  "title": "ReactPHP Documentation",
+  "language": "en",
+  "description": "ReactPHP Documentation",
+  "author": "Imparting",
+  "root": ".",
+  "theme-default": {
+    "showLevel": true
+  },
+  "structure": {
+    "readme": "README.md"
+  },
+  "plugins": [
+    "- summary",
+    "toggle-chapters",
+    "theme-comscore",
+    "highlight",
+    "search-plus"
+  ]
+}
