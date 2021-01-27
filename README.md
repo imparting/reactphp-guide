@@ -5,7 +5,7 @@
 <br>
     
 <div align="center">
-    <strong>Event-driven, non-blocking I/O with PHP.</strong>
+    <strong>事件驱动的,非阻塞I/O的PHP</strong>
 </div>
 
 <br>
@@ -16,97 +16,89 @@
 
 <br>
 
-ReactPHP is a low-level library for event-driven programming in PHP. At its core
-is an event loop, on top of which it provides low-level utilities, such as:
-Streams abstraction, async DNS resolver, network client/server, HTTP
-client/server and interaction with processes. Third-party libraries can use these
-components to create async network clients/servers and more.
+ReactPHP是PHP中用于事件驱动编程的底层库。
 
-ReactPHP is production ready and battle-tested with millions of installations
-from all kinds of projects around the world. Its event-driven architecture makes
-it a perfect fit for efficient network servers and clients handling hundreds or
-thousands of concurrent connections, long-running applications and many other
-forms of cooperative multitasking with non-blocking I/O operations. What makes
-ReactPHP special is its vivid ecosystem with hundreds of third-party libraries
-allowing you to integrate with many existing systems, such as common network
-services, database systems and other third-party APIs.
+核心是一个事件循环，它在其上提供底层实用程序，
+例如：流抽象，异步DNS解析器，网络客户端/服务器，HTTP客户机/服务器和与进程的交互。
 
-* **Production ready** and battle-tested.
-* **Rock-solid** with stable long-term support (LTS) releases.
-* **Requires no extensions** and runs on any platform - no excuses!
-* Takes advantage of **optional extensions** to get better performance when available.
-* **Highly recommends latest version of PHP 7+** for best performance and support.
-* **Supports legacy PHP 5.3+ and HHVM** for maximum compatibility.
-* **Well designed** and **reusable components**.
-* **Decoupled parts** so they can be replaced by alternate implementations.
-* Carefully **tested** (unit & functional).
-* Promotes **standard PSRs** where possible for maximum interoperability.
-* Aims to be **technology neutral**, so you can use your preferred application stack.
-* Small **core team of professionals** supported by **large network** of outside contributors.
+第三方库可以使用这些用于创建异步网络客户端/服务器等的组件。
 
-ReactPHP is non-blocking by default. Use workers for blocking I/O.
-The event loop is based on the reactor pattern (hence the name) and strongly
-inspired by libraries such as EventMachine (Ruby), Twisted (Python) and
-Node.js (V8).
+ReactPHP已经可用于生产环境，并且经过来自世界各地的各种项目数百万次的安装测试。
 
-> This repository you're currently looking at is mostly used as a meta
-  repository to discuss and plan all things @ReactPHP. See the individual
-  components linked below for more details about each component, its
-  documentation and source code.
+由于事件驱动架构，使它非常适合高效的网络服务器和处理数百或数千个并发连接，长期运行的应用程序和许多其他无阻塞I / O操作的协作多任务形式。
 
-## Core Components
+ReactPHP之所以与众不同，是因为其活跃的生态系统具有数百个第三方库，可让您与许多现有系统集成 ，例如公共网络服务、数据库系统和其他第三方API。
+
+* **生产就绪**，并经过了实战测试。
+* **稳固的**，具有稳定的长期支持（LTS）版本。
+* **不需要扩展**，并且可以在任何平台上运行-没有任何借口！
+* 利用**可选扩展**来获得更好的性能（如果可用）。
+* **强烈建议使用最新版本的PHP 7 +**，以获得最佳性能和支持。
+* **支持旧版PHP 5.3+和HHVM**，以实现最大兼容性。
+* **精心设计的**和**可重复使用的组件**。
+* **分离的零件**，因此可以用其他实现方式替换它们。
+* 经过**测试**（单位和功能）。
+* 尽可能采用**标准PSR**，以实现最大的互操作性。
+* 旨在“技术中立”，因此您可以使用首选的应用程序堆栈。
+* 小型**核心专业团队**由外部贡献者的**大型网络**支持。 
+
+默认情况下，ReactPHP是非阻塞的，workers阻止I / O。
+事件循环基于反应堆模式（因此命名），并且强烈受诸如EventMachine（Ruby），Twisted（Python）和
+Node.js（V8）。 
+
+## 核心组件
 
 * **EventLoop**
-  ReactPHP's core reactor event-loop.
-  [Read the documentation](1.Core-Components/EventLoop.md)
+  ReactPHP的核心反应器event-loop
+  [文档](1.Core-Components/EventLoop.md)
 
 * **Stream**
-  Event-driven readable and writable streams for non-blocking I/O in ReactPHP.
-  [Read the documentation](1.Core-Components/Stream.md)
+  事件驱动的可读写流，用于ReactPHP中的非阻塞I / O
+  [文档](1.Core-Components/Stream.md)
 
 * **Promise**
-  Promises/A implementation for PHP.
-  [Read the documentation](1.Core-Components/Promise.md)
+  Promises/A 的PHP实现
+  [文档](1.Core-Components/Promise.md)
 
 
-## Network Components
+## 网络组件
 
 * **Socket**
-  Async, streaming plaintext TCP/IP and secure TLS socket server and client connections for ReactPHP.
-  [Read the documentation](2.Network-Components/Socket.md)
+  异步，流式传输纯文本TCP / IP以及安全TLS套接字服务器和客户端连接
+  [文档](2.Network-Components/Socket.md)
 
 * **Datagram**
-  Event-driven UDP client and server sockets for ReactPHP.
-  [Read the documentation](2.Network-Components/Datagram.md)
+  事件驱动的UDP客户端和服务器套接字
+  [文档](2.Network-Components/Datagram.md)
 
-## Protocol Components
+## 协议组件
 
 * **HTTP**
-  Event-driven, streaming plaintext HTTP and secure HTTPS server for ReactPHP.
-  [Read the documentation](3.Protocol-Components/Http.md)
+  事件驱动的流式纯文本HTTP和安全HTTPS服务器
+  [文档](3.Protocol-Components/Http.md)
 
 * **HTTPClient**
-  Event-driven, streaming HTTP client for ReactPHP.
-  [Read the documentation](3.Protocol-Components/HttpClient.md)
+  事件驱动的HTTP流客户端
+  [文档](3.Protocol-Components/HttpClient.md)
 
 * **DNS**
-  Async DNS resolver for ReactPHP.
-  [Read the documentation](3.Protocol-Components/Dns.md)
+  异步DNS解析器
+  [文档](3.Protocol-Components/Dns.md)
 
-## Utility Components
+## 实用组件
 
 * **Cache**
-  Async caching for ReactPHP.
-  [Read the documentation](4.Utility-Components/Cache.md)
+  异步缓存
+  [文档](4.Utility-Components/Cache.md)
 
 * **ChildProcess**
-  Library for executing child processes.
-  [Read the documentation](4.Utility-Components/ChildProcess.md)
+  执行子进程的库。
+  [文档](4.Utility-Components/ChildProcess.md)
 
 * **PromiseTimer**
-  Trivial timeout implementation for ReactPHP's Promise lib.
-  [Read the documentation](4.Utility-Components/PromiseTimer.md)
+  ReactPHP的Promise库的简单超时实现。
+  [文档](4.Utility-Components/PromiseTimer.md)
 
 * **PromiseStream**
-  The missing link between Promise-land and Stream-land, built on top of ReactPHP.
-  [Read the documentation](4.Utility-Components/PromiseStream.md)
+  在ReactPHP之上构建的Promise和Stream之间的衔接环节。 
+  [文档](4.Utility-Components/PromiseStream.md)

@@ -40,9 +40,9 @@ single [`run()`](#run) call that is controlled by the user.
 * [License](#license)
 * [More](#more)
 
-## Quickstart example
+## 快速开始
 
-Here is an async HTTP server built with just the event loop.
+这里是一个仅使用事件循环构建的异步HTTP服务器。
 
 ```php
 $loop = React\EventLoop\Factory::create();
