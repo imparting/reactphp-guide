@@ -73,12 +73,11 @@ $loop->addPeriodicTimer(5, function () {
 $loop->run();
 ```
 
-See also the [examples](examples).
+查看[示例](https://github.com/reactphp/event-loop/blob/v1.1.1/examples).
 
-## Usage
+## 用法
 
-Typical applications use a single event loop which is created at the beginning
-and run at the end of the program.
+典型的应用程序：开始时创建的单个事件循环，程序结束时运行。
 
 ```php
 // [1]
@@ -98,17 +97,14 @@ $stream = new React\Stream\ReadableResourceStream(
 $loop->run();
 ```
 
-1. The loop instance is created at the beginning of the program. A convenience
-   factory [`React\EventLoop\Factory::create()`](#create) is provided by this library which
-   picks the best available [loop implementation](#loop-implementations).
-2. The loop instance is used directly or passed to library and application code.
-   In this example, a periodic timer is registered with the event loop which
-   simply outputs `Tick` every second and a
-   [readable stream](https://github.com/reactphp/stream#readableresourcestream)
-   is created by using ReactPHP's
-   [stream component](https://github.com/reactphp/stream) for demonstration
-   purposes.
-3. The loop is run with a single [`$loop->run()`](#run) call at the end of the program.
+1. 在程序开始时创建循环实例[`React\EventLoop\Factory::create()`](#create) 
+并选择最佳的可用[循环实现](#loop-implementations).
+2.循环实例可直接使用或传递给库和应用程序代码。
+在此示例中，向事件循环注册了一个定期计时器，该循环每秒输出一次 `Tick` ，
+并使用ReactPHP[stream组件](https://github.com/reactphp/stream) 
+创建[可读流](https://github.com/reactphp/stream#visibleresourcestream) 进行演示。
+
+3.循环在程序最后通过单个[`$ loop-> run()`](#run)运行。
 
 ### Factory
 
