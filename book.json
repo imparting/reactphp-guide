@@ -1,7 +1,7 @@
 {
-  "title": "ReactPHP Documentation",
-  "language": "en",
-  "description": "ReactPHP Documentation",
+  "title": "ReactPHP 文档",
+  "language": "zh-hans",
+  "description": "ReactPHP 文档",
   "author": "Imparting",
   "root": ".",
   "theme-default": {

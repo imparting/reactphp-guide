@@ -100,223 +100,175 @@ $loop->run();
 1. 在程序开始时创建循环实例[`React\EventLoop\Factory::create()`](#create) 
 并选择最佳的可用[循环实现](#loop-implementations).
 2.循环实例可直接使用或传递给库和应用程序代码。
-在此示例中，向事件循环注册了一个定期计时器，该循环每秒输出一次 `Tick` ，
-并使用ReactPHP[stream组件](https://github.com/reactphp/stream) 
-创建[可读流](https://github.com/reactphp/stream#visibleresourcestream) 进行演示。
+在此示例中，向事件循环注册了一个定期定时器，该循环每秒输出一次 `Tick` ，
+并使用ReactPHP[stream组件](Stream.md)
+创建[可读流](Stream.md#readablestreaminterface)进行演示。
 
-3.循环在程序最后通过单个[`$ loop-> run()`](#run)运行。
+3.循环在程序最后通过单个[`$loop->run()`](#run)运行。
 
 ### Factory
 
-The `Factory` class exists as a convenient way to pick the best available
-[event loop implementation](#loop-implementations).
+`Factory` 类是一个提供便捷创建循环实例的最佳类
+[事件循环实现](#loop-implementations).
 
 #### create()
 
-The `create(): LoopInterface` method can be used to create a new event loop
-instance:
+`create()：LoopInterface` 方法可用于创建新的事件循环
+例子:
 
 ```php
 $loop = React\EventLoop\Factory::create();
 ```
 
-This method always returns an instance implementing [`LoopInterface`](#loopinterface),
-the actual [event loop implementation](#loop-implementations) is an implementation detail.
+该方法返回实现[`LoopInterface`](#loopinterface)的实例，[事件循环实现](#loop-implementations)是一个具体实现。
 
-This method should usually only be called once at the beginning of the program.
+该方法通常只能在程序开始时调用一次。
 
 ### Loop implementations
 
-In addition to the [`LoopInterface`](#loopinterface), there are a number of
-event loop implementations provided.
+除了[`LoopInterface`](#loopinterface)之外，还有一些提供了事件循环实现。
 
-All of the event loops support these features:
+所有事件循环都支持以下功能：
 
-* File descriptor polling
-* One-off timers
-* Periodic timers
-* Deferred execution on future loop tick
+* 文件描述符轮询
+* 一次性定时器
+* 周期定时器
+* 在未来循环中延迟执行
 
-For most consumers of this package, the underlying event loop implementation is
-an implementation detail.
-You should use the [`Factory`](#factory) to automatically create a new instance.
+对于此软件包的大多数使用者而言，底层事件循环实现是具体实现。
+您应该使用[`Factory`](#factory)自动创建一个新实例。
 
-Advanced! If you explicitly need a certain event loop implementation, you can
-manually instantiate one of the following classes.
-Note that you may have to install the required PHP extensions for the respective
-event loop implementation first or they will throw a `BadMethodCallException` on creation.
+高级！ 如果您明确需要某个事件循环实现，则可以手动实例化以下类之一。
+
+请注意，您可能必须为其安装相应的PHP扩展，否则它们将在创建时抛出 `BadMethodCallException` 异常。 
 
 #### StreamSelectLoop
 
-A `stream_select()` based event loop.
+基于`stream_select()`的事件循环。
+使用[`stream_select()`](https://www.php.net/manual/en/function.stream-select.php) 函数，它是唯一一个使用PHP开箱即用的实现。
 
-This uses the [`stream_select()`](https://www.php.net/manual/en/function.stream-select.php)
-function and is the only implementation which works out of the box with PHP.
+在php5.3到php7+和HHVM上，这个事件循环是开箱即用的。这意味着不需要额外安装其他扩展，而且这个库可以在所有支持的PHP的平台上工作。
+因此，如果您没有安装下面列出的事件循环扩展， [`Factory`](#factory)将默认使用此事件循环。
 
-This event loop works out of the box on PHP 5.3 through PHP 7+ and HHVM.
-This means that no installation is required and this library works on all
-platforms and supported PHP versions.
-Accordingly, the [`Factory`](#factory) will use this event loop by default if
-you do not install any of the event loop extensions listed below.
+在后台，它执行一个简单的 `select` 系统调用。
+该系统调用限于 `FD_SETSIZE` 的最大文件描述符数量（取决于平台，通常为1024），并以 `O(m)` （ `m` 是传递的最大文件描述符数量）进行缩放。
+这意味着在同时处理数千个流时，您可能会遇到问题，并且在这种情况下，您可能想研究使用下面列出的事件循环实现之一替代。
+如果您的用例属于仅涉及一次处理数十个或几百个流，则此事件循环实现的执行效果非常好。 
 
-Under the hood, it does a simple `select` system call.
-This system call is limited to the maximum file descriptor number of
-`FD_SETSIZE` (platform dependent, commonly 1024) and scales with `O(m)`
-(`m` being the maximum file descriptor number passed).
-This means that you may run into issues when handling thousands of streams
-concurrently and you may want to look into using one of the alternative
-event loop implementations listed below in this case.
-If your use case is among the many common use cases that involve handling only
-dozens or a few hundred streams at once, then this event loop implementation
-performs really well.
+如果要使用信号处理（另请参见下面的[`addSignal()`](#addsignal) ），此事件循环实现需要安装`ext-pcntl`扩展。 
 
-If you want to use signal handling (see also [`addSignal()`](#addsignal) below),
-this event loop implementation requires `ext-pcntl`.
-This extension is only available for Unix-like platforms and does not support
-Windows.
-It is commonly installed as part of many PHP distributions.
-If this extension is missing (or you're running on Windows), signal handling is
-not supported and throws a `BadMethodCallException` instead.
+此扩展仅适用于类Unix平台，不支持Windows, 该扩展通常作为许多PHP发行版的一部分安装。
 
-This event loop is known to rely on wall-clock time to schedule future timers
-when using any version before PHP 7.3, because a monotonic time source is
-only available as of PHP 7.3 (`hrtime()`).
-While this does not affect many common use cases, this is an important
-distinction for programs that rely on a high time precision or on systems
-that are subject to discontinuous time adjustments (time jumps).
-This means that if you schedule a timer to trigger in 30s on PHP < 7.3 and
-then adjust your system time forward by 20s, the timer may trigger in 10s.
-See also [`addTimer()`](#addtimer) for more details.
+如果缺少此扩展名（或您正在Windows上运行），则不支持信号处理，将抛出`BadMethodCallException`异常。 
+
+PHP 7.3之前的版本，该事件循环都依赖于时钟时间来安排将来的定时器，因为单调时间源仅从PHP 7.3+ 可用（`hrtime()`）。
+
+尽管这并不影响大部分应用程序，但这对于依赖于高时间精度的程序或受不连续时间调整（时间跳跃）影响的系统而言，是一个重要的区别。
+这意味着，如果您安排一个定时器在PHP <7.3上的30秒内触发，然后将系统时间向前调整20秒，则该定时器可能会在10秒内触发。
+另请参见[`addTimer()`](#addtimer)。
 
 #### ExtEventLoop
 
-An `ext-event` based event loop.
+基于`ext-event`的事件循环。 
 
-This uses the [`event` PECL extension](https://pecl.php.net/package/event).
-It supports the same backends as libevent.
+使用[`event` PECL extension](https://pecl.php.net/package/event) 扩展，与libevent相同。 
 
-This loop is known to work with PHP 5.4 through PHP 7+.
+此循环可用于PHP 5.4到PHP 7+。
 
 #### ExtEvLoop
 
-An `ext-ev` based event loop.
+基于`ext-ev`的事件循环。 
 
-This loop uses the [`ev` PECL extension](https://pecl.php.net/package/ev), that
-provides an interface to `libev` library.
+使用 [`ev` PECL extension](https://pecl.php.net/package/ev) 扩展，提供 `libev` 库的接口。
 
-This loop is known to work with PHP 5.4 through PHP 7+.
+此循环可用于PHP 5.4到PHP 7+。
 
 #### ExtUvLoop
 
-An `ext-uv` based event loop.
+基于`ext-uv`的事件循环。 
 
-This loop uses the [`uv` PECL extension](https://pecl.php.net/package/uv), that
-provides an interface to `libuv` library.
+使用 [`uv` PECL extension](https://pecl.php.net/package/uv) 扩展， 提供 `libuv` 库的接口。
 
-This loop is known to work with PHP 7+.
+此循环可用于PHP 7+。
 
 #### ExtLibeventLoop
 
-An `ext-libevent` based event loop.
+基于`ext-libevent`的事件循环。 
 
-This uses the [`libevent` PECL extension](https://pecl.php.net/package/libevent).
-`libevent` itself supports a number of system-specific backends (epoll, kqueue).
+使用 [`libevent` PECL extension](https://pecl.php.net/package/libevent) 扩展。
+`libevent` 本身支持许多特定于系统的后端（epoll，kqueue）。 
 
-This event loop does only work with PHP 5.
-An [unofficial update](https://github.com/php/pecl-event-libevent/pull/2) for
-PHP 7 does exist, but it is known to cause regular crashes due to `SEGFAULT`s.
-To reiterate: Using this event loop on PHP 7 is not recommended.
-Accordingly, the [`Factory`](#factory) will not try to use this event loop on
-PHP 7.
+此事件循环仅适用于PHP 5。 
 
-This event loop is known to trigger a readable listener only if
-the stream *becomes* readable (edge-triggered) and may not trigger if the
-stream has already been readable from the beginning.
-This also implies that a stream may not be recognized as readable when data
-is still left in PHP's internal stream buffers.
-As such, it's recommended to use `stream_set_read_buffer($stream, 0);`
-to disable PHP's internal read buffer in this case.
-See also [`addReadStream()`](#addreadstream) for more details.
+存在用于PHP 7 的版本 [非正式更新](https://github.com/php/pecl-event-libevent/pull/2) ，但已知由于SEGFAULT导致定期崩溃。
+
+重申一下：不建议在PHP 7上使用此事件循环。
+因此[`Factory`](#factory)将不会尝试在PHP 7上使用此事件循环。 
+
+已知只有在流变得可读（边缘触发）时才触发事件侦听器，并且如果从一开始就已经可读该流，则可能不会触发。 
+
+这也意味着，当数据仍留在PHP的内部流缓冲区中时，该流可能不被视为可读。 
+
+因此，在这种情况下，建议使用`stream_set_read_buffer($stream, 0);`禁用PHP的内部读取缓冲区。
+另请参见[`addReadStream()`](#addreadstream)。 
 
 #### ExtLibevLoop
 
-An `ext-libev` based event loop.
+基于`ext-libev`的事件循环。 
 
-This uses an [unofficial `libev` extension](https://github.com/m4rw3r/php-libev).
-It supports the same backends as libevent.
+使用[非正式的 `libev` 扩展名](https://github.com/m4rw3r/php-libev) 扩展，与libevent相同。 
 
-This loop does only work with PHP 5.
-An update for PHP 7 is [unlikely](https://github.com/m4rw3r/php-libev/issues/8)
-to happen any time soon.
+此循环仅适用于PHP 5。
+PHP 7的更新[不太可能](https://github.com/m4rw3r/php-libev/issues/8) 
 
 ### LoopInterface
 
 #### run()
 
-The `run(): void` method can be used to
-run the event loop until there are no more tasks to perform.
+使用 `run(): void` 方法执行事件循环，直到没有任务执行为止。
 
-For many applications, this method is the only directly visible
-invocation on the event loop.
-As a rule of thumb, it is usally recommended to attach everything to the
-same loop instance and then run the loop once at the bottom end of the
-application.
+对于大部分应用程序，该方法是事件循环上唯一直接可见的调用。
+
+根据经验，通常建议将所有内容附加到同一循环实例，然后在应用程序的最底端运行一次循环。
 
 ```php
 $loop->run();
 ```
 
-This method will keep the loop running until there are no more tasks
-to perform. In other words: This method will block until the last
-timer, stream and/or signal has been removed.
+此方法将使循环保持运行状态，直到没有其他任务可以执行为止。 换句话说：此方法将阻塞直到最后一个定时器，流 和/或 信号被删除为止。
 
-Likewise, it is imperative to ensure the application actually invokes
-this method once. Adding listeners to the loop and missing to actually
-run it will result in the application exiting without actually waiting
-for any of the attached listeners.
+同样，必须确保应用程序实际调用此方法一次。如果将侦听器添加到循环中而没有执行该方法，任何附加的监听器将不再等待，应用程序会直接退出。
 
-This method MUST NOT be called while the loop is already running.
-This method MAY be called more than once after it has explicity been
-[`stop()`ped](#stop) or after it automatically stopped because it
-previously did no longer have anything to do.
+循环已在运行时，不能调用此方法。此方法在显式调用[`stop()`ped](#stop)后或由于以前不再有任何操作而自动停止后，可能会被多次调用。
 
 #### stop()
 
-The `stop(): void` method can be used to
-instruct a running event loop to stop.
+运行`stop(): void`方法将停止正在运行的事件循环。
 
-This method is considered advanced usage and should be used with care.
-As a rule of thumb, it is usually recommended to let the loop stop
-only automatically when it no longer has anything to do.
+此方法为高级用法，应小心使用。通常建议仅当循环不再有任何事情要做时才自动停止。
 
-This method can be used to explicitly instruct the event loop to stop:
+此方法用于显式指示事件循环停止：
 
 ```php
 $loop->addTimer(3.0, function () use ($loop) {
     $loop->stop();
 });
 ```
-
-Calling this method on a loop instance that is not currently running or
-on a loop instance that has already been stopped has no effect.
+对当前未运行的循环实例或已停止的循环实例调用此方法无效。
 
 #### addTimer()
 
-The `addTimer(float $interval, callable $callback): TimerInterface` method can be used to
-enqueue a callback to be invoked once after the given interval.
+`addTimer(float $interval, callable $callback): TimerInterface` 方法可用于将要在设定间隔（秒）后调用回调。
 
-The timer callback function MUST be able to accept a single parameter,
-the timer instance as also returned by this method or you MAY use a
-function which has no parameters at all.
+定时器回调函数必须能够接受单个参数，定时器实例也是由这个方法返回的，或者您可以使用一个完全没有参数的函数。
 
-The timer callback function MUST NOT throw an `Exception`.
-The return value of the timer callback function will be ignored and has
-no effect, so for performance reasons you're recommended to not return
-any excessive data structures.
+定时器回调函数不能抛出`Exception`。
 
-Unlike [`addPeriodicTimer()`](#addperiodictimer), this method will ensure
-the callback will be invoked only once after the given interval.
-You can invoke [`cancelTimer`](#canceltimer) to cancel a pending timer.
+定时器回调函数的返回值将被忽略，并且没有任何影响，因此出于性能原因，建议您不要返回任何过多的数据结构。
+
+与[`addPeriodicTimer()`](#addperiodictimer)不同，此方法将确保在设定间隔（秒）后只调用一次回调。
+
+您可以调用[`cancelTimer`](#canceltimer)来取消挂起的定时器。
 
 ```php
 $loop->addTimer(0.8, function () {
@@ -328,10 +280,9 @@ $loop->addTimer(0.3, function () {
 });
 ```
 
-See also [example #1](examples).
+[示例#1](https://github.com/reactphp/event-loop/blob/v1.1.1/examples).
 
-If you want to access any variables within your callback function, you
-can bind arbitrary data to a callback closure like this:
+如果要在回调函数中访问变量，可以将任意数据变量通过 `use` 绑定到回调闭包中，如下所示：
 
 ```php
 function hello($name, LoopInterface $loop)
@@ -344,45 +295,32 @@ function hello($name, LoopInterface $loop)
 hello('Tester', $loop);
 ```
 
-This interface does not enforce any particular timer resolution, so
-special care may have to be taken if you rely on very high precision with
-millisecond accuracy or below. Event loop implementations SHOULD work on
-a best effort basis and SHOULD provide at least millisecond accuracy
-unless otherwise noted. Many existing event loop implementations are
-known to provide microsecond accuracy, but it's generally not recommended
-to rely on this high precision.
+此接口不强制任意间隔的定时器，因此如果您依赖毫秒或以下的非常高的精度，可能需要特别小心。除非另有说明，否则事件循环实现应尽力提供高精度间隔，并应至少提供毫秒精度。
+已知许多现有的事件循环实现提供微秒精度，但通常不建议依赖这种高精度。
 
-Similarly, the execution order of timers scheduled to execute at the
-same time (within its possible accuracy) is not guaranteed.
+类似地，不能保证在同一时间（在其可能的精度范围内）被调度执行的定时器的执行顺序。
 
-This interface suggests that event loop implementations SHOULD use a
-monotonic time source if available. Given that a monotonic time source is
-only available as of PHP 7.3 by default, event loop implementations MAY
-fall back to using wall-clock time.
-While this does not affect many common use cases, this is an important
-distinction for programs that rely on a high time precision or on systems
-that are subject to discontinuous time adjustments (time jumps).
-This means that if you schedule a timer to trigger in 30s and then adjust
-your system time forward by 20s, the timer SHOULD still trigger in 30s.
-See also [event loop implementations](#loop-implementations) for more details.
+此接口建议事件循环实现应使用单调时间源（如果可用）。假设单调时间源在默认情况下仅在php7.3中可用，那么事件循环实现可能会退回到使用挂钟时间。
+
+虽然这不会影响许多常见的用例，但对于依赖高时间精度或受不连续时间调整（时间跳跃）影响的系统的程序来说，这是很重要的一点。
+
+这意味着如果你安排一个定时器在30秒后触发，然后调整你的系统时间向前20秒，定时器仍应在30秒后触发。
+
+有关详细信息，请参见[事件循环实现](#loop-implementations) 
 
 #### addPeriodicTimer()
 
-The `addPeriodicTimer(float $interval, callable $callback): TimerInterface` method can be used to
-enqueue a callback to be invoked repeatedly after the given interval.
+`addPeriodicTimer(float $interval, callable $callback): TimerInterface` 方法可用于将要在设定间隔（秒）后重复调用的回调。
 
-The timer callback function MUST be able to accept a single parameter,
-the timer instance as also returned by this method or you MAY use a
-function which has no parameters at all.
+定时器回调函数必须能够接受单个参数，定时器实例也是由这个方法返回的，或者您可以使用一个完全没有参数的函数。
 
-The timer callback function MUST NOT throw an `Exception`.
-The return value of the timer callback function will be ignored and has
-no effect, so for performance reasons you're recommended to not return
-any excessive data structures.
+定时器回调函数不能抛出`Exception`。
 
-Unlike [`addTimer()`](#addtimer), this method will ensure the the
-callback will be invoked infinitely after the given interval or until you
-invoke [`cancelTimer`](#canceltimer).
+定时器回调函数的返回值将被忽略，并且没有任何影响，因此出于性能原因，建议您不要返回任何过多的数据结构。
+
+与[`addTimer()`](#addtimer)不同，此方法将确保在设定间隔（秒）后重复调用回调。
+
+您可以调用[`cancelTimer`](#canceltimer)来取消挂起的定时器。
 
 ```php
 $timer = $loop->addPeriodicTimer(0.1, function () {
@@ -395,10 +333,9 @@ $loop->addTimer(1.0, function () use ($loop, $timer) {
 });
 ```
 
-See also [example #2](examples).
+[示例#2](https://github.com/reactphp/event-loop/blob/v1.1.1/examples).
 
-If you want to limit the number of executions, you can bind
-arbitrary data to a callback closure like this:
+如果要限制执行次数，可以将控制变量通过`use`绑定的回调闭包中，如下所示：
 
 ```php
 function hello($name, LoopInterface $loop)
@@ -417,60 +354,40 @@ function hello($name, LoopInterface $loop)
 hello('Tester', $loop);
 ```
 
-This interface does not enforce any particular timer resolution, so
-special care may have to be taken if you rely on very high precision with
-millisecond accuracy or below. Event loop implementations SHOULD work on
-a best effort basis and SHOULD provide at least millisecond accuracy
-unless otherwise noted. Many existing event loop implementations are
-known to provide microsecond accuracy, but it's generally not recommended
-to rely on this high precision.
 
-Similarly, the execution order of timers scheduled to execute at the
-same time (within its possible accuracy) is not guaranteed.
+此接口不强制任意间隔的定时器，因此如果您依赖毫秒或以下的非常高的精度，可能需要特别小心。除非另有说明，否则事件循环实现应尽力提供高精度间隔，并应至少提供毫秒精度。
+已知许多现有的事件循环实现提供微秒精度，但通常不建议依赖这种高精度。
 
-This interface suggests that event loop implementations SHOULD use a
-monotonic time source if available. Given that a monotonic time source is
-only available as of PHP 7.3 by default, event loop implementations MAY
-fall back to using wall-clock time.
-While this does not affect many common use cases, this is an important
-distinction for programs that rely on a high time precision or on systems
-that are subject to discontinuous time adjustments (time jumps).
-This means that if you schedule a timer to trigger in 30s and then adjust
-your system time forward by 20s, the timer SHOULD still trigger in 30s.
-See also [event loop implementations](#loop-implementations) for more details.
+类似地，不能保证在同一时间（在其可能的精度范围内）被调度执行的定时器的执行顺序。
 
-Additionally, periodic timers may be subject to timer drift due to
-re-scheduling after each invocation. As such, it's generally not
-recommended to rely on this for high precision intervals with millisecond
-accuracy or below.
+此接口建议事件循环实现应使用单调时间源（如果可用）。假设单调时间源在默认情况下仅在php7.3中可用，那么事件循环实现可能会退回到使用挂钟时间。
+
+虽然这不会影响许多常见的用例，但对于依赖高时间精度或受不连续时间调整（时间跳跃）影响的系统的程序来说，这是很重要的一点。
+
+这意味着如果你安排一个定时器在30秒后触发，然后调整你的系统时间向前20秒，定时器仍应在30秒后触发。
+
+有关详细信息，请参见[事件循环实现](#loop-implementations) 
+
+此外，由于每次调用后都要进行重新调度，周期性定时器可能会发生定时器漂移。 因此，通常不建议在毫秒级或以下的高精度间隔中使用此方法。
 
 #### cancelTimer()
 
-The `cancelTimer(TimerInterface $timer): void` method can be used to
-cancel a pending timer.
+`cancelTimer(TimerInterface $timer): void` 方法可用于取消待处理的定时器。 
 
-See also [`addPeriodicTimer()`](#addperiodictimer) and [example #2](examples).
+[`addPeriodicTimer()`](#addperiodictimer) [示例#2](https://github.com/reactphp/event-loop/blob/v1.1.1/examples).
 
-Calling this method on a timer instance that has not been added to this
-loop instance or on a timer that has already been cancelled has no effect.
+对没有添加到循环实例的定时器或已取消的定时器调用此方法无效。
 
 #### futureTick()
 
-The `futureTick(callable $listener): void` method can be used to
-schedule a callback to be invoked on a future tick of the event loop.
+`futureTick(callable $listener): void` 方法可用于安排在事件循环的未来时刻调用的回调。
 
-This works very much similar to timers with an interval of zero seconds,
-but does not require the overhead of scheduling a timer queue.
+这与间隔为 `0` 秒的定时器非常相似，但是它不会被插入定时器队列中，进而减少队列开销。 
 
-The tick callback function MUST be able to accept zero parameters.
+tick回调函数必须能够接受零参数。tick回调函数不抛出`Exception`。
+tick回调函数的返回值将被忽略并且不起作用，因此出于性能原因，建议您不要返回任何过多的数据结构。
 
-The tick callback function MUST NOT throw an `Exception`.
-The return value of the tick callback function will be ignored and has
-no effect, so for performance reasons you're recommended to not return
-any excessive data structures.
-
-If you want to access any variables within your callback function, you
-can bind arbitrary data to a callback closure like this:
+如果要在回调函数中访问变量，可以将任意数据变量通过 `use` 绑定到回调闭包中，如下所示：
 
 ```php
 function hello($name, LoopInterface $loop)
@@ -482,13 +399,9 @@ function hello($name, LoopInterface $loop)
 
 hello('Tester', $loop);
 ```
+与定时器不同，tick回调保证按其入队的顺序执行。同样，一旦将回调放入队列，就无法取消此操作。
 
-Unlike timers, tick callbacks are guaranteed to be executed in the order
-they are enqueued.
-Also, once a callback is enqueued, there's no way to cancel this operation.
-
-This is often used to break down bigger tasks into smaller steps (a form
-of cooperative multitasking).
+这通常用于将较大的任务分解为较小的步骤（一种协作式多任务处理形式）。
 
 ```php
 $loop->futureTick(function () {
@@ -500,24 +413,19 @@ $loop->futureTick(function () {
 echo 'a';
 ```
 
-See also [example #3](examples).
+[示例#3](https://github.com/reactphp/event-loop/blob/v1.1.1/examples).
 
 #### addSignal()
 
-The `addSignal(int $signal, callable $listener): void` method can be used to
-register a listener to be notified when a signal has been caught by this process.
+`addSignal(int $signal, callable $listener): void` 方法可用于注册一个侦听器，以便在此过程捕获到信号时得到通知。
 
-This is useful to catch user interrupt signals or shutdown signals from
-tools like `supervisor` or `systemd`.
+这对于从`supervisor` 或 `systemd`之类的工具捕获用户中断信号或关闭信号很有用。
 
-The listener callback function MUST be able to accept a single parameter,
-the signal added by this method or you MAY use a function which
-has no parameters at all.
+通过此方法添加的信号，侦听器回调函数必须能够接受单个参数或者您可以使用完全不带参数的函数。
 
-The listener callback function MUST NOT throw an `Exception`.
-The return value of the listener callback function will be ignored and has
-no effect, so for performance reasons you're recommended to not return
-any excessive data structures.
+侦听器回调函数不得抛出 `Exception`
+
+监听器回调函数的返回值将被忽略并且不起作用，因此出于性能原因，建议您不要返回任何过多的数据结构。
 
 ```php
 $loop->addSignal(SIGINT, function (int $signal) {
@@ -525,57 +433,42 @@ $loop->addSignal(SIGINT, function (int $signal) {
 });
 ```
 
-See also [example #4](examples).
+[示例#4](https://github.com/reactphp/event-loop/blob/v1.1.1/examples).
 
-Signaling is only available on Unix-like platform, Windows isn't
-supported due to operating system limitations.
-This method may throw a `BadMethodCallException` if signals aren't
-supported on this platform, for example when required extensions are
-missing.
+信号仅在类似Unix的平台上可用，由于操作系统限制，不支持Windows。
+如果此平台不支持信号，例如缺少所需的扩展名，则此方法可能抛出`BadMethodCallException`。
 
-**Note: A listener can only be added once to the same signal, any
-attempts to add it more then once will be ignored.**
+**注意 ：一个监听器只能添加到同一信号一次，多次添加将被忽略。**
 
 #### removeSignal()
 
-The `removeSignal(int $signal, callable $listener): void` method can be used to
-remove a previously added signal listener.
+`removeSignal(int $signal, callable $listener): void` 方法可用于删除先前添加的信号监听器。 
 
 ```php
 $loop->removeSignal(SIGINT, $listener);
 ```
 
-Any attempts to remove listeners that aren't registered will be ignored.
+删除未注册的监听器将被忽略。
 
 #### addReadStream()
 
-> Advanced! Note that this low-level API is considered advanced usage.
-  Most use cases should probably use the higher-level
-  [readable Stream API](https://github.com/reactphp/stream#readablestreaminterface)
-  instead.
+> 高级！ 请注意，此底层API被视为高级用法。 大多数用例可能应该使用更高级别的API来替代 [可读流API](https://github.com/reactphp/stream#readablestreaminterface) 
 
-The `addReadStream(resource $stream, callable $callback): void` method can be used to
-register a listener to be notified when a stream is ready to read.
+`addReadStream(resource $stream, callable $callback): void` 方法可用于注册侦听器，以便在流准备好读取时收到通知。
 
-The first parameter MUST be a valid stream resource that supports
-checking whether it is ready to read by this loop implementation.
-A single stream resource MUST NOT be added more than once.
-Instead, either call [`removeReadStream()`](#removereadstream) first or
-react to this event with a single listener and then dispatch from this
-listener. This method MAY throw an `Exception` if the given resource type
-is not supported by this loop implementation.
+第一个参数必须是一个有效的流资源，它支持检查循环实现是否可以读取它。
 
-The listener callback function MUST be able to accept a single parameter,
-the stream resource added by this method or you MAY use a function which
-has no parameters at all.
+单个流资源不能添加多次。
 
-The listener callback function MUST NOT throw an `Exception`.
-The return value of the listener callback function will be ignored and has
-no effect, so for performance reasons you're recommended to not return
-any excessive data structures.
+但可以先调用[`removeReadStream()`](#removereadstream)，或者使用单个侦听器对此事件做出反应，然后从此侦听器中进行调度。如果循环实现不支持给定的资源类型，则此方法可能引发`Exception`
 
-If you want to access any variables within your callback function, you
-can bind arbitrary data to a callback closure like this:
+添加的流资源侦听器回调函数必须能够接受单个参数或者您可以使用完全没有参数的函数。
+
+侦听器回调函数不能抛出`Exception`
+
+侦听器回调函数的返回值将被忽略，并且没有任何影响，因此出于性能原因，建议您不要返回任何过多的数据结构。
+
+如果要在回调函数中访问变量，可以将任意数据变量通过 `use` 绑定到回调闭包中，如下所示：
 
 ```php
 $loop->addReadStream($stream, function ($stream) use ($name) {
@@ -583,51 +476,36 @@ $loop->addReadStream($stream, function ($stream) use ($name) {
 });
 ```
 
-See also [example #11](examples).
+[示例#11](https://github.com/reactphp/event-loop/blob/v1.1.1/examples).
 
-You can invoke [`removeReadStream()`](#removereadstream) to remove the
-read event listener for this stream.
+您可以调用 [`removeReadStream()`](#removereadstream) 删除此流的读取事件侦听器。
 
-The execution order of listeners when multiple streams become ready at
-the same time is not guaranteed.
+无法保证多个流同时准备就绪时侦听器的执行顺序。
 
-Some event loop implementations are known to only trigger the listener if
-the stream *becomes* readable (edge-triggered) and may not trigger if the
-stream has already been readable from the beginning.
-This also implies that a stream may not be recognized as readable when data
-is still left in PHP's internal stream buffers.
-As such, it's recommended to use `stream_set_read_buffer($stream, 0);`
-to disable PHP's internal read buffer in this case.
+某些事件循环实现仅在流*变得*可读（边缘触发）时才触发侦听器，并且如果从一开始就已经可读该流，则可能不会触发。
+
+这也意味着，当数据仍留在PHP的内部流缓冲区中时，该流可能不被视为可读。
+
+在这种情况下，建议使用`stream_set_read_buffer($stream, 0);`禁用PHP的内部读取缓冲区。
 
 #### addWriteStream()
+> 高级！ 请注意，此底层API被视为高级用法。大多数用例可能应该使用更高级别的API替代[可写流API](https://github.com/reactphp/stream#writablestreaminterface)
 
-> Advanced! Note that this low-level API is considered advanced usage.
-  Most use cases should probably use the higher-level
-  [writable Stream API](https://github.com/reactphp/stream#writablestreaminterface)
-  instead.
+`addWriteStream(resource $stream, callable $callback): void` 方法可用于注册一个侦听器，以便在流准备好写入时得到通知。
 
-The `addWriteStream(resource $stream, callable $callback): void` method can be used to
-register a listener to be notified when a stream is ready to write.
+第一个参数务必是有效的流资源，它支持检查是否已准备好通过此循环实现进行写入。
 
-The first parameter MUST be a valid stream resource that supports
-checking whether it is ready to write by this loop implementation.
-A single stream resource MUST NOT be added more than once.
-Instead, either call [`removeWriteStream()`](#removewritestream) first or
-react to this event with a single listener and then dispatch from this
-listener. This method MAY throw an `Exception` if the given resource type
-is not supported by this loop implementation.
+单个流资源不得多次添加。
+相反，请先调用[`removeWriteStream()`](#removewritestream)或使用单个侦听器对此事件做出反应，然后从该事件进行分派监听。
+如果此循环实现不支持给定的资源类型，则此方法可以抛出 `Exception`
 
-The listener callback function MUST be able to accept a single parameter,
-the stream resource added by this method or you MAY use a function which
-has no parameters at all.
+添加的流资源侦听器回调函数必须能够接受单个参数或者您可以使用完全没有参数的函数。
 
-The listener callback function MUST NOT throw an `Exception`.
-The return value of the listener callback function will be ignored and has
-no effect, so for performance reasons you're recommended to not return
-any excessive data structures.
+侦听器回调函数不得抛出`Exception`
 
-If you want to access any variables within your callback function, you
-can bind arbitrary data to a callback closure like this:
+监听器回调函数的返回值将被忽略并且不起作用，因此出于性能原因，建议您不要返回任何过多的数据结构。
+
+如果要在回调函数中访问变量，可以将任意数据变量通过 `use` 绑定到回调闭包中，如下所示：
 
 ```php
 $loop->addWriteStream($stream, function ($stream) use ($name) {
@@ -635,62 +513,54 @@ $loop->addWriteStream($stream, function ($stream) use ($name) {
 });
 ```
 
-See also [example #12](examples).
+[示例#12](https://github.com/reactphp/event-loop/blob/v1.1.1/examples).
 
-You can invoke [`removeWriteStream()`](#removewritestream) to remove the
-write event listener for this stream.
+您可以调用 [`removeWriteStream()`](#removewritestream) 删除此流的写入事件侦听器。
 
-The execution order of listeners when multiple streams become ready at
-the same time is not guaranteed.
+无法保证多个流同时准备就绪时侦听器的执行顺序。
 
 #### removeReadStream()
 
-The `removeReadStream(resource $stream): void` method can be used to
-remove the read event listener for the given stream.
+`removeReadStream(resource $stream): void` 方法可用于删除给定流的可读事件监听器。 
 
-Removing a stream from the loop that has already been removed or trying
-to remove a stream that was never added or is invalid has no effect.
+从循环中删除已删除的流，或尝试删除从未添加过或无效的流时此方法无效。
 
 #### removeWriteStream()
 
-The `removeWriteStream(resource $stream): void` method can be used to
-remove the write event listener for the given stream.
+`removeWriteStream(resource $stream): void` 方法可用于删除给定流的可写事件监听器。 
 
-Removing a stream from the loop that has already been removed or trying
-to remove a stream that was never added or is invalid has no effect.
+从循环中删除已删除的流，或尝试删除从未添加过或无效的流时此方法无效。
 
-## Install
+## 安装
 
-The recommended way to install this library is [through Composer](https://getcomposer.org).
-[New to Composer?](https://getcomposer.org/doc/00-intro.md)
+推荐安装 [通过Composer](https://getcomposer.org).
+[Composer新手?](https://getcomposer.org/doc/00-intro.md)
 
-This project follows [SemVer](https://semver.org/).
-This will install the latest supported version:
+该项目遵循 [SemVer](https://semver.org/).
+这将安装最新的受支持版本：
 
 ```bash
 $ composer require react/event-loop:^1.1.1
 ```
 
-See also the [CHANGELOG](CHANGELOG.md) for details about version upgrades.
+另请参见 [CHANGELOG](https://reactphp.org/event-loop/changelog.html) ，以获取有关版本升级的详细信息。
 
-This project aims to run on any platform and thus does not require any PHP
-extensions and supports running on legacy PHP 5.3 through current PHP 7+ and
-HHVM.
-It's *highly recommended to use PHP 7+* for this project.
+该项目旨在在任何平台上运行，因此不需要任何PHP扩展，并支持通过 `PHP 7+`和`HHVM在旧版PHP 5.3`上运行。
 
-Installing any of the event loop extensions is suggested, but entirely optional.
-See also [event loop implementations](#loop-implementations) for more details.
+强烈建议在这个项目中使用PHP7+。
 
-## Tests
+建议安装任何一个事件循环扩展，但完全是可选的。
+有关详细信息，请参见[事件循环实现](#loop-implementations)
 
-To run the test suite, you first need to clone this repo and then install all
-dependencies [through Composer](https://getcomposer.org):
+## 测试
+
+要运行测试套件，首先需要克隆此存储库，然后安装所有依赖项 [通过Composer](https://getcomposer.org):
 
 ```bash
 $ composer install
 ```
 
-To run the test suite, go to the project root and run:
+要运行测试套件，请转到项目根目录并运行：
 
 ```bash
 $ php vendor/bin/phpunit
@@ -699,11 +569,3 @@ $ php vendor/bin/phpunit
 ## License
 
 MIT, see [LICENSE file](LICENSE).
-
-## More
-
-* See our [Stream component](https://github.com/reactphp/stream) for more
-  information on how streams are used in real-world applications.
-* See our [users wiki](https://github.com/reactphp/react/wiki/Users) and the
-  [dependents on Packagist](https://packagist.org/packages/react/event-loop/dependents)
-  for a list of packages that use the EventLoop in real-world applications.
