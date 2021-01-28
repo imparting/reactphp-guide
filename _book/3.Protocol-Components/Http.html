@@ -1,0 +1,2749 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Http · ReactPHP 中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Imparting">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="HttpClient.html" />
+    
+    
+    <link rel="prev" href="Dns.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">1.核心组件</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../1.Core-Components/EventLoop.html">
+            
+                <a href="../1.Core-Components/EventLoop.html">
+            
+                    
+                    EventLoop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../1.Core-Components/Promise.html">
+            
+                <a href="../1.Core-Components/Promise.html">
+            
+                    
+                    Promise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../1.Core-Components/Stream.html">
+            
+                <a href="../1.Core-Components/Stream.html">
+            
+                    
+                    Stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2.网络组件</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../2.Network-Components/Datagram.html">
+            
+                <a href="../2.Network-Components/Datagram.html">
+            
+                    
+                    Datagram
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../2.Network-Components/Socket.html">
+            
+                <a href="../2.Network-Components/Socket.html">
+            
+                    
+                    Socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.协议组件</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="Dns.html">
+            
+                <a href="Dns.html">
+            
+                    
+                    Dns
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.2" data-path="Http.html">
+            
+                <a href="Http.html">
+            
+                    
+                    Http
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="HttpClient.html">
+            
+                <a href="HttpClient.html">
+            
+                    
+                    HttpClient
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">4.实用组件</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../4.Utility-Components/Cache.html">
+            
+                <a href="../4.Utility-Components/Cache.html">
+            
+                    
+                    Cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../4.Utility-Components/ChildProcess.html">
+            
+                <a href="../4.Utility-Components/ChildProcess.html">
+            
+                    
+                    ChildProcess
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../4.Utility-Components/PromiseStream.html">
+            
+                <a href="../4.Utility-Components/PromiseStream.html">
+            
+                    
+                    PromiseStream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../4.Utility-Components/PromiseTimer.html">
+            
+                <a href="../4.Utility-Components/PromiseTimer.html">
+            
+                    
+                    PromiseTimer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Http</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="http">HTTP</h1>
+<p><a href="https://travis-ci.org/reactphp/http" target="_blank"><img src="https://travis-ci.org/reactphp/http.svg?branch=master" alt="Build Status"></a></p>
+<p>Event-driven, streaming HTTP client and server implementation for <a href="https://reactphp.org/" target="_blank">ReactPHP</a>.</p>
+<p>This HTTP library provides re-usable implementations for an HTTP client and
+server based on ReactPHP&apos;s <a href="https://github.com/reactphp/socket" target="_blank"><code>Socket</code></a> and
+<a href="https://github.com/reactphp/event-loop" target="_blank"><code>EventLoop</code></a> components.
+Its client component allows you to send any number of async HTTP/HTTPS requests
+concurrently.
+Its server component allows you to build plaintext HTTP and secure HTTPS servers
+that accept incoming HTTP requests from HTTP clients (such as web browsers).
+This library provides async, streaming means for all of this, so you can handle
+multiple concurrent HTTP requests without blocking.</p>
+<p><strong>Table of contents</strong></p>
+<ul>
+<li><a href="#quickstart-example">Quickstart example</a></li>
+<li><a href="#client-usage">Client Usage</a><ul>
+<li><a href="#request-methods">Request methods</a></li>
+<li><a href="#promises">Promises</a></li>
+<li><a href="#cancellation">Cancellation</a></li>
+<li><a href="#timeouts">Timeouts</a></li>
+<li><a href="#authentication">Authentication</a></li>
+<li><a href="#redirects">Redirects</a></li>
+<li><a href="#blocking">Blocking</a></li>
+<li><a href="#concurrency">Concurrency</a></li>
+<li><a href="#streaming-response">Streaming response</a></li>
+<li><a href="#streaming-request">Streaming request</a></li>
+<li><a href="#http-proxy">HTTP proxy</a></li>
+<li><a href="#socks-proxy">SOCKS proxy</a></li>
+<li><a href="#ssh-proxy">SSH proxy</a></li>
+<li><a href="#unix-domain-sockets">Unix domain sockets</a></li>
+</ul>
+</li>
+<li><a href="#server-usage">Server Usage</a><ul>
+<li><a href="#server">Server</a></li>
+<li><a href="#listen">listen()</a></li>
+<li><a href="#server-request">Server Request</a><ul>
+<li><a href="#request-parameters">Request parameters</a></li>
+<li><a href="#query-parameters">Query parameters</a></li>
+<li><a href="#request-body">Request body</a></li>
+<li><a href="#streaming-incoming-request">Streaming incoming request</a></li>
+<li><a href="#request-method">Request method</a></li>
+<li><a href="#cookie-parameters">Cookie parameters</a></li>
+<li><a href="#invalid-request">Invalid request</a></li>
+</ul>
+</li>
+<li><a href="#server-response">Server Response</a><ul>
+<li><a href="#deferred-response">Deferred response</a></li>
+<li><a href="#streaming-outgoing-response">Streaming outgoing response</a></li>
+<li><a href="#response-length">Response length</a></li>
+<li><a href="#invalid-response">Invalid response</a></li>
+<li><a href="#default-response-headers">Default response headers</a></li>
+</ul>
+</li>
+<li><a href="#middleware">Middleware</a><ul>
+<li><a href="#custom-middleware">Custom middleware</a></li>
+<li><a href="#third-party-middleware">Third-Party Middleware</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#api">API</a><ul>
+<li><a href="#browser">Browser</a><ul>
+<li><a href="#get">get()</a></li>
+<li><a href="#post">post()</a></li>
+<li><a href="#head">head()</a></li>
+<li><a href="#patch">patch()</a></li>
+<li><a href="#put">put()</a></li>
+<li><a href="#delete">delete()</a></li>
+<li><a href="#request">request()</a></li>
+<li><a href="#requeststreaming">requestStreaming()</a></li>
+<li><a href="#withtimeout">withTimeout()</a></li>
+<li><a href="#withfollowredirects">withFollowRedirects()</a></li>
+<li><a href="#withrejecterrorresponse">withRejectErrorResponse()</a></li>
+<li><a href="#withbase">withBase()</a></li>
+<li><a href="#withprotocolversion">withProtocolVersion()</a></li>
+<li><a href="#withresponsebuffer">withResponseBuffer()</a></li>
+</ul>
+</li>
+<li><a href="#reacthttpmessage">React\Http\Message</a><ul>
+<li><a href="#response">Response</a></li>
+<li><a href="#serverrequest">ServerRequest</a></li>
+<li><a href="#responseexception">ResponseException</a></li>
+</ul>
+</li>
+<li><a href="#reacthttpmiddleware">React\Http\Middleware</a><ul>
+<li><a href="#streamingrequestmiddleware">StreamingRequestMiddleware</a></li>
+<li><a href="#limitconcurrentrequestsmiddleware">LimitConcurrentRequestsMiddleware</a></li>
+<li><a href="#requestbodybuffermiddleware">RequestBodyBufferMiddleware</a></li>
+<li><a href="#requestbodyparsermiddleware">RequestBodyParserMiddleware</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#install">Install</a></li>
+<li><a href="#tests">Tests</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<h2 id="quickstart-example">Quickstart example</h2>
+<p>Once <a href="#install">installed</a>, you can use the following code to access a
+HTTP webserver and send some simple HTTP GET requests:</p>
+<pre><code class="lang-php">$loop = React\EventLoop\Factory::create();
+$client = <span class="hljs-keyword">new</span> React\Http\Browser($loop);
+
+$client-&gt;get(<span class="hljs-string">&apos;http://www.google.com/&apos;</span>)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+    var_dump($response-&gt;getHeaders(), (string)$response-&gt;getBody());
+});
+
+$loop-&gt;run();
+</code></pre>
+<p>This is an HTTP server which responds with <code>Hello World!</code> to every request.</p>
+<pre><code class="lang-php">$loop = React\EventLoop\Factory::create();
+
+$server = <span class="hljs-keyword">new</span> React\Http\Server($loop, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+        <span class="hljs-number">200</span>,
+        <span class="hljs-keyword">array</span>(
+            <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;text/plain&apos;</span>
+        ),
+        <span class="hljs-string">&quot;Hello World!\n&quot;</span>
+    );
+});
+
+$socket = <span class="hljs-keyword">new</span> React\Socket\Server(<span class="hljs-number">8080</span>, $loop);
+$server-&gt;listen($socket);
+
+$loop-&gt;run();
+</code></pre>
+<p>See also the <a href="examples">examples</a>.</p>
+<h2 id="client-usage">Client Usage</h2>
+<h3 id="request-methods">Request methods</h3>
+<p>Most importantly, this project provides a <a href="#browser"><code>Browser</code></a> object that
+offers several methods that resemble the HTTP protocol methods:</p>
+<pre><code class="lang-php">$browser-&gt;get($url, <span class="hljs-keyword">array</span> $headers = <span class="hljs-keyword">array</span>());
+$browser-&gt;head($url, <span class="hljs-keyword">array</span> $headers = <span class="hljs-keyword">array</span>());
+$browser-&gt;post($url, <span class="hljs-keyword">array</span> $headers = <span class="hljs-keyword">array</span>(), string|ReadableStreamInterface $contents = <span class="hljs-string">&apos;&apos;</span>);
+$browser-&gt;delete($url, <span class="hljs-keyword">array</span> $headers = <span class="hljs-keyword">array</span>(), string|ReadableStreamInterface $contents = <span class="hljs-string">&apos;&apos;</span>);
+$browser-&gt;put($url, <span class="hljs-keyword">array</span> $headers = <span class="hljs-keyword">array</span>(), string|ReadableStreamInterface $contents = <span class="hljs-string">&apos;&apos;</span>);
+$browser-&gt;patch($url, <span class="hljs-keyword">array</span> $headers = <span class="hljs-keyword">array</span>(), string|ReadableStreamInterface $contents = <span class="hljs-string">&apos;&apos;</span>);
+</code></pre>
+<p>Each of these methods requires a <code>$url</code> and some optional parameters to send an
+HTTP request. Each of these method names matches the respective HTTP request
+method, for example the <a href="#get"><code>get()</code></a> method sends an HTTP <code>GET</code> request.</p>
+<p>You can optionally pass an associative array of additional <code>$headers</code> that will be
+sent with this HTTP request. Additionally, each method will automatically add a
+matching <code>Content-Length</code> request header if an outgoing request body is given and its
+size is known and non-empty. For an empty request body, if will only include a
+<code>Content-Length: 0</code> request header if the request method usually expects a request
+body (only applies to <code>POST</code>, <code>PUT</code> and <code>PATCH</code> HTTP request methods).</p>
+<p>If you&apos;re using a <a href="#streaming-request">streaming request body</a>, it will default
+to using <code>Transfer-Encoding: chunked</code> unless you explicitly pass in a matching <code>Content-Length</code>
+request header. See also <a href="#streaming-request">streaming request</a> for more details.</p>
+<p>By default, all of the above methods default to sending requests using the
+HTTP/1.1 protocol version. If you want to explicitly use the legacy HTTP/1.0
+protocol version, you can use the <a href="#withprotocolversion"><code>withProtocolVersion()</code></a>
+method. If you want to use any other or even custom HTTP request method, you can
+use the <a href="#request"><code>request()</code></a> method.</p>
+<p>Each of the above methods supports async operation and either <em>fulfills</em> with a
+<a href="https://www.php-fig.org/psr/psr-7/#33-psrhttpmessageresponseinterface" target="_blank">PSR-7 <code>ResponseInterface</code></a>
+or <em>rejects</em> with an <code>Exception</code>.
+Please see the following chapter about <a href="#promises">promises</a> for more details.</p>
+<h3 id="promises">Promises</h3>
+<p>Sending requests is async (non-blocking), so you can actually send multiple
+requests in parallel.
+The <code>Browser</code> will respond to each request with a
+<a href="https://www.php-fig.org/psr/psr-7/#33-psrhttpmessageresponseinterface" target="_blank">PSR-7 <code>ResponseInterface</code></a>
+message, the order is not guaranteed.
+Sending requests uses a <a href="https://github.com/reactphp/promise" target="_blank">Promise</a>-based
+interface that makes it easy to react to when an HTTP request is completed
+(i.e. either successfully fulfilled or rejected with an error):</p>
+<pre><code class="lang-php">$browser-&gt;get($url)-&gt;then(
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+        var_dump(<span class="hljs-string">&apos;Response received&apos;</span>, $response);
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Exception $error)</span> </span>{
+        var_dump(<span class="hljs-string">&apos;There was an error&apos;</span>, $error-&gt;getMessage());
+    }
+);
+</code></pre>
+<p>If this looks strange to you, you can also use the more traditional <a href="#blocking">blocking API</a>.</p>
+<p>Keep in mind that resolving the Promise with the full response message means the
+whole response body has to be kept in memory.
+This is easy to get started and works reasonably well for smaller responses
+(such as common HTML pages or RESTful or JSON API requests).</p>
+<p>You may also want to look into the <a href="#streaming-response">streaming API</a>:</p>
+<ul>
+<li>If you&apos;re dealing with lots of concurrent requests (100+) or</li>
+<li>If you want to process individual data chunks as they happen (without having to wait for the full response body) or</li>
+<li>If you&apos;re expecting a big response body size (1 MiB or more, for example when downloading binary files) or</li>
+<li>If you&apos;re unsure about the response body size (better be safe than sorry when accessing arbitrary remote HTTP endpoints and the response body size is unknown in advance).</li>
+</ul>
+<h3 id="cancellation">Cancellation</h3>
+<p>The returned Promise is implemented in such a way that it can be cancelled
+when it is still pending.
+Cancelling a pending promise will reject its value with an Exception and
+clean up any underlying resources.</p>
+<pre><code class="lang-php">$promise = $browser-&gt;get($url);
+
+$loop-&gt;addTimer(<span class="hljs-number">2.0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($promise)</span> </span>{
+    $promise-&gt;cancel();
+});
+</code></pre>
+<h3 id="timeouts">Timeouts</h3>
+<p>This library uses a very efficient HTTP implementation, so most HTTP requests
+should usually be completed in mere milliseconds. However, when sending HTTP
+requests over an unreliable network (the internet), there are a number of things
+that can go wrong and may cause the request to fail after a time. As such, this
+library respects PHP&apos;s <code>default_socket_timeout</code> setting (default 60s) as a timeout
+for sending the outgoing HTTP request and waiting for a successful response and
+will otherwise cancel the pending request and reject its value with an Exception.</p>
+<p>Note that this timeout value covers creating the underlying transport connection,
+sending the HTTP request, receiving the HTTP response headers and its full
+response body and following any eventual <a href="#redirects">redirects</a>. See also
+<a href="#redirects">redirects</a> below to configure the number of redirects to follow (or
+disable following redirects altogether) and also <a href="#streaming-response">streaming</a>
+below to not take receiving large response bodies into account for this timeout.</p>
+<p>You can use the <a href="#withtimeout"><code>withTimeout()</code> method</a> to pass a custom timeout
+value in seconds like this:</p>
+<pre><code class="lang-php">$browser = $browser-&gt;withTimeout(<span class="hljs-number">10.0</span>);
+
+$browser-&gt;get($url)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+    <span class="hljs-comment">// response received within 10 seconds maximum</span>
+    var_dump($response-&gt;getHeaders());
+});
+</code></pre>
+<p>Similarly, you can use a bool <code>false</code> to not apply a timeout at all
+or use a bool <code>true</code> value to restore the default handling.
+See <a href="#withtimeout"><code>withTimeout()</code></a> for more details.</p>
+<p>If you&apos;re using a <a href="#streaming-response">streaming response body</a>, the time it
+takes to receive the response body stream will not be included in the timeout.
+This allows you to keep this incoming stream open for a longer time, such as
+when downloading a very large stream or when streaming data over a long-lived
+connection.</p>
+<p>If you&apos;re using a <a href="#streaming-request">streaming request body</a>, the time it
+takes to send the request body stream will not be included in the timeout. This
+allows you to keep this outgoing stream open for a longer time, such as when
+uploading a very large stream.</p>
+<p>Note that this timeout handling applies to the higher-level HTTP layer. Lower
+layers such as socket and DNS may also apply (different) timeout values. In
+particular, the underlying socket connection uses the same <code>default_socket_timeout</code>
+setting to establish the underlying transport connection. To control this
+connection timeout behavior, you can <a href="#browser">inject a custom <code>Connector</code></a>
+like this:</p>
+<pre><code class="lang-php">$browser = <span class="hljs-keyword">new</span> React\Http\Browser(
+    $loop,
+    <span class="hljs-keyword">new</span> React\Socket\Connector(
+        $loop,
+        <span class="hljs-keyword">array</span>(
+            <span class="hljs-string">&apos;timeout&apos;</span> =&gt; <span class="hljs-number">5</span>
+        )
+    )
+);
+</code></pre>
+<h3 id="authentication">Authentication</h3>
+<p>This library supports <a href="https://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">HTTP Basic Authentication</a>
+using the <code>Authorization: Basic &#x2026;</code> request header or allows you to set an explicit
+<code>Authorization</code> request header.</p>
+<p>By default, this library does not include an outgoing <code>Authorization</code> request
+header. If the server requires authentication, if may return a <code>401</code> (Unauthorized)
+status code which will reject the request by default (see also the
+<a href="#withrejecterrorresponse"><code>withRejectErrorResponse()</code> method</a> below).</p>
+<p>In order to pass authentication details, you can simply pass the username and
+password as part of the request URL like this:</p>
+<pre><code class="lang-php">$promise = $browser-&gt;get(<span class="hljs-string">&apos;https://user:pass@example.com/api&apos;</span>);
+</code></pre>
+<p>Note that special characters in the authentication details have to be
+percent-encoded, see also <a href="https://www.php.net/manual/en/function.rawurlencode.php" target="_blank"><code>rawurlencode()</code></a>.
+This example will automatically pass the base64-encoded authentication details
+using the outgoing <code>Authorization: Basic &#x2026;</code> request header. If the HTTP endpoint
+you&apos;re talking to requires any other authentication scheme, you can also pass
+this header explicitly. This is common when using (RESTful) HTTP APIs that use
+OAuth access tokens or JSON Web Tokens (JWT):</p>
+<pre><code class="lang-php">$token = <span class="hljs-string">&apos;abc123&apos;</span>;
+
+$promise = $browser-&gt;get(
+    <span class="hljs-string">&apos;https://example.com/api&apos;</span>,
+    <span class="hljs-keyword">array</span>(
+        <span class="hljs-string">&apos;Authorization&apos;</span> =&gt; <span class="hljs-string">&apos;Bearer &apos;</span> . $token
+    )
+);
+</code></pre>
+<p>When following redirects, the <code>Authorization</code> request header will never be sent
+to any remote hosts by default. When following a redirect where the <code>Location</code>
+response header contains authentication details, these details will be sent for
+following requests. See also <a href="#redirects">redirects</a> below.</p>
+<h3 id="redirects">Redirects</h3>
+<p>By default, this library follows any redirects and obeys <code>3xx</code> (Redirection)
+status codes using the <code>Location</code> response header from the remote server.
+The promise will be fulfilled with the last response from the chain of redirects.</p>
+<pre><code class="lang-php">$browser-&gt;get($url, $headers)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+    <span class="hljs-comment">// the final response will end up here</span>
+    var_dump($response-&gt;getHeaders());
+});
+</code></pre>
+<p>Any redirected requests will follow the semantics of the original request and
+will include the same request headers as the original request except for those
+listed below.
+If the original request contained a request body, this request body will never
+be passed to the redirected request. Accordingly, each redirected request will
+remove any <code>Content-Length</code> and <code>Content-Type</code> request headers.</p>
+<p>If the original request used HTTP authentication with an <code>Authorization</code> request
+header, this request header will only be passed as part of the redirected
+request if the redirected URL is using the same host. In other words, the
+<code>Authorizaton</code> request header will not be forwarded to other foreign hosts due to
+possible privacy/security concerns. When following a redirect where the <code>Location</code>
+response header contains authentication details, these details will be sent for
+following requests.</p>
+<p>You can use the <a href="#withfollowredirects"><code>withFollowRedirects()</code></a> method to
+control the maximum number of redirects to follow or to return any redirect
+responses as-is and apply custom redirection logic like this:</p>
+<pre><code class="lang-php">$browser = $browser-&gt;withFollowRedirects(<span class="hljs-keyword">false</span>);
+
+$browser-&gt;get($url)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+    <span class="hljs-comment">// any redirects will now end up here</span>
+    var_dump($response-&gt;getHeaders());
+});
+</code></pre>
+<p>See also <a href="#withfollowredirects"><code>withFollowRedirects()</code></a> for more details.</p>
+<h3 id="blocking">Blocking</h3>
+<p>As stated above, this library provides you a powerful, async API by default.</p>
+<p>If, however, you want to integrate this into your traditional, blocking environment,
+you should look into also using <a href="https://github.com/clue/reactphp-block" target="_blank">clue/reactphp-block</a>.</p>
+<p>The resulting blocking code could look something like this:</p>
+<pre><code class="lang-php"><span class="hljs-keyword">use</span> <span class="hljs-title">Clue</span>\<span class="hljs-title">React</span>\<span class="hljs-title">Block</span>;
+
+$loop = React\EventLoop\Factory::create();
+$browser = <span class="hljs-keyword">new</span> React\Http\Browser($loop);
+
+$promise = $browser-&gt;get(<span class="hljs-string">&apos;http://example.com/&apos;</span>);
+
+<span class="hljs-keyword">try</span> {
+    $response = Block\await($promise, $loop);
+    <span class="hljs-comment">// response successfully received</span>
+} <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">Exception</span> $e) {
+    <span class="hljs-comment">// an error occured while performing the request</span>
+}
+</code></pre>
+<p>Similarly, you can also process multiple requests concurrently and await an array of <code>Response</code> objects:</p>
+<pre><code class="lang-php">$promises = <span class="hljs-keyword">array</span>(
+    $browser-&gt;get(<span class="hljs-string">&apos;http://example.com/&apos;</span>),
+    $browser-&gt;get(<span class="hljs-string">&apos;http://www.example.org/&apos;</span>),
+);
+
+$responses = Block\awaitAll($promises, $loop);
+</code></pre>
+<p>Please refer to <a href="https://github.com/clue/reactphp-block#readme" target="_blank">clue/reactphp-block</a> for more details.</p>
+<p>Keep in mind the above remark about buffering the whole response message in memory.
+As an alternative, you may also see one of the following chapters for the
+<a href="#streaming-response">streaming API</a>.</p>
+<h3 id="concurrency">Concurrency</h3>
+<p>As stated above, this library provides you a powerful, async API. Being able to
+send a large number of requests at once is one of the core features of this
+project. For instance, you can easily send 100 requests concurrently while
+processing SQL queries at the same time.</p>
+<p>Remember, with great power comes great responsibility. Sending an excessive
+number of requests may either take up all resources on your side or it may even
+get you banned by the remote side if it sees an unreasonable number of requests
+from your side.</p>
+<pre><code class="lang-php"><span class="hljs-comment">// watch out if array contains many elements</span>
+<span class="hljs-keyword">foreach</span> ($urls <span class="hljs-keyword">as</span> $url) {
+    $browser-&gt;get($url)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+        var_dump($response-&gt;getHeaders());
+    });
+}
+</code></pre>
+<p>As a consequence, it&apos;s usually recommended to limit concurrency on the sending
+side to a reasonable value. It&apos;s common to use a rather small limit, as doing
+more than a dozen of things at once may easily overwhelm the receiving side. You
+can use <a href="https://github.com/clue/reactphp-mq" target="_blank">clue/reactphp-mq</a> as a lightweight
+in-memory queue to concurrently do many (but not too many) things at once:</p>
+<pre><code class="lang-php"><span class="hljs-comment">// wraps Browser in a Queue object that executes no more than 10 operations at once</span>
+$q = <span class="hljs-keyword">new</span> Clue\React\Mq\Queue(<span class="hljs-number">10</span>, <span class="hljs-keyword">null</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($url)</span> <span class="hljs-title">use</span> <span class="hljs-params">($browser)</span> </span>{
+    <span class="hljs-keyword">return</span> $browser-&gt;get($url);
+});
+
+<span class="hljs-keyword">foreach</span> ($urls <span class="hljs-keyword">as</span> $url) {
+    $q($url)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+        var_dump($response-&gt;getHeaders());
+    });
+}
+</code></pre>
+<p>Additional requests that exceed the concurrency limit will automatically be
+enqueued until one of the pending requests completes. This integrates nicely
+with the existing <a href="#promises">Promise-based API</a>. Please refer to
+<a href="https://github.com/clue/reactphp-mq" target="_blank">clue/reactphp-mq</a> for more details.</p>
+<p>This in-memory approach works reasonably well for some thousand outstanding
+requests. If you&apos;re processing a very large input list (think millions of rows
+in a CSV or NDJSON file), you may want to look into using a streaming approach
+instead. See <a href="https://github.com/clue/reactphp-flux" target="_blank">clue/reactphp-flux</a> for
+more details.</p>
+<h3 id="streaming-response">Streaming response</h3>
+<p>All of the above examples assume you want to store the whole response body in memory.
+This is easy to get started and works reasonably well for smaller responses.</p>
+<p>However, there are several situations where it&apos;s usually a better idea to use a
+streaming approach, where only small chunks have to be kept in memory:</p>
+<ul>
+<li>If you&apos;re dealing with lots of concurrent requests (100+) or</li>
+<li>If you want to process individual data chunks as they happen (without having to wait for the full response body) or</li>
+<li>If you&apos;re expecting a big response body size (1 MiB or more, for example when downloading binary files) or</li>
+<li>If you&apos;re unsure about the response body size (better be safe than sorry when accessing arbitrary remote HTTP endpoints and the response body size is unknown in advance). </li>
+</ul>
+<p>You can use the <a href="#requeststreaming"><code>requestStreaming()</code></a> method to send an
+arbitrary HTTP request and receive a streaming response. It uses the same HTTP
+message API, but does not buffer the response body in memory. It only processes
+the response body in small chunks as data is received and forwards this data
+through <a href="https://github.com/reactphp/stream" target="_blank">ReactPHP&apos;s Stream API</a>. This works
+for (any number of) responses of arbitrary sizes.</p>
+<p>This means it resolves with a normal
+<a href="https://www.php-fig.org/psr/psr-7/#33-psrhttpmessageresponseinterface" target="_blank">PSR-7 <code>ResponseInterface</code></a>,
+which can be used to access the response message parameters as usual.
+You can access the message body as usual, however it now also
+implements <a href="https://github.com/reactphp/stream#readablestreaminterface" target="_blank">ReactPHP&apos;s <code>ReadableStreamInterface</code></a>
+as well as parts of the <a href="https://www.php-fig.org/psr/psr-7/#34-psrhttpmessagestreaminterface" target="_blank">PSR-7 <code>StreamInterface</code></a>.</p>
+<pre><code class="lang-php">$browser-&gt;requestStreaming(<span class="hljs-string">&apos;GET&apos;</span>, $url)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+    $body = $response-&gt;getBody();
+    assert($body <span class="hljs-keyword">instanceof</span> Psr\Http\Message\StreamInterface);
+    assert($body <span class="hljs-keyword">instanceof</span> React\Stream\ReadableStreamInterface);
+
+    $body-&gt;on(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($chunk)</span> </span>{
+        <span class="hljs-keyword">echo</span> $chunk;
+    });
+
+    $body-&gt;on(<span class="hljs-string">&apos;error&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Exception $error)</span> </span>{
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;Error: &apos;</span> . $error-&gt;getMessage() . PHP_EOL;
+    });
+
+    $body-&gt;on(<span class="hljs-string">&apos;close&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;[DONE]&apos;</span> . PHP_EOL;
+    });
+});
+</code></pre>
+<p>See also the <a href="examples/91-client-benchmark-download.php">stream download benchmark example</a> and
+the <a href="examples/21-client-request-streaming-to-stdout.php">stream forwarding example</a>.</p>
+<p>You can invoke the following methods on the message body:</p>
+<pre><code class="lang-php">$body-&gt;on($event, $callback);
+$body-&gt;eof();
+$body-&gt;isReadable();
+$body-&gt;pipe(React\Stream\WritableStreamInterface $dest, <span class="hljs-keyword">array</span> $options = <span class="hljs-keyword">array</span>());
+$body-&gt;close();
+$body-&gt;pause();
+$body-&gt;resume();
+</code></pre>
+<p>Because the message body is in a streaming state, invoking the following methods
+doesn&apos;t make much sense:</p>
+<pre><code class="lang-php">$body-&gt;__toString(); <span class="hljs-comment">// &apos;&apos;</span>
+$body-&gt;detach(); <span class="hljs-comment">// throws BadMethodCallException</span>
+$body-&gt;getSize(); <span class="hljs-comment">// null</span>
+$body-&gt;tell(); <span class="hljs-comment">// throws BadMethodCallException</span>
+$body-&gt;isSeekable(); <span class="hljs-comment">// false</span>
+$body-&gt;seek(); <span class="hljs-comment">// throws BadMethodCallException</span>
+$body-&gt;rewind(); <span class="hljs-comment">// throws BadMethodCallException</span>
+$body-&gt;isWritable(); <span class="hljs-comment">// false</span>
+$body-&gt;write(); <span class="hljs-comment">// throws BadMethodCallException</span>
+$body-&gt;read(); <span class="hljs-comment">// throws BadMethodCallException</span>
+$body-&gt;getContents(); <span class="hljs-comment">// throws BadMethodCallException</span>
+</code></pre>
+<p>Note how <a href="#timeouts">timeouts</a> apply slightly differently when using streaming.
+In streaming mode, the timeout value covers creating the underlying transport
+connection, sending the HTTP request, receiving the HTTP response headers and
+following any eventual <a href="#redirects">redirects</a>. In particular, the timeout value
+does not take receiving (possibly large) response bodies into account.</p>
+<p>If you want to integrate the streaming response into a higher level API, then
+working with Promise objects that resolve with Stream objects is often inconvenient.
+Consider looking into also using <a href="https://github.com/reactphp/promise-stream" target="_blank">react/promise-stream</a>.
+The resulting streaming code could look something like this:</p>
+<pre><code class="lang-php"><span class="hljs-keyword">use</span> <span class="hljs-title">React</span>\<span class="hljs-title">Promise</span>\<span class="hljs-title">Stream</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">download</span><span class="hljs-params">(Browser $browser, string $url)</span>: <span class="hljs-title">React</span>\<span class="hljs-title">Stream</span>\<span class="hljs-title">ReadableStreamInterface</span> </span>{
+    <span class="hljs-keyword">return</span> Stream\unwrapReadable(
+        $browser-&gt;requestStreaming(<span class="hljs-string">&apos;GET&apos;</span>, $url)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+            <span class="hljs-keyword">return</span> $response-&gt;getBody();
+        })
+    );
+}
+
+$stream = download($browser, $url);
+$stream-&gt;on(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($data)</span> </span>{
+    <span class="hljs-keyword">echo</span> $data;
+});
+</code></pre>
+<p>See also the <a href="#requeststreaming"><code>requestStreaming()</code></a> method for more details.</p>
+<h3 id="streaming-request">Streaming request</h3>
+<p>Besides streaming the response body, you can also stream the request body.
+This can be useful if you want to send big POST requests (uploading files etc.)
+or process many outgoing streams at once.
+Instead of passing the body as a string, you can simply pass an instance
+implementing <a href="https://github.com/reactphp/stream#readablestreaminterface" target="_blank">ReactPHP&apos;s <code>ReadableStreamInterface</code></a>
+to the <a href="#request-methods">request methods</a> like this:</p>
+<pre><code class="lang-php">$browser-&gt;post($url, <span class="hljs-keyword">array</span>(), $stream)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;Successfully sent.&apos;</span>;
+});
+</code></pre>
+<p>If you&apos;re using a streaming request body (<code>React\Stream\ReadableStreamInterface</code>), it will
+default to using <code>Transfer-Encoding: chunked</code> or you have to explicitly pass in a
+matching <code>Content-Length</code> request header like so:</p>
+<pre><code class="lang-php">$body = <span class="hljs-keyword">new</span> React\Stream\ThroughStream();
+$loop-&gt;addTimer(<span class="hljs-number">1.0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($body)</span> </span>{
+    $body-&gt;end(<span class="hljs-string">&quot;hello world&quot;</span>);
+});
+
+$browser-&gt;post($url, <span class="hljs-keyword">array</span>(<span class="hljs-string">&apos;Content-Length&apos;</span> =&gt; <span class="hljs-string">&apos;11&apos;</span>), $body);
+</code></pre>
+<p>If the streaming request body emits an <code>error</code> event or is explicitly closed
+without emitting a successful <code>end</code> event first, the request will automatically
+be closed and rejected.</p>
+<h3 id="http-proxy">HTTP proxy</h3>
+<p>You can also establish your outgoing connections through an HTTP CONNECT proxy server
+by adding a dependency to <a href="https://github.com/clue/reactphp-http-proxy" target="_blank">clue/reactphp-http-proxy</a>.</p>
+<p>HTTP CONNECT proxy servers (also commonly known as &quot;HTTPS proxy&quot; or &quot;SSL proxy&quot;)
+are commonly used to tunnel HTTPS traffic through an intermediary (&quot;proxy&quot;), to
+conceal the origin address (anonymity) or to circumvent address blocking
+(geoblocking). While many (public) HTTP CONNECT proxy servers often limit this
+to HTTPS port<code>443</code> only, this can technically be used to tunnel any TCP/IP-based
+protocol, such as plain HTTP and TLS-encrypted HTTPS.</p>
+<pre><code class="lang-php">$proxy = <span class="hljs-keyword">new</span> Clue\React\HttpProxy\ProxyConnector(
+    <span class="hljs-string">&apos;http://127.0.0.1:8080&apos;</span>,
+    <span class="hljs-keyword">new</span> React\Socket\Connector($loop)
+);
+
+$connector = <span class="hljs-keyword">new</span> React\Socket\Connector($loop, <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">&apos;tcp&apos;</span> =&gt; $proxy,
+    <span class="hljs-string">&apos;dns&apos;</span> =&gt; <span class="hljs-keyword">false</span>
+));
+
+$browser = <span class="hljs-keyword">new</span> React\Http\Browser($loop, $connector);
+</code></pre>
+<p>See also the <a href="examples/11-client-http-connect-proxy.php">HTTP CONNECT proxy example</a>.</p>
+<h3 id="socks-proxy">SOCKS proxy</h3>
+<p>You can also establish your outgoing connections through a SOCKS proxy server
+by adding a dependency to <a href="https://github.com/clue/reactphp-socks" target="_blank">clue/reactphp-socks</a>.</p>
+<p>The SOCKS proxy protocol family (SOCKS5, SOCKS4 and SOCKS4a) is commonly used to
+tunnel HTTP(S) traffic through an intermediary (&quot;proxy&quot;), to conceal the origin
+address (anonymity) or to circumvent address blocking (geoblocking). While many
+(public) SOCKS proxy servers often limit this to HTTP(S) port <code>80</code> and <code>443</code>
+only, this can technically be used to tunnel any TCP/IP-based protocol.</p>
+<pre><code class="lang-php">$proxy = <span class="hljs-keyword">new</span> Clue\React\Socks\Client(
+    <span class="hljs-string">&apos;socks://127.0.0.1:1080&apos;</span>,
+    <span class="hljs-keyword">new</span> React\Socket\Connector($loop)
+);
+
+$connector = <span class="hljs-keyword">new</span> React\Socket\Connector($loop, <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">&apos;tcp&apos;</span> =&gt; $proxy,
+    <span class="hljs-string">&apos;dns&apos;</span> =&gt; <span class="hljs-keyword">false</span>
+));
+
+$browser = <span class="hljs-keyword">new</span> React\Http\Browser($loop, $connector);
+</code></pre>
+<p>See also the <a href="examples/12-client-socks-proxy.php">SOCKS proxy example</a>.</p>
+<h3 id="ssh-proxy">SSH proxy</h3>
+<p>You can also establish your outgoing connections through an SSH server
+by adding a dependency to <a href="https://github.com/clue/reactphp-ssh-proxy" target="_blank">clue/reactphp-ssh-proxy</a>.</p>
+<p><a href="https://en.wikipedia.org/wiki/Secure_Shell" target="_blank">Secure Shell (SSH)</a> is a secure
+network protocol that is most commonly used to access a login shell on a remote
+server. Its architecture allows it to use multiple secure channels over a single
+connection. Among others, this can also be used to create an &quot;SSH tunnel&quot;, which
+is commonly used to tunnel HTTP(S) traffic through an intermediary (&quot;proxy&quot;), to
+conceal the origin address (anonymity) or to circumvent address blocking
+(geoblocking). This can be used to tunnel any TCP/IP-based protocol (HTTP, SMTP,
+IMAP etc.), allows you to access local services that are otherwise not accessible
+from the outside (database behind firewall) and as such can also be used for
+plain HTTP and TLS-encrypted HTTPS.</p>
+<pre><code class="lang-php">$proxy = <span class="hljs-keyword">new</span> Clue\React\SshProxy\SshSocksConnector(<span class="hljs-string">&apos;me@localhost:22&apos;</span>, $loop);
+
+$connector = <span class="hljs-keyword">new</span> React\Socket\Connector($loop, <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">&apos;tcp&apos;</span> =&gt; $proxy,
+    <span class="hljs-string">&apos;dns&apos;</span> =&gt; <span class="hljs-keyword">false</span>
+));
+
+$browser = <span class="hljs-keyword">new</span> React\Http\Browser($loop, $connector);
+</code></pre>
+<p>See also the <a href="examples/13-client-ssh-proxy.php">SSH proxy example</a>.</p>
+<h3 id="unix-domain-sockets">Unix domain sockets</h3>
+<p>By default, this library supports transport over plaintext TCP/IP and secure
+TLS connections for the <code>http://</code> and <code>https://</code> URL schemes respectively.
+This library also supports Unix domain sockets (UDS) when explicitly configured.</p>
+<p>In order to use a UDS path, you have to explicitly configure the connector to
+override the destination URL so that the hostname given in the request URL will
+no longer be used to establish the connection:</p>
+<pre><code class="lang-php">$connector = <span class="hljs-keyword">new</span> React\Socket\FixedUriConnector(
+    <span class="hljs-string">&apos;unix:///var/run/docker.sock&apos;</span>,
+    <span class="hljs-keyword">new</span> React\Socket\UnixConnector($loop)
+);
+
+$browser = <span class="hljs-keyword">new</span> Browser($loop, $connector);
+
+$client-&gt;get(<span class="hljs-string">&apos;http://localhost/info&apos;</span>)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+    var_dump($response-&gt;getHeaders(), (string)$response-&gt;getBody());
+});
+</code></pre>
+<p>See also the <a href="examples/14-client-unix-domain-sockets.php">Unix Domain Sockets (UDS) example</a>.</p>
+<h2 id="server-usage">Server Usage</h2>
+<h3 id="server">Server</h3>
+<p>The <code>React\Http\Server</code> class is responsible for handling incoming connections and then
+processing each incoming HTTP request.</p>
+<p>When a complete HTTP request has been received, it will invoke the given
+request handler function. This request handler function needs to be passed to
+the constructor and will be invoked with the respective <a href="#server-request">request</a>
+object and expects a <a href="#server-response">response</a> object in return:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server($loop, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+        <span class="hljs-number">200</span>,
+        <span class="hljs-keyword">array</span>(
+            <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;text/plain&apos;</span>
+        ),
+        <span class="hljs-string">&quot;Hello World!\n&quot;</span>
+    );
+});
+</code></pre>
+<p>Each incoming HTTP request message is always represented by the
+<a href="https://www.php-fig.org/psr/psr-7/#321-psrhttpmessageserverrequestinterface" target="_blank">PSR-7 <code>ServerRequestInterface</code></a>,
+see also following <a href="#server-request">request</a> chapter for more details.</p>
+<p>Each outgoing HTTP response message is always represented by the
+<a href="https://www.php-fig.org/psr/psr-7/#33-psrhttpmessageresponseinterface" target="_blank">PSR-7 <code>ResponseInterface</code></a>,
+see also following <a href="#server-response">response</a> chapter for more details.</p>
+<p>In order to start listening for any incoming connections, the <code>Server</code> needs
+to be attached to an instance of
+<a href="https://github.com/reactphp/socket#serverinterface" target="_blank"><code>React\Socket\ServerInterface</code></a>
+through the <a href="#listen"><code>listen()</code></a> method as described in the following
+chapter. In its most simple form, you can attach this to a
+<a href="https://github.com/reactphp/socket#server" target="_blank"><code>React\Socket\Server</code></a> in order
+to start a plaintext HTTP server like this:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server($loop, $handler);
+
+$socket = <span class="hljs-keyword">new</span> React\Socket\Server(<span class="hljs-string">&apos;0.0.0.0:8080&apos;</span>, $loop);
+$server-&gt;listen($socket);
+</code></pre>
+<p>See also the <a href="#listen"><code>listen()</code></a> method and the
+<a href="examples/51-server-hello-world.php">hello world server example</a>
+for more details.</p>
+<p>By default, the <code>Server</code> buffers and parses the complete incoming HTTP
+request in memory. It will invoke the given request handler function when the
+complete request headers and request body has been received. This means the
+<a href="#server-request">request</a> object passed to your request handler function will be
+fully compatible with PSR-7 (http-message). This provides sane defaults for
+80% of the use cases and is the recommended way to use this library unless
+you&apos;re sure you know what you&apos;re doing.</p>
+<p>On the other hand, buffering complete HTTP requests in memory until they can
+be processed by your request handler function means that this class has to
+employ a number of limits to avoid consuming too much memory. In order to
+take the more advanced configuration out your hand, it respects setting from
+your <a href="https://www.php.net/manual/en/ini.core.php" target="_blank"><code>php.ini</code></a> to apply its
+default settings. This is a list of PHP settings this class respects with
+their respective default values:</p>
+<pre><code>memory_limit 128M
+post_max_size 8M // capped at 64K
+
+enable_post_data_reading 1
+max_input_nesting_level 64
+max_input_vars 1000
+
+file_uploads 1
+upload_max_filesize 2M
+max_file_uploads 20
+</code></pre><p>In particular, the <code>post_max_size</code> setting limits how much memory a single
+HTTP request is allowed to consume while buffering its request body. This
+needs to be limited because the server can process a large number of requests
+concurrently, so the server may potentially consume a large amount of memory
+otherwise. To support higher concurrency by default, this value is capped
+at <code>64K</code>. If you assign a higher value, it will only allow <code>64K</code> by default.
+If a request exceeds this limit, its request body will be ignored and it will
+be processed like a request with no request body at all. See below for
+explicit configuration to override this setting.</p>
+<p>By default, this class will try to avoid consuming more than half of your
+<code>memory_limit</code> for buffering multiple concurrent HTTP requests. As such, with
+the above default settings of <code>128M</code> max, it will try to consume no more than
+<code>64M</code> for buffering multiple concurrent HTTP requests. As a consequence, it
+will limit the concurrency to <code>1024</code> HTTP requests with the above defaults.</p>
+<p>It is imperative that you assign reasonable values to your PHP ini settings.
+It is usually recommended to not support buffering incoming HTTP requests
+with a large HTTP request body (e.g. large file uploads). If you want to
+increase this buffer size, you will have to also increase the total memory
+limit to allow for more concurrent requests (set <code>memory_limit 512M</code> or more)
+or explicitly limit concurrency.</p>
+<p>In order to override the above buffering defaults, you can configure the
+<code>Server</code> explicitly. You can use the
+<a href="#limitconcurrentrequestsmiddleware"><code>LimitConcurrentRequestsMiddleware</code></a> and
+<a href="#requestbodybuffermiddleware"><code>RequestBodyBufferMiddleware</code></a> (see below)
+to explicitly configure the total number of requests that can be handled at
+once like this:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server(
+    $loop,
+    <span class="hljs-keyword">new</span> React\Http\Middleware\StreamingRequestMiddleware(),
+    <span class="hljs-keyword">new</span> React\Http\Middleware\LimitConcurrentRequestsMiddleware(<span class="hljs-number">100</span>), <span class="hljs-comment">// 100 concurrent buffering handlers</span>
+    <span class="hljs-keyword">new</span> React\Http\Middleware\RequestBodyBufferMiddleware(<span class="hljs-number">2</span> * <span class="hljs-number">1024</span> * <span class="hljs-number">1024</span>), <span class="hljs-comment">// 2 MiB per request</span>
+    <span class="hljs-keyword">new</span> React\Http\Middleware\RequestBodyParserMiddleware(),
+    $handler
+);
+</code></pre>
+<p>In this example, we allow processing up to 100 concurrent requests at once
+and each request can buffer up to <code>2M</code>. This means you may have to keep a
+maximum of <code>200M</code> of memory for incoming request body buffers. Accordingly,
+you need to adjust the <code>memory_limit</code> ini setting to allow for these buffers
+plus your actual application logic memory requirements (think <code>512M</code> or more).</p>
+<blockquote>
+<p>Internally, this class automatically assigns these middleware handlers
+  automatically when no <a href="#streamingrequestmiddleware"><code>StreamingRequestMiddleware</code></a>
+  is given. Accordingly, you can use this example to override all default
+  settings to implement custom limits.</p>
+</blockquote>
+<p>As an alternative to buffering the complete request body in memory, you can
+also use a streaming approach where only small chunks of data have to be kept
+in memory:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server(
+    $loop,
+    <span class="hljs-keyword">new</span> React\Http\Middleware\StreamingRequestMiddleware(),
+    $handler
+);
+</code></pre>
+<p>In this case, it will invoke the request handler function once the HTTP
+request headers have been received, i.e. before receiving the potentially
+much larger HTTP request body. This means the <a href="#server-request">request</a> passed to
+your request handler function may not be fully compatible with PSR-7. This is
+specifically designed to help with more advanced use cases where you want to
+have full control over consuming the incoming HTTP request body and
+concurrency settings. See also <a href="#streaming-incoming-request">streaming incoming request</a>
+below for more details.</p>
+<h3 id="listen">listen()</h3>
+<p>The <code>listen(React\Socket\ServerInterface $socket): void</code> method can be used to
+start listening for HTTP requests on the given socket server instance.</p>
+<p>The given <a href="https://github.com/reactphp/socket#serverinterface" target="_blank"><code>React\Socket\ServerInterface</code></a>
+is responsible for emitting the underlying streaming connections. This
+HTTP server needs to be attached to it in order to process any
+connections and pase incoming streaming data as incoming HTTP request
+messages. In its most common form, you can attach this to a
+<a href="https://github.com/reactphp/socket#server" target="_blank"><code>React\Socket\Server</code></a> in
+order to start a plaintext HTTP server like this:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server($loop, $handler);
+
+$socket = <span class="hljs-keyword">new</span> React\Socket\Server(<span class="hljs-string">&apos;0.0.0.0:8080&apos;</span>, $loop);
+$server-&gt;listen($socket);
+</code></pre>
+<p>See also <a href="examples/51-server-hello-world.php">hello world server example</a>
+for more details.</p>
+<p>This example will start listening for HTTP requests on the alternative
+HTTP port <code>8080</code> on all interfaces (publicly). As an alternative, it is
+very common to use a reverse proxy and let this HTTP server listen on the
+localhost (loopback) interface only by using the listen address
+<code>127.0.0.1:8080</code> instead. This way, you host your application(s) on the
+default HTTP port <code>80</code> and only route specific requests to this HTTP
+server.</p>
+<p>Likewise, it&apos;s usually recommended to use a reverse proxy setup to accept
+secure HTTPS requests on default HTTPS port <code>443</code> (TLS termination) and
+only route plaintext requests to this HTTP server. As an alternative, you
+can also accept secure HTTPS requests with this HTTP server by attaching
+this to a <a href="https://github.com/reactphp/socket#server" target="_blank"><code>React\Socket\Server</code></a>
+using a secure TLS listen address, a certificate file and optional
+<code>passphrase</code> like this:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server($loop, $handler);
+
+$socket = <span class="hljs-keyword">new</span> React\Socket\Server(<span class="hljs-string">&apos;tls://0.0.0.0:8443&apos;</span>, $loop, <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">&apos;local_cert&apos;</span> =&gt; <span class="hljs-keyword">__DIR__</span> . <span class="hljs-string">&apos;/localhost.pem&apos;</span>
+));
+$server-&gt;listen($socket);
+</code></pre>
+<p>See also <a href="examples/61-server-hello-world-https.php">hello world HTTPS example</a>
+for more details.</p>
+<h3 id="server-request">Server Request</h3>
+<p>As seen above, the <a href="#server"><code>Server</code></a> class is responsible for handling
+incoming connections and then processing each incoming HTTP request.</p>
+<p>The request object will be processed once the request has
+been received by the client.
+This request object implements the
+<a href="https://www.php-fig.org/psr/psr-7/#321-psrhttpmessageserverrequestinterface" target="_blank">PSR-7 <code>ServerRequestInterface</code></a>
+which in turn extends the
+<a href="https://www.php-fig.org/psr/psr-7/#32-psrhttpmessagerequestinterface" target="_blank">PSR-7 <code>RequestInterface</code></a>
+and will be passed to the callback function like this.</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server($loop, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> </span>{
+    $body = <span class="hljs-string">&quot;The method of the request is: &quot;</span> . $request-&gt;getMethod();
+    $body .= <span class="hljs-string">&quot;The requested path is: &quot;</span> . $request-&gt;getUri()-&gt;getPath();
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+        <span class="hljs-number">200</span>,
+        <span class="hljs-keyword">array</span>(
+            <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;text/plain&apos;</span>
+        ),
+        $body
+    );
+});
+</code></pre>
+<p>For more details about the request object, also check out the documentation of
+<a href="https://www.php-fig.org/psr/psr-7/#321-psrhttpmessageserverrequestinterface" target="_blank">PSR-7 <code>ServerRequestInterface</code></a>
+and
+<a href="https://www.php-fig.org/psr/psr-7/#32-psrhttpmessagerequestinterface" target="_blank">PSR-7 <code>RequestInterface</code></a>.</p>
+<h4 id="request-parameters">Request parameters</h4>
+<p>The <code>getServerParams(): mixed[]</code> method can be used to
+get server-side parameters similar to the <code>$_SERVER</code> variable.
+The following parameters are currently available:</p>
+<ul>
+<li><code>REMOTE_ADDR</code>
+The IP address of the request sender</li>
+<li><code>REMOTE_PORT</code>
+Port of the request sender</li>
+<li><code>SERVER_ADDR</code>
+The IP address of the server</li>
+<li><code>SERVER_PORT</code>
+The port of the server</li>
+<li><code>REQUEST_TIME</code>
+Unix timestamp when the complete request header has been received,
+as integer similar to <code>time()</code></li>
+<li><code>REQUEST_TIME_FLOAT</code>
+Unix timestamp when the complete request header has been received,
+as float similar to <code>microtime(true)</code></li>
+<li><code>HTTPS</code>
+Set to &apos;on&apos; if the request used HTTPS, otherwise it won&apos;t be set</li>
+</ul>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server($loop, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> </span>{
+    $body = <span class="hljs-string">&quot;Your IP is: &quot;</span> . $request-&gt;getServerParams()[<span class="hljs-string">&apos;REMOTE_ADDR&apos;</span>];
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+        <span class="hljs-number">200</span>,
+        <span class="hljs-keyword">array</span>(
+            <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;text/plain&apos;</span>
+        ),
+        $body
+    );
+});
+</code></pre>
+<p>See also <a href="examples/53-server-whatsmyip.php">whatsmyip server example</a>.</p>
+<blockquote>
+<p>Advanced: Note that address parameters will not be set if you&apos;re listening on
+  a Unix domain socket (UDS) path as this protocol lacks the concept of
+  host/port.</p>
+</blockquote>
+<h4 id="query-parameters">Query parameters</h4>
+<p>The <code>getQueryParams(): array</code> method can be used to get the query parameters
+similiar to the <code>$_GET</code> variable.</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server($loop, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> </span>{
+    $queryParams = $request-&gt;getQueryParams();
+
+    $body = <span class="hljs-string">&apos;The query parameter &quot;foo&quot; is not set. Click the following link &apos;</span>;
+    $body .= <span class="hljs-string">&apos;&lt;a href=&quot;/?foo=bar&quot;&gt;to use query parameter in your request&lt;/a&gt;&apos;</span>;
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">isset</span>($queryParams[<span class="hljs-string">&apos;foo&apos;</span>])) {
+        $body = <span class="hljs-string">&apos;The value of &quot;foo&quot; is: &apos;</span> . htmlspecialchars($queryParams[<span class="hljs-string">&apos;foo&apos;</span>]);
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+        <span class="hljs-number">200</span>,
+        <span class="hljs-keyword">array</span>(
+            <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;text/html&apos;</span>
+        ),
+        $body
+    );
+});
+</code></pre>
+<p>The response in the above example will return a response body with a link.
+The URL contains the query parameter <code>foo</code> with the value <code>bar</code>.
+Use <a href="https://www.php.net/manual/en/function.htmlentities.php" target="_blank"><code>htmlentities</code></a>
+like in this example to prevent
+<a href="https://en.wikipedia.org/wiki/Cross-site_scripting" target="_blank">Cross-Site Scripting (abbreviated as XSS)</a>.</p>
+<p>See also <a href="examples/54-server-query-parameter.php">server query parameters example</a>.</p>
+<h4 id="request-body">Request body</h4>
+<p>By default, the <a href="#server"><code>Server</code></a> will buffer and parse the full request body
+in memory. This means the given request object includes the parsed request body
+and any file uploads.</p>
+<blockquote>
+<p>As an alternative to the default buffering logic, you can also use the
+  <a href="#streamingrequestmiddleware"><code>StreamingRequestMiddleware</code></a>. Jump to the next
+  chapter to learn more about how to process a
+  <a href="#streaming-incoming-request">streaming incoming request</a>.</p>
+</blockquote>
+<p>As stated above, each incoming HTTP request is always represented by the
+<a href="https://www.php-fig.org/psr/psr-7/#321-psrhttpmessageserverrequestinterface" target="_blank">PSR-7 <code>ServerRequestInterface</code></a>.
+This interface provides several methods that are useful when working with the
+incoming request body as described below.</p>
+<p>The <code>getParsedBody(): null|array|object</code> method can be used to
+get the parsed request body, similar to
+<a href="https://www.php.net/manual/en/reserved.variables.post.php" target="_blank">PHP&apos;s <code>$_POST</code> variable</a>.
+This method may return a (possibly nested) array structure with all body
+parameters or a <code>null</code> value if the request body could not be parsed.
+By default, this method will only return parsed data for requests using
+<code>Content-Type: application/x-www-form-urlencoded</code> or <code>Content-Type: multipart/form-data</code>
+request headers (commonly used for <code>POST</code> requests for HTML form submission data).</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server($loop, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> </span>{
+    $name = $request-&gt;getParsedBody()[<span class="hljs-string">&apos;name&apos;</span>] ?? <span class="hljs-string">&apos;anonymous&apos;</span>;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+        <span class="hljs-number">200</span>,
+        <span class="hljs-keyword">array</span>(),
+        <span class="hljs-string">&quot;Hello $name!\n&quot;</span>
+    );
+});
+</code></pre>
+<p>See also <a href="examples/62-server-form-upload.php">form upload example</a> for more details.</p>
+<p>The <code>getBody(): StreamInterface</code> method can be used to
+get the raw data from this request body, similar to
+<a href="https://www.php.net/manual/en/wrappers.php.php#wrappers.php.input" target="_blank">PHP&apos;s <code>php://input</code> stream</a>.
+This method returns an instance of the request body represented by the
+<a href="https://www.php-fig.org/psr/psr-7/#34-psrhttpmessagestreaminterface" target="_blank">PSR-7 <code>StreamInterface</code></a>.
+This is particularly useful when using a custom request body that will not
+otherwise be parsed by default, such as a JSON (<code>Content-Type: application/json</code>) or
+an XML (<code>Content-Type: application/xml</code>) request body (which is commonly used for
+<code>POST</code>, <code>PUT</code> or <code>PATCH</code> requests in JSON-based or RESTful/RESTish APIs).</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server($loop, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> </span>{
+    $data = json_decode((string)$request-&gt;getBody());
+    $name = $data-&gt;name ?? <span class="hljs-string">&apos;anonymous&apos;</span>;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+        <span class="hljs-number">200</span>,
+        <span class="hljs-keyword">array</span>(<span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;application/json&apos;</span>),
+        json_encode([<span class="hljs-string">&apos;message&apos;</span> =&gt; <span class="hljs-string">&quot;Hello $name!&quot;</span>])
+    );
+});
+</code></pre>
+<p>See also <a href="examples/59-server-json-api.php">JSON API server example</a> for more details.</p>
+<p>The <code>getUploadedFiles(): array</code> method can be used to
+get the uploaded files in this request, similar to
+<a href="https://www.php.net/manual/en/reserved.variables.files.php" target="_blank">PHP&apos;s <code>$_FILES</code> variable</a>.
+This method returns a (possibly nested) array structure with all file uploads, each represented by the
+<a href="https://www.php-fig.org/psr/psr-7/#36-psrhttpmessageuploadedfileinterface" target="_blank">PSR-7 <code>UploadedFileInterface</code></a>.
+This array will only be filled when using the <code>Content-Type: multipart/form-data</code>
+request header (commonly used for <code>POST</code> requests for HTML file uploads).</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server($loop, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> </span>{
+    $files = $request-&gt;getUploadedFiles();
+    $name = <span class="hljs-keyword">isset</span>($files[<span class="hljs-string">&apos;avatar&apos;</span>]) ? $files[<span class="hljs-string">&apos;avatar&apos;</span>]-&gt;getClientFilename() : <span class="hljs-string">&apos;nothing&apos;</span>;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+        <span class="hljs-number">200</span>,
+        <span class="hljs-keyword">array</span>(),
+        <span class="hljs-string">&quot;Uploaded $name\n&quot;</span>
+    );
+});
+</code></pre>
+<p>See also <a href="examples/62-server-form-upload.php">form upload server example</a> for more details.</p>
+<p>The <code>getSize(): ?int</code> method can be used to
+get the size of the request body, similar to PHP&apos;s <code>$_SERVER[&apos;CONTENT_LENGTH&apos;]</code> variable.
+This method returns the complete size of the request body measured in number
+of bytes as defined by the message boundaries.
+This value may be <code>0</code> if the request message does not contain a request body
+(such as a simple <code>GET</code> request).
+This method operates on the buffered request body, i.e. the request body size
+is always known, even when the request does not specify a <code>Content-Length</code> request
+header or when using <code>Transfer-Encoding: chunked</code> for HTTP/1.1 requests.</p>
+<blockquote>
+<p>Note: The <code>Server</code> automatically takes care of handling requests with the
+  additional <code>Expect: 100-continue</code> request header. When HTTP/1.1 clients want to
+  send a bigger request body, they MAY send only the request headers with an
+  additional <code>Expect: 100-continue</code> request header and wait before sending the actual
+  (large) message body. In this case the server will automatically send an
+  intermediary <code>HTTP/1.1 100 Continue</code> response to the client. This ensures you
+  will receive the request body without a delay as expected.</p>
+</blockquote>
+<h4 id="streaming-incoming-request">Streaming incoming request</h4>
+<p>If you&apos;re using the advanced <a href="#streamingrequestmiddleware"><code>StreamingRequestMiddleware</code></a>,
+the request object will be processed once the request headers have been received.
+This means that this happens irrespective of (i.e. <em>before</em>) receiving the
+(potentially much larger) request body.</p>
+<blockquote>
+<p>Note that this is non-standard behavior considered advanced usage. Jump to the
+  previous chapter to learn more about how to process a buffered <a href="#request-body">request body</a>.</p>
+</blockquote>
+<p>While this may be uncommon in the PHP ecosystem, this is actually a very powerful
+approach that gives you several advantages not otherwise possible:</p>
+<ul>
+<li>React to requests <em>before</em> receiving a large request body,
+such as rejecting an unauthenticated request or one that exceeds allowed
+message lengths (file uploads).</li>
+<li>Start processing parts of the request body before the remainder of the request
+body arrives or if the sender is slowly streaming data.</li>
+<li>Process a large request body without having to buffer anything in memory,
+such as accepting a huge file upload or possibly unlimited request body stream.</li>
+</ul>
+<p>The <code>getBody(): StreamInterface</code> method can be used to
+access the request body stream.
+In the streaming mode, this method returns a stream instance that implements both the
+<a href="https://www.php-fig.org/psr/psr-7/#34-psrhttpmessagestreaminterface" target="_blank">PSR-7 <code>StreamInterface</code></a>
+and the <a href="https://github.com/reactphp/stream#readablestreaminterface" target="_blank">ReactPHP <code>ReadableStreamInterface</code></a>.
+However, most of the
+<a href="https://www.php-fig.org/psr/psr-7/#34-psrhttpmessagestreaminterface" target="_blank">PSR-7 <code>StreamInterface</code></a>
+methods have been designed under the assumption of being in control of a
+synchronous request body.
+Given that this does not apply to this server, the following
+<a href="https://www.php-fig.org/psr/psr-7/#34-psrhttpmessagestreaminterface" target="_blank">PSR-7 <code>StreamInterface</code></a>
+methods are not used and SHOULD NOT be called:
+<code>tell()</code>, <code>eof()</code>, <code>seek()</code>, <code>rewind()</code>, <code>write()</code> and <code>read()</code>.
+If this is an issue for your use case and/or you want to access uploaded files,
+it&apos;s highly recommended to use a buffered <a href="#request-body">request body</a> or use the
+<a href="#requestbodybuffermiddleware"><code>RequestBodyBufferMiddleware</code></a> instead.
+The <a href="https://github.com/reactphp/stream#readablestreaminterface" target="_blank">ReactPHP <code>ReadableStreamInterface</code></a>
+gives you access to the incoming request body as the individual chunks arrive:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server(
+    $loop,
+    <span class="hljs-keyword">new</span> React\Http\Middleware\StreamingRequestMiddleware(),
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> </span>{
+        $body = $request-&gt;getBody();
+        assert($body <span class="hljs-keyword">instanceof</span> Psr\Http\Message\StreamInterface);
+        assert($body <span class="hljs-keyword">instanceof</span> React\Stream\ReadableStreamInterface);
+
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Promise\Promise(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($resolve, $reject)</span> <span class="hljs-title">use</span> <span class="hljs-params">($body)</span> </span>{
+            $bytes = <span class="hljs-number">0</span>;
+            $body-&gt;on(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($data)</span> <span class="hljs-title">use</span> <span class="hljs-params">(&amp;$bytes)</span> </span>{
+                $bytes += strlen($data);
+            });
+
+            $body-&gt;on(<span class="hljs-string">&apos;end&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($resolve, &amp;$bytes)</span></span>{
+                $resolve(<span class="hljs-keyword">new</span> React\Http\Message\Response(
+                    <span class="hljs-number">200</span>,
+                    <span class="hljs-keyword">array</span>(
+                        <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;text/plain&apos;</span>
+                    ),
+                    <span class="hljs-string">&quot;Received $bytes bytes\n&quot;</span>
+                ));
+            });
+
+            <span class="hljs-comment">// an error occures e.g. on invalid chunked encoded data or an unexpected &apos;end&apos; event</span>
+            $body-&gt;on(<span class="hljs-string">&apos;error&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(\Exception $exception)</span> <span class="hljs-title">use</span> <span class="hljs-params">($resolve, &amp;$bytes)</span> </span>{
+                $resolve(<span class="hljs-keyword">new</span> React\Http\Message\Response(
+                    <span class="hljs-number">400</span>,
+                    <span class="hljs-keyword">array</span>(
+                        <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;text/plain&apos;</span>
+                    ),
+                    <span class="hljs-string">&quot;Encountered error after $bytes bytes: {$exception-&gt;getMessage()}\n&quot;</span>
+                ));
+            });
+        });
+    }
+);
+</code></pre>
+<p>The above example simply counts the number of bytes received in the request body.
+This can be used as a skeleton for buffering or processing the request body.</p>
+<p>See also <a href="examples/63-server-streaming-request.php">streaming request server example</a> for more details.</p>
+<p>The <code>data</code> event will be emitted whenever new data is available on the request
+body stream.
+The server also automatically takes care of decoding any incoming requests using
+<code>Transfer-Encoding: chunked</code> and will only emit the actual payload as data.</p>
+<p>The <code>end</code> event will be emitted when the request body stream terminates
+successfully, i.e. it was read until its expected end.</p>
+<p>The <code>error</code> event will be emitted in case the request stream contains invalid
+data for <code>Transfer-Encoding: chunked</code> or when the connection closes before
+the complete request stream has been received.
+The server will automatically stop reading from the connection and discard all
+incoming data instead of closing it.
+A response message can still be sent (unless the connection is already closed).</p>
+<p>A <code>close</code> event will be emitted after an <code>error</code> or <code>end</code> event.</p>
+<p>For more details about the request body stream, check out the documentation of
+<a href="https://github.com/reactphp/stream#readablestreaminterface" target="_blank">ReactPHP <code>ReadableStreamInterface</code></a>.</p>
+<p>The <code>getSize(): ?int</code> method can be used to
+get the size of the request body, similar to PHP&apos;s <code>$_SERVER[&apos;CONTENT_LENGTH&apos;]</code> variable.
+This method returns the complete size of the request body measured in number
+of bytes as defined by the message boundaries.
+This value may be <code>0</code> if the request message does not contain a request body
+(such as a simple <code>GET</code> request).
+This method operates on the streaming request body, i.e. the request body size
+may be unknown (<code>null</code>) when using <code>Transfer-Encoding: chunked</code> for HTTP/1.1 requests.</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server(
+    $loop,
+    <span class="hljs-keyword">new</span> React\Http\Middleware\StreamingRequestMiddleware(),
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> </span>{
+        $size = $request-&gt;getBody()-&gt;getSize();
+        <span class="hljs-keyword">if</span> ($size === <span class="hljs-keyword">null</span>) {
+            $body = <span class="hljs-string">&apos;The request does not contain an explicit length.&apos;</span>;
+            $body .= <span class="hljs-string">&apos;This example does not accept chunked transfer encoding.&apos;</span>;
+
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+                <span class="hljs-number">411</span>,
+                <span class="hljs-keyword">array</span>(
+                    <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;text/plain&apos;</span>
+                ),
+                $body
+            );
+        }
+
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+            <span class="hljs-number">200</span>,
+            <span class="hljs-keyword">array</span>(
+                <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;text/plain&apos;</span>
+            ),
+            <span class="hljs-string">&quot;Request body size: &quot;</span> . $size . <span class="hljs-string">&quot; bytes\n&quot;</span>
+        );
+    }
+);
+</code></pre>
+<blockquote>
+<p>Note: The <code>Server</code> automatically takes care of handling requests with the
+  additional <code>Expect: 100-continue</code> request header. When HTTP/1.1 clients want to
+  send a bigger request body, they MAY send only the request headers with an
+  additional <code>Expect: 100-continue</code> request header and wait before sending the actual
+  (large) message body. In this case the server will automatically send an
+  intermediary <code>HTTP/1.1 100 Continue</code> response to the client. This ensures you
+  will receive the streaming request body without a delay as expected.</p>
+</blockquote>
+<h4 id="request-method">Request method</h4>
+<p>Note that the server supports <em>any</em> request method (including custom and non-
+standard ones) and all request-target formats defined in the HTTP specs for each
+respective method, including <em>normal</em> <code>origin-form</code> requests as well as
+proxy requests in <code>absolute-form</code> and <code>authority-form</code>.
+The <code>getUri(): UriInterface</code> method can be used to get the effective request
+URI which provides you access to individiual URI components.
+Note that (depending on the given <code>request-target</code>) certain URI components may
+or may not be present, for example the <code>getPath(): string</code> method will return
+an empty string for requests in <code>asterisk-form</code> or <code>authority-form</code>.
+Its <code>getHost(): string</code> method will return the host as determined by the
+effective request URI, which defaults to the local socket address if a HTTP/1.0
+client did not specify one (i.e. no <code>Host</code> header).
+Its <code>getScheme(): string</code> method will return <code>http</code> or <code>https</code> depending
+on whether the request was made over a secure TLS connection to the target host.</p>
+<p>The <code>Host</code> header value will be sanitized to match this host component plus the
+port component only if it is non-standard for this URI scheme.</p>
+<p>You can use <code>getMethod(): string</code> and <code>getRequestTarget(): string</code> to
+check this is an accepted request and may want to reject other requests with
+an appropriate error code, such as <code>400</code> (Bad Request) or <code>405</code> (Method Not
+Allowed).</p>
+<blockquote>
+<p>The <code>CONNECT</code> method is useful in a tunneling setup (HTTPS proxy) and not
+  something most HTTP servers would want to care about.
+  Note that if you want to handle this method, the client MAY send a different
+  request-target than the <code>Host</code> header value (such as removing default ports)
+  and the request-target MUST take precendence when forwarding.</p>
+</blockquote>
+<h4 id="cookie-parameters">Cookie parameters</h4>
+<p>The <code>getCookieParams(): string[]</code> method can be used to
+get all cookies sent with the current request.</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server($loop, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> </span>{
+    $key = <span class="hljs-string">&apos;react\php&apos;</span>;
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">isset</span>($request-&gt;getCookieParams()[$key])) {
+        $body = <span class="hljs-string">&quot;Your cookie value is: &quot;</span> . $request-&gt;getCookieParams()[$key];
+
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+            <span class="hljs-number">200</span>,
+            <span class="hljs-keyword">array</span>(
+                <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;text/plain&apos;</span>
+            ),
+            $body
+        );
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+        <span class="hljs-number">200</span>,
+        <span class="hljs-keyword">array</span>(
+            <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;text/plain&apos;</span>,
+            <span class="hljs-string">&apos;Set-Cookie&apos;</span> =&gt; urlencode($key) . <span class="hljs-string">&apos;=&apos;</span> . urlencode(<span class="hljs-string">&apos;test;more&apos;</span>)
+        ),
+        <span class="hljs-string">&quot;Your cookie has been set.&quot;</span>
+    );
+});
+</code></pre>
+<p>The above example will try to set a cookie on first access and
+will try to print the cookie value on all subsequent tries.
+Note how the example uses the <code>urlencode()</code> function to encode
+non-alphanumeric characters.
+This encoding is also used internally when decoding the name and value of cookies
+(which is in line with other implementations, such as PHP&apos;s cookie functions).</p>
+<p>See also <a href="examples/55-server-cookie-handling.php">cookie server example</a> for more details.</p>
+<h4 id="invalid-request">Invalid request</h4>
+<p>The <code>Server</code> class supports both HTTP/1.1 and HTTP/1.0 request messages.
+If a client sends an invalid request message, uses an invalid HTTP
+protocol version or sends an invalid <code>Transfer-Encoding</code> request header value,
+the server will automatically send a <code>400</code> (Bad Request) HTTP error response
+to the client and close the connection.
+On top of this, it will emit an <code>error</code> event that can be used for logging
+purposes like this:</p>
+<pre><code class="lang-php">$server-&gt;on(<span class="hljs-string">&apos;error&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Exception $e)</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;Error: &apos;</span> . $e-&gt;getMessage() . PHP_EOL;
+});
+</code></pre>
+<p>Note that the server will also emit an <code>error</code> event if you do not return a
+valid response object from your request handler function. See also
+<a href="#invalid-response">invalid response</a> for more details.</p>
+<h3 id="server-response">Server Response</h3>
+<p>The callback function passed to the constructor of the <a href="#server"><code>Server</code></a> is
+responsible for processing the request and returning a response, which will be
+delivered to the client.</p>
+<p>This function MUST return an instance implementing
+<a href="https://www.php-fig.org/psr/psr-7/#33-psrhttpmessageresponseinterface" target="_blank">PSR-7 <code>ResponseInterface</code></a>
+object or a 
+<a href="https://github.com/reactphp/promise" target="_blank">ReactPHP Promise</a>
+which resolves with a <a href="https://www.php-fig.org/psr/psr-7/#33-psrhttpmessageresponseinterface" target="_blank">PSR-7 <code>ResponseInterface</code></a> object.</p>
+<p>This projects ships a <a href="#response"><code>Response</code> class</a> which implements the
+<a href="https://www.php-fig.org/psr/psr-7/#33-psrhttpmessageresponseinterface" target="_blank">PSR-7 <code>ResponseInterface</code></a>.
+In its most simple form, you can use it like this:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server($loop, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+        <span class="hljs-number">200</span>,
+        <span class="hljs-keyword">array</span>(
+            <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;text/plain&apos;</span>
+        ),
+        <span class="hljs-string">&quot;Hello World!\n&quot;</span>
+    );
+});
+</code></pre>
+<p>We use this <a href="#response"><code>Response</code> class</a> throughout our project examples, but
+feel free to use any other implementation of the
+<a href="https://www.php-fig.org/psr/psr-7/#33-psrhttpmessageresponseinterface" target="_blank">PSR-7 <code>ResponseInterface</code></a>.
+See also the <a href="#response"><code>Response</code> class</a> for more details.</p>
+<h4 id="deferred-response">Deferred response</h4>
+<p>The example above returns the response directly, because it needs
+no time to be processed.
+Using a database, the file system or long calculations 
+(in fact every action that will take &gt;=1ms) to create your
+response, will slow down the server.
+To prevent this you SHOULD use a
+<a href="https://github.com/reactphp/promise#reactpromise" target="_blank">ReactPHP Promise</a>.
+This example shows how such a long-term action could look like:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server($loop, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> <span class="hljs-title">use</span> <span class="hljs-params">($loop)</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Promise(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($resolve, $reject)</span> <span class="hljs-title">use</span> <span class="hljs-params">($loop)</span> </span>{
+        $loop-&gt;addTimer(<span class="hljs-number">1.5</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($resolve)</span> </span>{
+            $response = <span class="hljs-keyword">new</span> React\Http\Message\Response(
+                <span class="hljs-number">200</span>,
+                <span class="hljs-keyword">array</span>(
+                    <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;text/plain&apos;</span>
+                ),
+                <span class="hljs-string">&quot;Hello world&quot;</span>
+            );
+            $resolve($response);
+        });
+    });
+});
+</code></pre>
+<p>The above example will create a response after 1.5 second.
+This example shows that you need a promise,
+if your response needs time to created.
+The <code>ReactPHP Promise</code> will resolve in a <code>Response</code> object when the request
+body ends.
+If the client closes the connection while the promise is still pending, the
+promise will automatically be cancelled.
+The promise cancellation handler can be used to clean up any pending resources
+allocated in this case (if applicable).
+If a promise is resolved after the client closes, it will simply be ignored.</p>
+<h4 id="streaming-outgoing-response">Streaming outgoing response</h4>
+<p>The <code>Response</code> class in this project supports to add an instance which implements the
+<a href="https://github.com/reactphp/stream#readablestreaminterface" target="_blank">ReactPHP <code>ReadableStreamInterface</code></a>
+for the response body.
+So you are able stream data directly into the response body.
+Note that other implementations of the
+<a href="https://www.php-fig.org/psr/psr-7/#33-psrhttpmessageresponseinterface" target="_blank">PSR-7 <code>ResponseInterface</code></a>
+may only support strings.</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server($loop, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> <span class="hljs-title">use</span> <span class="hljs-params">($loop)</span> </span>{
+    $stream = <span class="hljs-keyword">new</span> ThroughStream();
+
+    $timer = $loop-&gt;addPeriodicTimer(<span class="hljs-number">0.5</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($stream)</span> </span>{
+        $stream-&gt;write(microtime(<span class="hljs-keyword">true</span>) . PHP_EOL);
+    });
+
+    $loop-&gt;addTimer(<span class="hljs-number">5</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($loop, $timer, $stream)</span> </span>{
+        $loop-&gt;cancelTimer($timer);
+        $stream-&gt;end();
+    });
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+        <span class="hljs-number">200</span>,
+        <span class="hljs-keyword">array</span>(
+            <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;text/plain&apos;</span>
+        ),
+        $stream
+    );
+});
+</code></pre>
+<p>The above example will emit every 0.5 seconds the current Unix timestamp 
+with microseconds as float to the client and will end after 5 seconds.
+This is just a example you could use of the streaming,
+you could also send a big amount of data via little chunks 
+or use it for body data that needs to calculated.</p>
+<p>If the request handler resolves with a response stream that is already closed,
+it will simply send an empty response body.
+If the client closes the connection while the stream is still open, the
+response stream will automatically be closed.
+If a promise is resolved with a streaming body after the client closes, the
+response stream will automatically be closed.
+The <code>close</code> event can be used to clean up any pending resources allocated
+in this case (if applicable).</p>
+<blockquote>
+<p>Note that special care has to be taken if you use a body stream instance that
+  implements ReactPHP&apos;s
+  <a href="https://github.com/reactphp/stream#duplexstreaminterface" target="_blank"><code>DuplexStreamInterface</code></a>
+  (such as the <code>ThroughStream</code> in the above example).</p>
+<p>For <em>most</em> cases, this will simply only consume its readable side and forward
+  (send) any data that is emitted by the stream, thus entirely ignoring the
+  writable side of the stream.
+  If however this is either a <code>101</code> (Switching Protocols) response or a <code>2xx</code>
+  (Successful) response to a <code>CONNECT</code> method, it will also <em>write</em> data to the
+  writable side of the stream.
+  This can be avoided by either rejecting all requests with the <code>CONNECT</code>
+  method (which is what most <em>normal</em> origin HTTP servers would likely do) or
+  or ensuring that only ever an instance of
+  <a href="https://github.com/reactphp/stream#readablestreaminterface" target="_blank">ReactPHP&apos;s <code>ReadableStreamInterface</code></a>
+  is used.</p>
+<p>The <code>101</code> (Switching Protocols) response code is useful for the more advanced
+  <code>Upgrade</code> requests, such as upgrading to the WebSocket protocol or
+  implementing custom protocol logic that is out of scope of the HTTP specs and
+  this HTTP library.
+  If you want to handle the <code>Upgrade: WebSocket</code> header, you will likely want
+  to look into using <a href="http://socketo.me/" target="_blank">Ratchet</a> instead.
+  If you want to handle a custom protocol, you will likely want to look into the
+  <a href="https://tools.ietf.org/html/rfc7230#section-6.7" target="_blank">HTTP specs</a> and also see
+  <a href="examples">examples #81 and #82</a> for more details.
+  In particular, the <code>101</code> (Switching Protocols) response code MUST NOT be used
+  unless you send an <code>Upgrade</code> response header value that is also present in
+  the corresponding HTTP/1.1 <code>Upgrade</code> request header value.
+  The server automatically takes care of sending a <code>Connection: upgrade</code>
+  header value in this case, so you don&apos;t have to.</p>
+<p>The <code>CONNECT</code> method is useful in a tunneling setup (HTTPS proxy) and not
+  something most origin HTTP servers would want to care about.
+  The HTTP specs define an opaque &quot;tunneling mode&quot; for this method and make no
+  use of the message body.
+  For consistency reasons, this library uses a <code>DuplexStreamInterface</code> in the
+  response body for tunneled application data.
+  This implies that that a <code>2xx</code> (Successful) response to a <code>CONNECT</code> request
+  can in fact use a streaming response body for the tunneled application data,
+  so that any raw data the client sends over the connection will be piped
+  through the writable stream for consumption.
+  Note that while the HTTP specs make no use of the request body for <code>CONNECT</code>
+  requests, one may still be present. Normal request body processing applies
+  here and the connection will only turn to &quot;tunneling mode&quot; after the request
+  body has been processed (which should be empty in most cases).
+  See also <a href="examples/72-server-http-connect-proxy.php">HTTP CONNECT server example</a> for more details.</p>
+</blockquote>
+<h4 id="response-length">Response length</h4>
+<p>If the response body size is known, a <code>Content-Length</code> response header will be
+added automatically. This is the most common use case, for example when using
+a <code>string</code> response body like this:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server($loop, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+        <span class="hljs-number">200</span>,
+        <span class="hljs-keyword">array</span>(
+            <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;text/plain&apos;</span>
+        ),
+        <span class="hljs-string">&quot;Hello World!\n&quot;</span>
+    );
+});
+</code></pre>
+<p>If the response body size is unknown, a <code>Content-Length</code> response header can not
+be added automatically. When using a <a href="#streaming-outgoing-response">streaming outgoing response</a>
+without an explicit <code>Content-Length</code> response header, outgoing HTTP/1.1 response
+messages will automatically use <code>Transfer-Encoding: chunked</code> while legacy HTTP/1.0
+response messages will contain the plain response body. If you know the length
+of your streaming response body, you MAY want to specify it explicitly like this:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server($loop, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> <span class="hljs-title">use</span> <span class="hljs-params">($loop)</span> </span>{
+    $stream = <span class="hljs-keyword">new</span> ThroughStream();
+
+    $loop-&gt;addTimer(<span class="hljs-number">2.0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($stream)</span> </span>{
+        $stream-&gt;end(<span class="hljs-string">&quot;Hello World!\n&quot;</span>);
+    });
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+        <span class="hljs-number">200</span>,
+        <span class="hljs-keyword">array</span>(
+            <span class="hljs-string">&apos;Content-Length&apos;</span> =&gt; <span class="hljs-string">&apos;13&apos;</span>,
+            <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;text/plain&apos;</span>,
+        ),
+        $stream
+    );
+});
+</code></pre>
+<p>Any response to a <code>HEAD</code> request and any response with a <code>1xx</code> (Informational),
+<code>204</code> (No Content) or <code>304</code> (Not Modified) status code will <em>not</em> include a
+message body as per the HTTP specs.
+This means that your callback does not have to take special care of this and any
+response body will simply be ignored.</p>
+<p>Similarly, any <code>2xx</code> (Successful) response to a <code>CONNECT</code> request, any response
+with a <code>1xx</code> (Informational) or <code>204</code> (No Content) status code will <em>not</em>
+include a <code>Content-Length</code> or <code>Transfer-Encoding</code> header as these do not apply
+to these messages.
+Note that a response to a <code>HEAD</code> request and any response with a <code>304</code> (Not
+Modified) status code MAY include these headers even though
+the message does not contain a response body, because these header would apply
+to the message if the same request would have used an (unconditional) <code>GET</code>.</p>
+<h4 id="invalid-response">Invalid response</h4>
+<p>As stated above, each outgoing HTTP response is always represented by the
+<a href="https://www.php-fig.org/psr/psr-7/#33-psrhttpmessageresponseinterface" target="_blank">PSR-7 <code>ResponseInterface</code></a>.
+If your request handler function returns an invalid value or throws an
+unhandled <code>Exception</code> or <code>Throwable</code>, the server will automatically send a <code>500</code>
+(Internal Server Error) HTTP error response to the client.
+On top of this, it will emit an <code>error</code> event that can be used for logging
+purposes like this:</p>
+<pre><code class="lang-php">$server-&gt;on(<span class="hljs-string">&apos;error&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Exception $e)</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;Error: &apos;</span> . $e-&gt;getMessage() . PHP_EOL;
+    <span class="hljs-keyword">if</span> ($e-&gt;getPrevious() !== <span class="hljs-keyword">null</span>) {
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;Previous: &apos;</span> . $e-&gt;getPrevious()-&gt;getMessage() . PHP_EOL;
+    }
+});
+</code></pre>
+<p>Note that the server will also emit an <code>error</code> event if the client sends an
+invalid HTTP request that never reaches your request handler function. See
+also <a href="#invalid-request">invalid request</a> for more details.
+Additionally, a <a href="#streaming-incoming-request">streaming incoming request</a> body
+can also emit an <code>error</code> event on the request body.</p>
+<p>The server will only send a very generic <code>500</code> (Interval Server Error) HTTP
+error response without any further details to the client if an unhandled
+error occurs. While we understand this might make initial debugging harder,
+it also means that the server does not leak any application details or stack
+traces to the outside by default. It is usually recommended to catch any
+<code>Exception</code> or <code>Throwable</code> within your request handler function or alternatively
+use a <a href="#middleware"><code>middleware</code></a> to avoid this generic error handling and
+create your own HTTP response message instead.</p>
+<h4 id="default-response-headers">Default response headers</h4>
+<p>When a response is returned from the request handler function, it will be
+processed by the <a href="#server"><code>Server</code></a> and then sent back to the client.</p>
+<p>A <code>Server: ReactPHP/1</code> response header will be added automatically. You can add
+a custom <code>Server</code> response header like this:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server($loop, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(ServerRequestInterface $request)</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+        <span class="hljs-number">200</span>,
+        <span class="hljs-keyword">array</span>(
+            <span class="hljs-string">&apos;Server&apos;</span> =&gt; <span class="hljs-string">&apos;PHP/3&apos;</span>
+        )
+    );
+});
+</code></pre>
+<p>If you do not want to send this <code>Sever</code> response header at all (such as when you
+don&apos;t want to expose the underlying server software), you can use an empty
+string value like this:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server($loop, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(ServerRequestInterface $request)</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+        <span class="hljs-number">200</span>,
+        <span class="hljs-keyword">array</span>(
+            <span class="hljs-string">&apos;Server&apos;</span> =&gt; <span class="hljs-string">&apos;&apos;</span>
+        )
+    );
+});
+</code></pre>
+<p>A <code>Date</code> response header will be added automatically with the current system
+date and time if none is given. You can add a custom <code>Date</code> response header
+like this:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server($loop, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(ServerRequestInterface $request)</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+        <span class="hljs-number">200</span>,
+        <span class="hljs-keyword">array</span>(
+            <span class="hljs-string">&apos;Date&apos;</span> =&gt; gmdate(<span class="hljs-string">&apos;D, d M Y H:i:s \G\M\T&apos;</span>)
+        )
+    );
+});
+</code></pre>
+<p>If you do not want to send this <code>Date</code> response header at all (such as when you
+don&apos;t have an appropriate clock to rely on), you can use an empty string value
+like this:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server($loop, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(ServerRequestInterface $request)</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+        <span class="hljs-number">200</span>,
+        <span class="hljs-keyword">array</span>(
+            <span class="hljs-string">&apos;Date&apos;</span> =&gt; <span class="hljs-string">&apos;&apos;</span>
+        )
+    );
+});
+</code></pre>
+<p>The <code>Server</code> class will automatically add the protocol version of the request,
+so you don&apos;t have to. For instance, if the client sends the request using the
+HTTP/1.1 protocol version, the response message will also use the same protocol
+version, no matter what version is returned from the request handler function.</p>
+<p>Note that persistent connections (<code>Connection: keep-alive</code>) are currently
+not supported.
+As such, HTTP/1.1 response messages will automatically include a
+<code>Connection: close</code> header, irrespective of what header values are
+passed explicitly.</p>
+<h3 id="middleware">Middleware</h3>
+<p>As documented above, the <a href="#server"><code>Server</code></a> accepts a single request handler
+argument that is responsible for processing an incoming HTTP request and then
+creating and returning an outgoing HTTP response.</p>
+<p>Many common use cases involve validating, processing, manipulating the incoming
+HTTP request before passing it to the final business logic request handler.
+As such, this project supports the concept of middleware request handlers.</p>
+<h4 id="custom-middleware">Custom middleware</h4>
+<p>A middleware request handler is expected to adhere the following rules:</p>
+<ul>
+<li>It is a valid <code>callable</code>.</li>
+<li>It accepts an instance implementing
+<a href="https://www.php-fig.org/psr/psr-7/#321-psrhttpmessageserverrequestinterface" target="_blank">PSR-7 <code>ServerRequestInterface</code></a>
+as first argument and an optional <code>callable</code> as second argument.</li>
+<li>It returns either:<ul>
+<li>An instance implementing
+<a href="https://www.php-fig.org/psr/psr-7/#33-psrhttpmessageresponseinterface" target="_blank">PSR-7 <code>ResponseInterface</code></a>
+for direct consumption.</li>
+<li>Any promise which can be consumed by
+<a href="https://reactphp.org/promise/#resolve" target="_blank"><code>Promise\resolve()</code></a> resolving to a
+<a href="https://www.php-fig.org/psr/psr-7/#33-psrhttpmessageresponseinterface" target="_blank">PSR-7 <code>ResponseInterface</code></a>
+for deferred consumption.</li>
+<li>It MAY throw an <code>Exception</code> (or return a rejected promise) in order to
+signal an error condition and abort the chain.</li>
+</ul>
+</li>
+<li>It calls <code>$next($request)</code> to continue processing the next middleware
+request handler or returns explicitly without calling <code>$next</code> to
+abort the chain.<ul>
+<li>The <code>$next</code> request handler (recursively) invokes the next request
+handler from the chain with the same logic as above and returns (or throws)
+as above.</li>
+<li>The <code>$request</code> may be modified prior to calling <code>$next($request)</code> to
+change the incoming request the next middleware operates on.</li>
+<li>The <code>$next</code> return value may be consumed to modify the outgoing response.</li>
+<li>The <code>$next</code> request handler MAY be called more than once if you want to
+implement custom &quot;retry&quot; logic etc.</li>
+</ul>
+</li>
+</ul>
+<p>Note that this very simple definition allows you to use either anonymous
+functions or any classes that use the magic <code>__invoke()</code> method.
+This allows you to easily create custom middleware request handlers on the fly
+or use a class based approach to ease using existing middleware implementations.</p>
+<p>While this project does provide the means to <em>use</em> middleware implementations,
+it does not aim to <em>define</em> how middleware implementations should look like.
+We realize that there&apos;s a vivid ecosystem of middleware implementations and
+ongoing effort to standardize interfaces between these with
+<a href="https://www.php-fig.org/psr/psr-15/" target="_blank">PSR-15</a> (HTTP Server Request Handlers)
+and support this goal.
+As such, this project only bundles a few middleware implementations that are
+required to match PHP&apos;s request behavior (see below) and otherwise actively
+encourages <a href="#third-party-middleware">Third-Party Middleware</a> implementations.</p>
+<p>In order to use middleware request handlers, simply pass an array with all
+callables as defined above to the <a href="#server"><code>Server</code></a>.
+The following example adds a middleware request handler that adds the current time to the request as a 
+header (<code>Request-Time</code>) and a final request handler that always returns a 200 code without a body: </p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server(
+    $loop,
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request, callable $next)</span> </span>{
+        $request = $request-&gt;withHeader(<span class="hljs-string">&apos;Request-Time&apos;</span>, time());
+        <span class="hljs-keyword">return</span> $next($request);
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(<span class="hljs-number">200</span>);
+    }
+);
+</code></pre>
+<blockquote>
+<p>Note how the middleware request handler and the final request handler have a
+  very simple (and similar) interface. The only difference is that the final
+  request handler does not receive a <code>$next</code> handler.</p>
+</blockquote>
+<p>Similarly, you can use the result of the <code>$next</code> middleware request handler
+function to modify the outgoing response.
+Note that as per the above documentation, the <code>$next</code> middleware request handler may return a
+<a href="https://www.php-fig.org/psr/psr-7/#33-psrhttpmessageresponseinterface" target="_blank">PSR-7 <code>ResponseInterface</code></a>
+directly or one wrapped in a promise for deferred resolution.
+In order to simplify handling both paths, you can simply wrap this in a
+<a href="https://reactphp.org/promise/#resolve" target="_blank"><code>Promise\resolve()</code></a> call like this:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server(
+    $loop,
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request, callable $next)</span> </span>{
+        $promise = React\Promise\resolve($next($request));
+        <span class="hljs-keyword">return</span> $promise-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(ResponseInterface $response)</span> </span>{
+            <span class="hljs-keyword">return</span> $response-&gt;withHeader(<span class="hljs-string">&apos;Content-Type&apos;</span>, <span class="hljs-string">&apos;text/html&apos;</span>);
+        });
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(<span class="hljs-number">200</span>);
+    }
+);
+</code></pre>
+<p>Note that the <code>$next</code> middleware request handler may also throw an
+<code>Exception</code> (or return a rejected promise) as described above.
+The previous example does not catch any exceptions and would thus signal an
+error condition to the <code>Server</code>.
+Alternatively, you can also catch any <code>Exception</code> to implement custom error
+handling logic (or logging etc.) by wrapping this in a
+<a href="https://reactphp.org/promise/#promise" target="_blank"><code>Promise</code></a> like this:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server(
+    $loop,
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request, callable $next)</span> </span>{
+        $promise = <span class="hljs-keyword">new</span> React\Promise\Promise(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($resolve)</span> <span class="hljs-title">use</span> <span class="hljs-params">($next, $request)</span> </span>{
+            $resolve($next($request));
+        });
+        <span class="hljs-keyword">return</span> $promise-&gt;then(<span class="hljs-keyword">null</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Exception $e)</span> </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+                <span class="hljs-number">500</span>,
+                <span class="hljs-keyword">array</span>(),
+                <span class="hljs-string">&apos;Internal error: &apos;</span> . $e-&gt;getMessage()
+            );
+        });
+    },
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> </span>{
+        <span class="hljs-keyword">if</span> (mt_rand(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>) === <span class="hljs-number">1</span>) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(<span class="hljs-string">&apos;Database error&apos;</span>);
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(<span class="hljs-number">200</span>);
+    }
+);
+</code></pre>
+<h4 id="third-party-middleware">Third-Party Middleware</h4>
+<p>While this project does provide the means to <em>use</em> middleware implementations
+(see above), it does not aim to <em>define</em> how middleware implementations should
+look like. We realize that there&apos;s a vivid ecosystem of middleware
+implementations and ongoing effort to standardize interfaces between these with
+<a href="https://www.php-fig.org/psr/psr-15/" target="_blank">PSR-15</a> (HTTP Server Request Handlers)
+and support this goal.
+As such, this project only bundles a few middleware implementations that are
+required to match PHP&apos;s request behavior (see
+<a href="#react-http-middleware">middleware implementations</a>) and otherwise actively
+encourages third-party middleware implementations.</p>
+<p>While we would love to support PSR-15 directly in <code>react/http</code>, we understand
+that this interface does not specifically target async APIs and as such does
+not take advantage of promises for <a href="#deferred-response">deferred responses</a>.
+The gist of this is that where PSR-15 enforces a
+<a href="https://www.php-fig.org/psr/psr-7/#33-psrhttpmessageresponseinterface" target="_blank">PSR-7 <code>ResponseInterface</code></a>
+return value, we also accept a <code>PromiseInterface&lt;ResponseInterface&gt;</code>.
+As such, we suggest using the external
+<a href="https://github.com/friends-of-reactphp/http-middleware-psr15-adapter" target="_blank">PSR-15 middleware adapter</a>
+that uses on the fly monkey patching of these return values which makes using
+most PSR-15 middleware possible with this package without any changes required.</p>
+<p>Other than that, you can also use the above <a href="#middleware">middleware definition</a>
+to create custom middleware. A non-exhaustive list of third-party middleware can
+be found at the <a href="https://github.com/reactphp/reactphp/wiki/Users#http-middleware" target="_blank">middleware wiki</a>.
+If you build or know a custom middleware, make sure to let the world know and
+feel free to add it to this list.</p>
+<h2 id="api">API</h2>
+<h3 id="browser">Browser</h3>
+<p>The <code>React\Http\Browser</code> is responsible for sending HTTP requests to your HTTP server
+and keeps track of pending incoming HTTP responses.
+It also registers everything with the main <a href="https://github.com/reactphp/event-loop#usage" target="_blank"><code>EventLoop</code></a>.</p>
+<pre><code class="lang-php">$loop = React\EventLoop\Factory::create();
+
+$browser = <span class="hljs-keyword">new</span> React\Http\Browser($loop);
+</code></pre>
+<p>If you need custom connector settings (DNS resolution, TLS parameters, timeouts,
+proxy servers etc.), you can explicitly pass a custom instance of the
+<a href="https://github.com/reactphp/socket#connectorinterface" target="_blank"><code>ConnectorInterface</code></a>:</p>
+<pre><code class="lang-php">$connector = <span class="hljs-keyword">new</span> React\Socket\Connector($loop, <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">&apos;dns&apos;</span> =&gt; <span class="hljs-string">&apos;127.0.0.1&apos;</span>,
+    <span class="hljs-string">&apos;tcp&apos;</span> =&gt; <span class="hljs-keyword">array</span>(
+        <span class="hljs-string">&apos;bindto&apos;</span> =&gt; <span class="hljs-string">&apos;192.168.10.1:0&apos;</span>
+    ),
+    <span class="hljs-string">&apos;tls&apos;</span> =&gt; <span class="hljs-keyword">array</span>(
+        <span class="hljs-string">&apos;verify_peer&apos;</span> =&gt; <span class="hljs-keyword">false</span>,
+        <span class="hljs-string">&apos;verify_peer_name&apos;</span> =&gt; <span class="hljs-keyword">false</span>
+    )
+));
+
+$browser = <span class="hljs-keyword">new</span> React\Http\Browser($loop, $connector);
+</code></pre>
+<blockquote>
+<p>Note that the browser class is final and shouldn&apos;t be extended, it is likely to be marked final in a future release.</p>
+</blockquote>
+<h4 id="get">get()</h4>
+<p>The <code>get(string $url, array $headers = array()): PromiseInterface&lt;ResponseInterface&gt;</code> method can be used to
+send an HTTP GET request.</p>
+<pre><code class="lang-php">$browser-&gt;get($url)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+    var_dump((string)$response-&gt;getBody());
+});
+</code></pre>
+<p>See also <a href="examples/01-client-get-request.php">GET request client example</a>.</p>
+<h4 id="post">post()</h4>
+<p>The <code>post(string $url, array $headers = array(), string|ReadableStreamInterface $contents = &apos;&apos;): PromiseInterface&lt;ResponseInterface&gt;</code> method can be used to
+send an HTTP POST request.</p>
+<pre><code class="lang-php">$browser-&gt;post(
+    $url,
+    [
+        <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;application/json&apos;</span>
+    ],
+    json_encode($data)
+)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+    var_dump(json_decode((string)$response-&gt;getBody()));
+});
+</code></pre>
+<p>See also <a href="examples/04-client-post-json.php">POST JSON client example</a>.</p>
+<p>This method is also commonly used to submit HTML form data:</p>
+<pre><code class="lang-php">$data = [
+    <span class="hljs-string">&apos;user&apos;</span> =&gt; <span class="hljs-string">&apos;Alice&apos;</span>,
+    <span class="hljs-string">&apos;password&apos;</span> =&gt; <span class="hljs-string">&apos;secret&apos;</span>
+];
+
+$browser-&gt;post(
+    $url,
+    [
+        <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;application/x-www-form-urlencoded&apos;</span>
+    ],
+    http_build_query($data)
+);
+</code></pre>
+<p>This method will automatically add a matching <code>Content-Length</code> request
+header if the outgoing request body is a <code>string</code>. If you&apos;re using a
+streaming request body (<code>ReadableStreamInterface</code>), it will default to
+using <code>Transfer-Encoding: chunked</code> or you have to explicitly pass in a
+matching <code>Content-Length</code> request header like so:</p>
+<pre><code class="lang-php">$body = <span class="hljs-keyword">new</span> React\Stream\ThroughStream();
+$loop-&gt;addTimer(<span class="hljs-number">1.0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($body)</span> </span>{
+    $body-&gt;end(<span class="hljs-string">&quot;hello world&quot;</span>);
+});
+
+$browser-&gt;post($url, <span class="hljs-keyword">array</span>(<span class="hljs-string">&apos;Content-Length&apos;</span> =&gt; <span class="hljs-string">&apos;11&apos;</span>), $body);
+</code></pre>
+<h4 id="head">head()</h4>
+<p>The <code>head(string $url, array $headers = array()): PromiseInterface&lt;ResponseInterface&gt;</code> method can be used to
+send an HTTP HEAD request.</p>
+<pre><code class="lang-php">$browser-&gt;head($url)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+    var_dump($response-&gt;getHeaders());
+});
+</code></pre>
+<h4 id="patch">patch()</h4>
+<p>The <code>patch(string $url, array $headers = array(), string|ReadableStreamInterface $contents = &apos;&apos;): PromiseInterface&lt;ResponseInterface&gt;</code> method can be used to
+send an HTTP PATCH request.</p>
+<pre><code class="lang-php">$browser-&gt;patch(
+    $url,
+    [
+        <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;application/json&apos;</span>
+    ],
+    json_encode($data)
+)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+    var_dump(json_decode((string)$response-&gt;getBody()));
+});
+</code></pre>
+<p>This method will automatically add a matching <code>Content-Length</code> request
+header if the outgoing request body is a <code>string</code>. If you&apos;re using a
+streaming request body (<code>ReadableStreamInterface</code>), it will default to
+using <code>Transfer-Encoding: chunked</code> or you have to explicitly pass in a
+matching <code>Content-Length</code> request header like so:</p>
+<pre><code class="lang-php">$body = <span class="hljs-keyword">new</span> React\Stream\ThroughStream();
+$loop-&gt;addTimer(<span class="hljs-number">1.0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($body)</span> </span>{
+    $body-&gt;end(<span class="hljs-string">&quot;hello world&quot;</span>);
+});
+
+$browser-&gt;patch($url, <span class="hljs-keyword">array</span>(<span class="hljs-string">&apos;Content-Length&apos;</span> =&gt; <span class="hljs-string">&apos;11&apos;</span>), $body);
+</code></pre>
+<h4 id="put">put()</h4>
+<p>The <code>put(string $url, array $headers = array()): PromiseInterface&lt;ResponseInterface&gt;</code> method can be used to
+send an HTTP PUT request.</p>
+<pre><code class="lang-php">$browser-&gt;put(
+    $url,
+    [
+        <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;text/xml&apos;</span>
+    ],
+    $xml-&gt;asXML()
+)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+    var_dump((string)$response-&gt;getBody());
+});
+</code></pre>
+<p>See also <a href="examples/05-client-put-xml.php">PUT XML client example</a>.</p>
+<p>This method will automatically add a matching <code>Content-Length</code> request
+header if the outgoing request body is a <code>string</code>. If you&apos;re using a
+streaming request body (<code>ReadableStreamInterface</code>), it will default to
+using <code>Transfer-Encoding: chunked</code> or you have to explicitly pass in a
+matching <code>Content-Length</code> request header like so:</p>
+<pre><code class="lang-php">$body = <span class="hljs-keyword">new</span> React\Stream\ThroughStream();
+$loop-&gt;addTimer(<span class="hljs-number">1.0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($body)</span> </span>{
+    $body-&gt;end(<span class="hljs-string">&quot;hello world&quot;</span>);
+});
+
+$browser-&gt;put($url, <span class="hljs-keyword">array</span>(<span class="hljs-string">&apos;Content-Length&apos;</span> =&gt; <span class="hljs-string">&apos;11&apos;</span>), $body);
+</code></pre>
+<h4 id="delete">delete()</h4>
+<p>The <code>delete(string $url, array $headers = array()): PromiseInterface&lt;ResponseInterface&gt;</code> method can be used to
+send an HTTP DELETE request.</p>
+<pre><code class="lang-php">$browser-&gt;delete($url)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+    var_dump((string)$response-&gt;getBody());
+});
+</code></pre>
+<h4 id="request">request()</h4>
+<p>The <code>request(string $method, string $url, array $headers = array(), string|ReadableStreamInterface $body = &apos;&apos;): PromiseInterface&lt;ResponseInterface&gt;</code> method can be used to
+send an arbitrary HTTP request.</p>
+<p>The preferred way to send an HTTP request is by using the above
+<a href="#request-methods">request methods</a>, for example the <a href="#get"><code>get()</code></a>
+method to send an HTTP <code>GET</code> request.</p>
+<p>As an alternative, if you want to use a custom HTTP request method, you
+can use this method:</p>
+<pre><code class="lang-php">$browser-&gt;request(<span class="hljs-string">&apos;OPTIONS&apos;</span>, $url)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+    var_dump((string)$response-&gt;getBody());
+});
+</code></pre>
+<p>This method will automatically add a matching <code>Content-Length</code> request
+header if the size of the outgoing request body is known and non-empty.
+For an empty request body, if will only include a <code>Content-Length: 0</code>
+request header if the request method usually expects a request body (only
+applies to <code>POST</code>, <code>PUT</code> and <code>PATCH</code>).</p>
+<p>If you&apos;re using a streaming request body (<code>ReadableStreamInterface</code>), it
+will default to using <code>Transfer-Encoding: chunked</code> or you have to
+explicitly pass in a matching <code>Content-Length</code> request header like so:</p>
+<pre><code class="lang-php">$body = <span class="hljs-keyword">new</span> React\Stream\ThroughStream();
+$loop-&gt;addTimer(<span class="hljs-number">1.0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($body)</span> </span>{
+    $body-&gt;end(<span class="hljs-string">&quot;hello world&quot;</span>);
+});
+
+$browser-&gt;request(<span class="hljs-string">&apos;POST&apos;</span>, $url, <span class="hljs-keyword">array</span>(<span class="hljs-string">&apos;Content-Length&apos;</span> =&gt; <span class="hljs-string">&apos;11&apos;</span>), $body);
+</code></pre>
+<h4 id="requeststreaming">requestStreaming()</h4>
+<p>The <code>requestStreaming(string $method, string $url, array $headers = array(), string|ReadableStreamInterface $body = &apos;&apos;): PromiseInterface&lt;ResponseInterface&gt;</code> method can be used to
+send an arbitrary HTTP request and receive a streaming response without buffering the response body.</p>
+<p>The preferred way to send an HTTP request is by using the above
+<a href="#request-methods">request methods</a>, for example the <a href="#get"><code>get()</code></a>
+method to send an HTTP <code>GET</code> request. Each of these methods will buffer
+the whole response body in memory by default. This is easy to get started
+and works reasonably well for smaller responses.</p>
+<p>In some situations, it&apos;s a better idea to use a streaming approach, where
+only small chunks have to be kept in memory. You can use this method to
+send an arbitrary HTTP request and receive a streaming response. It uses
+the same HTTP message API, but does not buffer the response body in
+memory. It only processes the response body in small chunks as data is
+received and forwards this data through <a href="https://github.com/reactphp/stream" target="_blank">ReactPHP&apos;s Stream API</a>.
+This works for (any number of) responses of arbitrary sizes.</p>
+<pre><code class="lang-php">$browser-&gt;requestStreaming(<span class="hljs-string">&apos;GET&apos;</span>, $url)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+    $body = $response-&gt;getBody();
+    assert($body <span class="hljs-keyword">instanceof</span> Psr\Http\Message\StreamInterface);
+    assert($body <span class="hljs-keyword">instanceof</span> React\Stream\ReadableStreamInterface);
+
+    $body-&gt;on(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($chunk)</span> </span>{
+        <span class="hljs-keyword">echo</span> $chunk;
+    });
+
+    $body-&gt;on(<span class="hljs-string">&apos;error&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Exception $error)</span> </span>{
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;Error: &apos;</span> . $error-&gt;getMessage() . PHP_EOL;
+    });
+
+    $body-&gt;on(<span class="hljs-string">&apos;close&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;[DONE]&apos;</span> . PHP_EOL;
+    });
+});
+</code></pre>
+<p>See also <a href="https://github.com/reactphp/stream#readablestreaminterface" target="_blank">ReactPHP&apos;s <code>ReadableStreamInterface</code></a>
+and the <a href="#streaming-response">streaming response</a> for more details,
+examples and possible use-cases.</p>
+<p>This method will automatically add a matching <code>Content-Length</code> request
+header if the size of the outgoing request body is known and non-empty.
+For an empty request body, if will only include a <code>Content-Length: 0</code>
+request header if the request method usually expects a request body (only
+applies to <code>POST</code>, <code>PUT</code> and <code>PATCH</code>).</p>
+<p>If you&apos;re using a streaming request body (<code>ReadableStreamInterface</code>), it
+will default to using <code>Transfer-Encoding: chunked</code> or you have to
+explicitly pass in a matching <code>Content-Length</code> request header like so:</p>
+<pre><code class="lang-php">$body = <span class="hljs-keyword">new</span> React\Stream\ThroughStream();
+$loop-&gt;addTimer(<span class="hljs-number">1.0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($body)</span> </span>{
+    $body-&gt;end(<span class="hljs-string">&quot;hello world&quot;</span>);
+});
+
+$browser-&gt;requestStreaming(<span class="hljs-string">&apos;POST&apos;</span>, $url, <span class="hljs-keyword">array</span>(<span class="hljs-string">&apos;Content-Length&apos;</span> =&gt; <span class="hljs-string">&apos;11&apos;</span>), $body);
+</code></pre>
+<h4 id="withtimeout">withTimeout()</h4>
+<p>The <code>withTimeout(bool|number $timeout): Browser</code> method can be used to
+change the maximum timeout used for waiting for pending requests.</p>
+<p>You can pass in the number of seconds to use as a new timeout value:</p>
+<pre><code class="lang-php">$browser = $browser-&gt;withTimeout(<span class="hljs-number">10.0</span>);
+</code></pre>
+<p>You can pass in a bool <code>false</code> to disable any timeouts. In this case,
+requests can stay pending forever:</p>
+<pre><code class="lang-php">$browser = $browser-&gt;withTimeout(<span class="hljs-keyword">false</span>);
+</code></pre>
+<p>You can pass in a bool <code>true</code> to re-enable default timeout handling. This
+will respects PHP&apos;s <code>default_socket_timeout</code> setting (default 60s):</p>
+<pre><code class="lang-php">$browser = $browser-&gt;withTimeout(<span class="hljs-keyword">true</span>);
+</code></pre>
+<p>See also <a href="#timeouts">timeouts</a> for more details about timeout handling.</p>
+<p>Notice that the <a href="#browser"><code>Browser</code></a> is an immutable object, i.e. this
+method actually returns a <em>new</em> <a href="#browser"><code>Browser</code></a> instance with the
+given timeout value applied.</p>
+<h4 id="withfollowredirects">withFollowRedirects()</h4>
+<p>The <code>withFollowRedirects(bool|int $followRedirects): Browser</code> method can be used to
+change how HTTP redirects will be followed.</p>
+<p>You can pass in the maximum number of redirects to follow:</p>
+<pre><code class="lang-php">$browser = $browser-&gt;withFollowRedirects(<span class="hljs-number">5</span>);
+</code></pre>
+<p>The request will automatically be rejected when the number of redirects
+is exceeded. You can pass in a <code>0</code> to reject the request for any
+redirects encountered:</p>
+<pre><code class="lang-php">$browser = $browser-&gt;withFollowRedirects(<span class="hljs-number">0</span>);
+
+$browser-&gt;get($url)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+    <span class="hljs-comment">// only non-redirected responses will now end up here</span>
+    var_dump($response-&gt;getHeaders());
+});
+</code></pre>
+<p>You can pass in a bool <code>false</code> to disable following any redirects. In
+this case, requests will resolve with the redirection response instead
+of following the <code>Location</code> response header:</p>
+<pre><code class="lang-php">$browser = $browser-&gt;withFollowRedirects(<span class="hljs-keyword">false</span>);
+
+$browser-&gt;get($url)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+    <span class="hljs-comment">// any redirects will now end up here</span>
+    var_dump($response-&gt;getHeaderLine(<span class="hljs-string">&apos;Location&apos;</span>));
+});
+</code></pre>
+<p>You can pass in a bool <code>true</code> to re-enable default redirect handling.
+This defaults to following a maximum of 10 redirects:</p>
+<pre><code class="lang-php">$browser = $browser-&gt;withFollowRedirects(<span class="hljs-keyword">true</span>);
+</code></pre>
+<p>See also <a href="#redirects">redirects</a> for more details about redirect handling.</p>
+<p>Notice that the <a href="#browser"><code>Browser</code></a> is an immutable object, i.e. this
+method actually returns a <em>new</em> <a href="#browser"><code>Browser</code></a> instance with the
+given redirect setting applied.</p>
+<h4 id="withrejecterrorresponse">withRejectErrorResponse()</h4>
+<p>The <code>withRejectErrorResponse(bool $obeySuccessCode): Browser</code> method can be used to
+change whether non-successful HTTP response status codes (4xx and 5xx) will be rejected.</p>
+<p>You can pass in a bool <code>false</code> to disable rejecting incoming responses
+that use a 4xx or 5xx response status code. In this case, requests will
+resolve with the response message indicating an error condition:</p>
+<pre><code class="lang-php">$browser = $browser-&gt;withRejectErrorResponse(<span class="hljs-keyword">false</span>);
+
+$browser-&gt;get($url)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+    <span class="hljs-comment">// any HTTP response will now end up here</span>
+    var_dump($response-&gt;getStatusCode(), $response-&gt;getReasonPhrase());
+});
+</code></pre>
+<p>You can pass in a bool <code>true</code> to re-enable default status code handling.
+This defaults to rejecting any response status codes in the 4xx or 5xx
+range with a <a href="#responseexception"><code>ResponseException</code></a>:</p>
+<pre><code class="lang-php">$browser = $browser-&gt;withRejectErrorResponse(<span class="hljs-keyword">true</span>);
+
+$browser-&gt;get($url)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+    <span class="hljs-comment">// any successful HTTP response will now end up here</span>
+    var_dump($response-&gt;getStatusCode(), $response-&gt;getReasonPhrase());
+}, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Exception $e)</span> </span>{
+    <span class="hljs-keyword">if</span> ($e <span class="hljs-keyword">instanceof</span> React\Http\Message\ResponseException) {
+        <span class="hljs-comment">// any HTTP response error message will now end up here</span>
+        $response = $e-&gt;getResponse();
+        var_dump($response-&gt;getStatusCode(), $response-&gt;getReasonPhrase());
+    } <span class="hljs-keyword">else</span> {
+        var_dump($e-&gt;getMessage());
+    }
+});
+</code></pre>
+<p>Notice that the <a href="#browser"><code>Browser</code></a> is an immutable object, i.e. this
+method actually returns a <em>new</em> <a href="#browser"><code>Browser</code></a> instance with the
+given setting applied.</p>
+<h4 id="withbase">withBase()</h4>
+<p>The <code>withBase(string|null $baseUrl): Browser</code> method can be used to
+change the base URL used to resolve relative URLs to.</p>
+<p>If you configure a base URL, any requests to relative URLs will be
+processed by first resolving this relative to the given absolute base
+URL. This supports resolving relative path references (like <code>../</code> etc.).
+This is particularly useful for (RESTful) API calls where all endpoints
+(URLs) are located under a common base URL.</p>
+<pre><code class="lang-php">$browser = $browser-&gt;withBase(<span class="hljs-string">&apos;http://api.example.com/v3/&apos;</span>);
+
+<span class="hljs-comment">// will request http://api.example.com/v3/users</span>
+$browser-&gt;get(<span class="hljs-string">&apos;users&apos;</span>)-&gt;then(&#x2026;);
+</code></pre>
+<p>You can pass in a <code>null</code> base URL to return a new instance that does not
+use a base URL:</p>
+<pre><code class="lang-php">$browser = $browser-&gt;withBase(<span class="hljs-keyword">null</span>);
+</code></pre>
+<p>Accordingly, any requests using relative URLs to a browser that does not
+use a base URL can not be completed and will be rejected without sending
+a request.</p>
+<p>This method will throw an <code>InvalidArgumentException</code> if the given
+<code>$baseUrl</code> argument is not a valid URL.</p>
+<p>Notice that the <a href="#browser"><code>Browser</code></a> is an immutable object, i.e. the <code>withBase()</code> method
+actually returns a <em>new</em> <a href="#browser"><code>Browser</code></a> instance with the given base URL applied.</p>
+<h4 id="withprotocolversion">withProtocolVersion()</h4>
+<p>The <code>withProtocolVersion(string $protocolVersion): Browser</code> method can be used to
+change the HTTP protocol version that will be used for all subsequent requests.</p>
+<p>All the above <a href="#request-methods">request methods</a> default to sending
+requests as HTTP/1.1. This is the preferred HTTP protocol version which
+also provides decent backwards-compatibility with legacy HTTP/1.0
+servers. As such, there should rarely be a need to explicitly change this
+protocol version.</p>
+<p>If you want to explicitly use the legacy HTTP/1.0 protocol version, you
+can use this method:</p>
+<pre><code class="lang-php">$browser = $browser-&gt;withProtocolVersion(<span class="hljs-string">&apos;1.0&apos;</span>);
+
+$browser-&gt;get($url)-&gt;then(&#x2026;);
+</code></pre>
+<p>Notice that the <a href="#browser"><code>Browser</code></a> is an immutable object, i.e. this
+method actually returns a <em>new</em> <a href="#browser"><code>Browser</code></a> instance with the
+new protocol version applied.</p>
+<h4 id="withresponsebuffer">withResponseBuffer()</h4>
+<p>The <code>withResponseBuffer(int $maximumSize): Browser</code> method can be used to
+change the maximum size for buffering a response body.</p>
+<p>The preferred way to send an HTTP request is by using the above
+<a href="#request-methods">request methods</a>, for example the <a href="#get"><code>get()</code></a>
+method to send an HTTP <code>GET</code> request. Each of these methods will buffer
+the whole response body in memory by default. This is easy to get started
+and works reasonably well for smaller responses.</p>
+<p>By default, the response body buffer will be limited to 16 MiB. If the
+response body exceeds this maximum size, the request will be rejected.</p>
+<p>You can pass in the maximum number of bytes to buffer:</p>
+<pre><code class="lang-php">$browser = $browser-&gt;withResponseBuffer(<span class="hljs-number">1024</span> * <span class="hljs-number">1024</span>);
+
+$browser-&gt;get($url)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+    <span class="hljs-comment">// response body will not exceed 1 MiB</span>
+    var_dump($response-&gt;getHeaders(), (string) $response-&gt;getBody());
+});
+</code></pre>
+<p>Note that the response body buffer has to be kept in memory for each
+pending request until its transfer is completed and it will only be freed
+after a pending request is fulfilled. As such, increasing this maximum
+buffer size to allow larger response bodies is usually not recommended.
+Instead, you can use the <a href="#requeststreaming"><code>requestStreaming()</code> method</a>
+to receive responses with arbitrary sizes without buffering. Accordingly,
+this maximum buffer size setting has no effect on streaming responses.</p>
+<p>Notice that the <a href="#browser"><code>Browser</code></a> is an immutable object, i.e. this
+method actually returns a <em>new</em> <a href="#browser"><code>Browser</code></a> instance with the
+given setting applied.</p>
+<h3 id="reacthttpmessage">React\Http\Message</h3>
+<h4 id="response">Response</h4>
+<p>The <code>React\Http\Message\Response</code> class can be used to
+represent an outgoing server response message.</p>
+<pre><code class="lang-php">$response = <span class="hljs-keyword">new</span> React\Http\Message\Response(
+    <span class="hljs-number">200</span>,
+    <span class="hljs-keyword">array</span>(
+        <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;text/html&apos;</span>
+    ),
+    <span class="hljs-string">&quot;&lt;html&gt;Hello world!&lt;/html&gt;\n&quot;</span>
+);
+</code></pre>
+<p>This class implements the
+<a href="https://www.php-fig.org/psr/psr-7/#33-psrhttpmessageresponseinterface" target="_blank">PSR-7 <code>ResponseInterface</code></a>
+which in turn extends the
+<a href="https://www.php-fig.org/psr/psr-7/#31-psrhttpmessagemessageinterface" target="_blank">PSR-7 <code>MessageInterface</code></a>.</p>
+<blockquote>
+<p>Internally, this implementation builds on top of an existing incoming
+  response message and only adds required streaming support. This base class is
+  considered an implementation detail that may change in the future.</p>
+</blockquote>
+<h4 id="serverrequest">ServerRequest</h4>
+<p>The <code>React\Http\Message\ServerRequest</code> class can be used to
+respresent an incoming server request message.</p>
+<p>This class implements the
+<a href="https://www.php-fig.org/psr/psr-7/#321-psrhttpmessageserverrequestinterface" target="_blank">PSR-7 <code>ServerRequestInterface</code></a>
+which extends the
+<a href="https://www.php-fig.org/psr/psr-7/#32-psrhttpmessagerequestinterface" target="_blank">PSR-7 <code>RequestInterface</code></a>
+which in turn extends the
+<a href="https://www.php-fig.org/psr/psr-7/#31-psrhttpmessagemessageinterface" target="_blank">PSR-7 <code>MessageInterface</code></a>.</p>
+<p>This is mostly used internally to represent each incoming request message.
+Likewise, you can also use this class in test cases to test how your web
+application reacts to certain HTTP requests.</p>
+<blockquote>
+<p>Internally, this implementation builds on top of an existing outgoing
+  request message and only adds required server methods. This base class is
+  considered an implementation detail that may change in the future.</p>
+</blockquote>
+<h4 id="responseexception">ResponseException</h4>
+<p>The <code>React\Http\Message\ResponseException</code> is an <code>Exception</code> sub-class that will be used to reject
+a request promise if the remote server returns a non-success status code
+(anything but 2xx or 3xx).
+You can control this behavior via the <a href="#withrejecterrorresponse"><code>withRejectErrorResponse()</code> method</a>.</p>
+<p>The <code>getCode(): int</code> method can be used to
+return the HTTP response status code.</p>
+<p>The <code>getResponse(): ResponseInterface</code> method can be used to
+access its underlying response object.</p>
+<h3 id="reacthttpmiddleware">React\Http\Middleware</h3>
+<h4 id="streamingrequestmiddleware">StreamingRequestMiddleware</h4>
+<p>The <code>React\Http\Middleware\StreamingRequestMiddleware</code> can be used to
+process incoming requests with a streaming request body (without buffering).</p>
+<p>This allows you to process requests of any size without buffering the request
+body in memory. Instead, it will represent the request body as a
+<a href="https://github.com/reactphp/stream#readablestreaminterface" target="_blank"><code>ReadableStreamInterface</code></a>
+that emit chunks of incoming data as it is received:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server(<span class="hljs-keyword">array</span>(
+    <span class="hljs-keyword">new</span> React\Http\Middleware\StreamingRequestMiddleware(),
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> </span>{
+        $body = $request-&gt;getBody();
+        assert($body <span class="hljs-keyword">instanceof</span> Psr\Http\Message\StreamInterface);
+        assert($body <span class="hljs-keyword">instanceof</span> React\Stream\ReadableStreamInterface);
+
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Promise\Promise(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($resolve)</span> <span class="hljs-title">use</span> <span class="hljs-params">($body)</span> </span>{
+            $bytes = <span class="hljs-number">0</span>;
+            $body-&gt;on(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($chunk)</span> <span class="hljs-title">use</span> <span class="hljs-params">(&amp;$bytes)</span> </span>{
+                $bytes += \count($chunk);
+            });
+            $body-&gt;on(<span class="hljs-string">&apos;close&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">(&amp;$bytes, $resolve)</span> </span>{
+                $resolve(<span class="hljs-keyword">new</span> React\Http\Message\Response(
+                    <span class="hljs-number">200</span>,
+                    [],
+                    <span class="hljs-string">&quot;Received $bytes bytes\n&quot;</span>
+                ));
+            });
+        });
+    }
+));
+</code></pre>
+<p>See also <a href="#streaming-incoming-request">streaming incoming request</a>
+for more details.</p>
+<p>Additionally, this middleware can be used in combination with the
+<a href="#limitconcurrentrequestsmiddleware"><code>LimitConcurrentRequestsMiddleware</code></a> and
+<a href="#requestbodybuffermiddleware"><code>RequestBodyBufferMiddleware</code></a> (see below)
+to explicitly configure the total number of requests that can be handled at
+once:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server(<span class="hljs-keyword">array</span>(
+    <span class="hljs-keyword">new</span> React\Http\Middleware\StreamingRequestMiddleware(),
+    <span class="hljs-keyword">new</span> React\Http\Middleware\LimitConcurrentRequestsMiddleware(<span class="hljs-number">100</span>), <span class="hljs-comment">// 100 concurrent buffering handlers</span>
+    <span class="hljs-keyword">new</span> React\Http\Middleware\RequestBodyBufferMiddleware(<span class="hljs-number">2</span> * <span class="hljs-number">1024</span> * <span class="hljs-number">1024</span>), <span class="hljs-comment">// 2 MiB per request</span>
+    <span class="hljs-keyword">new</span> React\Http\Middleware\RequestBodyParserMiddleware(),
+    $handler
+));
+</code></pre>
+<blockquote>
+<p>Internally, this class is used as a &quot;marker&quot; to not trigger the default
+  request buffering behavior in the <code>Server</code>. It does not implement any logic
+  on its own.</p>
+</blockquote>
+<h4 id="limitconcurrentrequestsmiddleware">LimitConcurrentRequestsMiddleware</h4>
+<p>The <code>React\Http\Middleware\LimitConcurrentRequestsMiddleware</code> can be used to
+limit how many next handlers can be executed concurrently.</p>
+<p>If this middleware is invoked, it will check if the number of pending
+handlers is below the allowed limit and then simply invoke the next handler
+and it will return whatever the next handler returns (or throws).</p>
+<p>If the number of pending handlers exceeds the allowed limit, the request will
+be queued (and its streaming body will be paused) and it will return a pending
+promise.
+Once a pending handler returns (or throws), it will pick the oldest request
+from this queue and invokes the next handler (and its streaming body will be
+resumed).</p>
+<p>The following example shows how this middleware can be used to ensure no more
+than 10 handlers will be invoked at once:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server(
+    $loop,
+    <span class="hljs-keyword">new</span> React\Http\Middleware\LimitConcurrentRequestsMiddleware(<span class="hljs-number">10</span>),
+    $handler
+);
+</code></pre>
+<p>Similarly, this middleware is often used in combination with the
+<a href="#requestbodybuffermiddleware"><code>RequestBodyBufferMiddleware</code></a> (see below)
+to limit the total number of requests that can be buffered at once:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server(
+    $loop,
+    <span class="hljs-keyword">new</span> React\Http\Middleware\StreamingRequestMiddleware(),
+    <span class="hljs-keyword">new</span> React\Http\Middleware\LimitConcurrentRequestsMiddleware(<span class="hljs-number">100</span>), <span class="hljs-comment">// 100 concurrent buffering handlers</span>
+    <span class="hljs-keyword">new</span> React\Http\Middleware\RequestBodyBufferMiddleware(<span class="hljs-number">2</span> * <span class="hljs-number">1024</span> * <span class="hljs-number">1024</span>), <span class="hljs-comment">// 2 MiB per request</span>
+    <span class="hljs-keyword">new</span> React\Http\Middleware\RequestBodyParserMiddleware(),
+    $handler
+);
+</code></pre>
+<p>More sophisticated examples include limiting the total number of requests
+that can be buffered at once and then ensure the actual request handler only
+processes one request after another without any concurrency:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server(
+    $loop,
+    <span class="hljs-keyword">new</span> React\Http\Middleware\StreamingRequestMiddleware(),
+    <span class="hljs-keyword">new</span> React\Http\Middleware\LimitConcurrentRequestsMiddleware(<span class="hljs-number">100</span>), <span class="hljs-comment">// 100 concurrent buffering handlers</span>
+    <span class="hljs-keyword">new</span> React\Http\Middleware\RequestBodyBufferMiddleware(<span class="hljs-number">2</span> * <span class="hljs-number">1024</span> * <span class="hljs-number">1024</span>), <span class="hljs-comment">// 2 MiB per request</span>
+    <span class="hljs-keyword">new</span> React\Http\Middleware\RequestBodyParserMiddleware(),
+    <span class="hljs-keyword">new</span> React\Http\Middleware\LimitConcurrentRequestsMiddleware(<span class="hljs-number">1</span>), <span class="hljs-comment">// only execute 1 handler (no concurrency)</span>
+    $handler
+);
+</code></pre>
+<h4 id="requestbodybuffermiddleware">RequestBodyBufferMiddleware</h4>
+<p>One of the built-in middleware is the <code>React\Http\Middleware\RequestBodyBufferMiddleware</code> which
+can be used to buffer the whole incoming request body in memory.
+This can be useful if full PSR-7 compatibility is needed for the request handler
+and the default streaming request body handling is not needed.
+The constructor accepts one optional argument, the maximum request body size.
+When one isn&apos;t provided it will use <code>post_max_size</code> (default 8 MiB) from PHP&apos;s
+configuration.
+(Note that the value from your matching SAPI will be used, which is the CLI
+configuration in most cases.)</p>
+<p>Any incoming request that has a request body that exceeds this limit will be
+accepted, but its request body will be discarded (empty request body).
+This is done in order to avoid having to keep an incoming request with an
+excessive size (for example, think of a 2 GB file upload) in memory.
+This allows the next middleware handler to still handle this request, but it
+will see an empty request body.
+This is similar to PHP&apos;s default behavior, where the body will not be parsed
+if this limit is exceeded. However, unlike PHP&apos;s default behavior, the raw
+request body is not available via <code>php://input</code>.</p>
+<p>The <code>RequestBodyBufferMiddleware</code> will buffer requests with bodies of known size 
+(i.e. with <code>Content-Length</code> header specified) as well as requests with bodies of 
+unknown size (i.e. with <code>Transfer-Encoding: chunked</code> header).</p>
+<p>All requests will be buffered in memory until the request body end has
+been reached and then call the next middleware handler with the complete,
+buffered request.
+Similarly, this will immediately invoke the next middleware handler for requests
+that have an empty request body (such as a simple <code>GET</code> request) and requests
+that are already buffered (such as due to another middleware).</p>
+<p>Note that the given buffer size limit is applied to each request individually.
+This means that if you allow a 2 MiB limit and then receive 1000 concurrent
+requests, up to 2000 MiB may be allocated for these buffers alone.
+As such, it&apos;s highly recommended to use this along with the
+<a href="#limitconcurrentrequestsmiddleware"><code>LimitConcurrentRequestsMiddleware</code></a> (see above) to limit
+the total number of concurrent requests.</p>
+<p>Usage:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Http\Server(
+    $loop,
+    <span class="hljs-keyword">new</span> React\Http\Middleware\StreamingRequestMiddleware(),
+    <span class="hljs-keyword">new</span> React\Http\Middleware\LimitConcurrentRequestsMiddleware(<span class="hljs-number">100</span>), <span class="hljs-comment">// 100 concurrent buffering handlers</span>
+    <span class="hljs-keyword">new</span> React\Http\Middleware\RequestBodyBufferMiddleware(<span class="hljs-number">16</span> * <span class="hljs-number">1024</span> * <span class="hljs-number">1024</span>), <span class="hljs-comment">// 16 MiB</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> </span>{
+        <span class="hljs-comment">// The body from $request-&gt;getBody() is now fully available without the need to stream it </span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(<span class="hljs-number">200</span>);
+    },
+);
+</code></pre>
+<h4 id="requestbodyparsermiddleware">RequestBodyParserMiddleware</h4>
+<p>The <code>React\Http\Middleware\RequestBodyParserMiddleware</code> takes a fully buffered request body
+(generally from <a href="#requestbodybuffermiddleware"><code>RequestBodyBufferMiddleware</code></a>), 
+and parses the form values and file uploads from the incoming HTTP request body.</p>
+<p>This middleware handler takes care of applying values from HTTP
+requests that use <code>Content-Type: application/x-www-form-urlencoded</code> or
+<code>Content-Type: multipart/form-data</code> to resemble PHP&apos;s default superglobals
+<code>$_POST</code> and <code>$_FILES</code>.
+Instead of relying on these superglobals, you can use the
+<code>$request-&gt;getParsedBody()</code> and <code>$request-&gt;getUploadedFiles()</code> methods
+as defined by PSR-7.</p>
+<p>Accordingly, each file upload will be represented as instance implementing the
+<a href="https://www.php-fig.org/psr/psr-7/#36-psrhttpmessageuploadedfileinterface" target="_blank">PSR-7 <code>UploadedFileInterface</code></a>.
+Due to its blocking nature, the <code>moveTo()</code> method is not available and throws
+a <code>RuntimeException</code> instead.
+You can use <code>$contents = (string)$file-&gt;getStream();</code> to access the file
+contents and persist this to your favorite data store.</p>
+<pre><code class="lang-php">$handler = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> </span>{
+    <span class="hljs-comment">// If any, parsed form fields are now available from $request-&gt;getParsedBody()</span>
+    $body = $request-&gt;getParsedBody();
+    $name = <span class="hljs-keyword">isset</span>($body[<span class="hljs-string">&apos;name&apos;</span>]) ? $body[<span class="hljs-string">&apos;name&apos;</span>] : <span class="hljs-string">&apos;unnamed&apos;</span>;
+
+    $files = $request-&gt;getUploadedFiles();
+    $avatar = <span class="hljs-keyword">isset</span>($files[<span class="hljs-string">&apos;avatar&apos;</span>]) ? $files[<span class="hljs-string">&apos;avatar&apos;</span>] : <span class="hljs-keyword">null</span>;
+    <span class="hljs-keyword">if</span> ($avatar <span class="hljs-keyword">instanceof</span> Psr\Http\Message\UploadedFileInterface) {
+        <span class="hljs-keyword">if</span> ($avatar-&gt;getError() === UPLOAD_ERR_OK) {
+            $uploaded = $avatar-&gt;getSize() . <span class="hljs-string">&apos; bytes&apos;</span>;
+        } <span class="hljs-keyword">elseif</span> ($avatar-&gt;getError() === UPLOAD_ERR_INI_SIZE) {
+            $uploaded = <span class="hljs-string">&apos;file too large&apos;</span>;
+        } <span class="hljs-keyword">else</span> {
+            $uploaded = <span class="hljs-string">&apos;with error&apos;</span>;
+        }
+    } <span class="hljs-keyword">else</span> {
+        $uploaded = <span class="hljs-string">&apos;nothing&apos;</span>;
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+        <span class="hljs-number">200</span>,
+        <span class="hljs-keyword">array</span>(
+            <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;text/plain&apos;</span>
+        ),
+        $name . <span class="hljs-string">&apos; uploaded &apos;</span> . $uploaded
+    );
+};
+
+$server = <span class="hljs-keyword">new</span> React\Http\Server(
+    $loop,
+    <span class="hljs-keyword">new</span> React\Http\Middleware\StreamingRequestMiddleware(),
+    <span class="hljs-keyword">new</span> React\Http\Middleware\LimitConcurrentRequestsMiddleware(<span class="hljs-number">100</span>), <span class="hljs-comment">// 100 concurrent buffering handlers</span>
+    <span class="hljs-keyword">new</span> React\Http\Middleware\RequestBodyBufferMiddleware(<span class="hljs-number">16</span> * <span class="hljs-number">1024</span> * <span class="hljs-number">1024</span>), <span class="hljs-comment">// 16 MiB</span>
+    <span class="hljs-keyword">new</span> React\Http\Middleware\RequestBodyParserMiddleware(),
+    $handler
+);
+</code></pre>
+<p>See also <a href="examples/62-server-form-upload.php">form upload server example</a> for more details.</p>
+<p>By default, this middleware respects the
+<a href="https://www.php.net/manual/en/ini.core.php#ini.upload-max-filesize" target="_blank"><code>upload_max_filesize</code></a>
+(default <code>2M</code>) ini setting.
+Files that exceed this limit will be rejected with an <code>UPLOAD_ERR_INI_SIZE</code> error.
+You can control the maximum filesize for each individual file upload by
+explicitly passing the maximum filesize in bytes as the first parameter to the
+constructor like this:</p>
+<pre><code class="lang-php"><span class="hljs-keyword">new</span> React\Http\Middleware\RequestBodyParserMiddleware(<span class="hljs-number">8</span> * <span class="hljs-number">1024</span> * <span class="hljs-number">1024</span>); <span class="hljs-comment">// 8 MiB limit per file</span>
+</code></pre>
+<p>By default, this middleware respects the
+<a href="https://www.php.net/manual/en/ini.core.php#ini.file-uploads" target="_blank"><code>file_uploads</code></a>
+(default <code>1</code>) and
+<a href="https://www.php.net/manual/en/ini.core.php#ini.max-file-uploads" target="_blank"><code>max_file_uploads</code></a>
+(default <code>20</code>) ini settings.
+These settings control if any and how many files can be uploaded in a single request.
+If you upload more files in a single request, additional files will be ignored
+and the <code>getUploadedFiles()</code> method returns a truncated array.
+Note that upload fields left blank on submission do not count towards this limit.
+You can control the maximum number of file uploads per request by explicitly
+passing the second parameter to the constructor like this:</p>
+<pre><code class="lang-php"><span class="hljs-keyword">new</span> React\Http\Middleware\RequestBodyParserMiddleware(<span class="hljs-number">10</span> * <span class="hljs-number">1024</span>, <span class="hljs-number">100</span>); <span class="hljs-comment">// 100 files with 10 KiB each</span>
+</code></pre>
+<blockquote>
+<p>Note that this middleware handler simply parses everything that is already
+  buffered in the request body.
+  It is imperative that the request body is buffered by a prior middleware
+  handler as given in the example above.
+  This previous middleware handler is also responsible for rejecting incoming
+  requests that exceed allowed message sizes (such as big file uploads).
+  The <a href="#requestbodybuffermiddleware"><code>RequestBodyBufferMiddleware</code></a> used above
+  simply discards excessive request bodies, resulting in an empty body.
+  If you use this middleware without buffering first, it will try to parse an
+  empty (streaming) body and may thus assume an empty data structure.
+  See also <a href="#requestbodybuffermiddleware"><code>RequestBodyBufferMiddleware</code></a> for
+  more details.</p>
+<p>PHP&apos;s <code>MAX_FILE_SIZE</code> hidden field is respected by this middleware.
+  Files that exceed this limit will be rejected with an <code>UPLOAD_ERR_FORM_SIZE</code> error.</p>
+<p>This middleware respects the
+  <a href="https://www.php.net/manual/en/info.configuration.php#ini.max-input-vars" target="_blank"><code>max_input_vars</code></a>
+  (default <code>1000</code>) and
+  <a href="https://www.php.net/manual/en/info.configuration.php#ini.max-input-nesting-level" target="_blank"><code>max_input_nesting_level</code></a>
+  (default <code>64</code>) ini settings.</p>
+<p>Note that this middleware ignores the
+  <a href="https://www.php.net/manual/en/ini.core.php#ini.enable-post-data-reading" target="_blank"><code>enable_post_data_reading</code></a>
+  (default <code>1</code>) ini setting because it makes little sense to respect here and
+  is left up to higher-level implementations.
+  If you want to respect this setting, you have to check its value and
+  effectively avoid using this middleware entirely.</p>
+</blockquote>
+<h2 id="install">Install</h2>
+<p>The recommended way to install this library is <a href="https://getcomposer.org" target="_blank">through Composer</a>.
+<a href="https://getcomposer.org/doc/00-intro.md" target="_blank">New to Composer?</a></p>
+<p>This project follows <a href="https://semver.org/" target="_blank">SemVer</a>.
+This will install the latest supported version:</p>
+<pre><code class="lang-bash">$ composer require react/http:^1.2
+</code></pre>
+<p>See also the <a href="CHANGELOG.md">CHANGELOG</a> for details about version upgrades.</p>
+<p>This project aims to run on any platform and thus does not require any PHP
+extensions and supports running on legacy PHP 5.3 through current PHP 7+ and
+HHVM.
+It&apos;s <em>highly recommended to use PHP 7+</em> for this project.</p>
+<h2 id="tests">Tests</h2>
+<p>To run the test suite, you first need to clone this repo and then install all
+dependencies <a href="https://getcomposer.org" target="_blank">through Composer</a>:</p>
+<pre><code class="lang-bash">$ composer install
+</code></pre>
+<p>To run the test suite, go to the project root and run:</p>
+<pre><code class="lang-bash">$ php vendor/bin/phpunit
+</code></pre>
+<p>The test suite also contains a number of functional integration tests that rely
+on a stable internet connection.
+If you do not want to run these, they can simply be skipped like this:</p>
+<pre><code class="lang-bash">$ php vendor/bin/phpunit --exclude-group internet
+</code></pre>
+<h2 id="license">License</h2>
+<p>MIT, see <a href="LICENSE">LICENSE file</a>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Dns.html" class="navigation navigation-prev " aria-label="Previous page: Dns">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="HttpClient.html" class="navigation navigation-next " aria-label="Next page: HttpClient">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Http","level":"4.2","depth":1,"next":{"title":"HttpClient","level":"4.3","depth":1,"path":"3.Protocol-Components/HttpClient.md","ref":"3.Protocol-Components/HttpClient.md","articles":[]},"previous":{"title":"Dns","level":"4.1","depth":1,"path":"3.Protocol-Components/Dns.md","ref":"3.Protocol-Components/Dns.md","articles":[]},"dir":"ltr"},"config":{"plugins":["- summary","toggle-chapters","theme-comscore","highlight","search-plus","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"search-plus":{}},"theme":"default","author":"Imparting","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactPHP 中文文档","language":"zh-hans","gitbook":"*","description":"ReactPHP 中文文档","theme-default":{"showLevel":true}},"file":{"path":"3.Protocol-Components/Http.md","mtime":"2021-01-27T06:27:38.956Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-28T09:26:18.573Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

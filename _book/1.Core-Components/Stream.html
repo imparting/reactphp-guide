@@ -1,0 +1,1394 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Stream · ReactPHP 中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Imparting">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../2.Network-Components/Datagram.html" />
+    
+    
+    <link rel="prev" href="Promise.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">1.核心组件</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="EventLoop.html">
+            
+                <a href="EventLoop.html">
+            
+                    
+                    EventLoop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="Promise.html">
+            
+                <a href="Promise.html">
+            
+                    
+                    Promise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3" data-path="Stream.html">
+            
+                <a href="Stream.html">
+            
+                    
+                    Stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2.网络组件</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../2.Network-Components/Datagram.html">
+            
+                <a href="../2.Network-Components/Datagram.html">
+            
+                    
+                    Datagram
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../2.Network-Components/Socket.html">
+            
+                <a href="../2.Network-Components/Socket.html">
+            
+                    
+                    Socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.协议组件</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../3.Protocol-Components/Dns.html">
+            
+                <a href="../3.Protocol-Components/Dns.html">
+            
+                    
+                    Dns
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../3.Protocol-Components/Http.html">
+            
+                <a href="../3.Protocol-Components/Http.html">
+            
+                    
+                    Http
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../3.Protocol-Components/HttpClient.html">
+            
+                <a href="../3.Protocol-Components/HttpClient.html">
+            
+                    
+                    HttpClient
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">4.实用组件</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../4.Utility-Components/Cache.html">
+            
+                <a href="../4.Utility-Components/Cache.html">
+            
+                    
+                    Cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../4.Utility-Components/ChildProcess.html">
+            
+                <a href="../4.Utility-Components/ChildProcess.html">
+            
+                    
+                    ChildProcess
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../4.Utility-Components/PromiseStream.html">
+            
+                <a href="../4.Utility-Components/PromiseStream.html">
+            
+                    
+                    PromiseStream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../4.Utility-Components/PromiseTimer.html">
+            
+                <a href="../4.Utility-Components/PromiseTimer.html">
+            
+                    
+                    PromiseTimer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Stream</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="stream">Stream</h1>
+<p><a href="https://travis-ci.org/reactphp/stream" target="_blank"><img src="https://travis-ci.org/reactphp/stream.svg?branch=master" alt="Build Status"></a></p>
+<p>Event-driven readable and writable streams for non-blocking I/O in <a href="https://reactphp.org/" target="_blank">ReactPHP</a>.</p>
+<p>In order to make the <a href="https://github.com/reactphp/event-loop" target="_blank">EventLoop</a>
+easier to use, this component introduces the powerful concept of &quot;streams&quot;.
+Streams allow you to efficiently process huge amounts of data (such as a multi
+Gigabyte file download) in small chunks without having to store everything in
+memory at once.
+They are very similar to the streams found in PHP itself,
+but have an interface more suited for async, non-blocking I/O.</p>
+<p><strong>Table of contents</strong></p>
+<ul>
+<li><a href="#stream-usage">Stream usage</a><ul>
+<li><a href="#readablestreaminterface">ReadableStreamInterface</a><ul>
+<li><a href="#data-event">data event</a></li>
+<li><a href="#end-event">end event</a></li>
+<li><a href="#error-event">error event</a></li>
+<li><a href="#close-event">close event</a></li>
+<li><a href="#isreadable">isReadable()</a></li>
+<li><a href="#pause">pause()</a></li>
+<li><a href="#resume">resume()</a></li>
+<li><a href="#pipe">pipe()</a></li>
+<li><a href="#close">close()</a></li>
+</ul>
+</li>
+<li><a href="#writablestreaminterface">WritableStreamInterface</a><ul>
+<li><a href="#drain-event">drain event</a></li>
+<li><a href="#pipe-event">pipe event</a></li>
+<li><a href="#error-event-1">error event</a></li>
+<li><a href="#close-event-1">close event</a></li>
+<li><a href="#iswritable">isWritable()</a></li>
+<li><a href="#write">write()</a></li>
+<li><a href="#end">end()</a></li>
+<li><a href="#close-1">close()</a></li>
+</ul>
+</li>
+<li><a href="#duplexstreaminterface">DuplexStreamInterface</a></li>
+</ul>
+</li>
+<li><a href="#creating-streams">Creating streams</a><ul>
+<li><a href="#readableresourcestream">ReadableResourceStream</a></li>
+<li><a href="#writableresourcestream">WritableResourceStream</a></li>
+<li><a href="#duplexresourcestream">DuplexResourceStream</a></li>
+<li><a href="#throughstream">ThroughStream</a></li>
+<li><a href="#compositestream">CompositeStream</a></li>
+</ul>
+</li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#tests">Tests</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#more">More</a></li>
+</ul>
+<h2 id="stream-usage">Stream usage</h2>
+<p>ReactPHP uses the concept of &quot;streams&quot; throughout its ecosystem to provide a
+consistent higher-level abstraction for processing streams of arbitrary data
+contents and size.
+While a stream itself is a quite low-level concept, it can be used as a powerful
+abstraction to build higher-level components and protocols on top.</p>
+<p>If you&apos;re new to this concept, it helps to think of them as a water pipe:
+You can consume water from a source or you can produce water and forward (pipe)
+it to any destination (sink).</p>
+<p>Similarly, streams can either be</p>
+<ul>
+<li>readable (such as <code>STDIN</code> terminal input) or</li>
+<li>writable (such as <code>STDOUT</code> terminal output) or</li>
+<li>duplex (both readable <em>and</em> writable, such as a TCP/IP connection)</li>
+</ul>
+<p>Accordingly, this package defines the following three interfaces</p>
+<ul>
+<li><a href="#readablestreaminterface"><code>ReadableStreamInterface</code></a></li>
+<li><a href="#writablestreaminterface"><code>WritableStreamInterface</code></a></li>
+<li><a href="#duplexstreaminterface"><code>DuplexStreamInterface</code></a></li>
+</ul>
+<h3 id="readablestreaminterface">ReadableStreamInterface</h3>
+<p>The <code>ReadableStreamInterface</code> is responsible for providing an interface for
+read-only streams and the readable side of duplex streams.</p>
+<p>Besides defining a few methods, this interface also implements the
+<code>EventEmitterInterface</code> which allows you to react to certain events.</p>
+<p>The event callback functions MUST be a valid <code>callable</code> that obeys strict
+parameter definitions and MUST accept event parameters exactly as documented.
+The event callback functions MUST NOT throw an <code>Exception</code>.
+The return value of the event callback functions will be ignored and has no
+effect, so for performance reasons you&apos;re recommended to not return any
+excessive data structures.</p>
+<p>Every implementation of this interface MUST follow these event semantics in
+order to be considered a well-behaving stream.</p>
+<blockquote>
+<p>Note that higher-level implementations of this interface may choose to
+  define additional events with dedicated semantics not defined as part of
+  this low-level stream specification. Conformance with these event semantics
+  is out of scope for this interface, so you may also have to refer to the
+  documentation of such a higher-level implementation.</p>
+</blockquote>
+<h4 id="data-event">data event</h4>
+<p>The <code>data</code> event will be emitted whenever some data was read/received
+from this source stream.
+The event receives a single mixed argument for incoming data.</p>
+<pre><code class="lang-php">$stream-&gt;on(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($data)</span> </span>{
+    <span class="hljs-keyword">echo</span> $data;
+});
+</code></pre>
+<p>This event MAY be emitted any number of times, which may be zero times if
+this stream does not send any data at all.
+It SHOULD not be emitted after an <code>end</code> or <code>close</code> event.</p>
+<p>The given <code>$data</code> argument may be of mixed type, but it&apos;s usually
+recommended it SHOULD be a <code>string</code> value or MAY use a type that allows
+representation as a <code>string</code> for maximum compatibility.</p>
+<p>Many common streams (such as a TCP/IP connection or a file-based stream)
+will emit the raw (binary) payload data that is received over the wire as
+chunks of <code>string</code> values.</p>
+<p>Due to the stream-based nature of this, the sender may send any number
+of chunks with varying sizes. There are no guarantees that these chunks
+will be received with the exact same framing the sender intended to send.
+In other words, many lower-level protocols (such as TCP/IP) transfer the
+data in chunks that may be anywhere between single-byte values to several
+dozens of kilobytes. You may want to apply a higher-level protocol to
+these low-level data chunks in order to achieve proper message framing.</p>
+<h4 id="end-event">end event</h4>
+<p>The <code>end</code> event will be emitted once the source stream has successfully
+reached the end of the stream (EOF).</p>
+<pre><code class="lang-php">$stream-&gt;on(<span class="hljs-string">&apos;end&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;END&apos;</span>;
+});
+</code></pre>
+<p>This event SHOULD be emitted once or never at all, depending on whether
+a successful end was detected.
+It SHOULD NOT be emitted after a previous <code>end</code> or <code>close</code> event.
+It MUST NOT be emitted if the stream closes due to a non-successful
+end, such as after a previous <code>error</code> event.</p>
+<p>After the stream is ended, it MUST switch to non-readable mode,
+see also <code>isReadable()</code>.</p>
+<p>This event will only be emitted if the <em>end</em> was reached successfully,
+not if the stream was interrupted by an unrecoverable error or explicitly
+closed. Not all streams know this concept of a &quot;successful end&quot;.
+Many use-cases involve detecting when the stream closes (terminates)
+instead, in this case you should use the <code>close</code> event.
+After the stream emits an <code>end</code> event, it SHOULD usually be followed by a
+<code>close</code> event.</p>
+<p>Many common streams (such as a TCP/IP connection or a file-based stream)
+will emit this event if either the remote side closes the connection or
+a file handle was successfully read until reaching its end (EOF).</p>
+<p>Note that this event should not be confused with the <code>end()</code> method.
+This event defines a successful end <em>reading</em> from a source stream, while
+the <code>end()</code> method defines <em>writing</em> a successful end to a destination
+stream.</p>
+<h4 id="error-event">error event</h4>
+<p>The <code>error</code> event will be emitted once a fatal error occurs, usually while
+trying to read from this stream.
+The event receives a single <code>Exception</code> argument for the error instance.</p>
+<pre><code class="lang-php">$server-&gt;on(<span class="hljs-string">&apos;error&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Exception $e)</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;Error: &apos;</span> . $e-&gt;getMessage() . PHP_EOL;
+});
+</code></pre>
+<p>This event SHOULD be emitted once the stream detects a fatal error, such
+as a fatal transmission error or after an unexpected <code>data</code> or premature
+<code>end</code> event.
+It SHOULD NOT be emitted after a previous <code>error</code>, <code>end</code> or <code>close</code> event.
+It MUST NOT be emitted if this is not a fatal error condition, such as
+a temporary network issue that did not cause any data to be lost.</p>
+<p>After the stream errors, it MUST close the stream and SHOULD thus be
+followed by a <code>close</code> event and then switch to non-readable mode, see
+also <code>close()</code> and <code>isReadable()</code>.</p>
+<p>Many common streams (such as a TCP/IP connection or a file-based stream)
+only deal with data transmission and do not make assumption about data
+boundaries (such as unexpected <code>data</code> or premature <code>end</code> events).
+In other words, many lower-level protocols (such as TCP/IP) may choose
+to only emit this for a fatal transmission error once and will then
+close (terminate) the stream in response.</p>
+<p>If this stream is a <code>DuplexStreamInterface</code>, you should also notice
+how the writable side of the stream also implements an <code>error</code> event.
+In other words, an error may occur while either reading or writing the
+stream which should result in the same error processing.</p>
+<h4 id="close-event">close event</h4>
+<p>The <code>close</code> event will be emitted once the stream closes (terminates).</p>
+<pre><code class="lang-php">$stream-&gt;on(<span class="hljs-string">&apos;close&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;CLOSED&apos;</span>;
+});
+</code></pre>
+<p>This event SHOULD be emitted once or never at all, depending on whether
+the stream ever terminates.
+It SHOULD NOT be emitted after a previous <code>close</code> event.</p>
+<p>After the stream is closed, it MUST switch to non-readable mode,
+see also <code>isReadable()</code>.</p>
+<p>Unlike the <code>end</code> event, this event SHOULD be emitted whenever the stream
+closes, irrespective of whether this happens implicitly due to an
+unrecoverable error or explicitly when either side closes the stream.
+If you only want to detect a <em>successful</em> end, you should use the <code>end</code>
+event instead.</p>
+<p>Many common streams (such as a TCP/IP connection or a file-based stream)
+will likely choose to emit this event after reading a <em>successful</em> <code>end</code>
+event or after a fatal transmission <code>error</code> event.</p>
+<p>If this stream is a <code>DuplexStreamInterface</code>, you should also notice
+how the writable side of the stream also implements a <code>close</code> event.
+In other words, after receiving this event, the stream MUST switch into
+non-writable AND non-readable mode, see also <code>isWritable()</code>.
+Note that this event should not be confused with the <code>end</code> event.</p>
+<h4 id="isreadable">isReadable()</h4>
+<p>The <code>isReadable(): bool</code> method can be used to
+check whether this stream is in a readable state (not closed already).</p>
+<p>This method can be used to check if the stream still accepts incoming
+data events or if it is ended or closed already.
+Once the stream is non-readable, no further <code>data</code> or <code>end</code> events SHOULD
+be emitted.</p>
+<pre><code class="lang-php">assert($stream-&gt;isReadable() === <span class="hljs-keyword">false</span>);
+
+$stream-&gt;on(<span class="hljs-string">&apos;data&apos;</span>, assertNeverCalled());
+$stream-&gt;on(<span class="hljs-string">&apos;end&apos;</span>, assertNeverCalled());
+</code></pre>
+<p>A successfully opened stream always MUST start in readable mode.</p>
+<p>Once the stream ends or closes, it MUST switch to non-readable mode.
+This can happen any time, explicitly through <code>close()</code> or
+implicitly due to a remote close or an unrecoverable transmission error.
+Once a stream has switched to non-readable mode, it MUST NOT transition
+back to readable mode.</p>
+<p>If this stream is a <code>DuplexStreamInterface</code>, you should also notice
+how the writable side of the stream also implements an <code>isWritable()</code>
+method. Unless this is a half-open duplex stream, they SHOULD usually
+have the same return value.</p>
+<h4 id="pause">pause()</h4>
+<p>The <code>pause(): void</code> method can be used to
+pause reading incoming data events.</p>
+<p>Removes the data source file descriptor from the event loop. This
+allows you to throttle incoming data.</p>
+<p>Unless otherwise noted, a successfully opened stream SHOULD NOT start
+in paused state.</p>
+<p>Once the stream is paused, no futher <code>data</code> or <code>end</code> events SHOULD
+be emitted.</p>
+<pre><code class="lang-php">$stream-&gt;pause();
+
+$stream-&gt;on(<span class="hljs-string">&apos;data&apos;</span>, assertShouldNeverCalled());
+$stream-&gt;on(<span class="hljs-string">&apos;end&apos;</span>, assertShouldNeverCalled());
+</code></pre>
+<p>This method is advisory-only, though generally not recommended, the
+stream MAY continue emitting <code>data</code> events.</p>
+<p>You can continue processing events by calling <code>resume()</code> again.</p>
+<p>Note that both methods can be called any number of times, in particular
+calling <code>pause()</code> more than once SHOULD NOT have any effect.</p>
+<p>See also <code>resume()</code>.</p>
+<h4 id="resume">resume()</h4>
+<p>The <code>resume(): void</code> method can be used to
+resume reading incoming data events.</p>
+<p>Re-attach the data source after a previous <code>pause()</code>.</p>
+<pre><code class="lang-php">$stream-&gt;pause();
+
+$loop-&gt;addTimer(<span class="hljs-number">1.0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($stream)</span> </span>{
+    $stream-&gt;resume();
+});
+</code></pre>
+<p>Note that both methods can be called any number of times, in particular
+calling <code>resume()</code> without a prior <code>pause()</code> SHOULD NOT have any effect.</p>
+<p>See also <code>pause()</code>.</p>
+<h4 id="pipe">pipe()</h4>
+<p>The <code>pipe(WritableStreamInterface $dest, array $options = [])</code> method can be used to
+pipe all the data from this readable source into the given writable destination.</p>
+<p>Automatically sends all incoming data to the destination.
+Automatically throttles the source based on what the destination can handle.</p>
+<pre><code class="lang-php">$source-&gt;pipe($dest);
+</code></pre>
+<p>Similarly, you can also pipe an instance implementing <code>DuplexStreamInterface</code>
+into itself in order to write back all the data that is received.
+This may be a useful feature for a TCP/IP echo service:</p>
+<pre><code class="lang-php">$connection-&gt;pipe($connection);
+</code></pre>
+<p>This method returns the destination stream as-is, which can be used to
+set up chains of piped streams:</p>
+<pre><code class="lang-php">$source-&gt;pipe($decodeGzip)-&gt;pipe($filterBadWords)-&gt;pipe($dest);
+</code></pre>
+<p>By default, this will call <code>end()</code> on the destination stream once the
+source stream emits an <code>end</code> event. This can be disabled like this:</p>
+<pre><code class="lang-php">$source-&gt;pipe($dest, <span class="hljs-keyword">array</span>(<span class="hljs-string">&apos;end&apos;</span> =&gt; <span class="hljs-keyword">false</span>));
+</code></pre>
+<p>Note that this only applies to the <code>end</code> event.
+If an <code>error</code> or explicit <code>close</code> event happens on the source stream,
+you&apos;ll have to manually close the destination stream:</p>
+<pre><code class="lang-php">$source-&gt;pipe($dest);
+$source-&gt;on(<span class="hljs-string">&apos;close&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($dest)</span> </span>{
+    $dest-&gt;end(<span class="hljs-string">&apos;BYE!&apos;</span>);
+});
+</code></pre>
+<p>If the source stream is not readable (closed state), then this is a NO-OP.</p>
+<pre><code class="lang-php">$source-&gt;close();
+$source-&gt;pipe($dest); <span class="hljs-comment">// NO-OP</span>
+</code></pre>
+<p>If the destinantion stream is not writable (closed state), then this will simply
+throttle (pause) the source stream:</p>
+<pre><code class="lang-php">$dest-&gt;close();
+$source-&gt;pipe($dest); <span class="hljs-comment">// calls $source-&gt;pause()</span>
+</code></pre>
+<p>Similarly, if the destination stream is closed while the pipe is still
+active, it will also throttle (pause) the source stream:</p>
+<pre><code class="lang-php">$source-&gt;pipe($dest);
+$dest-&gt;close(); <span class="hljs-comment">// calls $source-&gt;pause()</span>
+</code></pre>
+<p>Once the pipe is set up successfully, the destination stream MUST emit
+a <code>pipe</code> event with this source stream an event argument.</p>
+<h4 id="close">close()</h4>
+<p>The <code>close(): void</code> method can be used to
+close the stream (forcefully).</p>
+<p>This method can be used to (forcefully) close the stream.</p>
+<pre><code class="lang-php">$stream-&gt;close();
+</code></pre>
+<p>Once the stream is closed, it SHOULD emit a <code>close</code> event.
+Note that this event SHOULD NOT be emitted more than once, in particular
+if this method is called multiple times.</p>
+<p>After calling this method, the stream MUST switch into a non-readable
+mode, see also <code>isReadable()</code>.
+This means that no further <code>data</code> or <code>end</code> events SHOULD be emitted.</p>
+<pre><code class="lang-php">$stream-&gt;close();
+assert($stream-&gt;isReadable() === <span class="hljs-keyword">false</span>);
+
+$stream-&gt;on(<span class="hljs-string">&apos;data&apos;</span>, assertNeverCalled());
+$stream-&gt;on(<span class="hljs-string">&apos;end&apos;</span>, assertNeverCalled());
+</code></pre>
+<p>If this stream is a <code>DuplexStreamInterface</code>, you should also notice
+how the writable side of the stream also implements a <code>close()</code> method.
+In other words, after calling this method, the stream MUST switch into
+non-writable AND non-readable mode, see also <code>isWritable()</code>.
+Note that this method should not be confused with the <code>end()</code> method.</p>
+<h3 id="writablestreaminterface">WritableStreamInterface</h3>
+<p>The <code>WritableStreamInterface</code> is responsible for providing an interface for
+write-only streams and the writable side of duplex streams.</p>
+<p>Besides defining a few methods, this interface also implements the
+<code>EventEmitterInterface</code> which allows you to react to certain events.</p>
+<p>The event callback functions MUST be a valid <code>callable</code> that obeys strict
+parameter definitions and MUST accept event parameters exactly as documented.
+The event callback functions MUST NOT throw an <code>Exception</code>.
+The return value of the event callback functions will be ignored and has no
+effect, so for performance reasons you&apos;re recommended to not return any
+excessive data structures.</p>
+<p>Every implementation of this interface MUST follow these event semantics in
+order to be considered a well-behaving stream.</p>
+<blockquote>
+<p>Note that higher-level implementations of this interface may choose to
+  define additional events with dedicated semantics not defined as part of
+  this low-level stream specification. Conformance with these event semantics
+  is out of scope for this interface, so you may also have to refer to the
+  documentation of such a higher-level implementation.</p>
+</blockquote>
+<h4 id="drain-event">drain event</h4>
+<p>The <code>drain</code> event will be emitted whenever the write buffer became full
+previously and is now ready to accept more data.</p>
+<pre><code class="lang-php">$stream-&gt;on(<span class="hljs-string">&apos;drain&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($stream)</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;Stream is now ready to accept more data&apos;</span>;
+});
+</code></pre>
+<p>This event SHOULD be emitted once every time the buffer became full
+previously and is now ready to accept more data.
+In other words, this event MAY be emitted any number of times, which may
+be zero times if the buffer never became full in the first place.
+This event SHOULD NOT be emitted if the buffer has not become full
+previously.</p>
+<p>This event is mostly used internally, see also <code>write()</code> for more details.</p>
+<h4 id="pipe-event">pipe event</h4>
+<p>The <code>pipe</code> event will be emitted whenever a readable stream is <code>pipe()</code>d
+into this stream.
+The event receives a single <code>ReadableStreamInterface</code> argument for the
+source stream.</p>
+<pre><code class="lang-php">$stream-&gt;on(<span class="hljs-string">&apos;pipe&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(ReadableStreamInterface $source)</span> <span class="hljs-title">use</span> <span class="hljs-params">($stream)</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;Now receiving piped data&apos;</span>;
+
+    <span class="hljs-comment">// explicitly close target if source emits an error</span>
+    $source-&gt;on(<span class="hljs-string">&apos;error&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($stream)</span> </span>{
+        $stream-&gt;close();
+    });
+});
+
+$source-&gt;pipe($stream);
+</code></pre>
+<p>This event MUST be emitted once for each readable stream that is
+successfully piped into this destination stream.
+In other words, this event MAY be emitted any number of times, which may
+be zero times if no stream is ever piped into this stream.
+This event MUST NOT be emitted if either the source is not readable
+(closed already) or this destination is not writable (closed already).</p>
+<p>This event is mostly used internally, see also <code>pipe()</code> for more details.</p>
+<h4 id="error-event">error event</h4>
+<p>The <code>error</code> event will be emitted once a fatal error occurs, usually while
+trying to write to this stream.
+The event receives a single <code>Exception</code> argument for the error instance.</p>
+<pre><code class="lang-php">$stream-&gt;on(<span class="hljs-string">&apos;error&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Exception $e)</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;Error: &apos;</span> . $e-&gt;getMessage() . PHP_EOL;
+});
+</code></pre>
+<p>This event SHOULD be emitted once the stream detects a fatal error, such
+as a fatal transmission error.
+It SHOULD NOT be emitted after a previous <code>error</code> or <code>close</code> event.
+It MUST NOT be emitted if this is not a fatal error condition, such as
+a temporary network issue that did not cause any data to be lost.</p>
+<p>After the stream errors, it MUST close the stream and SHOULD thus be
+followed by a <code>close</code> event and then switch to non-writable mode, see
+also <code>close()</code> and <code>isWritable()</code>.</p>
+<p>Many common streams (such as a TCP/IP connection or a file-based stream)
+only deal with data transmission and may choose
+to only emit this for a fatal transmission error once and will then
+close (terminate) the stream in response.</p>
+<p>If this stream is a <code>DuplexStreamInterface</code>, you should also notice
+how the readable side of the stream also implements an <code>error</code> event.
+In other words, an error may occur while either reading or writing the
+stream which should result in the same error processing.</p>
+<h4 id="close-event">close event</h4>
+<p>The <code>close</code> event will be emitted once the stream closes (terminates).</p>
+<pre><code class="lang-php">$stream-&gt;on(<span class="hljs-string">&apos;close&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;CLOSED&apos;</span>;
+});
+</code></pre>
+<p>This event SHOULD be emitted once or never at all, depending on whether
+the stream ever terminates.
+It SHOULD NOT be emitted after a previous <code>close</code> event.</p>
+<p>After the stream is closed, it MUST switch to non-writable mode,
+see also <code>isWritable()</code>.</p>
+<p>This event SHOULD be emitted whenever the stream closes, irrespective of
+whether this happens implicitly due to an unrecoverable error or
+explicitly when either side closes the stream.</p>
+<p>Many common streams (such as a TCP/IP connection or a file-based stream)
+will likely choose to emit this event after flushing the buffer from
+the <code>end()</code> method, after receiving a <em>successful</em> <code>end</code> event or after
+a fatal transmission <code>error</code> event.</p>
+<p>If this stream is a <code>DuplexStreamInterface</code>, you should also notice
+how the readable side of the stream also implements a <code>close</code> event.
+In other words, after receiving this event, the stream MUST switch into
+non-writable AND non-readable mode, see also <code>isReadable()</code>.
+Note that this event should not be confused with the <code>end</code> event.</p>
+<h4 id="iswritable">isWritable()</h4>
+<p>The <code>isWritable(): bool</code> method can be used to
+check whether this stream is in a writable state (not closed already).</p>
+<p>This method can be used to check if the stream still accepts writing
+any data or if it is ended or closed already.
+Writing any data to a non-writable stream is a NO-OP:</p>
+<pre><code class="lang-php">assert($stream-&gt;isWritable() === <span class="hljs-keyword">false</span>);
+
+$stream-&gt;write(<span class="hljs-string">&apos;end&apos;</span>); <span class="hljs-comment">// NO-OP</span>
+$stream-&gt;end(<span class="hljs-string">&apos;end&apos;</span>); <span class="hljs-comment">// NO-OP</span>
+</code></pre>
+<p>A successfully opened stream always MUST start in writable mode.</p>
+<p>Once the stream ends or closes, it MUST switch to non-writable mode.
+This can happen any time, explicitly through <code>end()</code> or <code>close()</code> or
+implicitly due to a remote close or an unrecoverable transmission error.
+Once a stream has switched to non-writable mode, it MUST NOT transition
+back to writable mode.</p>
+<p>If this stream is a <code>DuplexStreamInterface</code>, you should also notice
+how the readable side of the stream also implements an <code>isReadable()</code>
+method. Unless this is a half-open duplex stream, they SHOULD usually
+have the same return value.</p>
+<h4 id="write">write()</h4>
+<p>The <code>write(mixed $data): bool</code> method can be used to
+write some data into the stream.</p>
+<p>A successful write MUST be confirmed with a boolean <code>true</code>, which means
+that either the data was written (flushed) immediately or is buffered and
+scheduled for a future write. Note that this interface gives you no
+control over explicitly flushing the buffered data, as finding the
+appropriate time for this is beyond the scope of this interface and left
+up to the implementation of this interface.</p>
+<p>Many common streams (such as a TCP/IP connection or file-based stream)
+may choose to buffer all given data and schedule a future flush by using
+an underlying EventLoop to check when the resource is actually writable.</p>
+<p>If a stream cannot handle writing (or flushing) the data, it SHOULD emit
+an <code>error</code> event and MAY <code>close()</code> the stream if it can not recover from
+this error.</p>
+<p>If the internal buffer is full after adding <code>$data</code>, then <code>write()</code>
+SHOULD return <code>false</code>, indicating that the caller should stop sending
+data until the buffer drains.
+The stream SHOULD send a <code>drain</code> event once the buffer is ready to accept
+more data.</p>
+<p>Similarly, if the the stream is not writable (already in a closed state)
+it MUST NOT process the given <code>$data</code> and SHOULD return <code>false</code>,
+indicating that the caller should stop sending data.</p>
+<p>The given <code>$data</code> argument MAY be of mixed type, but it&apos;s usually
+recommended it SHOULD be a <code>string</code> value or MAY use a type that allows
+representation as a <code>string</code> for maximum compatibility.</p>
+<p>Many common streams (such as a TCP/IP connection or a file-based stream)
+will only accept the raw (binary) payload data that is transferred over
+the wire as chunks of <code>string</code> values.</p>
+<p>Due to the stream-based nature of this, the sender may send any number
+of chunks with varying sizes. There are no guarantees that these chunks
+will be received with the exact same framing the sender intended to send.
+In other words, many lower-level protocols (such as TCP/IP) transfer the
+data in chunks that may be anywhere between single-byte values to several
+dozens of kilobytes. You may want to apply a higher-level protocol to
+these low-level data chunks in order to achieve proper message framing.</p>
+<h4 id="end">end()</h4>
+<p>The <code>end(mixed $data = null): void</code> method can be used to
+successfully end the stream (after optionally sending some final data).</p>
+<p>This method can be used to successfully end the stream, i.e. close
+the stream after sending out all data that is currently buffered.</p>
+<pre><code class="lang-php">$stream-&gt;write(<span class="hljs-string">&apos;hello&apos;</span>);
+$stream-&gt;write(<span class="hljs-string">&apos;world&apos;</span>);
+$stream-&gt;end();
+</code></pre>
+<p>If there&apos;s no data currently buffered and nothing to be flushed, then
+this method MAY <code>close()</code> the stream immediately.</p>
+<p>If there&apos;s still data in the buffer that needs to be flushed first, then
+this method SHOULD try to write out this data and only then <code>close()</code>
+the stream.
+Once the stream is closed, it SHOULD emit a <code>close</code> event.</p>
+<p>Note that this interface gives you no control over explicitly flushing
+the buffered data, as finding the appropriate time for this is beyond the
+scope of this interface and left up to the implementation of this
+interface.</p>
+<p>Many common streams (such as a TCP/IP connection or file-based stream)
+may choose to buffer all given data and schedule a future flush by using
+an underlying EventLoop to check when the resource is actually writable.</p>
+<p>You can optionally pass some final data that is written to the stream
+before ending the stream. If a non-<code>null</code> value is given as <code>$data</code>, then
+this method will behave just like calling <code>write($data)</code> before ending
+with no data.</p>
+<pre><code class="lang-php"><span class="hljs-comment">// shorter version</span>
+$stream-&gt;end(<span class="hljs-string">&apos;bye&apos;</span>);
+
+<span class="hljs-comment">// same as longer version</span>
+$stream-&gt;write(<span class="hljs-string">&apos;bye&apos;</span>);
+$stream-&gt;end();
+</code></pre>
+<p>After calling this method, the stream MUST switch into a non-writable
+mode, see also <code>isWritable()</code>.
+This means that no further writes are possible, so any additional
+<code>write()</code> or <code>end()</code> calls have no effect.</p>
+<pre><code class="lang-php">$stream-&gt;end();
+assert($stream-&gt;isWritable() === <span class="hljs-keyword">false</span>);
+
+$stream-&gt;write(<span class="hljs-string">&apos;nope&apos;</span>); <span class="hljs-comment">// NO-OP</span>
+$stream-&gt;end(); <span class="hljs-comment">// NO-OP</span>
+</code></pre>
+<p>If this stream is a <code>DuplexStreamInterface</code>, calling this method SHOULD
+also end its readable side, unless the stream supports half-open mode.
+In other words, after calling this method, these streams SHOULD switch
+into non-writable AND non-readable mode, see also <code>isReadable()</code>.
+This implies that in this case, the stream SHOULD NOT emit any <code>data</code>
+or <code>end</code> events anymore.
+Streams MAY choose to use the <code>pause()</code> method logic for this, but
+special care may have to be taken to ensure a following call to the
+<code>resume()</code> method SHOULD NOT continue emitting readable events.</p>
+<p>Note that this method should not be confused with the <code>close()</code> method.</p>
+<h4 id="close">close()</h4>
+<p>The <code>close(): void</code> method can be used to
+close the stream (forcefully).</p>
+<p>This method can be used to forcefully close the stream, i.e. close
+the stream without waiting for any buffered data to be flushed.
+If there&apos;s still data in the buffer, this data SHOULD be discarded.</p>
+<pre><code class="lang-php">$stream-&gt;close();
+</code></pre>
+<p>Once the stream is closed, it SHOULD emit a <code>close</code> event.
+Note that this event SHOULD NOT be emitted more than once, in particular
+if this method is called multiple times.</p>
+<p>After calling this method, the stream MUST switch into a non-writable
+mode, see also <code>isWritable()</code>.
+This means that no further writes are possible, so any additional
+<code>write()</code> or <code>end()</code> calls have no effect.</p>
+<pre><code class="lang-php">$stream-&gt;close();
+assert($stream-&gt;isWritable() === <span class="hljs-keyword">false</span>);
+
+$stream-&gt;write(<span class="hljs-string">&apos;nope&apos;</span>); <span class="hljs-comment">// NO-OP</span>
+$stream-&gt;end(); <span class="hljs-comment">// NO-OP</span>
+</code></pre>
+<p>Note that this method should not be confused with the <code>end()</code> method.
+Unlike the <code>end()</code> method, this method does not take care of any existing
+buffers and simply discards any buffer contents.
+Likewise, this method may also be called after calling <code>end()</code> on a
+stream in order to stop waiting for the stream to flush its final data.</p>
+<pre><code class="lang-php">$stream-&gt;end();
+$loop-&gt;addTimer(<span class="hljs-number">1.0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($stream)</span> </span>{
+    $stream-&gt;close();
+});
+</code></pre>
+<p>If this stream is a <code>DuplexStreamInterface</code>, you should also notice
+how the readable side of the stream also implements a <code>close()</code> method.
+In other words, after calling this method, the stream MUST switch into
+non-writable AND non-readable mode, see also <code>isReadable()</code>.</p>
+<h3 id="duplexstreaminterface">DuplexStreamInterface</h3>
+<p>The <code>DuplexStreamInterface</code> is responsible for providing an interface for
+duplex streams (both readable and writable).</p>
+<p>It builds on top of the existing interfaces for readable and writable streams
+and follows the exact same method and event semantics.
+If you&apos;re new to this concept, you should look into the
+<code>ReadableStreamInterface</code> and <code>WritableStreamInterface</code> first.</p>
+<p>Besides defining a few methods, this interface also implements the
+<code>EventEmitterInterface</code> which allows you to react to the same events defined
+on the <code>ReadbleStreamInterface</code> and <code>WritableStreamInterface</code>.</p>
+<p>The event callback functions MUST be a valid <code>callable</code> that obeys strict
+parameter definitions and MUST accept event parameters exactly as documented.
+The event callback functions MUST NOT throw an <code>Exception</code>.
+The return value of the event callback functions will be ignored and has no
+effect, so for performance reasons you&apos;re recommended to not return any
+excessive data structures.</p>
+<p>Every implementation of this interface MUST follow these event semantics in
+order to be considered a well-behaving stream.</p>
+<blockquote>
+<p>Note that higher-level implementations of this interface may choose to
+  define additional events with dedicated semantics not defined as part of
+  this low-level stream specification. Conformance with these event semantics
+  is out of scope for this interface, so you may also have to refer to the
+  documentation of such a higher-level implementation.</p>
+</blockquote>
+<p>See also <a href="#readablestreaminterface"><code>ReadableStreamInterface</code></a> and
+<a href="#writablestreaminterface"><code>WritableStreamInterface</code></a> for more details.</p>
+<h2 id="creating-streams">Creating streams</h2>
+<p>ReactPHP uses the concept of &quot;streams&quot; throughout its ecosystem, so that
+many higher-level consumers of this package only deal with
+<a href="#stream-usage">stream usage</a>.
+This implies that stream instances are most often created within some
+higher-level components and many consumers never actually have to deal with
+creating a stream instance.</p>
+<ul>
+<li>Use <a href="https://github.com/reactphp/socket" target="_blank">react/socket</a>
+if you want to accept incoming or establish outgoing plaintext TCP/IP or
+secure TLS socket connection streams.</li>
+<li>Use <a href="https://github.com/reactphp/http" target="_blank">react/http</a>
+if you want to receive an incoming HTTP request body streams.</li>
+<li>Use <a href="https://github.com/reactphp/child-process" target="_blank">react/child-process</a>
+if you want to communicate with child processes via process pipes such as
+STDIN, STDOUT, STDERR etc.</li>
+<li>Use experimental <a href="https://github.com/reactphp/filesystem" target="_blank">react/filesystem</a>
+if you want to read from / write to the filesystem.</li>
+<li>See also the last chapter for <a href="#more">more real-world applications</a>.</li>
+</ul>
+<p>However, if you are writing a lower-level component or want to create a stream
+instance from a stream resource, then the following chapter is for you.</p>
+<blockquote>
+<p>Note that the following examples use <code>fopen()</code> and <code>stream_socket_client()</code>
+  for illustration purposes only.
+  These functions SHOULD NOT be used in a truly async program because each call
+  may take several seconds to complete and would block the EventLoop otherwise.
+  Additionally, the <code>fopen()</code> call will return a file handle on some platforms
+  which may or may not be supported by all EventLoop implementations.
+  As an alternative, you may want to use higher-level libraries listed above.</p>
+</blockquote>
+<h3 id="readableresourcestream">ReadableResourceStream</h3>
+<p>The <code>ReadableResourceStream</code> is a concrete implementation of the
+<a href="#readablestreaminterface"><code>ReadableStreamInterface</code></a> for PHP&apos;s stream resources.</p>
+<p>This can be used to represent a read-only resource like a file stream opened in
+readable mode or a stream such as <code>STDIN</code>:</p>
+<pre><code class="lang-php">$stream = <span class="hljs-keyword">new</span> ReadableResourceStream(STDIN, $loop);
+$stream-&gt;on(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($chunk)</span> </span>{
+    <span class="hljs-keyword">echo</span> $chunk;
+});
+$stream-&gt;on(<span class="hljs-string">&apos;end&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;END&apos;</span>;
+});
+</code></pre>
+<p>See also <a href="#readablestreaminterface"><code>ReadableStreamInterface</code></a> for more details.</p>
+<p>The first parameter given to the constructor MUST be a valid stream resource
+that is opened in reading mode (e.g. <code>fopen()</code> mode <code>r</code>).
+Otherwise, it will throw an <code>InvalidArgumentException</code>:</p>
+<pre><code class="lang-php"><span class="hljs-comment">// throws InvalidArgumentException</span>
+$stream = <span class="hljs-keyword">new</span> ReadableResourceStream(<span class="hljs-keyword">false</span>, $loop);
+</code></pre>
+<p>See also the <a href="#readableresourcestream"><code>DuplexResourceStream</code></a> for read-and-write
+stream resources otherwise.</p>
+<p>Internally, this class tries to enable non-blocking mode on the stream resource
+which may not be supported for all stream resources.
+Most notably, this is not supported by pipes on Windows (STDIN etc.).
+If this fails, it will throw a <code>RuntimeException</code>:</p>
+<pre><code class="lang-php"><span class="hljs-comment">// throws RuntimeException on Windows</span>
+$stream = <span class="hljs-keyword">new</span> ReadableResourceStream(STDIN, $loop);
+</code></pre>
+<p>Once the constructor is called with a valid stream resource, this class will
+take care of the underlying stream resource.
+You SHOULD only use its public API and SHOULD NOT interfere with the underlying
+stream resource manually.</p>
+<p>This class takes an optional <code>int|null $readChunkSize</code> parameter that controls
+the maximum buffer size in bytes to read at once from the stream.
+You can use a <code>null</code> value here in order to apply its default value.
+This value SHOULD NOT be changed unless you know what you&apos;re doing.
+This can be a positive number which means that up to X bytes will be read
+at once from the underlying stream resource. Note that the actual number
+of bytes read may be lower if the stream resource has less than X bytes
+currently available.
+This can be <code>-1</code> which means &quot;read everything available&quot; from the
+underlying stream resource.
+This should read until the stream resource is not readable anymore
+(i.e. underlying buffer drained), note that this does not neccessarily
+mean it reached EOF.</p>
+<pre><code class="lang-php">$stream = <span class="hljs-keyword">new</span> ReadableResourceStream(STDIN, $loop, <span class="hljs-number">8192</span>);
+</code></pre>
+<blockquote>
+<p>PHP bug warning: If the PHP process has explicitly been started without a
+  <code>STDIN</code> stream, then trying to read from <code>STDIN</code> may return data from
+  another stream resource. This does not happen if you start this with an empty
+  stream like <code>php test.php &lt; /dev/null</code> instead of <code>php test.php &lt;&amp;-</code>.
+  See <a href="https://github.com/reactphp/stream/issues/81" target="_blank">#81</a> for more details.</p>
+</blockquote>
+<h3 id="writableresourcestream">WritableResourceStream</h3>
+<p>The <code>WritableResourceStream</code> is a concrete implementation of the
+<a href="#writablestreaminterface"><code>WritableStreamInterface</code></a> for PHP&apos;s stream resources.</p>
+<p>This can be used to represent a write-only resource like a file stream opened in
+writable mode or a stream such as <code>STDOUT</code> or <code>STDERR</code>:</p>
+<pre><code class="lang-php">$stream = <span class="hljs-keyword">new</span> WritableResourceStream(STDOUT, $loop);
+$stream-&gt;write(<span class="hljs-string">&apos;hello!&apos;</span>);
+$stream-&gt;end();
+</code></pre>
+<p>See also <a href="#writablestreaminterface"><code>WritableStreamInterface</code></a> for more details.</p>
+<p>The first parameter given to the constructor MUST be a valid stream resource
+that is opened for writing.
+Otherwise, it will throw an <code>InvalidArgumentException</code>:</p>
+<pre><code class="lang-php"><span class="hljs-comment">// throws InvalidArgumentException</span>
+$stream = <span class="hljs-keyword">new</span> WritableResourceStream(<span class="hljs-keyword">false</span>, $loop);
+</code></pre>
+<p>See also the <a href="#readableresourcestream"><code>DuplexResourceStream</code></a> for read-and-write
+stream resources otherwise.</p>
+<p>Internally, this class tries to enable non-blocking mode on the stream resource
+which may not be supported for all stream resources.
+Most notably, this is not supported by pipes on Windows (STDOUT, STDERR etc.).
+If this fails, it will throw a <code>RuntimeException</code>:</p>
+<pre><code class="lang-php"><span class="hljs-comment">// throws RuntimeException on Windows</span>
+$stream = <span class="hljs-keyword">new</span> WritableResourceStream(STDOUT, $loop);
+</code></pre>
+<p>Once the constructor is called with a valid stream resource, this class will
+take care of the underlying stream resource.
+You SHOULD only use its public API and SHOULD NOT interfere with the underlying
+stream resource manually.</p>
+<p>Any <code>write()</code> calls to this class will not be performed instantly, but will
+be performed asynchronously, once the EventLoop reports the stream resource is
+ready to accept data.
+For this, it uses an in-memory buffer string to collect all outstanding writes.
+This buffer has a soft-limit applied which defines how much data it is willing
+to accept before the caller SHOULD stop sending further data.</p>
+<p>This class takes an optional <code>int|null $writeBufferSoftLimit</code> parameter that controls
+this maximum buffer size in bytes.
+You can use a <code>null</code> value here in order to apply its default value.
+This value SHOULD NOT be changed unless you know what you&apos;re doing.</p>
+<pre><code class="lang-php">$stream = <span class="hljs-keyword">new</span> WritableResourceStream(STDOUT, $loop, <span class="hljs-number">8192</span>);
+</code></pre>
+<p>This class takes an optional <code>int|null $writeChunkSize</code> parameter that controls
+this maximum buffer size in bytes to write at once to the stream.
+You can use a <code>null</code> value here in order to apply its default value.
+This value SHOULD NOT be changed unless you know what you&apos;re doing.
+This can be a positive number which means that up to X bytes will be written
+at once to the underlying stream resource. Note that the actual number
+of bytes written may be lower if the stream resource has less than X bytes
+currently available.
+This can be <code>-1</code> which means &quot;write everything available&quot; to the
+underlying stream resource.</p>
+<pre><code class="lang-php">$stream = <span class="hljs-keyword">new</span> WritableResourceStream(STDOUT, $loop, <span class="hljs-keyword">null</span>, <span class="hljs-number">8192</span>);
+</code></pre>
+<p>See also <a href="#write"><code>write()</code></a> for more details.</p>
+<h3 id="duplexresourcestream">DuplexResourceStream</h3>
+<p>The <code>DuplexResourceStream</code> is a concrete implementation of the
+<a href="#duplexstreaminterface"><code>DuplexStreamInterface</code></a> for PHP&apos;s stream resources.</p>
+<p>This can be used to represent a read-and-write resource like a file stream opened
+in read and write mode mode or a stream such as a TCP/IP connection:</p>
+<pre><code class="lang-php">$conn = stream_socket_client(<span class="hljs-string">&apos;tcp://google.com:80&apos;</span>);
+$stream = <span class="hljs-keyword">new</span> DuplexResourceStream($conn, $loop);
+$stream-&gt;write(<span class="hljs-string">&apos;hello!&apos;</span>);
+$stream-&gt;end();
+</code></pre>
+<p>See also <a href="#duplexstreaminterface"><code>DuplexStreamInterface</code></a> for more details.</p>
+<p>The first parameter given to the constructor MUST be a valid stream resource
+that is opened for reading <em>and</em> writing.
+Otherwise, it will throw an <code>InvalidArgumentException</code>:</p>
+<pre><code class="lang-php"><span class="hljs-comment">// throws InvalidArgumentException</span>
+$stream = <span class="hljs-keyword">new</span> DuplexResourceStream(<span class="hljs-keyword">false</span>, $loop);
+</code></pre>
+<p>See also the <a href="#readableresourcestream"><code>ReadableResourceStream</code></a> for read-only
+and the <a href="#writableresourcestream"><code>WritableResourceStream</code></a> for write-only
+stream resources otherwise.</p>
+<p>Internally, this class tries to enable non-blocking mode on the stream resource
+which may not be supported for all stream resources.
+Most notably, this is not supported by pipes on Windows (STDOUT, STDERR etc.).
+If this fails, it will throw a <code>RuntimeException</code>:</p>
+<pre><code class="lang-php"><span class="hljs-comment">// throws RuntimeException on Windows</span>
+$stream = <span class="hljs-keyword">new</span> DuplexResourceStream(STDOUT, $loop);
+</code></pre>
+<p>Once the constructor is called with a valid stream resource, this class will
+take care of the underlying stream resource.
+You SHOULD only use its public API and SHOULD NOT interfere with the underlying
+stream resource manually.</p>
+<p>This class takes an optional <code>int|null $readChunkSize</code> parameter that controls
+the maximum buffer size in bytes to read at once from the stream.
+You can use a <code>null</code> value here in order to apply its default value.
+This value SHOULD NOT be changed unless you know what you&apos;re doing.
+This can be a positive number which means that up to X bytes will be read
+at once from the underlying stream resource. Note that the actual number
+of bytes read may be lower if the stream resource has less than X bytes
+currently available.
+This can be <code>-1</code> which means &quot;read everything available&quot; from the
+underlying stream resource.
+This should read until the stream resource is not readable anymore
+(i.e. underlying buffer drained), note that this does not neccessarily
+mean it reached EOF.</p>
+<pre><code class="lang-php">$conn = stream_socket_client(<span class="hljs-string">&apos;tcp://google.com:80&apos;</span>);
+$stream = <span class="hljs-keyword">new</span> DuplexResourceStream($conn, $loop, <span class="hljs-number">8192</span>);
+</code></pre>
+<p>Any <code>write()</code> calls to this class will not be performed instantly, but will
+be performed asynchronously, once the EventLoop reports the stream resource is
+ready to accept data.
+For this, it uses an in-memory buffer string to collect all outstanding writes.
+This buffer has a soft-limit applied which defines how much data it is willing
+to accept before the caller SHOULD stop sending further data.</p>
+<p>This class takes another optional <code>WritableStreamInterface|null $buffer</code> parameter
+that controls this write behavior of this stream.
+You can use a <code>null</code> value here in order to apply its default value.
+This value SHOULD NOT be changed unless you know what you&apos;re doing.</p>
+<p>If you want to change the write buffer soft limit, you can pass an instance of
+<a href="#writableresourcestream"><code>WritableResourceStream</code></a> like this:</p>
+<pre><code class="lang-php">$conn = stream_socket_client(<span class="hljs-string">&apos;tcp://google.com:80&apos;</span>);
+$buffer = <span class="hljs-keyword">new</span> WritableResourceStream($conn, $loop, <span class="hljs-number">8192</span>);
+$stream = <span class="hljs-keyword">new</span> DuplexResourceStream($conn, $loop, <span class="hljs-keyword">null</span>, $buffer);
+</code></pre>
+<p>See also <a href="#writableresourcestream"><code>WritableResourceStream</code></a> for more details.</p>
+<h3 id="throughstream">ThroughStream</h3>
+<p>The <code>ThroughStream</code> implements the
+<a href="#duplexstreaminterface"><code>DuplexStreamInterface</code></a> and will simply pass any data
+you write to it through to its readable end.</p>
+<pre><code class="lang-php">$through = <span class="hljs-keyword">new</span> ThroughStream();
+$through-&gt;on(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-keyword">$this</span>-&gt;expectCallableOnceWith(<span class="hljs-string">&apos;hello&apos;</span>));
+
+$through-&gt;write(<span class="hljs-string">&apos;hello&apos;</span>);
+</code></pre>
+<p>Similarly, the <a href="#end"><code>end()</code> method</a> will end the stream and emit an
+<a href="#end-event"><code>end</code> event</a> and then <a href="#close-1"><code>close()</code></a> the stream.
+The <a href="#close-1"><code>close()</code> method</a> will close the stream and emit a
+<a href="#close-event"><code>close</code> event</a>.
+Accordingly, this is can also be used in a <a href="#pipe"><code>pipe()</code></a> context like this:</p>
+<pre><code class="lang-php">$through = <span class="hljs-keyword">new</span> ThroughStream();
+$source-&gt;pipe($through)-&gt;pipe($dest);
+</code></pre>
+<p>Optionally, its constructor accepts any callable function which will then be
+used to <em>filter</em> any data written to it. This function receives a single data
+argument as passed to the writable side and must return the data as it will be
+passed to its readable end:</p>
+<pre><code class="lang-php">$through = <span class="hljs-keyword">new</span> ThroughStream(<span class="hljs-string">&apos;strtoupper&apos;</span>);
+$source-&gt;pipe($through)-&gt;pipe($dest);
+</code></pre>
+<p>Note that this class makes no assumptions about any data types. This can be
+used to convert data, for example for transforming any structured data into
+a newline-delimited JSON (NDJSON) stream like this:</p>
+<pre><code class="lang-php">$through = <span class="hljs-keyword">new</span> ThroughStream(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($data)</span> </span>{
+    <span class="hljs-keyword">return</span> json_encode($data) . PHP_EOL;
+});
+$through-&gt;on(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-keyword">$this</span>-&gt;expectCallableOnceWith(<span class="hljs-string">&quot;[2, true]\n&quot;</span>));
+
+$through-&gt;write(<span class="hljs-keyword">array</span>(<span class="hljs-number">2</span>, <span class="hljs-keyword">true</span>));
+</code></pre>
+<p>The callback function is allowed to throw an <code>Exception</code>. In this case,
+the stream will emit an <code>error</code> event and then <a href="#close-1"><code>close()</code></a> the stream.</p>
+<pre><code class="lang-php">$through = <span class="hljs-keyword">new</span> ThroughStream(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($data)</span> </span>{
+    <span class="hljs-keyword">if</span> (!is_string($data)) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> \UnexpectedValueException(<span class="hljs-string">&apos;Only strings allowed&apos;</span>);
+    }
+    <span class="hljs-keyword">return</span> $data;
+});
+$through-&gt;on(<span class="hljs-string">&apos;error&apos;</span>, <span class="hljs-keyword">$this</span>-&gt;expectCallableOnce()));
+$through-&gt;on(<span class="hljs-string">&apos;close&apos;</span>, <span class="hljs-keyword">$this</span>-&gt;expectCallableOnce()));
+$through-&gt;on(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-keyword">$this</span>-&gt;expectCallableNever()));
+
+$through-&gt;write(<span class="hljs-number">2</span>);
+</code></pre>
+<h3 id="compositestream">CompositeStream</h3>
+<p>The <code>CompositeStream</code> implements the
+<a href="#duplexstreaminterface"><code>DuplexStreamInterface</code></a> and can be used to create a
+single duplex stream from two individual streams implementing
+<a href="#readablestreaminterface"><code>ReadableStreamInterface</code></a> and
+<a href="#writablestreaminterface"><code>WritableStreamInterface</code></a> respectively.</p>
+<p>This is useful for some APIs which may require a single
+<a href="#duplexstreaminterface"><code>DuplexStreamInterface</code></a> or simply because it&apos;s often
+more convenient to work with a single stream instance like this:</p>
+<pre><code class="lang-php">$stdin = <span class="hljs-keyword">new</span> ReadableResourceStream(STDIN, $loop);
+$stdout = <span class="hljs-keyword">new</span> WritableResourceStream(STDOUT, $loop);
+
+$stdio = <span class="hljs-keyword">new</span> CompositeStream($stdin, $stdout);
+
+$stdio-&gt;on(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($chunk)</span> <span class="hljs-title">use</span> <span class="hljs-params">($stdio)</span> </span>{
+    $stdio-&gt;write(<span class="hljs-string">&apos;You said: &apos;</span> . $chunk);
+});
+</code></pre>
+<p>This is a well-behaving stream which forwards all stream events from the
+underlying streams and forwards all streams calls to the underlying streams.</p>
+<p>If you <code>write()</code> to the duplex stream, it will simply <code>write()</code> to the
+writable side and return its status.</p>
+<p>If you <code>end()</code> the duplex stream, it will <code>end()</code> the writable side and will
+<code>pause()</code> the readable side.</p>
+<p>If you <code>close()</code> the duplex stream, both input streams will be closed.
+If either of the two input streams emits a <code>close</code> event, the duplex stream
+will also close.
+If either of the two input streams is already closed while constructing the
+duplex stream, it will <code>close()</code> the other side and return a closed stream.</p>
+<h2 id="usage">Usage</h2>
+<p>The following example can be used to pipe the contents of a source file into
+a destination file without having to ever read the whole file into memory:</p>
+<pre><code class="lang-php">$loop = <span class="hljs-keyword">new</span> React\EventLoop\StreamSelectLoop;
+
+$source = <span class="hljs-keyword">new</span> React\Stream\ReadableResourceStream(fopen(<span class="hljs-string">&apos;source.txt&apos;</span>, <span class="hljs-string">&apos;r&apos;</span>), $loop);
+$dest = <span class="hljs-keyword">new</span> React\Stream\WritableResourceStream(fopen(<span class="hljs-string">&apos;destination.txt&apos;</span>, <span class="hljs-string">&apos;w&apos;</span>), $loop);
+
+$source-&gt;pipe($dest);
+
+$loop-&gt;run();
+</code></pre>
+<blockquote>
+<p>Note that this example uses <code>fopen()</code> for illustration purposes only.
+  This should not be used in a truly async program because the filesystem is
+  inherently blocking and each call could potentially take several seconds.
+  See also <a href="#creating-streams">creating streams</a> for more sophisticated
+  examples.</p>
+</blockquote>
+<h2 id="install">Install</h2>
+<p>The recommended way to install this library is <a href="https://getcomposer.org" target="_blank">through Composer</a>.
+<a href="https://getcomposer.org/doc/00-intro.md" target="_blank">New to Composer?</a></p>
+<p>This project follows <a href="https://semver.org/" target="_blank">SemVer</a>.
+This will install the latest supported version:</p>
+<pre><code class="lang-bash">$ composer require react/stream:^1.1.1
+</code></pre>
+<p>See also the <a href="CHANGELOG.md">CHANGELOG</a> for details about version upgrades.</p>
+<p>This project aims to run on any platform and thus does not require any PHP
+extensions and supports running on legacy PHP 5.3 through current PHP 7+ and HHVM.
+It&apos;s <em>highly recommended to use PHP 7+</em> for this project due to its vast
+performance improvements.</p>
+<h2 id="tests">Tests</h2>
+<p>To run the test suite, you first need to clone this repo and then install all
+dependencies <a href="https://getcomposer.org" target="_blank">through Composer</a>:</p>
+<pre><code class="lang-bash">$ composer install
+</code></pre>
+<p>To run the test suite, go to the project root and run:</p>
+<pre><code class="lang-bash">$ php vendor/bin/phpunit
+</code></pre>
+<p>The test suite also contains a number of functional integration tests that rely
+on a stable internet connection.
+If you do not want to run these, they can simply be skipped like this:</p>
+<pre><code class="lang-bash">$ php vendor/bin/phpunit --exclude-group internet
+</code></pre>
+<h2 id="license">License</h2>
+<p>MIT, see <a href="LICENSE">LICENSE file</a>.</p>
+<h2 id="more">More</h2>
+<ul>
+<li>See <a href="#creating-streams">creating streams</a> for more information on how streams
+are created in real-world applications.</li>
+<li>See our <a href="https://github.com/reactphp/react/wiki/Users" target="_blank">users wiki</a> and the
+<a href="https://packagist.org/packages/react/stream/dependents" target="_blank">dependents on Packagist</a>
+for a list of packages that use streams in real-world applications.</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Promise.html" class="navigation navigation-prev " aria-label="Previous page: Promise">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../2.Network-Components/Datagram.html" class="navigation navigation-next " aria-label="Next page: Datagram">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Stream","level":"2.3","depth":1,"next":{"title":"Datagram","level":"3.1","depth":1,"path":"2.Network-Components/Datagram.md","ref":"2.Network-Components/Datagram.md","articles":[]},"previous":{"title":"Promise","level":"2.2","depth":1,"path":"1.Core-Components/Promise.md","ref":"1.Core-Components/Promise.md","articles":[]},"dir":"ltr"},"config":{"plugins":["- summary","toggle-chapters","theme-comscore","highlight","search-plus","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"search-plus":{}},"theme":"default","author":"Imparting","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactPHP 中文文档","language":"zh-hans","gitbook":"*","description":"ReactPHP 中文文档","theme-default":{"showLevel":true}},"file":{"path":"1.Core-Components/Stream.md","mtime":"2021-01-27T06:24:04.138Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-28T09:26:18.573Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

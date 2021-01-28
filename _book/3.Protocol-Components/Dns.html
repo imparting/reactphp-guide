@@ -1,0 +1,831 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Dns · ReactPHP 中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Imparting">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Http.html" />
+    
+    
+    <link rel="prev" href="../2.Network-Components/Socket.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">1.核心组件</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../1.Core-Components/EventLoop.html">
+            
+                <a href="../1.Core-Components/EventLoop.html">
+            
+                    
+                    EventLoop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../1.Core-Components/Promise.html">
+            
+                <a href="../1.Core-Components/Promise.html">
+            
+                    
+                    Promise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../1.Core-Components/Stream.html">
+            
+                <a href="../1.Core-Components/Stream.html">
+            
+                    
+                    Stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2.网络组件</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../2.Network-Components/Datagram.html">
+            
+                <a href="../2.Network-Components/Datagram.html">
+            
+                    
+                    Datagram
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../2.Network-Components/Socket.html">
+            
+                <a href="../2.Network-Components/Socket.html">
+            
+                    
+                    Socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.协议组件</li>
+        
+        
+    
+        <li class="chapter active" data-level="4.1" data-path="Dns.html">
+            
+                <a href="Dns.html">
+            
+                    
+                    Dns
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="Http.html">
+            
+                <a href="Http.html">
+            
+                    
+                    Http
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="HttpClient.html">
+            
+                <a href="HttpClient.html">
+            
+                    
+                    HttpClient
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">4.实用组件</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../4.Utility-Components/Cache.html">
+            
+                <a href="../4.Utility-Components/Cache.html">
+            
+                    
+                    Cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../4.Utility-Components/ChildProcess.html">
+            
+                <a href="../4.Utility-Components/ChildProcess.html">
+            
+                    
+                    ChildProcess
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../4.Utility-Components/PromiseStream.html">
+            
+                <a href="../4.Utility-Components/PromiseStream.html">
+            
+                    
+                    PromiseStream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../4.Utility-Components/PromiseTimer.html">
+            
+                <a href="../4.Utility-Components/PromiseTimer.html">
+            
+                    
+                    PromiseTimer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Dns</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="dns">Dns</h1>
+<p><a href="https://travis-ci.org/reactphp/dns" target="_blank"><img src="https://travis-ci.org/reactphp/dns.svg?branch=master" alt="Build Status"></a></p>
+<p>Async DNS resolver for <a href="https://reactphp.org/" target="_blank">ReactPHP</a>.</p>
+<p>The main point of the DNS component is to provide async DNS resolution.
+However, it is really a toolkit for working with DNS messages, and could
+easily be used to create a DNS server.</p>
+<p><strong>Table of contents</strong></p>
+<ul>
+<li><a href="#basic-usage">Basic usage</a></li>
+<li><a href="#caching">Caching</a><ul>
+<li><a href="#custom-cache-adapter">Custom cache adapter</a></li>
+</ul>
+</li>
+<li><a href="#resolverinterface">ResolverInterface</a><ul>
+<li><a href="#resolve">resolve()</a></li>
+<li><a href="#resolveall">resolveAll()</a></li>
+</ul>
+</li>
+<li><a href="#advanced-usage">Advanced usage</a><ul>
+<li><a href="#udptransportexecutor">UdpTransportExecutor</a></li>
+<li><a href="#tcptransportexecutor">TcpTransportExecutor</a></li>
+<li><a href="#selectivetransportexecutor">SelectiveTransportExecutor</a></li>
+<li><a href="#hostsfileexecutor">HostsFileExecutor</a></li>
+</ul>
+</li>
+<li><a href="#install">Install</a></li>
+<li><a href="#tests">Tests</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+<h2 id="basic-usage">Basic usage</h2>
+<p>The most basic usage is to just create a resolver through the resolver
+factory. All you need to give it is a nameserver, then you can start resolving
+names, baby!</p>
+<pre><code class="lang-php">$loop = React\EventLoop\Factory::create();
+
+$config = React\Dns\Config\Config::loadSystemConfigBlocking();
+$server = $config-&gt;nameservers ? reset($config-&gt;nameservers) : <span class="hljs-string">&apos;8.8.8.8&apos;</span>;
+
+$factory = <span class="hljs-keyword">new</span> React\Dns\Resolver\Factory();
+$dns = $factory-&gt;create($server, $loop);
+
+$dns-&gt;resolve(<span class="hljs-string">&apos;igor.io&apos;</span>)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($ip)</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Host: $ip\n&quot;</span>;
+});
+
+$loop-&gt;run();
+</code></pre>
+<p>See also the <a href="examples">first example</a>.</p>
+<p>The <code>Config</code> class can be used to load the system default config. This is an
+operation that may access the filesystem and block. Ideally, this method should
+thus be executed only once before the loop starts and not repeatedly while it is
+running.
+Note that this class may return an <em>empty</em> configuration if the system config
+can not be loaded. As such, you&apos;ll likely want to apply a default nameserver
+as above if none can be found.</p>
+<blockquote>
+<p>Note that the factory loads the hosts file from the filesystem once when
+  creating the resolver instance.
+  Ideally, this method should thus be executed only once before the loop starts
+  and not repeatedly while it is running.</p>
+</blockquote>
+<p>But there&apos;s more.</p>
+<h2 id="caching">Caching</h2>
+<p>You can cache results by configuring the resolver to use a <code>CachedExecutor</code>:</p>
+<pre><code class="lang-php">$loop = React\EventLoop\Factory::create();
+
+$config = React\Dns\Config\Config::loadSystemConfigBlocking();
+$server = $config-&gt;nameservers ? reset($config-&gt;nameservers) : <span class="hljs-string">&apos;8.8.8.8&apos;</span>;
+
+$factory = <span class="hljs-keyword">new</span> React\Dns\Resolver\Factory();
+$dns = $factory-&gt;createCached($server, $loop);
+
+$dns-&gt;resolve(<span class="hljs-string">&apos;igor.io&apos;</span>)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($ip)</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Host: $ip\n&quot;</span>;
+});
+
+...
+
+$dns-&gt;resolve(<span class="hljs-string">&apos;igor.io&apos;</span>)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($ip)</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Host: $ip\n&quot;</span>;
+});
+
+$loop-&gt;run();
+</code></pre>
+<p>If the first call returns before the second, only one query will be executed.
+The second result will be served from an in memory cache.
+This is particularly useful for long running scripts where the same hostnames
+have to be looked up multiple times.</p>
+<p>See also the <a href="examples">third example</a>.</p>
+<h3 id="custom-cache-adapter">Custom cache adapter</h3>
+<p>By default, the above will use an in memory cache.</p>
+<p>You can also specify a custom cache implementing <a href="https://github.com/reactphp/cache" target="_blank"><code>CacheInterface</code></a> to handle the record cache instead:</p>
+<pre><code class="lang-php">$cache = <span class="hljs-keyword">new</span> React\Cache\ArrayCache();
+$loop = React\EventLoop\Factory::create();
+$factory = <span class="hljs-keyword">new</span> React\Dns\Resolver\Factory();
+$dns = $factory-&gt;createCached(<span class="hljs-string">&apos;8.8.8.8&apos;</span>, $loop, $cache);
+</code></pre>
+<p>See also the wiki for possible <a href="https://github.com/reactphp/react/wiki/Users#cache-implementations" target="_blank">cache implementations</a>.</p>
+<h2 id="resolverinterface">ResolverInterface</h2>
+<p><a id="resolver"><!-- legacy reference --></a></p>
+<h3 id="resolve">resolve()</h3>
+<p>The <code>resolve(string $domain): PromiseInterface&lt;string,Exception&gt;</code> method can be used to
+resolve the given $domain name to a single IPv4 address (type <code>A</code> query).</p>
+<pre><code class="lang-php">$resolver-&gt;resolve(<span class="hljs-string">&apos;reactphp.org&apos;</span>)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($ip)</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;IP for reactphp.org is &apos;</span> . $ip . PHP_EOL;
+});
+</code></pre>
+<p>This is one of the main methods in this package. It sends a DNS query
+for the given $domain name to your DNS server and returns a single IP
+address on success.</p>
+<p>If the DNS server sends a DNS response message that contains more than
+one IP address for this query, it will randomly pick one of the IP
+addresses from the response. If you want the full list of IP addresses
+or want to send a different type of query, you should use the
+<a href="#resolveall"><code>resolveAll()</code></a> method instead.</p>
+<p>If the DNS server sends a DNS response message that indicates an error
+code, this method will reject with a <code>RecordNotFoundException</code>. Its
+message and code can be used to check for the response code.</p>
+<p>If the DNS communication fails and the server does not respond with a
+valid response message, this message will reject with an <code>Exception</code>.</p>
+<p>Pending DNS queries can be cancelled by cancelling its pending promise like so:</p>
+<pre><code class="lang-php">$promise = $resolver-&gt;resolve(<span class="hljs-string">&apos;reactphp.org&apos;</span>);
+
+$promise-&gt;cancel();
+</code></pre>
+<h3 id="resolveall">resolveAll()</h3>
+<p>The <code>resolveAll(string $host, int $type): PromiseInterface&lt;array,Exception&gt;</code> method can be used to
+resolve all record values for the given $domain name and query $type.</p>
+<pre><code class="lang-php">$resolver-&gt;resolveAll(<span class="hljs-string">&apos;reactphp.org&apos;</span>, Message::TYPE_A)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($ips)</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;IPv4 addresses for reactphp.org &apos;</span> . implode(<span class="hljs-string">&apos;, &apos;</span>, $ips) . PHP_EOL;
+});
+
+$resolver-&gt;resolveAll(<span class="hljs-string">&apos;reactphp.org&apos;</span>, Message::TYPE_AAAA)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($ips)</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;IPv6 addresses for reactphp.org &apos;</span> . implode(<span class="hljs-string">&apos;, &apos;</span>, $ips) . PHP_EOL;
+});
+</code></pre>
+<p>This is one of the main methods in this package. It sends a DNS query
+for the given $domain name to your DNS server and returns a list with all
+record values on success.</p>
+<p>If the DNS server sends a DNS response message that contains one or more
+records for this query, it will return a list with all record values
+from the response. You can use the <code>Message::TYPE_*</code> constants to control
+which type of query will be sent. Note that this method always returns a
+list of record values, but each record value type depends on the query
+type. For example, it returns the IPv4 addresses for type <code>A</code> queries,
+the IPv6 addresses for type <code>AAAA</code> queries, the hostname for type <code>NS</code>,
+<code>CNAME</code> and <code>PTR</code> queries and structured data for other queries. See also
+the <code>Record</code> documentation for more details.</p>
+<p>If the DNS server sends a DNS response message that indicates an error
+code, this method will reject with a <code>RecordNotFoundException</code>. Its
+message and code can be used to check for the response code.</p>
+<p>If the DNS communication fails and the server does not respond with a
+valid response message, this message will reject with an <code>Exception</code>.</p>
+<p>Pending DNS queries can be cancelled by cancelling its pending promise like so:</p>
+<pre><code class="lang-php">$promise = $resolver-&gt;resolveAll(<span class="hljs-string">&apos;reactphp.org&apos;</span>, Message::TYPE_AAAA);
+
+$promise-&gt;cancel();
+</code></pre>
+<h2 id="advanced-usage">Advanced Usage</h2>
+<h3 id="udptransportexecutor">UdpTransportExecutor</h3>
+<p>The <code>UdpTransportExecutor</code> can be used to
+send DNS queries over a UDP transport.</p>
+<p>This is the main class that sends a DNS query to your DNS server and is used
+internally by the <code>Resolver</code> for the actual message transport.</p>
+<p>For more advanced usages one can utilize this class directly.
+The following example looks up the <code>IPv6</code> address for <code>igor.io</code>.</p>
+<pre><code class="lang-php">$loop = Factory::create();
+$executor = <span class="hljs-keyword">new</span> UdpTransportExecutor(<span class="hljs-string">&apos;8.8.8.8:53&apos;</span>, $loop);
+
+$executor-&gt;query(
+    <span class="hljs-keyword">new</span> Query($name, Message::TYPE_AAAA, Message::CLASS_IN)
+)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Message $message)</span> </span>{
+    <span class="hljs-keyword">foreach</span> ($message-&gt;answers <span class="hljs-keyword">as</span> $answer) {
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;IPv6: &apos;</span> . $answer-&gt;data . PHP_EOL;
+    }
+}, <span class="hljs-string">&apos;printf&apos;</span>);
+
+$loop-&gt;run();
+</code></pre>
+<p>See also the <a href="examples">fourth example</a>.</p>
+<p>Note that this executor does not implement a timeout, so you will very likely
+want to use this in combination with a <code>TimeoutExecutor</code> like this:</p>
+<pre><code class="lang-php">$executor = <span class="hljs-keyword">new</span> TimeoutExecutor(
+    <span class="hljs-keyword">new</span> UdpTransportExecutor($nameserver, $loop),
+    <span class="hljs-number">3.0</span>,
+    $loop
+);
+</code></pre>
+<p>Also note that this executor uses an unreliable UDP transport and that it
+does not implement any retry logic, so you will likely want to use this in
+combination with a <code>RetryExecutor</code> like this:</p>
+<pre><code class="lang-php">$executor = <span class="hljs-keyword">new</span> RetryExecutor(
+    <span class="hljs-keyword">new</span> TimeoutExecutor(
+        <span class="hljs-keyword">new</span> UdpTransportExecutor($nameserver, $loop),
+        <span class="hljs-number">3.0</span>,
+        $loop
+    )
+);
+</code></pre>
+<p>Note that this executor is entirely async and as such allows you to execute
+any number of queries concurrently. You should probably limit the number of
+concurrent queries in your application or you&apos;re very likely going to face
+rate limitations and bans on the resolver end. For many common applications,
+you may want to avoid sending the same query multiple times when the first
+one is still pending, so you will likely want to use this in combination with
+a <code>CoopExecutor</code> like this:</p>
+<pre><code class="lang-php">$executor = <span class="hljs-keyword">new</span> CoopExecutor(
+    <span class="hljs-keyword">new</span> RetryExecutor(
+        <span class="hljs-keyword">new</span> TimeoutExecutor(
+            <span class="hljs-keyword">new</span> UdpTransportExecutor($nameserver, $loop),
+            <span class="hljs-number">3.0</span>,
+            $loop
+        )
+    )
+);
+</code></pre>
+<blockquote>
+<p>Internally, this class uses PHP&apos;s UDP sockets and does not take advantage
+  of <a href="https://github.com/reactphp/datagram" target="_blank">react/datagram</a> purely for
+  organizational reasons to avoid a cyclic dependency between the two
+  packages. Higher-level components should take advantage of the Datagram
+  component instead of reimplementing this socket logic from scratch.</p>
+</blockquote>
+<h3 id="tcptransportexecutor">TcpTransportExecutor</h3>
+<p>The <code>TcpTransportExecutor</code> class can be used to
+send DNS queries over a TCP/IP stream transport.</p>
+<p>This is one of the main classes that send a DNS query to your DNS server.</p>
+<p>For more advanced usages one can utilize this class directly.
+The following example looks up the <code>IPv6</code> address for <code>reactphp.org</code>.</p>
+<pre><code class="lang-php">$loop = Factory::create();
+$executor = <span class="hljs-keyword">new</span> TcpTransportExecutor(<span class="hljs-string">&apos;8.8.8.8:53&apos;</span>, $loop);
+
+$executor-&gt;query(
+    <span class="hljs-keyword">new</span> Query($name, Message::TYPE_AAAA, Message::CLASS_IN)
+)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Message $message)</span> </span>{
+    <span class="hljs-keyword">foreach</span> ($message-&gt;answers <span class="hljs-keyword">as</span> $answer) {
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;IPv6: &apos;</span> . $answer-&gt;data . PHP_EOL;
+    }
+}, <span class="hljs-string">&apos;printf&apos;</span>);
+
+$loop-&gt;run();
+</code></pre>
+<p>See also <a href="examples">example #92</a>.</p>
+<p>Note that this executor does not implement a timeout, so you will very likely
+want to use this in combination with a <code>TimeoutExecutor</code> like this:</p>
+<pre><code class="lang-php">$executor = <span class="hljs-keyword">new</span> TimeoutExecutor(
+    <span class="hljs-keyword">new</span> TcpTransportExecutor($nameserver, $loop),
+    <span class="hljs-number">3.0</span>,
+    $loop
+);
+</code></pre>
+<p>Unlike the <code>UdpTransportExecutor</code>, this class uses a reliable TCP/IP
+transport, so you do not necessarily have to implement any retry logic.</p>
+<p>Note that this executor is entirely async and as such allows you to execute
+queries concurrently. The first query will establish a TCP/IP socket
+connection to the DNS server which will be kept open for a short period.
+Additional queries will automatically reuse this existing socket connection
+to the DNS server, will pipeline multiple requests over this single
+connection and will keep an idle connection open for a short period. The
+initial TCP/IP connection overhead may incur a slight delay if you only send
+occasional queries &#x2013; when sending a larger number of concurrent queries over
+an existing connection, it becomes increasingly more efficient and avoids
+creating many concurrent sockets like the UDP-based executor. You may still
+want to limit the number of (concurrent) queries in your application or you
+may be facing rate limitations and bans on the resolver end. For many common
+applications, you may want to avoid sending the same query multiple times
+when the first one is still pending, so you will likely want to use this in
+combination with a <code>CoopExecutor</code> like this:</p>
+<pre><code class="lang-php">$executor = <span class="hljs-keyword">new</span> CoopExecutor(
+    <span class="hljs-keyword">new</span> TimeoutExecutor(
+        <span class="hljs-keyword">new</span> TcpTransportExecutor($nameserver, $loop),
+        <span class="hljs-number">3.0</span>,
+        $loop
+    )
+);
+</code></pre>
+<blockquote>
+<p>Internally, this class uses PHP&apos;s TCP/IP sockets and does not take advantage
+  of <a href="https://github.com/reactphp/socket" target="_blank">react/socket</a> purely for
+  organizational reasons to avoid a cyclic dependency between the two
+  packages. Higher-level components should take advantage of the Socket
+  component instead of reimplementing this socket logic from scratch.</p>
+</blockquote>
+<h3 id="selectivetransportexecutor">SelectiveTransportExecutor</h3>
+<p>The <code>SelectiveTransportExecutor</code> class can be used to
+Send DNS queries over a UDP or TCP/IP stream transport.</p>
+<p>This class will automatically choose the correct transport protocol to send
+a DNS query to your DNS server. It will always try to send it over the more
+efficient UDP transport first. If this query yields a size related issue
+(truncated messages), it will retry over a streaming TCP/IP transport.</p>
+<p>For more advanced usages one can utilize this class directly.
+The following example looks up the <code>IPv6</code> address for <code>reactphp.org</code>.</p>
+<pre><code class="lang-php">$executor = <span class="hljs-keyword">new</span> SelectiveTransportExecutor($udpExecutor, $tcpExecutor);
+
+$executor-&gt;query(
+    <span class="hljs-keyword">new</span> Query($name, Message::TYPE_AAAA, Message::CLASS_IN)
+)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Message $message)</span> </span>{
+    <span class="hljs-keyword">foreach</span> ($message-&gt;answers <span class="hljs-keyword">as</span> $answer) {
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;IPv6: &apos;</span> . $answer-&gt;data . PHP_EOL;
+    }
+}, <span class="hljs-string">&apos;printf&apos;</span>);
+</code></pre>
+<p>Note that this executor only implements the logic to select the correct
+transport for the given DNS query. Implementing the correct transport logic,
+implementing timeouts and any retry logic is left up to the given executors,
+see also <a href="#udptransportexecutor"><code>UdpTransportExecutor</code></a> and
+<a href="#tcptransportexecutor"><code>TcpTransportExecutor</code></a> for more details.</p>
+<p>Note that this executor is entirely async and as such allows you to execute
+any number of queries concurrently. You should probably limit the number of
+concurrent queries in your application or you&apos;re very likely going to face
+rate limitations and bans on the resolver end. For many common applications,
+you may want to avoid sending the same query multiple times when the first
+one is still pending, so you will likely want to use this in combination with
+a <code>CoopExecutor</code> like this:</p>
+<pre><code class="lang-php">$executor = <span class="hljs-keyword">new</span> CoopExecutor(
+    <span class="hljs-keyword">new</span> SelectiveTransportExecutor(
+        $datagramExecutor,
+        $streamExecutor
+    )
+);
+</code></pre>
+<h3 id="hostsfileexecutor">HostsFileExecutor</h3>
+<p>Note that the above <code>UdpTransportExecutor</code> class always performs an actual DNS query.
+If you also want to take entries from your hosts file into account, you may
+use this code:</p>
+<pre><code class="lang-php">$hosts = \React\Dns\Config\HostsFile::loadFromPathBlocking();
+
+$executor = <span class="hljs-keyword">new</span> UdpTransportExecutor(<span class="hljs-string">&apos;8.8.8.8:53&apos;</span>, $loop);
+$executor = <span class="hljs-keyword">new</span> HostsFileExecutor($hosts, $executor);
+
+$executor-&gt;query(
+    <span class="hljs-keyword">new</span> Query(<span class="hljs-string">&apos;localhost&apos;</span>, Message::TYPE_A, Message::CLASS_IN)
+);
+</code></pre>
+<h2 id="install">Install</h2>
+<p>The recommended way to install this library is <a href="https://getcomposer.org" target="_blank">through Composer</a>.
+<a href="https://getcomposer.org/doc/00-intro.md" target="_blank">New to Composer?</a></p>
+<p>This project follows <a href="https://semver.org/" target="_blank">SemVer</a>.
+This will install the latest supported version:</p>
+<pre><code class="lang-bash">$ composer require react/dns:^1.4
+</code></pre>
+<p>See also the <a href="CHANGELOG.md">CHANGELOG</a> for details about version upgrades.</p>
+<p>This project aims to run on any platform and thus does not require any PHP
+extensions and supports running on legacy PHP 5.3 through current PHP 7+ and
+HHVM.
+It&apos;s <em>highly recommended to use PHP 7+</em> for this project.</p>
+<h2 id="tests">Tests</h2>
+<p>To run the test suite, you first need to clone this repo and then install all
+dependencies <a href="https://getcomposer.org" target="_blank">through Composer</a>:</p>
+<pre><code class="lang-bash">$ composer install
+</code></pre>
+<p>To run the test suite, go to the project root and run:</p>
+<pre><code class="lang-bash">$ php vendor/bin/phpunit
+</code></pre>
+<p>The test suite also contains a number of functional integration tests that rely
+on a stable internet connection.
+If you do not want to run these, they can simply be skipped like this:</p>
+<pre><code class="lang-bash">$ php vendor/bin/phpunit --exclude-group internet
+</code></pre>
+<h2 id="license">License</h2>
+<p>MIT, see <a href="LICENSE">LICENSE file</a>.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://tools.ietf.org/html/rfc1034" target="_blank">RFC 1034</a> Domain Names - Concepts and Facilities</li>
+<li><a href="https://tools.ietf.org/html/rfc1035" target="_blank">RFC 1035</a> Domain Names - Implementation and Specification</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../2.Network-Components/Socket.html" class="navigation navigation-prev " aria-label="Previous page: Socket">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Http.html" class="navigation navigation-next " aria-label="Next page: Http">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Dns","level":"4.1","depth":1,"next":{"title":"Http","level":"4.2","depth":1,"path":"3.Protocol-Components/Http.md","ref":"3.Protocol-Components/Http.md","articles":[]},"previous":{"title":"Socket","level":"3.2","depth":1,"path":"2.Network-Components/Socket.md","ref":"2.Network-Components/Socket.md","articles":[]},"dir":"ltr"},"config":{"plugins":["- summary","toggle-chapters","theme-comscore","highlight","search-plus","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"search-plus":{}},"theme":"default","author":"Imparting","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactPHP 中文文档","language":"zh-hans","gitbook":"*","description":"ReactPHP 中文文档","theme-default":{"showLevel":true}},"file":{"path":"3.Protocol-Components/Dns.md","mtime":"2021-01-27T06:28:35.121Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-28T09:26:18.573Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

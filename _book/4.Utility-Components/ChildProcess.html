@@ -1,0 +1,938 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>ChildProcess · ReactPHP 中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Imparting">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="PromiseStream.html" />
+    
+    
+    <link rel="prev" href="Cache.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">1.核心组件</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../1.Core-Components/EventLoop.html">
+            
+                <a href="../1.Core-Components/EventLoop.html">
+            
+                    
+                    EventLoop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../1.Core-Components/Promise.html">
+            
+                <a href="../1.Core-Components/Promise.html">
+            
+                    
+                    Promise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../1.Core-Components/Stream.html">
+            
+                <a href="../1.Core-Components/Stream.html">
+            
+                    
+                    Stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2.网络组件</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../2.Network-Components/Datagram.html">
+            
+                <a href="../2.Network-Components/Datagram.html">
+            
+                    
+                    Datagram
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../2.Network-Components/Socket.html">
+            
+                <a href="../2.Network-Components/Socket.html">
+            
+                    
+                    Socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.协议组件</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../3.Protocol-Components/Dns.html">
+            
+                <a href="../3.Protocol-Components/Dns.html">
+            
+                    
+                    Dns
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../3.Protocol-Components/Http.html">
+            
+                <a href="../3.Protocol-Components/Http.html">
+            
+                    
+                    Http
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../3.Protocol-Components/HttpClient.html">
+            
+                <a href="../3.Protocol-Components/HttpClient.html">
+            
+                    
+                    HttpClient
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">4.实用组件</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="Cache.html">
+            
+                <a href="Cache.html">
+            
+                    
+                    Cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.2" data-path="ChildProcess.html">
+            
+                <a href="ChildProcess.html">
+            
+                    
+                    ChildProcess
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="PromiseStream.html">
+            
+                <a href="PromiseStream.html">
+            
+                    
+                    PromiseStream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="PromiseTimer.html">
+            
+                <a href="PromiseTimer.html">
+            
+                    
+                    PromiseTimer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >ChildProcess</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="child-process">Child Process</h1>
+<p><a href="https://travis-ci.org/reactphp/child-process" target="_blank"><img src="https://travis-ci.org/reactphp/child-process.svg?branch=master" alt="Build Status"></a></p>
+<p>Event-driven library for executing child processes with
+<a href="https://reactphp.org/" target="_blank">ReactPHP</a>.</p>
+<p>This library integrates <a href="http://php.net/manual/en/book.exec.php" target="_blank">Program Execution</a>
+with the <a href="https://github.com/reactphp/event-loop" target="_blank">EventLoop</a>.
+Child processes launched may be signaled and will emit an
+<code>exit</code> event upon termination.
+Additionally, process I/O streams (i.e. STDIN, STDOUT, STDERR) are exposed
+as <a href="https://github.com/reactphp/stream" target="_blank">Streams</a>.</p>
+<p><strong>Table of contents</strong></p>
+<ul>
+<li><a href="#quickstart-example">Quickstart example</a></li>
+<li><a href="#process">Process</a><ul>
+<li><a href="#stream-properties">Stream Properties</a></li>
+<li><a href="#command">Command</a></li>
+<li><a href="#termination">Termination</a></li>
+<li><a href="#custom-pipes">Custom pipes</a></li>
+<li><a href="#sigchild-compatibility">Sigchild Compatibility</a></li>
+<li><a href="#windows-compatibility">Windows Compatibility</a></li>
+</ul>
+</li>
+<li><a href="#install">Install</a></li>
+<li><a href="#tests">Tests</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<h2 id="quickstart-example">Quickstart example</h2>
+<pre><code class="lang-php">$loop = React\EventLoop\Factory::create();
+
+$process = <span class="hljs-keyword">new</span> React\ChildProcess\Process(<span class="hljs-string">&apos;echo foo&apos;</span>);
+$process-&gt;start($loop);
+
+$process-&gt;stdout-&gt;on(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($chunk)</span> </span>{
+    <span class="hljs-keyword">echo</span> $chunk;
+});
+
+$process-&gt;on(<span class="hljs-string">&apos;exit&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($exitCode, $termSignal)</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;Process exited with code &apos;</span> . $exitCode . PHP_EOL;
+});
+
+$loop-&gt;run();
+</code></pre>
+<p>See also the <a href="examples">examples</a>.</p>
+<h2 id="process">Process</h2>
+<h3 id="stream-properties">Stream Properties</h3>
+<p>Once a process is started, its I/O streams will be constructed as instances of
+<code>React\Stream\ReadableStreamInterface</code> and <code>React\Stream\WritableStreamInterface</code>. 
+Before <code>start()</code> is called, these properties are not set. Once a process terminates, 
+the streams will become closed but not unset.</p>
+<p>Following common Unix conventions, this library will start each child process
+with the three pipes matching the standard I/O streams as given below by default.
+You can use the named references for common use cases or access these as an
+array with all three pipes.</p>
+<ul>
+<li><code>$stdin</code>  or <code>$pipes[0]</code> is a <code>WritableStreamInterface</code></li>
+<li><code>$stdout</code> or <code>$pipes[1]</code> is a <code>ReadableStreamInterface</code></li>
+<li><code>$stderr</code> or <code>$pipes[2]</code> is a <code>ReadableStreamInterface</code></li>
+</ul>
+<p>Note that this default configuration may be overridden by explicitly passing
+<a href="#custom-pipes">custom pipes</a>, in which case they may not be set or be assigned
+different values. In particular, note that <a href="#windows-compatibility">Windows support</a>
+is limited in that it doesn&apos;t support non-blocking STDIO pipes. The <code>$pipes</code>
+array will always contain references to all pipes as configured and the standard
+I/O references will always be set to reference the pipes matching the above
+conventions. See <a href="#custom-pipes">custom pipes</a> for more details.</p>
+<p>Because each of these implement the underlying
+<a href="https://github.com/reactphp/stream#readablestreaminterface" target="_blank"><code>ReadableStreamInterface</code></a> or 
+<a href="https://github.com/reactphp/stream#writablestreaminterface" target="_blank"><code>WritableStreamInterface</code></a>, 
+you can use any of their events and methods as usual:</p>
+<pre><code class="lang-php">$process = <span class="hljs-keyword">new</span> Process($command);
+$process-&gt;start($loop);
+
+$process-&gt;stdout-&gt;on(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($chunk)</span> </span>{
+    <span class="hljs-keyword">echo</span> $chunk;
+});
+
+$process-&gt;stdout-&gt;on(<span class="hljs-string">&apos;end&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;ended&apos;</span>;
+});
+
+$process-&gt;stdout-&gt;on(<span class="hljs-string">&apos;error&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Exception $e)</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;error: &apos;</span> . $e-&gt;getMessage();
+});
+
+$process-&gt;stdout-&gt;on(<span class="hljs-string">&apos;close&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;closed&apos;</span>;
+});
+
+$process-&gt;stdin-&gt;write($data);
+$process-&gt;stdin-&gt;end($data = <span class="hljs-keyword">null</span>);
+<span class="hljs-comment">// &#x2026;</span>
+</code></pre>
+<p>For more details, see the
+<a href="https://github.com/reactphp/stream#readablestreaminterface" target="_blank"><code>ReadableStreamInterface</code></a> and 
+<a href="https://github.com/reactphp/stream#writablestreaminterface" target="_blank"><code>WritableStreamInterface</code></a>.</p>
+<h3 id="command">Command</h3>
+<p>The <code>Process</code> class allows you to pass any kind of command line string:</p>
+<pre><code class="lang-php">$process = <span class="hljs-keyword">new</span> Process(<span class="hljs-string">&apos;echo test&apos;</span>);
+$process-&gt;start($loop);
+</code></pre>
+<p>The command line string usually consists of a whitespace-separated list with
+your main executable bin and any number of arguments. Special care should be
+taken to escape or quote any arguments, escpecially if you pass any user input
+along. Likewise, keep in mind that especially on Windows, it is rather common to
+have path names containing spaces and other special characters. If you want to
+run a binary like this, you will have to ensure this is quoted as a single
+argument using <code>escapeshellarg()</code> like this:</p>
+<pre><code class="lang-php">$bin = <span class="hljs-string">&apos;C:\\Program files (x86)\\PHP\\php.exe&apos;</span>;
+$file = <span class="hljs-string">&apos;C:\\Users\\me\\Desktop\\Application\\main.php&apos;</span>;
+
+$process = <span class="hljs-keyword">new</span> Process(escapeshellarg($bin) . <span class="hljs-string">&apos; &apos;</span> . escapeshellarg($file));
+$process-&gt;start($loop);
+</code></pre>
+<p>By default, PHP will launch processes by wrapping the given command line string
+in a <code>sh</code> command on Unix, so that the first example will actually execute
+<code>sh -c echo test</code> under the hood on Unix. On Windows, it will not launch
+processes by wrapping them in a shell.</p>
+<p>This is a very useful feature because it does not only allow you to pass single
+commands, but actually allows you to pass any kind of shell command line and
+launch multiple sub-commands using command chains (with <code>&amp;&amp;</code>, <code>||</code>, <code>;</code> and
+others) and allows you to redirect STDIO streams (with <code>2&gt;&amp;1</code> and family).
+This can be used to pass complete command lines and receive the resulting STDIO
+streams from the wrapping shell command like this:</p>
+<pre><code class="lang-php">$process = <span class="hljs-keyword">new</span> Process(<span class="hljs-string">&apos;echo run &amp;&amp; demo || echo failed&apos;</span>);
+$process-&gt;start($loop);
+</code></pre>
+<blockquote>
+<p>Note that <a href="#windows-compatibility">Windows support</a> is limited in that it
+  doesn&apos;t support STDIO streams at all and also that processes will not be run
+  in a wrapping shell by default. If you want to run a shell built-in function
+  such as <code>echo hello</code> or <code>sleep 10</code>, you may have to prefix your command line
+  with an explicit shell like <code>cmd /c echo hello</code>.</p>
+</blockquote>
+<p>In other words, the underlying shell is responsible for managing this command
+line and launching the individual sub-commands and connecting their STDIO
+streams as appropriate.
+This implies that the <code>Process</code> class will only receive the resulting STDIO
+streams from the wrapping shell, which will thus contain the complete
+input/output with no way to discern the input/output of single sub-commands.</p>
+<p>If you want to discern the output of single sub-commands, you may want to
+implement some higher-level protocol logic, such as printing an explicit
+boundary between each sub-command like this:</p>
+<pre><code class="lang-php">$process = <span class="hljs-keyword">new</span> Process(<span class="hljs-string">&apos;cat first &amp;&amp; echo --- &amp;&amp; cat second&apos;</span>);
+$process-&gt;start($loop);
+</code></pre>
+<p>As an alternative, considering launching one process at a time and listening on
+its <code>exit</code> event to conditionally start the next process in the chain.
+This will give you an opportunity to configure the subsequent process I/O streams:</p>
+<pre><code class="lang-php">$first = <span class="hljs-keyword">new</span> Process(<span class="hljs-string">&apos;cat first&apos;</span>);
+$first-&gt;start($loop);
+
+$first-&gt;on(<span class="hljs-string">&apos;exit&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($loop)</span> </span>{
+    $second = <span class="hljs-keyword">new</span> Process(<span class="hljs-string">&apos;cat second&apos;</span>);
+    $second-&gt;start($loop);
+});
+</code></pre>
+<p>Keep in mind that PHP uses the shell wrapper for ALL command lines on Unix.
+While this may seem reasonable for more complex command lines, this actually
+also applies to running the most simple single command:</p>
+<pre><code class="lang-php">$process = <span class="hljs-keyword">new</span> Process(<span class="hljs-string">&apos;yes&apos;</span>);
+$process-&gt;start($loop);
+</code></pre>
+<p>This will actually spawn a command hierarchy similar to this on Unix:</p>
+<pre><code>5480 &#x2026; \_ php example.php
+5481 &#x2026;    \_ sh -c yes
+5482 &#x2026;        \_ yes
+</code></pre><p>This means that trying to get the underlying process PID or sending signals
+will actually target the wrapping shell, which may not be the desired result
+in many cases.</p>
+<p>If you do not want this wrapping shell process to show up, you can simply
+prepend the command string with <code>exec</code> on Unix platforms, which will cause the
+wrapping shell process to be replaced by our process:</p>
+<pre><code class="lang-php">$process = <span class="hljs-keyword">new</span> Process(<span class="hljs-string">&apos;exec yes&apos;</span>);
+$process-&gt;start($loop);
+</code></pre>
+<p>This will show a resulting command hierarchy similar to this:</p>
+<pre><code>5480 &#x2026; \_ php example.php
+5481 &#x2026;    \_ yes
+</code></pre><p>This means that trying to get the underlying process PID and sending signals
+will now target the actual command as expected.</p>
+<p>Note that in this case, the command line will not be run in a wrapping shell.
+This implies that when using <code>exec</code>, there&apos;s no way to pass command lines such
+as those containing command chains or redirected STDIO streams.</p>
+<p>As a rule of thumb, most commands will likely run just fine with the wrapping
+shell.
+If you pass a complete command line (or are unsure), you SHOULD most likely keep
+the wrapping shell.
+If you&apos;re running on Unix and you want to pass an invidual command only, you MAY
+want to consider prepending the command string with <code>exec</code> to avoid the wrapping shell.</p>
+<h3 id="termination">Termination</h3>
+<p>The <code>exit</code> event will be emitted whenever the process is no longer running.
+Event listeners will receive the exit code and termination signal as two
+arguments:</p>
+<pre><code class="lang-php">$process = <span class="hljs-keyword">new</span> Process(<span class="hljs-string">&apos;sleep 10&apos;</span>);
+$process-&gt;start($loop);
+
+$process-&gt;on(<span class="hljs-string">&apos;exit&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($code, $term)</span> </span>{
+    <span class="hljs-keyword">if</span> ($term === <span class="hljs-keyword">null</span>) {
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;exit with code &apos;</span> . $code . PHP_EOL;
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;terminated with signal &apos;</span> . $term . PHP_EOL;
+    }
+});
+</code></pre>
+<p>Note that <code>$code</code> is <code>null</code> if the process has terminated, but the exit
+code could not be determined (for example
+<a href="#sigchild-compatibility">sigchild compatibility</a> was disabled).
+Similarly, <code>$term</code> is <code>null</code> unless the process has terminated in response to
+an uncaught signal sent to it.
+This is not a limitation of this project, but actual how exit codes and signals
+are exposed on POSIX systems, for more details see also
+<a href="https://unix.stackexchange.com/questions/99112/default-exit-code-when-process-is-terminated" target="_blank">here</a>.</p>
+<p>It&apos;s also worth noting that process termination depends on all file descriptors
+being closed beforehand.
+This means that all <a href="#stream-properties">process pipes</a> will emit a <code>close</code>
+event before the <code>exit</code> event and that no more <code>data</code> events will arrive after
+the <code>exit</code> event.
+Accordingly, if either of these pipes is in a paused state (<code>pause()</code> method
+or internally due to a <code>pipe()</code> call), this detection may not trigger.</p>
+<p>The <code>terminate(?int $signal = null): bool</code> method can be used to send the
+process a signal (SIGTERM by default).
+Depending on which signal you send to the process and whether it has a signal
+handler registered, this can be used to either merely signal a process or even
+forcefully terminate it.</p>
+<pre><code class="lang-php">$process-&gt;terminate(SIGUSR1);
+</code></pre>
+<p>Keep the above section in mind if you want to forcefully terminate a process.
+If your process spawn sub-processes or implicitly uses the
+<a href="#command">wrapping shell mentioned above</a>, its file descriptors may be
+inherited to child processes and terminating the main process may not
+necessarily terminate the whole process tree.
+It is highly suggested that you explicitly <code>close()</code> all process pipes
+accordingly when terminating a process:</p>
+<pre><code class="lang-php">$process = <span class="hljs-keyword">new</span> Process(<span class="hljs-string">&apos;sleep 10&apos;</span>);
+$process-&gt;start($loop);
+
+$loop-&gt;addTimer(<span class="hljs-number">2.0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($process)</span> </span>{
+    <span class="hljs-keyword">foreach</span> ($process-&gt;pipes <span class="hljs-keyword">as</span> $pipe) {
+        $pipe-&gt;close();
+    }
+    $process-&gt;terminate();
+});
+</code></pre>
+<p>For many simple programs these seamingly complicated steps can also be avoided
+by prefixing the command line with <code>exec</code> to avoid the wrapping shell and its
+inherited process pipes as <a href="#command">mentioned above</a>.</p>
+<pre><code class="lang-php">$process = <span class="hljs-keyword">new</span> Process(<span class="hljs-string">&apos;exec sleep 10&apos;</span>);
+$process-&gt;start($loop);
+
+$loop-&gt;addTimer(<span class="hljs-number">2.0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($process)</span> </span>{
+    $process-&gt;terminate();
+});
+</code></pre>
+<p>Many command line programs also wait for data on <code>STDIN</code> and terminate cleanly
+when this pipe is closed.
+For example, the following can be used to &quot;soft-close&quot; a <code>cat</code> process:</p>
+<pre><code class="lang-php">$process = <span class="hljs-keyword">new</span> Process(<span class="hljs-string">&apos;cat&apos;</span>);
+$process-&gt;start($loop);
+
+$loop-&gt;addTimer(<span class="hljs-number">2.0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($process)</span> </span>{
+    $process-&gt;stdin-&gt;end();
+});
+</code></pre>
+<p>While process pipes and termination may seem confusing to newcomers, the above
+properties actually allow some fine grained control over process termination,
+such as first trying a soft-close and then applying a force-close after a
+timeout.</p>
+<h3 id="custom-pipes">Custom pipes</h3>
+<p>Following common Unix conventions, this library will start each child process
+with the three pipes matching the standard I/O streams by default. For more
+advanced use cases it may be useful to pass in custom pipes, such as explicitly
+passing additional file descriptors (FDs) or overriding default process pipes.</p>
+<p>Note that passing custom pipes is considered advanced usage and requires a
+more in-depth understanding of Unix file descriptors and how they are inherited
+to child processes and shared in multi-processing applications.</p>
+<p>If you do not want to use the default standard I/O pipes, you can explicitly
+pass an array containing the file descriptor specification to the constructor
+like this:</p>
+<pre><code class="lang-php">$fds = <span class="hljs-keyword">array</span>(
+    <span class="hljs-comment">// standard I/O pipes for stdin/stdout/stderr</span>
+    <span class="hljs-number">0</span> =&gt; <span class="hljs-keyword">array</span>(<span class="hljs-string">&apos;pipe&apos;</span>, <span class="hljs-string">&apos;r&apos;</span>),
+    <span class="hljs-number">1</span> =&gt; <span class="hljs-keyword">array</span>(<span class="hljs-string">&apos;pipe&apos;</span>, <span class="hljs-string">&apos;w&apos;</span>),
+    <span class="hljs-number">2</span> =&gt; <span class="hljs-keyword">array</span>(<span class="hljs-string">&apos;pipe&apos;</span>, <span class="hljs-string">&apos;w&apos;</span>),
+
+    <span class="hljs-comment">// example FDs for files or open resources</span>
+    <span class="hljs-number">4</span> =&gt; <span class="hljs-keyword">array</span>(<span class="hljs-string">&apos;file&apos;</span>, <span class="hljs-string">&apos;/dev/null&apos;</span>, <span class="hljs-string">&apos;r&apos;</span>),
+    <span class="hljs-number">6</span> =&gt; fopen(<span class="hljs-string">&apos;log.txt&apos;</span>,<span class="hljs-string">&apos;a&apos;</span>),
+    <span class="hljs-number">8</span> =&gt; STDERR,
+
+    <span class="hljs-comment">// example FDs for sockets</span>
+    <span class="hljs-number">10</span> =&gt; fsockopen(<span class="hljs-string">&apos;localhost&apos;</span>, <span class="hljs-number">8080</span>),
+    <span class="hljs-number">12</span> =&gt; stream_socket_server(<span class="hljs-string">&apos;tcp://0.0.0.0:4711&apos;</span>)
+);
+
+$process = <span class="hljs-keyword">new</span> Process($cmd, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, $fds);
+$process-&gt;start($loop);
+</code></pre>
+<p>Unless your use case has special requirements that demand otherwise, you&apos;re
+highly recommended to (at least) pass in the standard I/O pipes as given above.
+The file descriptor specification accepts arguments in the exact same format
+as the underlying <a href="http://php.net/proc_open" target="_blank"><code>proc_open()</code></a> function.</p>
+<p>Once the process is started, the <code>$pipes</code> array will always contain references to
+all pipes as configured and the standard I/O references will always be set to
+reference the pipes matching common Unix conventions. This library supports any
+number of pipes and additional file descriptors, but many common applications
+being run as a child process will expect that the parent process properly
+assigns these file descriptors.</p>
+<h3 id="sigchild-compatibility">Sigchild Compatibility</h3>
+<p>Internally, this project uses a work-around to improve compatibility when PHP
+has been compiled with the <code>--enable-sigchild</code> option. This should not affect most
+installations as this configure option is not used by default and many
+distributions (such as Debian and Ubuntu) are known to not use this by default.
+Some installations that use <a href="http://php.net/manual/en/book.oci8.php" target="_blank">Oracle OCI8</a>
+may use this configure option to circumvent <code>defunct</code> processes.</p>
+<p>When PHP has been compiled with the <code>--enable-sigchild</code> option, a child process&apos;
+exit code cannot be reliably determined via <code>proc_close()</code> or <code>proc_get_status()</code>.
+To work around this, we execute the child process with an additional pipe and
+use that to retrieve its exit code.</p>
+<p>This work-around incurs some overhead, so we only trigger this when necessary
+and when we detect that PHP has been compiled with the <code>--enable-sigchild</code> option.
+Because PHP does not provide a way to reliably detect this option, we try to
+inspect output of PHP&apos;s configure options from the <code>phpinfo()</code> function.</p>
+<p>The static <code>setSigchildEnabled(bool $sigchild): void</code> method can be used to
+explicitly enable or disable this behavior like this:</p>
+<pre><code class="lang-php"><span class="hljs-comment">// advanced: not recommended by default</span>
+Process::setSigchildEnabled(<span class="hljs-keyword">true</span>);
+</code></pre>
+<p>Note that all processes instantiated after this method call will be affected.
+If this work-around is disabled on an affected PHP installation, the <code>exit</code>
+event may receive <code>null</code> instead of the actual exit code as described above.
+Similarly, some distributions are known to omit the configure options from
+<code>phpinfo()</code>, so automatic detection may fail to enable this work-around in some
+cases. You may then enable this  explicitly as given above.</p>
+<p><strong>Note:</strong> The original functionality was taken from Symfony&apos;s
+<a href="https://github.com/symfony/process" target="_blank">Process</a> compoment.</p>
+<h3 id="windows-compatibility">Windows Compatibility</h3>
+<p>Due to platform constraints, this library provides only limited support for
+spawning child processes on Windows. In particular, PHP does not allow accessing
+standard I/O pipes without blocking. As such, this project will not allow
+constructing a child process with the default process pipes and will instead
+throw a <code>LogicException</code> on Windows by default:</p>
+<pre><code class="lang-php"><span class="hljs-comment">// throws LogicException on Windows</span>
+$process = <span class="hljs-keyword">new</span> Process(<span class="hljs-string">&apos;ping example.com&apos;</span>);
+$process-&gt;start($loop);
+</code></pre>
+<p>There are a number of alternatives and workarounds as detailed below if you want
+to run a child process on Windows, each with its own set of pros and cons:</p>
+<ul>
+<li><p>This package does work on
+<a href="https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux" target="_blank"><code>Windows Subsystem for Linux</code></a>
+(or WSL) without issues. When you are in control over how your application is
+deployed, we recommend <a href="https://msdn.microsoft.com/en-us/commandline/wsl/install_guide" target="_blank">installing WSL</a>
+when you want to run this package on Windows.</p>
+</li>
+<li><p>If you only care about the exit code of a child process to check if its
+execution was successful, you can use <a href="#custom-pipes">custom pipes</a> to omit
+any standard I/O pipes like this:</p>
+<pre><code class="lang-php">$process = <span class="hljs-keyword">new</span> Process(<span class="hljs-string">&apos;ping example.com&apos;</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">array</span>());
+$process-&gt;start($loop);
+
+$process-&gt;on(<span class="hljs-string">&apos;exit&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($exitcode)</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;exit with &apos;</span> . $exitcode . PHP_EOL;
+});
+</code></pre>
+<p>Similarly, this is also useful if your child process communicates over
+sockets with remote servers or even your parent process using the
+<a href="https://github.com/reactphp/socket" target="_blank">Socket component</a>. This is usually
+considered the best alternative if you have control over how your child
+process communicates with the parent process.</p>
+</li>
+<li><p>If you only care about command output after the child process has been
+executed, you can use <a href="#custom-pipes">custom pipes</a> to configure file
+handles to be passed to the child process instead of pipes like this:</p>
+<pre><code class="lang-php">$process = <span class="hljs-keyword">new</span> Process(<span class="hljs-string">&apos;ping example.com&apos;</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">array</span>(
+    <span class="hljs-keyword">array</span>(<span class="hljs-string">&apos;file&apos;</span>, <span class="hljs-string">&apos;nul&apos;</span>, <span class="hljs-string">&apos;r&apos;</span>),
+    $stdout = tmpfile(),
+    <span class="hljs-keyword">array</span>(<span class="hljs-string">&apos;file&apos;</span>, <span class="hljs-string">&apos;nul&apos;</span>, <span class="hljs-string">&apos;w&apos;</span>)
+));
+$process-&gt;start($loop);
+
+$process-&gt;on(<span class="hljs-string">&apos;exit&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($exitcode)</span> <span class="hljs-title">use</span> <span class="hljs-params">($stdout)</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;exit with &apos;</span> . $exitcode . PHP_EOL;
+
+    <span class="hljs-comment">// rewind to start and then read full file (demo only, this is blocking).</span>
+    <span class="hljs-comment">// reading from shared file is only safe if you have some synchronization in place</span>
+    <span class="hljs-comment">// or after the child process has terminated.</span>
+    rewind($stdout);
+    <span class="hljs-keyword">echo</span> stream_get_contents($stdout);
+    fclose($stdout);
+});
+</code></pre>
+<p>Note that this example uses <code>tmpfile()</code>/<code>fopen()</code> for illustration purposes only.
+This should not be used in a truly async program because the filesystem is
+inherently blocking and each call could potentially take several seconds.
+See also the <a href="https://github.com/reactphp/filesystem" target="_blank">Filesystem component</a> as an
+alternative.</p>
+</li>
+<li><p>If you want to access command output as it happens in a streaming fashion,
+you can use redirection to spawn an additional process to forward your
+standard I/O streams to a socket and use <a href="#custom-pipes">custom pipes</a> to
+omit any actual standard I/O pipes like this:</p>
+<pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Socket\Server(<span class="hljs-string">&apos;127.0.0.1:0&apos;</span>, $loop);
+$server-&gt;on(<span class="hljs-string">&apos;connection&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(React\Socket\ConnectionInterface $connection)</span> </span>{
+    $connection-&gt;on(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($chunk)</span> </span>{
+        <span class="hljs-keyword">echo</span> $chunk;
+    });
+});
+
+$command = <span class="hljs-string">&apos;ping example.com | foobar &apos;</span> . escapeshellarg($server-&gt;getAddress());
+$process = <span class="hljs-keyword">new</span> Process($command, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">array</span>());
+$process-&gt;start($loop);
+
+$process-&gt;on(<span class="hljs-string">&apos;exit&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($exitcode)</span> <span class="hljs-title">use</span> <span class="hljs-params">($server)</span> </span>{
+    $server-&gt;close();
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;exit with &apos;</span> . $exitcode . PHP_EOL;
+});
+</code></pre>
+<p>Note how this will spawn another fictional <code>foobar</code> helper program to consume
+the standard output from the actual child process. This is in fact similar
+to the above recommendation of using socket connections in the child process,
+but in this case does not require modification of the actual child process.</p>
+<p>In this example, the fictional <code>foobar</code> helper program can be implemented by
+simply consuming all data from standard input and forwarding it to a socket
+connection like this:</p>
+<pre><code class="lang-php">$socket = stream_socket_client($argv[<span class="hljs-number">1</span>]);
+<span class="hljs-keyword">do</span> {
+    fwrite($socket, $data = fread(STDIN, <span class="hljs-number">8192</span>));
+} <span class="hljs-keyword">while</span> (<span class="hljs-keyword">isset</span>($data[<span class="hljs-number">0</span>]));
+</code></pre>
+<p>Accordingly, this example can also be run with plain PHP without having to
+rely on any external helper program like this:</p>
+<pre><code class="lang-php">$code = <span class="hljs-string">&apos;$s=stream_socket_client($argv[1]);do{fwrite($s,$d=fread(STDIN, 8192));}while(isset($d[0]));&apos;</span>;
+$command = <span class="hljs-string">&apos;ping example.com | php -r &apos;</span> . escapeshellarg($code) . <span class="hljs-string">&apos; &apos;</span> . escapeshellarg($server-&gt;getAddress());
+$process = <span class="hljs-keyword">new</span> Process($command, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">array</span>());
+$process-&gt;start($loop);
+</code></pre>
+<p>See also <a href="examples/23-forward-socket.php">example #23</a>.</p>
+<p>Note that this is for illustration purposes only and you may want to implement
+some proper error checks and/or socket verification in actual production use
+if you do not want to risk other processes connecting to the server socket.
+In this case, we suggest looking at the excellent
+<a href="https://github.com/cubiclesoft/createprocess-windows" target="_blank">createprocess-windows</a>.</p>
+</li>
+</ul>
+<p>Additionally, note that the <a href="#command">command</a> given to the <code>Process</code> will be
+passed to the underlying Windows-API
+(<a href="https://docs.microsoft.com/en-us/windows/desktop/api/processthreadsapi/nf-processthreadsapi-createprocessa" target="_blank"><code>CreateProcess</code></a>)
+as-is and the process will not be launched in a wrapping shell by default. In
+particular, this means that shell built-in functions such as <code>echo hello</code> or
+<code>sleep 10</code> may have to be prefixed with an explicit shell command like this:</p>
+<pre><code class="lang-php">$process = <span class="hljs-keyword">new</span> Process(<span class="hljs-string">&apos;cmd /c echo hello&apos;</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, $pipes);
+$process-&gt;start($loop);
+</code></pre>
+<h2 id="install">Install</h2>
+<p>The recommended way to install this library is <a href="https://getcomposer.org" target="_blank">through Composer</a>.
+<a href="https://getcomposer.org/doc/00-intro.md" target="_blank">New to Composer?</a></p>
+<p>This will install the latest supported version:</p>
+<pre><code class="lang-bash">$ composer require react/child-process:^0.6.1
+</code></pre>
+<p>See also the <a href="CHANGELOG.md">CHANGELOG</a> for details about version upgrades.</p>
+<p>This project aims to run on any platform and thus does not require any PHP
+extensions and supports running on legacy PHP 5.3 through current PHP 7+ and HHVM.
+It&apos;s <em>highly recommended to use PHP 7+</em> for this project.</p>
+<p>See above note for limited <a href="#windows-compatibility">Windows Compatibility</a>.</p>
+<h2 id="tests">Tests</h2>
+<p>To run the test suite, you first need to clone this repo and then install all
+dependencies <a href="https://getcomposer.org" target="_blank">through Composer</a>:</p>
+<pre><code class="lang-bash">$ composer install
+</code></pre>
+<p>To run the test suite, go to the project root and run:</p>
+<pre><code class="lang-bash">$ php vendor/bin/phpunit
+</code></pre>
+<h2 id="license">License</h2>
+<p>MIT, see <a href="LICENSE">LICENSE file</a>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Cache.html" class="navigation navigation-prev " aria-label="Previous page: Cache">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="PromiseStream.html" class="navigation navigation-next " aria-label="Next page: PromiseStream">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"ChildProcess","level":"5.2","depth":1,"next":{"title":"PromiseStream","level":"5.3","depth":1,"path":"4.Utility-Components/PromiseStream.md","ref":"4.Utility-Components/PromiseStream.md","articles":[]},"previous":{"title":"Cache","level":"5.1","depth":1,"path":"4.Utility-Components/Cache.md","ref":"4.Utility-Components/Cache.md","articles":[]},"dir":"ltr"},"config":{"plugins":["- summary","toggle-chapters","theme-comscore","highlight","search-plus","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"search-plus":{}},"theme":"default","author":"Imparting","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactPHP 中文文档","language":"zh-hans","gitbook":"*","description":"ReactPHP 中文文档","theme-default":{"showLevel":true}},"file":{"path":"4.Utility-Components/ChildProcess.md","mtime":"2021-01-27T06:30:14.348Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-28T09:26:18.573Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

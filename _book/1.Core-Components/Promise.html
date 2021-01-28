@@ -1,0 +1,998 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Promise · ReactPHP 中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Imparting">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Stream.html" />
+    
+    
+    <link rel="prev" href="EventLoop.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">1.核心组件</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="EventLoop.html">
+            
+                <a href="EventLoop.html">
+            
+                    
+                    EventLoop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.2" data-path="Promise.html">
+            
+                <a href="Promise.html">
+            
+                    
+                    Promise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="Stream.html">
+            
+                <a href="Stream.html">
+            
+                    
+                    Stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2.网络组件</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../2.Network-Components/Datagram.html">
+            
+                <a href="../2.Network-Components/Datagram.html">
+            
+                    
+                    Datagram
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../2.Network-Components/Socket.html">
+            
+                <a href="../2.Network-Components/Socket.html">
+            
+                    
+                    Socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.协议组件</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../3.Protocol-Components/Dns.html">
+            
+                <a href="../3.Protocol-Components/Dns.html">
+            
+                    
+                    Dns
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../3.Protocol-Components/Http.html">
+            
+                <a href="../3.Protocol-Components/Http.html">
+            
+                    
+                    Http
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../3.Protocol-Components/HttpClient.html">
+            
+                <a href="../3.Protocol-Components/HttpClient.html">
+            
+                    
+                    HttpClient
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">4.实用组件</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../4.Utility-Components/Cache.html">
+            
+                <a href="../4.Utility-Components/Cache.html">
+            
+                    
+                    Cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../4.Utility-Components/ChildProcess.html">
+            
+                <a href="../4.Utility-Components/ChildProcess.html">
+            
+                    
+                    ChildProcess
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../4.Utility-Components/PromiseStream.html">
+            
+                <a href="../4.Utility-Components/PromiseStream.html">
+            
+                    
+                    PromiseStream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../4.Utility-Components/PromiseTimer.html">
+            
+                <a href="../4.Utility-Components/PromiseTimer.html">
+            
+                    
+                    PromiseTimer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Promise</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="promise">Promise</h1>
+<p>A lightweight implementation of
+<a href="http://wiki.commonjs.org/wiki/Promises/A" target="_blank">CommonJS Promises/A</a> for PHP.</p>
+<p><a href="http://travis-ci.org/reactphp/promise" target="_blank"><img src="https://travis-ci.org/reactphp/promise.svg?branch=master" alt="Build Status"></a>
+<a href="https://coveralls.io/github/reactphp/promise?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/reactphp/promise/badge.svg?branch=master" alt="Coverage Status"></a></p>
+<blockquote>
+<p>The master branch contains the code for the upcoming 3.0 release.
+For the code of the current stable 2.x release, checkout the 
+<a href="https://github.com/reactphp/promise/tree/2.x" target="_blank">2.x branch</a>.</p>
+<p>The upcoming 3.0 release will be the way forward for this package. 
+However we will still actively support 2.0 and 1.0 for those not yet 
+on PHP 7+.</p>
+</blockquote>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#concepts">Concepts</a><ul>
+<li><a href="#deferred">Deferred</a></li>
+<li><a href="#promise-1">Promise</a></li>
+</ul>
+</li>
+<li><a href="#api">API</a><ul>
+<li><a href="#deferred-1">Deferred</a><ul>
+<li><a href="#deferredpromise">Deferred::promise()</a></li>
+<li><a href="#deferredresolve">Deferred::resolve()</a></li>
+<li><a href="#deferredreject">Deferred::reject()</a></li>
+</ul>
+</li>
+<li><a href="#promiseinterface">PromiseInterface</a><ul>
+<li><a href="#promiseinterfacethen">PromiseInterface::then()</a></li>
+<li><a href="#promiseinterfacedone">PromiseInterface::done()</a></li>
+<li><a href="#promiseinterfaceotherwise">PromiseInterface::otherwise()</a></li>
+<li><a href="#promiseinterfacealways">PromiseInterface::always()</a></li>
+<li><a href="#promiseinterfacecancel">PromiseInterface::cancel()</a></li>
+</ul>
+</li>
+<li><a href="#promise-2">Promise</a></li>
+<li><a href="#functions">Functions</a><ul>
+<li><a href="#resolve">resolve()</a></li>
+<li><a href="#reject">reject()</a></li>
+<li><a href="#all">all()</a></li>
+<li><a href="#race">race()</a></li>
+<li><a href="#any">any()</a></li>
+<li><a href="#some">some()</a></li>
+<li><a href="#map">map()</a></li>
+<li><a href="#reduce">reduce()</a></li>
+</ul>
+</li>
+<li><a href="#promisorinterface">PromisorInterface</a></li>
+</ul>
+</li>
+<li><a href="#examples">Examples</a><ul>
+<li><a href="#how-to-use-deferred">How to use Deferred</a></li>
+<li><a href="#how-promise-forwarding-works">How promise forwarding works</a><ul>
+<li><a href="#resolution-forwarding">Resolution forwarding</a></li>
+<li><a href="#rejection-forwarding">Rejection forwarding</a></li>
+<li><a href="#mixed-resolution-and-rejection-forwarding">Mixed resolution and rejection forwarding</a></li>
+</ul>
+</li>
+<li><a href="#done-vs-then">done() vs. then()</a></li>
+</ul>
+</li>
+<li><a href="#credits">Credits</a></li>
+<li><a href="#license">License</a></li>
+</ol>
+<h2 id="introduction">Introduction</h2>
+<p>Promise is a library implementing
+<a href="http://wiki.commonjs.org/wiki/Promises/A" target="_blank">CommonJS Promises/A</a> for PHP.</p>
+<p>It also provides several other useful promise-related concepts, such as joining
+multiple promises and mapping and reducing collections of promises.</p>
+<p>If you&apos;ve never heard about promises before,
+<a href="https://gist.github.com/3889970" target="_blank">read this first</a>.</p>
+<h2 id="concepts">Concepts</h2>
+<h3 id="deferred">Deferred</h3>
+<p>A <strong>Deferred</strong> represents a computation or unit of work that may not have
+completed yet. Typically (but not always), that computation will be something
+that executes asynchronously and completes at some point in the future.</p>
+<h3 id="promise">Promise</h3>
+<p>While a deferred represents the computation itself, a <strong>Promise</strong> represents
+the result of that computation. Thus, each deferred has a promise that acts as
+a placeholder for its actual result.</p>
+<h2 id="api">API</h2>
+<h3 id="deferred">Deferred</h3>
+<p>A deferred represents an operation whose resolution is pending. It has separate
+promise and resolver parts.</p>
+<pre><code class="lang-php">$deferred = <span class="hljs-keyword">new</span> React\Promise\Deferred();
+
+$promise = $deferred-&gt;promise();
+
+$deferred-&gt;resolve(mixed $value = <span class="hljs-keyword">null</span>);
+$deferred-&gt;reject(\Throwable $reason);
+</code></pre>
+<p>The <code>promise</code> method returns the promise of the deferred.</p>
+<p>The <code>resolve</code> and <code>reject</code> methods control the state of the deferred.</p>
+<p>The constructor of the <code>Deferred</code> accepts an optional <code>$canceller</code> argument.
+See <a href="#promise-2">Promise</a> for more information.</p>
+<h4 id="deferredpromise">Deferred::promise()</h4>
+<pre><code class="lang-php">$promise = $deferred-&gt;promise();
+</code></pre>
+<p>Returns the promise of the deferred, which you can hand out to others while
+keeping the authority to modify its state to yourself.</p>
+<h4 id="deferredresolve">Deferred::resolve()</h4>
+<pre><code class="lang-php">$deferred-&gt;resolve(mixed $value = <span class="hljs-keyword">null</span>);
+</code></pre>
+<p>Resolves the promise returned by <code>promise()</code>. All consumers are notified by
+having <code>$onFulfilled</code> (which they registered via <code>$promise-&gt;then()</code>) called with
+<code>$value</code>.</p>
+<p>If <code>$value</code> itself is a promise, the promise will transition to the state of
+this promise once it is resolved.</p>
+<h4 id="deferredreject">Deferred::reject()</h4>
+<pre><code class="lang-php">$deferred-&gt;reject(\Throwable $reason);
+</code></pre>
+<p>Rejects the promise returned by <code>promise()</code>, signalling that the deferred&apos;s
+computation failed.
+All consumers are notified by having <code>$onRejected</code> (which they registered via
+<code>$promise-&gt;then()</code>) called with <code>$reason</code>.</p>
+<h3 id="promiseinterface">PromiseInterface</h3>
+<p>The promise interface provides the common interface for all promise
+implementations.
+See <a href="#promise-2">Promise</a> for the only public implementation exposed by this
+package.</p>
+<p>A promise represents an eventual outcome, which is either fulfillment (success)
+and an associated value, or rejection (failure) and an associated reason.</p>
+<p>Once in the fulfilled or rejected state, a promise becomes immutable.
+Neither its state nor its result (or error) can be modified.</p>
+<h4 id="promiseinterfacethen">PromiseInterface::then()</h4>
+<pre><code class="lang-php">$transformedPromise = $promise-&gt;then(callable $onFulfilled = <span class="hljs-keyword">null</span>, callable $onRejected = <span class="hljs-keyword">null</span>);
+</code></pre>
+<p>Transforms a promise&apos;s value by applying a function to the promise&apos;s fulfillment
+or rejection value. Returns a new promise for the transformed result.</p>
+<p>The <code>then()</code> method registers new fulfilled and rejection handlers with a promise
+(all parameters are optional):</p>
+<ul>
+<li><code>$onFulfilled</code> will be invoked once the promise is fulfilled and passed
+the result as the first argument.</li>
+<li><code>$onRejected</code> will be invoked once the promise is rejected and passed the
+reason as the first argument.</li>
+</ul>
+<p>It returns a new promise that will fulfill with the return value of either
+<code>$onFulfilled</code> or <code>$onRejected</code>, whichever is called, or will reject with
+the thrown exception if either throws.</p>
+<p>A promise makes the following guarantees about handlers registered in
+the same call to <code>then()</code>:</p>
+<ol>
+<li>Only one of <code>$onFulfilled</code> or <code>$onRejected</code> will be called,
+never both.</li>
+<li><code>$onFulfilled</code> and <code>$onRejected</code> will never be called more
+than once.</li>
+</ol>
+<h4 id="see-also">See also</h4>
+<ul>
+<li><a href="#resolve">resolve()</a> - Creating a resolved promise</li>
+<li><a href="#reject">reject()</a> - Creating a rejected promise</li>
+<li><a href="#promiseinterfacedone">PromiseInterface::done()</a></li>
+<li><a href="#done-vs-then">done() vs. then()</a></li>
+</ul>
+<h4 id="promiseinterfacedone">PromiseInterface::done()</h4>
+<pre><code class="lang-php">$promise-&gt;done(callable $onFulfilled = <span class="hljs-keyword">null</span>, callable $onRejected = <span class="hljs-keyword">null</span>);
+</code></pre>
+<p>Consumes the promise&apos;s ultimate value if the promise fulfills, or handles the
+ultimate error.</p>
+<p>It will cause a fatal error (<code>E_USER_ERROR</code>) if either <code>$onFulfilled</code> or
+<code>$onRejected</code> throw or return a rejected promise.</p>
+<p>Since the purpose of <code>done()</code> is consumption rather than transformation,
+<code>done()</code> always returns <code>null</code>.</p>
+<h4 id="see-also">See also</h4>
+<ul>
+<li><a href="#promiseinterfacethen">PromiseInterface::then()</a></li>
+<li><a href="#done-vs-then">done() vs. then()</a></li>
+</ul>
+<h4 id="promiseinterfaceotherwise">PromiseInterface::otherwise()</h4>
+<pre><code class="lang-php">$promise-&gt;otherwise(callable $onRejected);
+</code></pre>
+<p>Registers a rejection handler for promise. It is a shortcut for:</p>
+<pre><code class="lang-php">$promise-&gt;then(<span class="hljs-keyword">null</span>, $onRejected);
+</code></pre>
+<p>Additionally, you can type hint the <code>$reason</code> argument of <code>$onRejected</code> to catch
+only specific errors.</p>
+<pre><code class="lang-php">$promise
+    -&gt;otherwise(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(\RuntimeException $reason)</span> </span>{
+        <span class="hljs-comment">// Only catch \RuntimeException instances</span>
+        <span class="hljs-comment">// All other types of errors will propagate automatically</span>
+    })
+    -&gt;otherwise(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(\Throwable $reason)</span> </span>{
+        <span class="hljs-comment">// Catch other errors</span>
+    )};
+</code></pre>
+<h4 id="promiseinterfacealways">PromiseInterface::always()</h4>
+<pre><code class="lang-php">$newPromise = $promise-&gt;always(callable $onFulfilledOrRejected);
+</code></pre>
+<p>Allows you to execute &quot;cleanup&quot; type tasks in a promise chain.</p>
+<p>It arranges for <code>$onFulfilledOrRejected</code> to be called, with no arguments,
+when the promise is either fulfilled or rejected.</p>
+<ul>
+<li>If <code>$promise</code> fulfills, and <code>$onFulfilledOrRejected</code> returns successfully,
+<code>$newPromise</code> will fulfill with the same value as <code>$promise</code>.</li>
+<li>If <code>$promise</code> fulfills, and <code>$onFulfilledOrRejected</code> throws or returns a
+rejected promise, <code>$newPromise</code> will reject with the thrown exception or
+rejected promise&apos;s reason.</li>
+<li>If <code>$promise</code> rejects, and <code>$onFulfilledOrRejected</code> returns successfully,
+<code>$newPromise</code> will reject with the same reason as <code>$promise</code>.</li>
+<li>If <code>$promise</code> rejects, and <code>$onFulfilledOrRejected</code> throws or returns a
+rejected promise, <code>$newPromise</code> will reject with the thrown exception or
+rejected promise&apos;s reason.</li>
+</ul>
+<p><code>always()</code> behaves similarly to the synchronous finally statement. When combined
+with <code>otherwise()</code>, <code>always()</code> allows you to write code that is similar to the familiar
+synchronous catch/finally pair.</p>
+<p>Consider the following synchronous code:</p>
+<pre><code class="lang-php"><span class="hljs-keyword">try</span> {
+  <span class="hljs-keyword">return</span> doSomething();
+} <span class="hljs-keyword">catch</span> (\Throwable $e) {
+    <span class="hljs-keyword">return</span> handleError($e);
+} <span class="hljs-keyword">finally</span> {
+    cleanup();
+}
+</code></pre>
+<p>Similar asynchronous code (with <code>doSomething()</code> that returns a promise) can be
+written:</p>
+<pre><code class="lang-php"><span class="hljs-keyword">return</span> doSomething()
+    -&gt;otherwise(<span class="hljs-string">&apos;handleError&apos;</span>)
+    -&gt;always(<span class="hljs-string">&apos;cleanup&apos;</span>);
+</code></pre>
+<h4 id="promiseinterfacecancel">PromiseInterface::cancel()</h4>
+<pre><code class="lang-php">$promise-&gt;cancel();
+</code></pre>
+<p>The <code>cancel()</code> method notifies the creator of the promise that there is no
+further interest in the results of the operation.</p>
+<p>Once a promise is settled (either fulfilled or rejected), calling <code>cancel()</code> on
+a promise has no effect.</p>
+<h3 id="promise">Promise</h3>
+<p>Creates a promise whose state is controlled by the functions passed to
+<code>$resolver</code>.</p>
+<pre><code class="lang-php">$resolver = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(callable $resolve, callable $reject)</span> </span>{
+    <span class="hljs-comment">// Do some work, possibly asynchronously, and then</span>
+    <span class="hljs-comment">// resolve or reject.</span>
+
+    $resolve($awesomeResult);
+    <span class="hljs-comment">// or throw new Exception(&apos;Promise rejected&apos;);</span>
+    <span class="hljs-comment">// or $resolve($anotherPromise);</span>
+    <span class="hljs-comment">// or $reject($nastyError);</span>
+};
+
+$canceller = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// Cancel/abort any running operations like network connections, streams etc.</span>
+
+    <span class="hljs-comment">// Reject promise by throwing an exception</span>
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-keyword">Exception</span>(<span class="hljs-string">&apos;Promise cancelled&apos;</span>);
+};
+
+$promise = <span class="hljs-keyword">new</span> React\Promise\Promise($resolver, $canceller);
+</code></pre>
+<p>The promise constructor receives a resolver function and an optional canceller
+function which both will be called with 3 arguments:</p>
+<ul>
+<li><code>$resolve($value)</code> - Primary function that seals the fate of the
+returned promise. Accepts either a non-promise value, or another promise.
+When called with a non-promise value, fulfills promise with that value.
+When called with another promise, e.g. <code>$resolve($otherPromise)</code>, promise&apos;s
+fate will be equivalent to that of <code>$otherPromise</code>.</li>
+<li><code>$reject($reason)</code> - Function that rejects the promise. It is recommended to
+just throw an exception instead of using <code>$reject()</code>.</li>
+</ul>
+<p>If the resolver or canceller throw an exception, the promise will be rejected
+with that thrown exception as the rejection reason.</p>
+<p>The resolver function will be called immediately, the canceller function only
+once all consumers called the <code>cancel()</code> method of the promise.</p>
+<h3 id="functions">Functions</h3>
+<p>Useful functions for creating, joining, mapping and reducing collections of
+promises.</p>
+<p>All functions working on promise collections (like <code>all()</code>, <code>race()</code>, <code>some()</code>
+etc.) support cancellation. This means, if you call <code>cancel()</code> on the returned
+promise, all promises in the collection are cancelled.</p>
+<h4 id="resolve">resolve()</h4>
+<pre><code class="lang-php">$promise = React\Promise\resolve(mixed $promiseOrValue);
+</code></pre>
+<p>Creates a promise for the supplied <code>$promiseOrValue</code>.</p>
+<p>If <code>$promiseOrValue</code> is a value, it will be the resolution value of the
+returned promise.</p>
+<p>If <code>$promiseOrValue</code> is a thenable (any object that provides a <code>then()</code> method),
+a trusted promise that follows the state of the thenable is returned.</p>
+<p>If <code>$promiseOrValue</code> is a promise, it will be returned as is.</p>
+<h4 id="reject">reject()</h4>
+<pre><code class="lang-php">$promise = React\Promise\reject(\Throwable $reason);
+</code></pre>
+<p>Creates a rejected promise for the supplied <code>$reason</code>.</p>
+<p>Note that the <a href="https://www.php.net/manual/en/class.throwable.php" target="_blank"><code>\Throwable</code></a> interface introduced in PHP 7 covers 
+both user land <a href="https://www.php.net/manual/en/class.exception.php" target="_blank"><code>\Exception</code></a>&apos;s and 
+<a href="https://www.php.net/manual/en/class.error.php" target="_blank"><code>\Error</code></a> internal PHP errors. By enforcing <code>\Throwable</code> as reason to 
+reject a promise, any language error or user land exception can be used to reject a promise.</p>
+<h4 id="all">all()</h4>
+<pre><code class="lang-php">$promise = React\Promise\all(<span class="hljs-keyword">array</span> $promisesOrValues);
+</code></pre>
+<p>Returns a promise that will resolve only once all the items in
+<code>$promisesOrValues</code> have resolved. The resolution value of the returned promise
+will be an array containing the resolution values of each of the items in
+<code>$promisesOrValues</code>.</p>
+<h4 id="race">race()</h4>
+<pre><code class="lang-php">$promise = React\Promise\race(<span class="hljs-keyword">array</span> $promisesOrValues);
+</code></pre>
+<p>Initiates a competitive race that allows one winner. Returns a promise which is
+resolved in the same way the first settled promise resolves.</p>
+<p>The returned promise will become <strong>infinitely pending</strong> if  <code>$promisesOrValues</code>
+contains 0 items.</p>
+<h4 id="any">any()</h4>
+<pre><code class="lang-php">$promise = React\Promise\any(<span class="hljs-keyword">array</span> $promisesOrValues);
+</code></pre>
+<p>Returns a promise that will resolve when any one of the items in
+<code>$promisesOrValues</code> resolves. The resolution value of the returned promise
+will be the resolution value of the triggering item.</p>
+<p>The returned promise will only reject if <em>all</em> items in <code>$promisesOrValues</code> are
+rejected. The rejection value will be a <code>React\Promise\Exception\CompositeException</code>
+which holds all rejection reasons. The rejection reasons can be obtained with
+<code>CompositeException::getThrowables()</code>.</p>
+<p>The returned promise will also reject with a <code>React\Promise\Exception\LengthException</code>
+if <code>$promisesOrValues</code> contains 0 items.</p>
+<h4 id="some">some()</h4>
+<pre><code class="lang-php">$promise = React\Promise\some(<span class="hljs-keyword">array</span> $promisesOrValues, integer $howMany);
+</code></pre>
+<p>Returns a promise that will resolve when at least <code>$howMany</code> of the supplied items in
+<code>$promisesOrValues</code> fulfill. The resolution value of the returned promise
+will be an array of length <code>$howMany</code> containing the resolution values of
+<code>$howMany</code> fulfilled promises that were resolved first.</p>
+<p>The returned promise will reject if it becomes impossible for <code>$howMany</code> items
+to resolve (that is, when <code>(count($promisesOrValues) - $howMany) + 1</code> items
+reject). The rejection value will be a <code>React\Promise\Exception\CompositeException</code>
+which holds <code>(count($promisesOrValues) - $howMany) + 1</code> rejection reasons.
+The rejection reasons can be obtained with <code>CompositeException::getExceptions()</code>.</p>
+<p>The returned promise will also reject with a <code>React\Promise\Exception\LengthException</code>
+if <code>$promisesOrValues</code> contains less items than <code>$howMany</code>.</p>
+<h4 id="map">map()</h4>
+<pre><code class="lang-php">$promise = React\Promise\map(<span class="hljs-keyword">array</span> $promisesOrValues, callable $mapFunc);
+</code></pre>
+<p>Traditional map function, similar to <code>array_map()</code>, but allows input to contain
+promises and/or values, and <code>$mapFunc</code> may return either a value or a promise.</p>
+<p>The map function receives each item as argument, where item is a fully resolved
+value of a promise or value in <code>$promisesOrValues</code>.</p>
+<h4 id="reduce">reduce()</h4>
+<pre><code class="lang-php">$promise = React\Promise\reduce(<span class="hljs-keyword">array</span> $promisesOrValues, callable $reduceFunc, $initialValue = <span class="hljs-keyword">null</span>);
+</code></pre>
+<p>Traditional reduce function, similar to <code>array_reduce()</code>, but input may contain
+promises and/or values, and <code>$reduceFunc</code> may return either a value or a
+promise, <em>and</em> <code>$initialValue</code> may be a promise or a value for the starting
+value.</p>
+<h3 id="promisorinterface">PromisorInterface</h3>
+<p>The <code>React\Promise\PromisorInterface</code> provides a common interface for objects
+that provide a promise. <code>React\Promise\Deferred</code> implements it, but since it
+is part of the public API anyone can implement it.</p>
+<h2 id="examples">Examples</h2>
+<h3 id="how-to-use-deferred">How to use Deferred</h3>
+<pre><code class="lang-php"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getAwesomeResultPromise</span><span class="hljs-params">()</span>
+</span>{
+    $deferred = <span class="hljs-keyword">new</span> React\Promise\Deferred();
+
+    <span class="hljs-comment">// Execute a Node.js-style function using the callback pattern</span>
+    computeAwesomeResultAsynchronously(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(\Throwable $error, $result)</span> <span class="hljs-title">use</span> <span class="hljs-params">($deferred)</span> </span>{
+        <span class="hljs-keyword">if</span> ($error) {
+            $deferred-&gt;reject($error);
+        } <span class="hljs-keyword">else</span> {
+            $deferred-&gt;resolve($result);
+        }
+    });
+
+    <span class="hljs-comment">// Return the promise</span>
+    <span class="hljs-keyword">return</span> $deferred-&gt;promise();
+}
+
+getAwesomeResultPromise()
+    -&gt;then(
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($value)</span> </span>{
+            <span class="hljs-comment">// Deferred resolved, do something with $value</span>
+        },
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(\Throwable $reason)</span> </span>{
+            <span class="hljs-comment">// Deferred rejected, do something with $reason</span>
+        }
+    );
+</code></pre>
+<h3 id="how-promise-forwarding-works">How promise forwarding works</h3>
+<p>A few simple examples to show how the mechanics of Promises/A forwarding works.
+These examples are contrived, of course, and in real usage, promise chains will
+typically be spread across several function calls, or even several levels of
+your application architecture.</p>
+<h4 id="resolution-forwarding">Resolution forwarding</h4>
+<p>Resolved promises forward resolution values to the next promise.
+The first promise, <code>$deferred-&gt;promise()</code>, will resolve with the value passed
+to <code>$deferred-&gt;resolve()</code> below.</p>
+<p>Each call to <code>then()</code> returns a new promise that will resolve with the return
+value of the previous handler. This creates a promise &quot;pipeline&quot;.</p>
+<pre><code class="lang-php">$deferred = <span class="hljs-keyword">new</span> React\Promise\Deferred();
+
+$deferred-&gt;promise()
+    -&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($x)</span> </span>{
+        <span class="hljs-comment">// $x will be the value passed to $deferred-&gt;resolve() below</span>
+        <span class="hljs-comment">// and returns a *new promise* for $x + 1</span>
+        <span class="hljs-keyword">return</span> $x + <span class="hljs-number">1</span>;
+    })
+    -&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($x)</span> </span>{
+        <span class="hljs-comment">// $x === 2</span>
+        <span class="hljs-comment">// This handler receives the return value of the</span>
+        <span class="hljs-comment">// previous handler.</span>
+        <span class="hljs-keyword">return</span> $x + <span class="hljs-number">1</span>;
+    })
+    -&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($x)</span> </span>{
+        <span class="hljs-comment">// $x === 3</span>
+        <span class="hljs-comment">// This handler receives the return value of the</span>
+        <span class="hljs-comment">// previous handler.</span>
+        <span class="hljs-keyword">return</span> $x + <span class="hljs-number">1</span>;
+    })
+    -&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($x)</span> </span>{
+        <span class="hljs-comment">// $x === 4</span>
+        <span class="hljs-comment">// This handler receives the return value of the</span>
+        <span class="hljs-comment">// previous handler.</span>
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;Resolve &apos;</span> . $x;
+    });
+
+$deferred-&gt;resolve(<span class="hljs-number">1</span>); <span class="hljs-comment">// Prints &quot;Resolve 4&quot;</span>
+</code></pre>
+<h4 id="rejection-forwarding">Rejection forwarding</h4>
+<p>Rejected promises behave similarly, and also work similarly to try/catch:
+When you catch an exception, you must rethrow for it to propagate.</p>
+<p>Similarly, when you handle a rejected promise, to propagate the rejection,
+&quot;rethrow&quot; it by either returning a rejected promise, or actually throwing
+(since promise translates thrown exceptions into rejections)</p>
+<pre><code class="lang-php">$deferred = <span class="hljs-keyword">new</span> React\Promise\Deferred();
+
+$deferred-&gt;promise()
+    -&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($x)</span> </span>{
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> \<span class="hljs-keyword">Exception</span>($x + <span class="hljs-number">1</span>);
+    })
+    -&gt;otherwise(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(\Exception $x)</span> </span>{
+        <span class="hljs-comment">// Propagate the rejection</span>
+        <span class="hljs-keyword">throw</span> $x;
+    })
+    -&gt;otherwise(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(\Exception $x)</span> </span>{
+        <span class="hljs-comment">// Can also propagate by returning another rejection</span>
+        <span class="hljs-keyword">return</span> React\Promise\reject(
+            <span class="hljs-keyword">new</span> \<span class="hljs-keyword">Exception</span>($x-&gt;getMessage() + <span class="hljs-number">1</span>)
+        );
+    })
+    -&gt;otherwise(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($x)</span> </span>{
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;Reject &apos;</span> . $x-&gt;getMessage(); <span class="hljs-comment">// 3</span>
+    });
+
+$deferred-&gt;resolve(<span class="hljs-number">1</span>);  <span class="hljs-comment">// Prints &quot;Reject 3&quot;</span>
+</code></pre>
+<h4 id="mixed-resolution-and-rejection-forwarding">Mixed resolution and rejection forwarding</h4>
+<p>Just like try/catch, you can choose to propagate or not. Mixing resolutions and
+rejections will still forward handler results in a predictable way.</p>
+<pre><code class="lang-php">$deferred = <span class="hljs-keyword">new</span> React\Promise\Deferred();
+
+$deferred-&gt;promise()
+    -&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($x)</span> </span>{
+        <span class="hljs-keyword">return</span> $x + <span class="hljs-number">1</span>;
+    })
+    -&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($x)</span> </span>{
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> \<span class="hljs-keyword">Exception</span>($x + <span class="hljs-number">1</span>);
+    })
+    -&gt;otherwise(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(\Exception $x)</span> </span>{
+        <span class="hljs-comment">// Handle the rejection, and don&apos;t propagate.</span>
+        <span class="hljs-comment">// This is like catch without a rethrow</span>
+        <span class="hljs-keyword">return</span> $x-&gt;getMessage() + <span class="hljs-number">1</span>;
+    })
+    -&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($x)</span> </span>{
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;Mixed &apos;</span> . $x; <span class="hljs-comment">// 4</span>
+    });
+
+$deferred-&gt;resolve(<span class="hljs-number">1</span>);  <span class="hljs-comment">// Prints &quot;Mixed 4&quot;</span>
+</code></pre>
+<h3 id="done-vs-then">done() vs. then()</h3>
+<p>The golden rule is:</p>
+<pre><code>Either return your promise, or call done() on it.
+</code></pre><p>At a first glance, <code>then()</code> and <code>done()</code> seem very similar. However, there are
+important distinctions.</p>
+<p>The intent of <code>then()</code> is to transform a promise&apos;s value and to pass or return
+a new promise for the transformed value along to other parts of your code.</p>
+<p>The intent of <code>done()</code> is to consume a promise&apos;s value, transferring
+responsibility for the value to your code.</p>
+<p>In addition to transforming a value, <code>then()</code> allows you to recover from, or
+propagate intermediate errors. Any errors that are not handled will be caught
+by the promise machinery and used to reject the promise returned by <code>then()</code>.</p>
+<p>Calling <code>done()</code> transfers all responsibility for errors to your code. If an
+error (either a thrown exception or returned rejection) escapes the
+<code>$onFulfilled</code> or <code>$onRejected</code> callbacks you provide to <code>done()</code>, it will cause
+a fatal error.</p>
+<pre><code class="lang-php"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getJsonResult</span><span class="hljs-params">()</span>
+</span>{
+    <span class="hljs-keyword">return</span> queryApi()
+        -&gt;then(
+            <span class="hljs-comment">// Transform API results to an object</span>
+            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($jsonResultString)</span> </span>{
+                <span class="hljs-keyword">return</span> json_decode($jsonResultString);
+            },
+            <span class="hljs-comment">// Transform API errors to an exception</span>
+            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($jsonErrorString)</span> </span>{
+                $object = json_decode($jsonErrorString);
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ApiErrorException($object-&gt;errorMessage);
+            }
+        );
+}
+
+<span class="hljs-comment">// Here we provide no rejection handler. If the promise returned has been</span>
+<span class="hljs-comment">// rejected, the ApiErrorException will be thrown</span>
+getJsonResult()
+    -&gt;done(
+        <span class="hljs-comment">// Consume transformed object</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($jsonResultObject)</span> </span>{
+            <span class="hljs-comment">// Do something with $jsonResultObject</span>
+        }
+    );
+
+<span class="hljs-comment">// Here we provide a rejection handler which will either throw while debugging</span>
+<span class="hljs-comment">// or log the exception</span>
+getJsonResult()
+    -&gt;done(
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($jsonResultObject)</span> </span>{
+            <span class="hljs-comment">// Do something with $jsonResultObject</span>
+        },
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(ApiErrorException $exception)</span> </span>{
+            <span class="hljs-keyword">if</span> (isDebug()) {
+                <span class="hljs-keyword">throw</span> $exception;
+            } <span class="hljs-keyword">else</span> {
+                logException($exception);
+            }
+        }
+    );
+</code></pre>
+<h2 id="credits">Credits</h2>
+<p>Promise is a port of <a href="https://github.com/cujojs/when" target="_blank">when.js</a>
+by <a href="https://github.com/briancavalier" target="_blank">Brian Cavalier</a>.</p>
+<p>Also, large parts of the documentation have been ported from the when.js
+<a href="https://github.com/cujojs/when/wiki" target="_blank">Wiki</a> and the
+<a href="https://github.com/cujojs/when/blob/master/docs/api.md" target="_blank">API docs</a>.</p>
+<h2 id="license">License</h2>
+<p>Released under the <a href="LICENSE">MIT</a> license.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="EventLoop.html" class="navigation navigation-prev " aria-label="Previous page: EventLoop">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Stream.html" class="navigation navigation-next " aria-label="Next page: Stream">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Promise","level":"2.2","depth":1,"next":{"title":"Stream","level":"2.3","depth":1,"path":"1.Core-Components/Stream.md","ref":"1.Core-Components/Stream.md","articles":[]},"previous":{"title":"EventLoop","level":"2.1","depth":1,"path":"1.Core-Components/EventLoop.md","ref":"1.Core-Components/EventLoop.md","articles":[]},"dir":"ltr"},"config":{"plugins":["- summary","toggle-chapters","theme-comscore","highlight","search-plus","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"search-plus":{}},"theme":"default","author":"Imparting","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactPHP 中文文档","language":"zh-hans","gitbook":"*","description":"ReactPHP 中文文档","theme-default":{"showLevel":true}},"file":{"path":"1.Core-Components/Promise.md","mtime":"2021-01-27T06:24:57.933Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-28T09:26:18.573Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

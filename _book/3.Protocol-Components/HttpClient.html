@@ -1,0 +1,656 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>HttpClient · ReactPHP 中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Imparting">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../4.Utility-Components/Cache.html" />
+    
+    
+    <link rel="prev" href="Http.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">1.核心组件</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../1.Core-Components/EventLoop.html">
+            
+                <a href="../1.Core-Components/EventLoop.html">
+            
+                    
+                    EventLoop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../1.Core-Components/Promise.html">
+            
+                <a href="../1.Core-Components/Promise.html">
+            
+                    
+                    Promise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../1.Core-Components/Stream.html">
+            
+                <a href="../1.Core-Components/Stream.html">
+            
+                    
+                    Stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2.网络组件</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../2.Network-Components/Datagram.html">
+            
+                <a href="../2.Network-Components/Datagram.html">
+            
+                    
+                    Datagram
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../2.Network-Components/Socket.html">
+            
+                <a href="../2.Network-Components/Socket.html">
+            
+                    
+                    Socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.协议组件</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="Dns.html">
+            
+                <a href="Dns.html">
+            
+                    
+                    Dns
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="Http.html">
+            
+                <a href="Http.html">
+            
+                    
+                    Http
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.3" data-path="HttpClient.html">
+            
+                <a href="HttpClient.html">
+            
+                    
+                    HttpClient
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">4.实用组件</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../4.Utility-Components/Cache.html">
+            
+                <a href="../4.Utility-Components/Cache.html">
+            
+                    
+                    Cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../4.Utility-Components/ChildProcess.html">
+            
+                <a href="../4.Utility-Components/ChildProcess.html">
+            
+                    
+                    ChildProcess
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../4.Utility-Components/PromiseStream.html">
+            
+                <a href="../4.Utility-Components/PromiseStream.html">
+            
+                    
+                    PromiseStream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../4.Utility-Components/PromiseTimer.html">
+            
+                <a href="../4.Utility-Components/PromiseTimer.html">
+            
+                    
+                    PromiseTimer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >HttpClient</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="deprecation-notice">Deprecation notice</h1>
+<p>This package has now been migrated over to
+<a href="https://github.com/reactphp/http" target="_blank">react/http</a>
+and only exists for BC reasons.</p>
+<pre><code class="lang-bash">$ composer require react/http
+</code></pre>
+<p>If you&apos;ve previously used this package, upgrading may take a moment or two.
+The new API has been updated to use Promises and PSR-7 message abstractions.
+This means it&apos;s now more powerful and easier to use than ever:</p>
+<pre><code class="lang-php"><span class="hljs-comment">// old</span>
+$client = <span class="hljs-keyword">new</span> React\HttpClient\Client($loop);
+$request = $client-&gt;request(<span class="hljs-string">&apos;GET&apos;</span>, <span class="hljs-string">&apos;https://example.com/&apos;</span>);
+$request-&gt;on(<span class="hljs-string">&apos;response&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($response)</span> </span>{
+    $response-&gt;on(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($chunk)</span> </span>{
+        <span class="hljs-keyword">echo</span> $chunk;
+    });
+});
+$request-&gt;end();
+
+<span class="hljs-comment">// new</span>
+$browser = <span class="hljs-keyword">new</span> React\Http\Browser($loop);
+$browser-&gt;get(<span class="hljs-string">&apos;https://example.com/&apos;</span>)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ResponseInterface $response)</span> </span>{
+    <span class="hljs-keyword">echo</span> $response-&gt;getBody();
+});
+</code></pre>
+<p>See <a href="https://github.com/reactphp/http#client-usage" target="_blank">react/http</a> for more details.</p>
+<p>The below documentation applies to the last release of this package.
+Further development will take place in the updated
+<a href="https://github.com/reactphp/http" target="_blank">react/http</a>,
+so you&apos;re highly recommended to upgrade as soon as possible.</p>
+<h1 id="deprecated-httpclient">Deprecated HttpClient</h1>
+<p><a href="https://travis-ci.org/reactphp/http-client" target="_blank"><img src="https://travis-ci.org/reactphp/http-client.svg?branch=master" alt="Build Status"></a></p>
+<p>Event-driven, streaming HTTP client for <a href="https://reactphp.org" target="_blank">ReactPHP</a>.</p>
+<p><strong>Table of Contents</strong></p>
+<ul>
+<li><a href="#basic-usage">Basic usage</a><ul>
+<li><a href="#client">Client</a></li>
+<li><a href="#example">Example</a></li>
+</ul>
+</li>
+<li><a href="#advanced-usage">Advanced usage</a><ul>
+<li><a href="#unix-domain-sockets">Unix domain sockets</a></li>
+</ul>
+</li>
+<li><a href="#install">Install</a></li>
+<li><a href="#tests">Tests</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<h2 id="basic-usage">Basic usage</h2>
+<h3 id="client">Client</h3>
+<p>The <code>Client</code> is responsible for communicating with HTTP servers, managing the
+connection state and sending your HTTP requests.
+It also registers everything with the main <a href="https://github.com/reactphp/event-loop#usage" target="_blank"><code>EventLoop</code></a>.</p>
+<pre><code class="lang-php">$loop = React\EventLoop\Factory::create();
+$client = <span class="hljs-keyword">new</span> Client($loop);
+</code></pre>
+<p>If you need custom connector settings (DNS resolution, TLS parameters, timeouts,
+proxy servers etc.), you can explicitly pass a custom instance of the
+<a href="https://github.com/reactphp/socket#connectorinterface" target="_blank"><code>ConnectorInterface</code></a>:</p>
+<pre><code class="lang-php">$connector = <span class="hljs-keyword">new</span> \React\Socket\Connector($loop, <span class="hljs-keyword">array</span>(
+    <span class="hljs-string">&apos;dns&apos;</span> =&gt; <span class="hljs-string">&apos;127.0.0.1&apos;</span>,
+    <span class="hljs-string">&apos;tcp&apos;</span> =&gt; <span class="hljs-keyword">array</span>(
+        <span class="hljs-string">&apos;bindto&apos;</span> =&gt; <span class="hljs-string">&apos;192.168.10.1:0&apos;</span>
+    ),
+    <span class="hljs-string">&apos;tls&apos;</span> =&gt; <span class="hljs-keyword">array</span>(
+        <span class="hljs-string">&apos;verify_peer&apos;</span> =&gt; <span class="hljs-keyword">false</span>,
+        <span class="hljs-string">&apos;verify_peer_name&apos;</span> =&gt; <span class="hljs-keyword">false</span>
+    )
+));
+
+$client = <span class="hljs-keyword">new</span> Client($loop, $connector);
+</code></pre>
+<p>The <code>request(string $method, string $uri, array $headers = array(), string $version = &apos;1.0&apos;): Request</code>
+method can be used to prepare new Request objects.</p>
+<p>The optional <code>$headers</code> parameter can be used to pass additional request
+headers.
+You can use an associative array (key=value) or an array for each header value
+(key=values).
+The Request will automatically include an appropriate <code>Host</code>,
+<code>User-Agent: react/alpha</code> and <code>Connection: close</code> header if applicable.
+You can pass custom header values or use an empty array to omit any of these.</p>
+<p>The <code>Request#write(string $data)</code> method can be used to
+write data to the request body.
+Data will be buffered until the underlying connection is established, at which
+point buffered data will be sent and all further data will be passed to the
+underlying connection immediately.</p>
+<p>The <code>Request#end(?string $data = null)</code> method can be used to
+finish sending the request.
+You may optionally pass a last request body data chunk that will be sent just
+like a <code>write()</code> call.
+Calling this method finalizes the outgoing request body (which may be empty).
+Data will be buffered until the underlying connection is established, at which
+point buffered data will be sent and all further data will be ignored.</p>
+<p>The <code>Request#close()</code> method can be used to
+forefully close sending the request.
+Unlike the <code>end()</code> method, this method discards any buffers and closes the
+underlying connection if it is already established or cancels the pending
+connection attempt otherwise.</p>
+<p>Request implements WritableStreamInterface, so a Stream can be piped to it.
+Interesting events emitted by Request:</p>
+<ul>
+<li><code>response</code>: The response headers were received from the server and successfully
+parsed. The first argument is a Response instance.</li>
+<li><code>drain</code>: The outgoing buffer drained and the response is ready to accept more
+data for the next <code>write()</code> call.</li>
+<li><code>error</code>: An error occurred, an <code>Exception</code> is passed as first argument.
+If the response emits an <code>error</code> event, this will also be emitted here.</li>
+<li><code>close</code>: The request is closed. If an error occurred, this event will be
+preceeded by an <code>error</code> event.
+For a successful response, this will be emitted only once the response emits
+the <code>close</code> event.</li>
+</ul>
+<p>Response implements ReadableStreamInterface.
+Interesting events emitted by Response:</p>
+<ul>
+<li><code>data</code>: Passes a chunk of the response body as first argument.
+When a response encounters a chunked encoded response it will parse it
+transparently for the user and removing the <code>Transfer-Encoding</code> header.</li>
+<li><code>error</code>: An error occurred, an <code>Exception</code> is passed as first argument.
+This will also be forwarded to the request and emit an <code>error</code> event there.</li>
+<li><code>end</code>: The response has been fully received.</li>
+<li><code>close</code>: The response is closed. If an error occured, this event will be
+preceeded by an <code>error</code> event.
+This will also be forwarded to the request and emit a <code>close</code> event there.</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
+
+$loop = React\EventLoop\Factory::create();
+$client = <span class="hljs-keyword">new</span> React\HttpClient\Client($loop);
+
+$request = $client-&gt;request(<span class="hljs-string">&apos;GET&apos;</span>, <span class="hljs-string">&apos;https://github.com/&apos;</span>);
+$request-&gt;on(<span class="hljs-string">&apos;response&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($response)</span> </span>{
+    $response-&gt;on(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($chunk)</span> </span>{
+        <span class="hljs-keyword">echo</span> $chunk;
+    });
+    $response-&gt;on(<span class="hljs-string">&apos;end&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;DONE&apos;</span>;
+    });
+});
+$request-&gt;on(<span class="hljs-string">&apos;error&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(\Exception $e)</span> </span>{
+    <span class="hljs-keyword">echo</span> $e;
+});
+$request-&gt;end();
+$loop-&gt;run();
+</code></pre>
+<p>See also the <a href="examples">examples</a>.</p>
+<h2 id="advanced-usage">Advanced Usage</h2>
+<h3 id="unix-domain-sockets">Unix domain sockets</h3>
+<p>By default, this library supports transport over plaintext TCP/IP and secure
+TLS connections for the <code>http://</code> and <code>https://</code> URI schemes respectively.
+This library also supports Unix domain sockets (UDS) when explicitly configured.</p>
+<p>In order to use a UDS path, you have to explicitly configure the connector to
+override the destination URI so that the hostname given in the request URI will
+no longer be used to establish the connection:</p>
+<pre><code class="lang-php">$connector = <span class="hljs-keyword">new</span> FixedUriConnector(
+    <span class="hljs-string">&apos;unix:///var/run/docker.sock&apos;</span>,
+    <span class="hljs-keyword">new</span> UnixConnector($loop)
+);
+
+$client = <span class="hljs-keyword">new</span> Client($loop, $connector);
+
+$request = $client-&gt;request(<span class="hljs-string">&apos;GET&apos;</span>, <span class="hljs-string">&apos;http://localhost/info&apos;</span>);
+</code></pre>
+<p>See also <a href="examples/11-unix-domain-sockets.php">example #11</a>.</p>
+<h2 id="install">Install</h2>
+<p>The recommended way to install this library is <a href="https://getcomposer.org" target="_blank">through Composer</a>.
+<a href="https://getcomposer.org/doc/00-intro.md" target="_blank">New to Composer?</a></p>
+<p>This will install the latest supported version:</p>
+<pre><code class="lang-bash">$ composer require react/http-client:^0.5.10
+</code></pre>
+<p>See also the <a href="CHANGELOG.md">CHANGELOG</a> for details about version upgrades.</p>
+<p>This project aims to run on any platform and thus does not require any PHP
+extensions and supports running on legacy PHP 5.3 through current PHP 7+ and
+HHVM.
+It&apos;s <em>highly recommended to use PHP 7+</em> for this project.</p>
+<h2 id="tests">Tests</h2>
+<p>To run the test suite, you first need to clone this repo and then install all
+dependencies <a href="https://getcomposer.org" target="_blank">through Composer</a>:</p>
+<pre><code class="lang-bash">$ composer install
+</code></pre>
+<p>To run the test suite, go to the project root and run:</p>
+<pre><code class="lang-bash">$ php vendor/bin/phpunit
+</code></pre>
+<p>The test suite also contains a number of functional integration tests that send
+test HTTP requests against the online service <a href="http://httpbin.org" target="_blank">http://httpbin.org</a> and thus rely
+on a stable internet connection.
+If you do not want to run these, they can simply be skipped like this:</p>
+<pre><code class="lang-bash">$ php vendor/bin/phpunit --exclude-group internet
+</code></pre>
+<h2 id="license">License</h2>
+<p>MIT, see <a href="LICENSE">LICENSE file</a>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Http.html" class="navigation navigation-prev " aria-label="Previous page: Http">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../4.Utility-Components/Cache.html" class="navigation navigation-next " aria-label="Next page: Cache">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"HttpClient","level":"4.3","depth":1,"next":{"title":"Cache","level":"5.1","depth":1,"path":"4.Utility-Components/Cache.md","ref":"4.Utility-Components/Cache.md","articles":[]},"previous":{"title":"Http","level":"4.2","depth":1,"path":"3.Protocol-Components/Http.md","ref":"3.Protocol-Components/Http.md","articles":[]},"dir":"ltr"},"config":{"plugins":["- summary","toggle-chapters","theme-comscore","highlight","search-plus","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"search-plus":{}},"theme":"default","author":"Imparting","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactPHP 中文文档","language":"zh-hans","gitbook":"*","description":"ReactPHP 中文文档","theme-default":{"showLevel":true}},"file":{"path":"3.Protocol-Components/HttpClient.md","mtime":"2021-01-27T06:28:07.718Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-28T09:26:18.573Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

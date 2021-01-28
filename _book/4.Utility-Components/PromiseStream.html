@@ -1,0 +1,669 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>PromiseStream · ReactPHP 中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Imparting">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="PromiseTimer.html" />
+    
+    
+    <link rel="prev" href="ChildProcess.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">1.核心组件</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../1.Core-Components/EventLoop.html">
+            
+                <a href="../1.Core-Components/EventLoop.html">
+            
+                    
+                    EventLoop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../1.Core-Components/Promise.html">
+            
+                <a href="../1.Core-Components/Promise.html">
+            
+                    
+                    Promise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../1.Core-Components/Stream.html">
+            
+                <a href="../1.Core-Components/Stream.html">
+            
+                    
+                    Stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2.网络组件</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../2.Network-Components/Datagram.html">
+            
+                <a href="../2.Network-Components/Datagram.html">
+            
+                    
+                    Datagram
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../2.Network-Components/Socket.html">
+            
+                <a href="../2.Network-Components/Socket.html">
+            
+                    
+                    Socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.协议组件</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../3.Protocol-Components/Dns.html">
+            
+                <a href="../3.Protocol-Components/Dns.html">
+            
+                    
+                    Dns
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../3.Protocol-Components/Http.html">
+            
+                <a href="../3.Protocol-Components/Http.html">
+            
+                    
+                    Http
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../3.Protocol-Components/HttpClient.html">
+            
+                <a href="../3.Protocol-Components/HttpClient.html">
+            
+                    
+                    HttpClient
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">4.实用组件</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="Cache.html">
+            
+                <a href="Cache.html">
+            
+                    
+                    Cache
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="ChildProcess.html">
+            
+                <a href="ChildProcess.html">
+            
+                    
+                    ChildProcess
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.3" data-path="PromiseStream.html">
+            
+                <a href="PromiseStream.html">
+            
+                    
+                    PromiseStream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="PromiseTimer.html">
+            
+                <a href="PromiseTimer.html">
+            
+                    
+                    PromiseTimer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >PromiseStream</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="promisestream">PromiseStream</h1>
+<p><a href="https://travis-ci.org/reactphp/promise-stream" target="_blank"><img src="https://travis-ci.org/reactphp/promise-stream.svg?branch=master" alt="Build Status"></a></p>
+<p>The missing link between Promise-land and Stream-land
+for <a href="https://reactphp.org/" target="_blank">ReactPHP</a>.</p>
+<p><strong>Table of Contents</strong></p>
+<ul>
+<li><a href="#usage">Usage</a><ul>
+<li><a href="#buffer">buffer()</a></li>
+<li><a href="#first">first()</a></li>
+<li><a href="#all">all()</a></li>
+<li><a href="#unwrapreadable">unwrapReadable()</a></li>
+<li><a href="#unwrapwritable">unwrapWritable()</a></li>
+</ul>
+</li>
+<li><a href="#install">Install</a></li>
+<li><a href="#tests">Tests</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>This lightweight library consists only of a few simple functions.
+All functions reside under the <code>React\Promise\Stream</code> namespace.</p>
+<p>The below examples assume you use an import statement similar to this:</p>
+<pre><code class="lang-php"><span class="hljs-keyword">use</span> <span class="hljs-title">React</span>\<span class="hljs-title">Promise</span>\<span class="hljs-title">Stream</span>;
+
+Stream\buffer(&#x2026;);
+</code></pre>
+<p>Alternatively, you can also refer to them with their fully-qualified name:</p>
+<pre><code class="lang-php">\React\Promise\Stream\buffer(&#x2026;);
+</code></pre>
+<h3 id="buffer">buffer()</h3>
+<p>The <code>buffer(ReadableStreamInterface&lt;string&gt; $stream, ?int $maxLength = null): PromiseInterface&lt;string,Exception&gt;</code> function can be used to
+create a <code>Promise</code> which resolves with the stream data buffer.</p>
+<pre><code class="lang-php">$stream = accessSomeJsonStream();
+
+Stream\buffer($stream)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($contents)</span> </span>{
+    var_dump(json_decode($contents));
+});
+</code></pre>
+<p>The promise will resolve with all data chunks concatenated once the stream closes.</p>
+<p>The promise will resolve with an empty string if the stream is already closed.</p>
+<p>The promise will reject if the stream emits an error.</p>
+<p>The promise will reject if it is cancelled.</p>
+<p>The optional <code>$maxLength</code> argument defaults to no limit. In case the maximum
+length is given and the stream emits more data before the end, the promise
+will be rejected with an <code>\OverflowException</code>.</p>
+<pre><code class="lang-php">$stream = accessSomeToLargeStream();
+
+Stream\buffer($stream, <span class="hljs-number">1024</span>)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($contents)</span> </span>{
+    var_dump(json_decode($contents));
+}, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($error)</span> </span>{
+    <span class="hljs-comment">// Reaching here when the stream buffer goes above the max size,</span>
+    <span class="hljs-comment">// in this example that is 1024 bytes,</span>
+    <span class="hljs-comment">// or when the stream emits an error.</span>
+});
+</code></pre>
+<h3 id="first">first()</h3>
+<p>The <code>first(ReadableStreamInterface|WritableStreamInterface $stream, string $event = &apos;data&apos;): PromiseInterface&lt;mixed,Exception&gt;</code> function can be used to
+create a <code>Promise</code> which resolves once the given event triggers for the first time.</p>
+<pre><code class="lang-php">$stream = accessSomeJsonStream();
+
+Stream\first($stream)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($chunk)</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;The first chunk arrived: &apos;</span> . $chunk;
+});
+</code></pre>
+<p>The promise will resolve with whatever the first event emitted or <code>null</code> if the
+event does not pass any data.
+If you do not pass a custom event name, then it will wait for the first &quot;data&quot;
+event and resolve with a string containing the first data chunk.</p>
+<p>The promise will reject if the stream emits an error &#x2013; unless you&apos;re waiting for
+the &quot;error&quot; event, in which case it will resolve.</p>
+<p>The promise will reject once the stream closes &#x2013; unless you&apos;re waiting for the
+&quot;close&quot; event, in which case it will resolve.</p>
+<p>The promise will reject if the stream is already closed.</p>
+<p>The promise will reject if it is cancelled.</p>
+<h3 id="all">all()</h3>
+<p>The <code>all(ReadableStreamInterface|WritableStreamInterface $stream, string $event = &apos;data&apos;): PromiseInterface&lt;array,Exception&gt;</code> function can be used to
+create a <code>Promise</code> which resolves with an array of all the event data.</p>
+<pre><code class="lang-php">$stream = accessSomeJsonStream();
+
+Stream\all($stream)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($chunks)</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;The stream consists of &apos;</span> . count($chunks) . <span class="hljs-string">&apos; chunk(s)&apos;</span>;
+});
+</code></pre>
+<p>The promise will resolve with an array of whatever all events emitted or <code>null</code> if the
+events do not pass any data.
+If you do not pass a custom event name, then it will wait for all the &quot;data&quot;
+events and resolve with an array containing all the data chunks.</p>
+<p>The promise will resolve with an array once the stream closes.</p>
+<p>The promise will resolve with an empty array if the stream is already closed.</p>
+<p>The promise will reject if the stream emits an error.</p>
+<p>The promise will reject if it is cancelled.</p>
+<h3 id="unwrapreadable">unwrapReadable()</h3>
+<p>The <code>unwrapReadable(PromiseInterface&lt;ReadableStreamInterface,Exception&gt; $promise): ReadableStreamInterface</code> function can be used to
+unwrap a <code>Promise</code> which resolves with a <code>ReadableStreamInterface</code>.</p>
+<p>This function returns a readable stream instance (implementing <code>ReadableStreamInterface</code>)
+right away which acts as a proxy for the future promise resolution.
+Once the given Promise resolves with a <code>ReadableStreamInterface</code>, its data will
+be piped to the output stream.</p>
+<pre><code class="lang-php"><span class="hljs-comment">//$promise = someFunctionWhichResolvesWithAStream();</span>
+$promise = startDownloadStream($uri);
+
+$stream = Stream\unwrapReadable($promise);
+
+$stream-&gt;on(<span class="hljs-string">&apos;data&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($data)</span> </span>{
+    <span class="hljs-keyword">echo</span> $data;
+});
+
+$stream-&gt;on(<span class="hljs-string">&apos;end&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;DONE&apos;</span>;
+});
+</code></pre>
+<p>If the given promise is either rejected or fulfilled with anything but an
+instance of <code>ReadableStreamInterface</code>, then the output stream will emit
+an <code>error</code> event and close:</p>
+<pre><code class="lang-php">$promise = startDownloadStream($invalidUri);
+
+$stream = Stream\unwrapReadable($promise);
+
+$stream-&gt;on(<span class="hljs-string">&apos;error&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Exception $error)</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;Error: &apos;</span> . $error-&gt;getMessage();
+});
+</code></pre>
+<p>The given <code>$promise</code> SHOULD be pending, i.e. it SHOULD NOT be fulfilled or rejected
+at the time of invoking this function.
+If the given promise is already settled and does not resolve with an
+instance of <code>ReadableStreamInterface</code>, then you will not be able to receive
+the <code>error</code> event.</p>
+<p>You can <code>close()</code> the resulting stream at any time, which will either try to
+<code>cancel()</code> the pending promise or try to <code>close()</code> the underlying stream.</p>
+<pre><code class="lang-php">$promise = startDownloadStream($uri);
+
+$stream = Stream\unwrapReadable($promise);
+
+$loop-&gt;addTimer(<span class="hljs-number">2.0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($stream)</span> </span>{
+    $stream-&gt;close();
+});
+</code></pre>
+<h3 id="unwrapwritable">unwrapWritable()</h3>
+<p>The <code>unwrapWritable(PromiseInterface&lt;WritableStreamInterface,Exception&gt; $promise): WritableStreamInterface</code> function can be used to
+unwrap a <code>Promise</code> which resolves with a <code>WritableStreamInterface</code>.</p>
+<p>This function returns a writable stream instance (implementing <code>WritableStreamInterface</code>)
+right away which acts as a proxy for the future promise resolution.
+Any writes to this instance will be buffered in memory for when the promise resolves.
+Once the given Promise resolves with a <code>WritableStreamInterface</code>, any data you
+have written to the proxy will be forwarded transparently to the inner stream.</p>
+<pre><code class="lang-php"><span class="hljs-comment">//$promise = someFunctionWhichResolvesWithAStream();</span>
+$promise = startUploadStream($uri);
+
+$stream = Stream\unwrapWritable($promise);
+
+$stream-&gt;write(<span class="hljs-string">&apos;hello&apos;</span>);
+$stream-&gt;end(<span class="hljs-string">&apos;world&apos;</span>);
+
+$stream-&gt;on(<span class="hljs-string">&apos;close&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;DONE&apos;</span>;
+});
+</code></pre>
+<p>If the given promise is either rejected or fulfilled with anything but an
+instance of <code>WritableStreamInterface</code>, then the output stream will emit
+an <code>error</code> event and close:</p>
+<pre><code class="lang-php">$promise = startUploadStream($invalidUri);
+
+$stream = Stream\unwrapWritable($promise);
+
+$stream-&gt;on(<span class="hljs-string">&apos;error&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Exception $error)</span> </span>{
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;Error: &apos;</span> . $error-&gt;getMessage();
+});
+</code></pre>
+<p>The given <code>$promise</code> SHOULD be pending, i.e. it SHOULD NOT be fulfilled or rejected
+at the time of invoking this function.
+If the given promise is already settled and does not resolve with an
+instance of <code>WritableStreamInterface</code>, then you will not be able to receive
+the <code>error</code> event.</p>
+<p>You can <code>close()</code> the resulting stream at any time, which will either try to
+<code>cancel()</code> the pending promise or try to <code>close()</code> the underlying stream.</p>
+<pre><code class="lang-php">$promise = startUploadStream($uri);
+
+$stream = Stream\unwrapWritable($promise);
+
+$loop-&gt;addTimer(<span class="hljs-number">2.0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($stream)</span> </span>{
+    $stream-&gt;close();
+});
+</code></pre>
+<h2 id="install">Install</h2>
+<p>The recommended way to install this library is <a href="https://getcomposer.org" target="_blank">through Composer</a>.
+<a href="https://getcomposer.org/doc/00-intro.md" target="_blank">New to Composer?</a></p>
+<p>This project follows <a href="https://semver.org/" target="_blank">SemVer</a>.
+This will install the latest supported version:</p>
+<pre><code class="lang-bash">$ composer require react/promise-stream:^1.2
+</code></pre>
+<p>See also the <a href="CHANGELOG.md">CHANGELOG</a> for details about version upgrades.</p>
+<p>This project aims to run on any platform and thus does not require any PHP
+extensions and supports running on legacy PHP 5.3 through current PHP 7+ and
+HHVM.
+It&apos;s <em>highly recommended to use PHP 7+</em> for this project.</p>
+<h2 id="tests">Tests</h2>
+<p>To run the test suite, you first need to clone this repo and then install all
+dependencies <a href="https://getcomposer.org" target="_blank">through Composer</a>:</p>
+<pre><code class="lang-bash">$ composer install
+</code></pre>
+<p>To run the test suite, go to the project root and run:</p>
+<pre><code class="lang-bash">$ php vendor/bin/phpunit
+</code></pre>
+<h2 id="license">License</h2>
+<p>MIT, see <a href="LICENSE">LICENSE file</a>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ChildProcess.html" class="navigation navigation-prev " aria-label="Previous page: ChildProcess">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="PromiseTimer.html" class="navigation navigation-next " aria-label="Next page: PromiseTimer">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"PromiseStream","level":"5.3","depth":1,"next":{"title":"PromiseTimer","level":"5.4","depth":1,"path":"4.Utility-Components/PromiseTimer.md","ref":"4.Utility-Components/PromiseTimer.md","articles":[]},"previous":{"title":"ChildProcess","level":"5.2","depth":1,"path":"4.Utility-Components/ChildProcess.md","ref":"4.Utility-Components/ChildProcess.md","articles":[]},"dir":"ltr"},"config":{"plugins":["- summary","toggle-chapters","theme-comscore","highlight","search-plus","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"search-plus":{}},"theme":"default","author":"Imparting","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactPHP 中文文档","language":"zh-hans","gitbook":"*","description":"ReactPHP 中文文档","theme-default":{"showLevel":true}},"file":{"path":"4.Utility-Components/PromiseStream.md","mtime":"2021-01-27T06:31:23.021Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-28T09:26:18.573Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
