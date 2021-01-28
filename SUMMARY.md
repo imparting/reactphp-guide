@@ -1,4 +1,4 @@
-- [Introduction](README.md)
+- [简介](README.md)
 
 ## 1.核心组件
 
