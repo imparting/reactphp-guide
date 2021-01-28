@@ -5,7 +5,7 @@
 <br>
     
 <div align="center">
-    <strong>事件驱动的,非阻塞I/O的PHP</strong>
+    <strong>事件驱动,非阻塞I/O的PHP</strong>
 </div>
 
 <br>
