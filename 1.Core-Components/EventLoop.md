@@ -9,8 +9,8 @@
 
 **目录**
 
-* [快速开始](#quickstart-example)
-* [用法](#usage)
+* [快速开始](#快速开始)
+* [用法](#用法)
   * [Factory](#factory)
     * [create()](#create)
   * [Loop implementations](#loop-implementations)
@@ -33,8 +33,8 @@
     * [addWriteStream()](#addwritestream)
     * [removeReadStream()](#removereadstream)
     * [removeWriteStream()](#removewritestream)
-* [安装](#install)
-* [测试](#tests)
+* [安装](#安装)
+* [测试](#测试)
 * [License](#license)
 
 ## 快速开始
