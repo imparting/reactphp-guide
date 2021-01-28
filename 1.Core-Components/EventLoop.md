@@ -1,18 +1,16 @@
-# EventLoop Component
+# EventLoop组件
 
 [![Build Status](https://travis-ci.org/reactphp/event-loop.svg?branch=master)](https://travis-ci.org/reactphp/event-loop)
 
-[ReactPHP](https://reactphp.org/)'s core reactor event loop that libraries can use for evented I/O.
+[ReactPHP](https://reactphp.org/)的核心事件循环，用于事件I/O
 
-In order for async based libraries to be interoperable, they need to use the
-same event loop. This component provides a common `LoopInterface` that any
-library can target. This allows them to be used in the same loop, with one
-single [`run()`](#run) call that is controlled by the user.
+为了使基于异步的库可互操作，它们需要使用相同的事件循环。 该组件提供了一个任何库都可以定位的通用公共`LoopInterface`，
+这使它们可以在同一循环中使用，并由用户控制一个 [`run()`](#run)调用。
 
-**Table of Contents**
+**目录**
 
-* [Quickstart example](#quickstart-example)
-* [Usage](#usage)
+* [快速开始](#quickstart-example)
+* [用法](#usage)
   * [Factory](#factory)
     * [create()](#create)
   * [Loop implementations](#loop-implementations)
@@ -35,10 +33,9 @@ single [`run()`](#run) call that is controlled by the user.
     * [addWriteStream()](#addwritestream)
     * [removeReadStream()](#removereadstream)
     * [removeWriteStream()](#removewritestream)
-* [Install](#install)
-* [Tests](#tests)
+* [安装](#install)
+* [测试](#tests)
 * [License](#license)
-* [More](#more)
 
 ## 快速开始
 
@@ -568,4 +565,4 @@ $ php vendor/bin/phpunit
 
 ## License
 
-MIT, see [LICENSE file](LICENSE).
+MIT, see [LICENSE file](https://reactphp.org/event-loop/license.html).
