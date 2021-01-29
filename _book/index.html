@@ -359,6 +359,32 @@
 </div>
 
 <p><br></p>
+<pre><code class="lang-php">$loop = React\EventLoop\Factory::create();
+
+$server = <span class="hljs-keyword">new</span> React\Http\Server($loop, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Psr\Http\Message\ServerRequestInterface $request)</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> React\Http\Message\Response(
+        <span class="hljs-number">200</span>,
+        <span class="hljs-keyword">array</span>(
+            <span class="hljs-string">&apos;Content-Type&apos;</span> =&gt; <span class="hljs-string">&apos;text/plain&apos;</span>
+        ),
+        <span class="hljs-string">&quot;Hello World!\n&quot;</span>
+    );
+});
+
+$socket = <span class="hljs-keyword">new</span> React\Socket\Server(<span class="hljs-number">8080</span>, $loop);
+$server-&gt;listen($socket);
+
+<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Server running at http://127.0.0.1:8080\n&quot;</span>;
+
+$loop-&gt;run();
+</code></pre>
+<div align="center">
+
+&#x8FD9;&#x4E2A;&#x7528;ReactPHP&#x7F16;&#x5199;&#x7684;&#x7B80;&#x5355;&#x7684;Web&#x670D;&#x52A1;&#x5668;&#x5BF9;&#x6BCF;&#x4E2A;&#x8BF7;&#x6C42;&#x90FD;&#x54CD;&#x5E94; `Hello World` 
+
+</div>
+
+<p><br></p>
 <p>ReactPHP&#x662F;PHP&#x4E2D;&#x7528;&#x4E8E;&#x4E8B;&#x4EF6;&#x9A71;&#x52A8;&#x7F16;&#x7A0B;&#x7684;&#x5E95;&#x5C42;&#x5E93;&#x3002;</p>
 <p>&#x6838;&#x5FC3;&#x662F;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#xFF0C;&#x5B83;&#x5728;&#x5176;&#x4E0A;&#x63D0;&#x4F9B;&#x5E95;&#x5C42;&#x5B9E;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;
 &#x4F8B;&#x5982;&#xFF1A;&#x6D41;&#x62BD;&#x8C61;&#xFF0C;&#x5F02;&#x6B65;DNS&#x89E3;&#x6790;&#x5668;&#xFF0C;&#x7F51;&#x7EDC;&#x5BA2;&#x6237;&#x7AEF;/&#x670D;&#x52A1;&#x5668;&#xFF0C;HTTP&#x5BA2;&#x6237;&#x673A;/&#x670D;&#x52A1;&#x5668;&#x548C;&#x4E0E;&#x8FDB;&#x7A0B;&#x7684;&#x4EA4;&#x4E92;&#x3002;</p>
@@ -498,7 +524,7 @@ ReactPHP&#x7684;Promise&#x5E93;&#x7684;&#x7B80;&#x5355;&#x8D85;&#x65F6;&#x5B9E;&
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"简介","level":"1.1","depth":1,"next":{"title":"EventLoop","level":"2.1","depth":1,"path":"1.Core-Components/EventLoop.md","ref":"1.Core-Components/EventLoop.md","articles":[]},"dir":"ltr"},"config":{"plugins":["- summary","toggle-chapters","theme-comscore","highlight","search-plus","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"search-plus":{}},"theme":"default","author":"Imparting","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactPHP 中文文档","language":"zh-hans","gitbook":"*","description":"ReactPHP 中文文档","theme-default":{"showLevel":true}},"file":{"path":"README.md","mtime":"2021-01-28T10:35:46.842Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-28T10:57:33.309Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"简介","level":"1.1","depth":1,"next":{"title":"EventLoop","level":"2.1","depth":1,"path":"1.Core-Components/EventLoop.md","ref":"1.Core-Components/EventLoop.md","articles":[]},"dir":"ltr"},"config":{"plugins":["- summary","toggle-chapters","theme-comscore","highlight","search-plus","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"search-plus":{}},"theme":"default","author":"Imparting","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactPHP 中文文档","language":"zh-hans","gitbook":"*","description":"ReactPHP 中文文档","theme-default":{"showLevel":true}},"file":{"path":"README.md","mtime":"2021-01-29T02:48:18.880Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-29T02:43:37.288Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

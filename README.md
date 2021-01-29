@@ -16,6 +16,35 @@
 
 <br>
 
+```php
+$loop = React\EventLoop\Factory::create();
+
+$server = new React\Http\Server($loop, function (Psr\Http\Message\ServerRequestInterface $request) {
+    return new React\Http\Message\Response(
+        200,
+        array(
+            'Content-Type' => 'text/plain'
+        ),
+        "Hello World!\n"
+    );
+});
+
+$socket = new React\Socket\Server(8080, $loop);
+$server->listen($socket);
+
+echo "Server running at http://127.0.0.1:8080\n";
+
+$loop->run();
+```
+
+<div align="center">
+
+这个用ReactPHP编写的简单的Web服务器对每个请求都响应 `Hello World` 
+
+</div>
+
+<br>
+
 ReactPHP是PHP中用于事件驱动编程的底层库。
 
 核心是一个事件循环，它在其上提供底层实用程序，
