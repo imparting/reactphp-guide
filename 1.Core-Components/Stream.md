@@ -2,34 +2,30 @@
 
 [![Build Status](https://travis-ci.org/reactphp/stream.svg?branch=master)](https://travis-ci.org/reactphp/stream)
 
-Event-driven readable and writable streams for non-blocking I/O in [ReactPHP](https://reactphp.org/).
+事件驱动的可读流和可写流，用于 [ReactPHP](https://reactphp.org/) 中的非阻塞I/O
 
-In order to make the [EventLoop](https://github.com/reactphp/event-loop)
-easier to use, this component introduces the powerful concept of "streams".
-Streams allow you to efficiently process huge amounts of data (such as a multi
-Gigabyte file download) in small chunks without having to store everything in
-memory at once.
-They are very similar to the streams found in PHP itself,
-but have an interface more suited for async, non-blocking I/O.
+为了使 [EventLoop](https://github.com/reactphp/event-loop) 更容易使用，该组件引入了强大的“流”概念。
+流允许您以小块的方式高效地处理大量数据(比如一个多GB的文件下载)，而不必一次将所有数据存储在内存中。
+与PHP中的流非常相似，但有一个更适合异步、非阻塞I/O的接口。
 
-**Table of contents**
+**目录**
 
-* [Stream usage](#stream-usage)
+* [Stream用法](#stream用法)
   * [ReadableStreamInterface](#readablestreaminterface)
-    * [data event](#data-event)
-    * [end event](#end-event)
-    * [error event](#error-event)
-    * [close event](#close-event)
+    * [data事件](#data事件)
+    * [end事件](#end事件)
+    * [error事件](#error事件)
+    * [close事件](#close事件)
     * [isReadable()](#isreadable)
     * [pause()](#pause)
     * [resume()](#resume)
     * [pipe()](#pipe)
     * [close()](#close)
   * [WritableStreamInterface](#writablestreaminterface)
-    * [drain event](#drain-event)
-    * [pipe event](#pipe-event)
-    * [error event](#error-event-1)
-    * [close event](#close-event-1)
+    * [drain事件](#drain事件)
+    * [pipe事件](#pipe事件)
+    * [error事件](#error-事件)
+    * [close事件](#close-事件)
     * [isWritable()](#iswritable)
     * [write()](#write)
     * [end()](#end)
@@ -41,31 +37,26 @@ but have an interface more suited for async, non-blocking I/O.
   * [DuplexResourceStream](#duplexresourcestream)
   * [ThroughStream](#throughstream)
   * [CompositeStream](#compositestream)
-* [Usage](#usage)
-* [Install](#install)
-* [Tests](#tests)
+* [用法](#用法)
+* [安装](#安装)
+* [测试](#测试)
 * [License](#license)
 * [More](#more)
 
-## Stream usage
+## stream用法
 
-ReactPHP uses the concept of "streams" throughout its ecosystem to provide a
-consistent higher-level abstraction for processing streams of arbitrary data
-contents and size.
-While a stream itself is a quite low-level concept, it can be used as a powerful
-abstraction to build higher-level components and protocols on top.
+ReactPHP在其整个生态系统中使用“流”的概念，为处理任意数据内容和大小的流提供一致的高级抽象。
+虽然流本身是一个非常底层的概念，但它可以作为一个强大的抽象来构建更高级的组件和协议。
+如果你不熟悉这个概念，可以把它们想象成水管(pipe):
+你可以从一个水源中取水，也可以产生水并将其输送到任何目的地水槽(sink)。
 
-If you're new to this concept, it helps to think of them as a water pipe:
-You can consume water from a source or you can produce water and forward (pipe)
-it to any destination (sink).
+同样，流可以是
 
-Similarly, streams can either be
+* 可读(如`STDIN`终端输入)或
+* 可写(如`STDOUT`终端输出)或
+* 双工(既可读又可写，例如TCP/IP连接)
 
-* readable (such as `STDIN` terminal input) or
-* writable (such as `STDOUT` terminal output) or
-* duplex (both readable *and* writable, such as a TCP/IP connection)
-
-Accordingly, this package defines the following three interfaces
+因此，这个包定义了以下三个接口
 
 * [`ReadableStreamInterface`](#readablestreaminterface)
 * [`WritableStreamInterface`](#writablestreaminterface)
@@ -73,33 +64,26 @@ Accordingly, this package defines the following three interfaces
 
 ### ReadableStreamInterface
 
-The `ReadableStreamInterface` is responsible for providing an interface for
-read-only streams and the readable side of duplex streams.
+`ReadableStreamInterface` 负责为只读流和双工流的可读端。
 
-Besides defining a few methods, this interface also implements the
-`EventEmitterInterface` which allows you to react to certain events.
+除了定义一些方法之外，这个接口还实现了`EventEmitterInterface`允许你对特定的事件做出响应。
 
-The event callback functions MUST be a valid `callable` that obeys strict
-parameter definitions and MUST accept event parameters exactly as documented.
-The event callback functions MUST NOT throw an `Exception`.
-The return value of the event callback functions will be ignored and has no
-effect, so for performance reasons you're recommended to not return any
-excessive data structures.
+事件回调函数必须是一个有效的 `callable` ，遵守严格的参数定义，并且必须完全按照文档中描述的那样接受事件参数。
 
-Every implementation of this interface MUST follow these event semantics in
-order to be considered a well-behaving stream.
+事件回调函数绝不能抛出`Exception`。
 
-> Note that higher-level implementations of this interface may choose to
-  define additional events with dedicated semantics not defined as part of
-  this low-level stream specification. Conformance with these event semantics
-  is out of scope for this interface, so you may also have to refer to the
-  documentation of such a higher-level implementation.
+事件回调函数的返回值将被忽略，并且没有任何效果，因此出于性能原因，建议您不要返回任何过多的数据结构。
 
-#### data event
+这个接口的每个实现都必须遵循这些事件语义，才能被认为是合法的流。
 
-The `data` event will be emitted whenever some data was read/received
-from this source stream.
-The event receives a single mixed argument for incoming data.
+> 请注意，此接口的高级实现可能会选择使用专用语义来定义附加事件，
+  这些专用语义未定义为此低级流规范的一部分。
+  与这些事件语义的一致性超出了此接口的范围，
+  因此您可能还必须参考此类更高级别实现的文档。
+
+#### data事件
+
+当从该源流读取/接收数据时，将触发`data`事件。事件接收传入数据的单个混合参数。
 
 ```php
 $stream->on('data', function ($data) {
@@ -107,30 +91,24 @@ $stream->on('data', function ($data) {
 });
 ```
 
-This event MAY be emitted any number of times, which may be zero times if
-this stream does not send any data at all.
-It SHOULD not be emitted after an `end` or `close` event.
+该事件可能被触发任意次，如果该流根本不发送任何数据，则可能为零次。
+在`end`或`close`事件之后不应该触发它。
 
-The given `$data` argument may be of mixed type, but it's usually
-recommended it SHOULD be a `string` value or MAY use a type that allows
-representation as a `string` for maximum compatibility.
+给定的`$data`参数可能是混合类型，但通常建议它应该是`string`值，
+或者可以使用允许表示为`string`的类型，以实现最大的兼容性。
 
-Many common streams (such as a TCP/IP connection or a file-based stream)
-will emit the raw (binary) payload data that is received over the wire as
-chunks of `string` values.
+许多常见流(如TCP/IP连接或基于文件的流)将发出原始(二进制)有效负载数据，
+这些数据通过网络接收为`string`值块。
 
-Due to the stream-based nature of this, the sender may send any number
-of chunks with varying sizes. There are no guarantees that these chunks
-will be received with the exact same framing the sender intended to send.
-In other words, many lower-level protocols (such as TCP/IP) transfer the
-data in chunks that may be anywhere between single-byte values to several
-dozens of kilobytes. You may want to apply a higher-level protocol to
-these low-level data chunks in order to achieve proper message framing.
+由于这种基于流的特性，发送方可以发送任意数量不同大小的块。
+不能保证接收到的数据块与发送方打算发送的帧完全相同。
+换句话说，许多底层协议(如TCP/IP)以块的形式传输数据，
+这些块可能介于单字节到几十千字节之间。
+为了实现正确的消息帧，您可能需要对这些数据块应用更高级别的协议。
   
-#### end event
+#### end事件
 
-The `end` event will be emitted once the source stream has successfully
-reached the end of the stream (EOF).
+源流成功到达流尾(EOF)后，将触发`end`事件。
 
 ```php
 $stream->on('end', function () {
@@ -138,37 +116,30 @@ $stream->on('end', function () {
 });
 ```
 
-This event SHOULD be emitted once or never at all, depending on whether
-a successful end was detected.
-It SHOULD NOT be emitted after a previous `end` or `close` event.
-It MUST NOT be emitted if the stream closes due to a non-successful
-end, such as after a previous `error` event.
+该事件最多触发一次，或者根本不触发，这取决于是否检测到成功结束。
 
-After the stream is ended, it MUST switch to non-readable mode,
-see also `isReadable()`.
+它不应该在前一个`end`或`close`事件之后触发。
+如果流未成功结束而关闭（例如在前一个`close`事件之后），则不能触发该事件。
 
-This event will only be emitted if the *end* was reached successfully,
-not if the stream was interrupted by an unrecoverable error or explicitly
-closed. Not all streams know this concept of a "successful end".
-Many use-cases involve detecting when the stream closes (terminates)
-instead, in this case you should use the `close` event.
-After the stream emits an `end` event, it SHOULD usually be followed by a
-`close` event.
+流结束后，必须切换到不可读模式，另请参见[`isReadable()`](#isreadable)
 
-Many common streams (such as a TCP/IP connection or a file-based stream)
-will emit this event if either the remote side closes the connection or
-a file handle was successfully read until reaching its end (EOF).
+只有成功到达*end*时才会触发此事件，如果流被不可恢复的错误中断或显式关闭则不会触发此事件。
+并不是所有的流都知道“成功的结束”这个概念。
 
-Note that this event should not be confused with the `end()` method.
-This event defines a successful end *reading* from a source stream, while
-the `end()` method defines *writing* a successful end to a destination
-stream.
+许多用例涉及检测流何时关闭(终止)，在这种情况下，您应该使用`close`事件。
 
-#### error event
+流发出`end`事件后，通常应该跟在`close`事件后面。
 
-The `error` event will be emitted once a fatal error occurs, usually while
-trying to read from this stream.
-The event receives a single `Exception` argument for the error instance.
+如果远程端关闭连接或成功读取文件句柄直到其结束(EOF)，许多公共流（如TCP/IP连接或基于文件的流）都将发出此事件。
+
+请注意，不应将此事件与`end()`方法混淆。
+此事件定义从源流*读取*的成功结束，而`end()`方法定义向目标流*写入*的成功结束。
+
+#### error事件
+
+通常是在尝试从该流读取时发生致命错误，则会触发`error`事件。
+
+事件为错误实例接收一个`Exception`参数。
 
 ```php
 $server->on('error', function (Exception $e) {
@@ -176,32 +147,26 @@ $server->on('error', function (Exception $e) {
 });
 ```
 
-This event SHOULD be emitted once the stream detects a fatal error, such
-as a fatal transmission error or after an unexpected `data` or premature
-`end` event.
-It SHOULD NOT be emitted after a previous `error`, `end` or `close` event.
-It MUST NOT be emitted if this is not a fatal error condition, such as
-a temporary network issue that did not cause any data to be lost.
+一旦流检测到致命错误（如致命的传输错误）或意外的`data`或过早的`end`事件之后，就会触发此事件。
 
-After the stream errors, it MUST close the stream and SHOULD thus be
-followed by a `close` event and then switch to non-readable mode, see
-also `close()` and `isReadable()`.
+它不应在前一个`error`, `end` 或 `close`事件之后触发。
+如果这不是致命的错误情况，例如没有导致任何数据丢失的临时网络问题，则不会触此事件。
 
-Many common streams (such as a TCP/IP connection or a file-based stream)
-only deal with data transmission and do not make assumption about data
-boundaries (such as unexpected `data` or premature `end` events).
-In other words, many lower-level protocols (such as TCP/IP) may choose
-to only emit this for a fatal transmission error once and will then
-close (terminate) the stream in response.
+出现流错误后，它必须关闭流，因此后面应该有一个`close`事件，
+然后切换到不可读模式，另请参见`close()`和`isReadable()`。
 
-If this stream is a `DuplexStreamInterface`, you should also notice
-how the writable side of the stream also implements an `error` event.
-In other words, an error may occur while either reading or writing the
-stream which should result in the same error processing.
+许多常见的流（例如TCP/IP连接或基于文件的流）只处理数据传输，
+并不对数据边界进行假设（例如意外的`data`或过早的`end`事件）。
 
-#### close event
+换言之，许多较底层的协议（例如TCP/IP）可能会选择只在出现致命传输错误时触发事件，并在响应时关闭(终止)流。
 
-The `close` event will be emitted once the stream closes (terminates).
+如果这个流是`DuplexStreamInterface`，你也应该注意到流的可写端也实现了`error`事件。
+
+换句话说，在读取或写入流时可能发生错误，这应该导致相同的错误处理。
+
+#### close事件
+
+一旦流关闭（终止），将触发`close`事件。
 
 ```php
 $stream->on('close', function () {
@@ -209,9 +174,8 @@ $stream->on('close', function () {
 });
 ```
 
-This event SHOULD be emitted once or never at all, depending on whether
-the stream ever terminates.
-It SHOULD NOT be emitted after a previous `close` event.
+根据流是否终止，这个事件应该被触发一次，或者根本不触发。
+它不应该在前一个' close '事件之后触发。
 
 After the stream is closed, it MUST switch to non-readable mode,
 see also `isReadable()`.
@@ -441,7 +405,7 @@ order to be considered a well-behaving stream.
   is out of scope for this interface, so you may also have to refer to the
   documentation of such a higher-level implementation.
 
-#### drain event
+#### drain事件
 
 The `drain` event will be emitted whenever the write buffer became full
 previously and is now ready to accept more data.
@@ -461,7 +425,7 @@ previously.
 
 This event is mostly used internally, see also `write()` for more details.
 
-#### pipe event
+#### pipe事件
 
 The `pipe` event will be emitted whenever a readable stream is `pipe()`d
 into this stream.
@@ -490,7 +454,7 @@ This event MUST NOT be emitted if either the source is not readable
 
 This event is mostly used internally, see also `pipe()` for more details.
 
-#### error event
+#### error 事件
 
 The `error` event will be emitted once a fatal error occurs, usually while
 trying to write to this stream.
@@ -522,7 +486,7 @@ how the readable side of the stream also implements an `error` event.
 In other words, an error may occur while either reading or writing the
 stream which should result in the same error processing.
 
-#### close event
+#### close 事件
 
 The `close` event will be emitted once the stream closes (terminates).
 
@@ -1148,7 +1112,7 @@ will also close.
 If either of the two input streams is already closed while constructing the
 duplex stream, it will `close()` the other side and return a closed stream.
 
-## Usage
+## 用法
 
 The following example can be used to pipe the contents of a source file into
 a destination file without having to ever read the whole file into memory:
@@ -1170,7 +1134,7 @@ $loop->run();
   See also [creating streams](#creating-streams) for more sophisticated
   examples.
 
-## Install
+## 安装
 
 The recommended way to install this library is [through Composer](https://getcomposer.org).
 [New to Composer?](https://getcomposer.org/doc/00-intro.md)
@@ -1189,7 +1153,7 @@ extensions and supports running on legacy PHP 5.3 through current PHP 7+ and HHV
 It's *highly recommended to use PHP 7+* for this project due to its vast
 performance improvements.
 
-## Tests
+## 测试
 
 To run the test suite, you first need to clone this repo and then install all
 dependencies [through Composer](https://getcomposer.org):

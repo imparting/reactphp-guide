@@ -42,7 +42,7 @@ PHP的 [CommonJS Promises/A](http://wiki.commonjs.org/wiki/Promises/A) 的轻量
      * [reduce()](#reduce)
    * [PromisorInterface](#promisorinterface)
 4. [示例](#示例)
-   * [如何使用Deferred](#如何使用Deferred)
+   * [如何使用Deferred](#如何使用deferred)
    * [承诺转发的工作原理](#承诺转发的工作原理)
      * [转发履行](#转发履行)
      * [转发拒绝](#转发拒绝)
