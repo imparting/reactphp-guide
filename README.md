@@ -16,6 +16,37 @@
 
 <br>
 
+
+```php
+$loop = React\EventLoop\Factory::create();
+
+$server = new React\Http\Server($loop, function (Psr\Http\Message\ServerRequestInterface $request) {
+    return new React\Http\Message\Response(
+        200,
+        array(
+            'Content-Type' => 'text/plain'
+        ),
+        "Hello World!\n"
+    );
+});
+
+$socket = new React\Socket\Server(8080, $loop);
+$server->listen($socket);
+
+echo "Server running at http://127.0.0.1:8080\n";
+
+$loop->run();
+```
+
+<div align="center">
+
+This simple web server written in ReactPHP responds with "Hello World" for every request.
+
+</div>
+
+<br>
+
+
 ReactPHP is a low-level library for event-driven programming in PHP. At its core
 is an event loop, on top of which it provides low-level utilities, such as:
 Streams abstraction, async DNS resolver, network client/server, HTTP
