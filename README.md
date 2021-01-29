@@ -39,7 +39,7 @@ $loop->run();
 
 <div align="center">
 
-这个用ReactPHP编写的简单的Web服务器对每个请求都响应 `Hello World` 
+这个用ReactPHP编写的简单的Web服务器对每个请求都响应 "Hello World" 
 
 </div>
 

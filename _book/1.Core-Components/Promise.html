@@ -347,28 +347,25 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="promise">Promise</h1>
-<p>A lightweight implementation of
-<a href="http://wiki.commonjs.org/wiki/Promises/A" target="_blank">CommonJS Promises/A</a> for PHP.</p>
+<p>PHP&#x7684; <a href="http://wiki.commonjs.org/wiki/Promises/A" target="_blank">CommonJS Promises/A</a> &#x7684;&#x8F7B;&#x91CF;&#x7EA7;&#x5B9E;&#x73B0;&#x3002;</p>
 <p><a href="http://travis-ci.org/reactphp/promise" target="_blank"><img src="https://travis-ci.org/reactphp/promise.svg?branch=master" alt="Build Status"></a>
 <a href="https://coveralls.io/github/reactphp/promise?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/reactphp/promise/badge.svg?branch=master" alt="Coverage Status"></a></p>
 <blockquote>
-<p>The master branch contains the code for the upcoming 3.0 release.
-For the code of the current stable 2.x release, checkout the 
-<a href="https://github.com/reactphp/promise/tree/2.x" target="_blank">2.x branch</a>.</p>
-<p>The upcoming 3.0 release will be the way forward for this package. 
-However we will still actively support 2.0 and 1.0 for those not yet 
-on PHP 7+.</p>
+<p>&#x4E3B;&#x5206;&#x652F;&#x5305;&#x542B;&#x5373;&#x5C06;&#x53D1;&#x5E03;&#x7684;3.0&#x7248;&#x672C;&#x7684;&#x4EE3;&#x7801;&#x3002;
+&#x5BF9;&#x4E8E;&#x5F53;&#x524D;&#x7A33;&#x5B9A;&#x7684;2.x&#x7248;&#x672C;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x8BF7;&#x68C0;&#x67E5; <a href="https://github.com/reactphp/promise/tree/2.x" target="_blank">2.x&#x5206;&#x652F;</a></p>
+<p>&#x5373;&#x5C06;&#x53D1;&#x5E03;&#x7684;3.0&#x7248;&#x672C;&#x5C06;&#x662F;&#x6B64;&#x8F6F;&#x4EF6;&#x5305;&#x7684;&#x4E3B;&#x53D1;&#x5C55;&#x65B9;&#x5411;&#x3002;
+&#x4F46;&#x662F;&#xFF0C;&#x5BF9;&#x4E8E;&#x5C1A;&#x672A;&#x5B89;&#x88C5;PHP 7+&#x7684;&#x7528;&#x6237;&#xFF0C;&#x6211;&#x4EEC;&#x4ECD;&#x5C06;&#x79EF;&#x6781;&#x652F;&#x6301;2.0&#x548C;1.0&#x3002;</p>
 </blockquote>
-<h2 id="table-of-contents">Table of Contents</h2>
+<h2 id="&#x76EE;&#x5F55;">&#x76EE;&#x5F55;</h2>
 <ol>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#concepts">Concepts</a><ul>
-<li><a href="#deferred">Deferred</a></li>
-<li><a href="#promise-1">Promise</a></li>
+<li><a href="#&#x7B80;&#x4ECB;">&#x7B80;&#x4ECB;</a></li>
+<li><a href="#&#x6982;&#x5FF5;">&#x6982;&#x5FF5;</a><ul>
+<li><a href="#deferred&#xFF08;&#x5EF6;&#x8FDF;&#xFF09;">Deferred&#xFF08;&#x5EF6;&#x8FDF;&#xFF09;</a></li>
+<li><a href="#promise&#xFF08;&#x627F;&#x8BFA;&#xFF09;">Promise&#xFF08;&#x627F;&#x8BFA;&#xFF09;</a></li>
 </ul>
 </li>
 <li><a href="#api">API</a><ul>
-<li><a href="#deferred-1">Deferred</a><ul>
+<li><a href="#deferred">Deferred</a><ul>
 <li><a href="#deferredpromise">Deferred::promise()</a></li>
 <li><a href="#deferredresolve">Deferred::resolve()</a></li>
 <li><a href="#deferredreject">Deferred::reject()</a></li>
@@ -397,12 +394,12 @@ on PHP 7+.</p>
 <li><a href="#promisorinterface">PromisorInterface</a></li>
 </ul>
 </li>
-<li><a href="#examples">Examples</a><ul>
-<li><a href="#how-to-use-deferred">How to use Deferred</a></li>
-<li><a href="#how-promise-forwarding-works">How promise forwarding works</a><ul>
-<li><a href="#resolution-forwarding">Resolution forwarding</a></li>
-<li><a href="#rejection-forwarding">Rejection forwarding</a></li>
-<li><a href="#mixed-resolution-and-rejection-forwarding">Mixed resolution and rejection forwarding</a></li>
+<li><a href="#&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</a><ul>
+<li><a href="#&#x5982;&#x4F55;&#x4F7F;&#x7528;Deferred">&#x5982;&#x4F55;&#x4F7F;&#x7528;Deferred</a></li>
+<li><a href="#&#x627F;&#x8BFA;&#x8F6C;&#x53D1;&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;">&#x627F;&#x8BFA;&#x8F6C;&#x53D1;&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;</a><ul>
+<li><a href="#&#x8F6C;&#x53D1;&#x5C65;&#x884C;">&#x8F6C;&#x53D1;&#x5C65;&#x884C;</a></li>
+<li><a href="#&#x8F6C;&#x53D1;&#x62D2;&#x7EDD;">&#x8F6C;&#x53D1;&#x62D2;&#x7EDD;</a></li>
+<li><a href="#&#x8F6C;&#x53D1;&#x5C65;&#x884C;&#x548C;&#x62D2;&#x7EDD;">&#x8F6C;&#x53D1;&#x5C65;&#x884C;&#x548C;&#x62D2;&#x7EDD;</a></li>
 </ul>
 </li>
 <li><a href="#done-vs-then">done() vs. then()</a></li>
@@ -411,26 +408,20 @@ on PHP 7+.</p>
 <li><a href="#credits">Credits</a></li>
 <li><a href="#license">License</a></li>
 </ol>
-<h2 id="introduction">Introduction</h2>
-<p>Promise is a library implementing
-<a href="http://wiki.commonjs.org/wiki/Promises/A" target="_blank">CommonJS Promises/A</a> for PHP.</p>
-<p>It also provides several other useful promise-related concepts, such as joining
-multiple promises and mapping and reducing collections of promises.</p>
-<p>If you&apos;ve never heard about promises before,
-<a href="https://gist.github.com/3889970" target="_blank">read this first</a>.</p>
-<h2 id="concepts">Concepts</h2>
-<h3 id="deferred">Deferred</h3>
-<p>A <strong>Deferred</strong> represents a computation or unit of work that may not have
-completed yet. Typically (but not always), that computation will be something
-that executes asynchronously and completes at some point in the future.</p>
-<h3 id="promise">Promise</h3>
-<p>While a deferred represents the computation itself, a <strong>Promise</strong> represents
-the result of that computation. Thus, each deferred has a promise that acts as
-a placeholder for its actual result.</p>
+<h2 id="&#x7B80;&#x4ECB;">&#x7B80;&#x4ECB;</h2>
+<hr>
+<p>Promise&#x662F;&#x4E00;&#x4E2A;&#x4E3A;PHP&#x5B9E;&#x73B0;<a href="http://wiki.commonjs.org/wiki/Promises/A" target="_blank">CommonJS Promises/A</a> &#x7684;&#x5E93;&#x3002;</p>
+<p>&#x5B83;&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x5176;&#x4ED6;&#x4E00;&#x4E9B;&#x4E0E;&#x627F;&#x8BFA;&#x76F8;&#x5173;&#x7684;&#x6709;&#x7528;&#x6982;&#x5FF5;&#xFF0C;&#x4F8B;&#x5982;&#x52A0;&#x5165;&#x591A;&#x4E2A;&#x627F;&#x8BFA;&#x4EE5;&#x53CA;&#x6620;&#x5C04;&#x548C;&#x51CF;&#x5C11;&#x627F;&#x8BFA;&#x96C6;&#x5408;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x60A8;&#x4EE5;&#x524D;&#x4ECE;&#x672A;&#x542C;&#x8BF4;&#x8FC7;&#x8BFA;&#x8A00;&#xFF0C;&#x8BF7;&#x5148;&#x9605;&#x8BFB;<a href="https://gist.github.com/3889970" target="_blank">&#x6B64;&#x5185;&#x5BB9;</a></p>
+<h2 id="&#x6982;&#x5FF5;">&#x6982;&#x5FF5;</h2>
+<hr>
+<h3 id="deferred&#xFF08;&#x5EF6;&#x8FDF;&#xFF09;">Deferred&#xFF08;&#x5EF6;&#x8FDF;&#xFF09;</h3>
+<p><strong>Deferred</strong> &#x8868;&#x793A;&#x53EF;&#x80FD;&#x5C1A;&#x672A;&#x5B8C;&#x6210;&#x7684;&#x8BA1;&#x7B97;&#x6216;&#x5DE5;&#x4F5C;&#x5355;&#x5143;&#x3002; &#x901A;&#x5E38;&#xFF08;&#x4F46;&#x5E76;&#x975E;&#x603B;&#x662F;&#xFF09;&#x8BE5;&#x8BA1;&#x7B97;&#x5C06;&#x5F02;&#x6B65;&#x6267;&#x884C;&#x5E76;&#x5728;&#x5C06;&#x6765;&#x7684;&#x67D0;&#x4E2A;&#x65F6;&#x523B;&#x5B8C;&#x6210;&#x3002;</p>
+<h3 id="promise&#xFF08;&#x627F;&#x8BFA;&#xFF09;">Promise&#xFF08;&#x627F;&#x8BFA;&#xFF09;</h3>
+<p><strong>Deferred</strong> &#x8868;&#x793A;&#x8BA1;&#x7B97;&#x672C;&#x8EAB;&#xFF0C;&#x800C; <strong>Promise</strong> &#x8868;&#x793A;&#x8BE5;&#x8BA1;&#x7B97;&#x7684;&#x7ED3;&#x679C;&#x3002; &#x56E0;&#x6B64;&#xFF0C;&#x6BCF;&#x4E2A;<strong>Deferred</strong> &#x8005;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x627F;&#x8BFA;&#xFF0C;&#x53EF;&#x4EE5;&#x5145;&#x5F53;&#x5176;&#x5B9E;&#x9645;&#x7ED3;&#x679C;&#x7684;&#x5360;&#x4F4D;&#x7B26;&#x3002;</p>
 <h2 id="api">API</h2>
 <h3 id="deferred">Deferred</h3>
-<p>A deferred represents an operation whose resolution is pending. It has separate
-promise and resolver parts.</p>
+<p><strong>Deferred</strong> &#x8868;&#x793A;&#x5176;&#x89E3;&#x6790;&#x6302;&#x8D77;&#x7684;&#x64CD;&#x4F5C;&#x3002;&#x5B83;&#x6709;&#x5355;&#x72EC;&#x7684;promise&#x548C;resolver&#x90E8;&#x5206;&#x3002;</p>
 <pre><code class="lang-php">$deferred = <span class="hljs-keyword">new</span> React\Promise\Deferred();
 
 $promise = $deferred-&gt;promise();
@@ -438,80 +429,57 @@ $promise = $deferred-&gt;promise();
 $deferred-&gt;resolve(mixed $value = <span class="hljs-keyword">null</span>);
 $deferred-&gt;reject(\Throwable $reason);
 </code></pre>
-<p>The <code>promise</code> method returns the promise of the deferred.</p>
-<p>The <code>resolve</code> and <code>reject</code> methods control the state of the deferred.</p>
-<p>The constructor of the <code>Deferred</code> accepts an optional <code>$canceller</code> argument.
-See <a href="#promise-2">Promise</a> for more information.</p>
+<p><code>promise</code> &#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x5EF6;&#x8FDF;&#x7684;&#x627F;&#x8BFA;&#x3002;</p>
+<p><code>resolve</code>&#x548C;<code>reject</code> &#x65B9;&#x6CD5;&#x63A7;&#x5236;&#x5EF6;&#x8FDF;&#x72B6;&#x6001;&#x3002;</p>
+<p><code>Deferred</code>&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684;<code>$canceller</code>&#x53C2;&#x6570;&#x3002;&#x6709;&#x5173;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x89C1;<a href="#promise-2">Promise</a></p>
 <h4 id="deferredpromise">Deferred::promise()</h4>
 <pre><code class="lang-php">$promise = $deferred-&gt;promise();
 </code></pre>
-<p>Returns the promise of the deferred, which you can hand out to others while
-keeping the authority to modify its state to yourself.</p>
+<p>&#x8FD4;&#x56DE;&#x5EF6;&#x671F;&#x7684;&#x627F;&#x8BFA;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x5206;&#x53D1;&#x7ED9;&#x5176;&#x4ED6;&#x4EBA;&#xFF0C;&#x540C;&#x65F6;&#x4FDD;&#x7559;&#x81EA;&#x884C;&#x4FEE;&#x6539;&#x5176;&#x72B6;&#x6001;&#x7684;&#x6743;&#x9650;&#x3002;</p>
 <h4 id="deferredresolve">Deferred::resolve()</h4>
 <pre><code class="lang-php">$deferred-&gt;resolve(mixed $value = <span class="hljs-keyword">null</span>);
 </code></pre>
-<p>Resolves the promise returned by <code>promise()</code>. All consumers are notified by
-having <code>$onFulfilled</code> (which they registered via <code>$promise-&gt;then()</code>) called with
-<code>$value</code>.</p>
-<p>If <code>$value</code> itself is a promise, the promise will transition to the state of
-this promise once it is resolved.</p>
+<p>&#x89E3;&#x51B3;<code>promise()</code>&#x8FD4;&#x56DE;&#x7684;&#x627F;&#x8BFA;&#x3002;</p>
+<p><code>$value</code>&#x8C03;&#x7528; <code>$onFulfilled</code>&#x6765;&#x901A;&#x77E5;&#x6240;&#x6709;&#x6D88;&#x8D39;&#x8005;&#xFF08;&#x5B83;&#x4EEC;&#x901A;&#x8FC7;<code>$promise-&gt;then()</code> &#x6CE8;&#x518C;&#xFF09;&#x3002;</p>
+<p>&#x5982;&#x679C;<code>$value</code>&#x672C;&#x8EAB;&#x662F;&#x4E00;&#x4E2A;&#x627F;&#x8BFA;&#xFF0C;&#x90A3;&#x4E48;&#x4E00;&#x65E6;&#x8FD9;&#x4E2A;&#x627F;&#x8BFA;&#x88AB;&#x89E3;&#x51B3;&#xFF0C;&#x5B83;&#x5C06;&#x8F6C;&#x6362;&#x5230;&#x8FD9;&#x4E2A;&#x627F;&#x8BFA;&#x7684;&#x72B6;&#x6001;&#x3002;</p>
 <h4 id="deferredreject">Deferred::reject()</h4>
 <pre><code class="lang-php">$deferred-&gt;reject(\Throwable $reason);
 </code></pre>
-<p>Rejects the promise returned by <code>promise()</code>, signalling that the deferred&apos;s
-computation failed.
-All consumers are notified by having <code>$onRejected</code> (which they registered via
-<code>$promise-&gt;then()</code>) called with <code>$reason</code>.</p>
+<p>&#x62D2;&#x7EDD;<code>promise()</code>&#x8FD4;&#x56DE;&#x7684;&#x627F;&#x8BFA;&#xFF0C;&#x8868;&#x793A;&#x5EF6;&#x8FDF;&#x7684;&#x8BA1;&#x7B97;&#x5931;&#x8D25;&#x3002;
+&#x6240;&#x6709;&#x6D88;&#x8D39;&#x8005;&#x90FD;&#x4F1A;&#x6536;&#x5230;&#x901A;&#x77E5;&#xFF0C;&#x65B9;&#x6CD5;&#x662F;&#x4F7F;&#x7528;<code>$reason</code>&#x8C03;&#x7528;<code>$onRejected</code>&#xFF08;&#x5B83;&#x4EEC;&#x901A;&#x8FC7;<code>$promise-&gt;then()</code>&#x6CE8;&#x518C;&#xFF09;&#x3002;</p>
 <h3 id="promiseinterface">PromiseInterface</h3>
-<p>The promise interface provides the common interface for all promise
-implementations.
-See <a href="#promise-2">Promise</a> for the only public implementation exposed by this
-package.</p>
-<p>A promise represents an eventual outcome, which is either fulfillment (success)
-and an associated value, or rejection (failure) and an associated reason.</p>
-<p>Once in the fulfilled or rejected state, a promise becomes immutable.
-Neither its state nor its result (or error) can be modified.</p>
+<p><code>PromiseInterface</code> &#x4E3A;&#x6240;&#x6709;promise&#x5B9E;&#x73B0;&#x63D0;&#x4F9B;&#x516C;&#x5171;&#x63A5;&#x53E3;&#x3002;
+&#x8BF7;&#x53C2;&#x9605;<a href="#promise-2">Promise</a>&#x4EE5;&#x83B7;&#x53D6;&#x6B64;&#x5305;&#x552F;&#x4E00;&#x516C;&#x5171;&#x5B9E;&#x73B0;&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x627F;&#x8BFA;&#x4EE3;&#x8868;&#x4E00;&#x4E2A;&#x6700;&#x7EC8;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x8981;&#x4E48;&#x662F;&#x5B9E;&#x73B0;&#xFF08;&#x6210;&#x529F;&#xFF09;&#x548C;&#x76F8;&#x5173;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x8981;&#x4E48;&#x662F;&#x62D2;&#x7EDD;&#xFF08;&#x5931;&#x8D25;&#xFF09;&#x548C;&#x76F8;&#x5173;&#x7684;&#x539F;&#x56E0;&#x3002;</p>
+<p>&#x4E00;&#x65E6;&#x627F;&#x8BFA;&#x5904;&#x4E8E;&#x5C65;&#x884C;&#x6216;&#x62D2;&#x7EDD;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x627F;&#x8BFA;&#x5C31;&#x53D8;&#x5F97;&#x4E0D;&#x53EF;&#x66F4;&#x6539;&#x3002;
+&#x5B83;&#x7684;&#x72B6;&#x6001;&#x548C;&#x7ED3;&#x679C;&#xFF08;&#x6216;&#x9519;&#x8BEF;&#xFF09;&#x90FD;&#x4E0D;&#x80FD;&#x4FEE;&#x6539;&#x3002;</p>
 <h4 id="promiseinterfacethen">PromiseInterface::then()</h4>
 <pre><code class="lang-php">$transformedPromise = $promise-&gt;then(callable $onFulfilled = <span class="hljs-keyword">null</span>, callable $onRejected = <span class="hljs-keyword">null</span>);
 </code></pre>
-<p>Transforms a promise&apos;s value by applying a function to the promise&apos;s fulfillment
-or rejection value. Returns a new promise for the transformed result.</p>
-<p>The <code>then()</code> method registers new fulfilled and rejection handlers with a promise
-(all parameters are optional):</p>
+<p>&#x901A;&#x8FC7;&#x5BF9;&#x627F;&#x8BFA;&#x7684;&#x5C65;&#x884C;&#x6216;&#x62D2;&#x7EDD;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x5E94;&#x7528;&#x51FD;&#x6570;&#x6765;&#x8F6C;&#x6362;&#x627F;&#x8BFA;&#x7684;&#x72B6;&#x6001;&#x503C;&#x5E76;&#x8FD4;&#x56DE;&#x8F6C;&#x6362;&#x7ED3;&#x679C;&#x7684;&#x65B0;&#x627F;&#x8BFA;&#x3002;</p>
+<p><code>then()</code> &#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x4E00;&#x4E2A;promise&#x6CE8;&#x518C;&#x65B0;&#x7684;&#x5DF2;&#x5B8C;&#x6210;&#x548C;&#x62D2;&#x7EDD;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#xFF08;&#x6240;&#x6709;&#x53C2;&#x6570;&#x90FD;&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF09;&#xFF1A;</p>
 <ul>
-<li><code>$onFulfilled</code> will be invoked once the promise is fulfilled and passed
-the result as the first argument.</li>
-<li><code>$onRejected</code> will be invoked once the promise is rejected and passed the
-reason as the first argument.</li>
+<li>&#x4E00;&#x65E6;&#x627F;&#x8BFA;&#x5B9E;&#x73B0;&#xFF0C;&#x5176;&#x7ED3;&#x679C;&#x5C06;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#xFF0C;&#x5C31;&#x4F1A;&#x8C03;&#x7528;<code>$onFulfilled</code></li>
+<li>&#x4E00;&#x65E6;&#x627F;&#x8BFA;&#x88AB;&#x62D2;&#x7EDD;&#xFF0C;&#x5176;&#x539F;&#x56E0;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#xFF0C;&#x5C31;&#x4F1A;&#x8C03;&#x7528;<code>$onRejected</code></li>
 </ul>
-<p>It returns a new promise that will fulfill with the return value of either
-<code>$onFulfilled</code> or <code>$onRejected</code>, whichever is called, or will reject with
-the thrown exception if either throws.</p>
-<p>A promise makes the following guarantees about handlers registered in
-the same call to <code>then()</code>:</p>
-<ol>
-<li>Only one of <code>$onFulfilled</code> or <code>$onRejected</code> will be called,
-never both.</li>
-<li><code>$onFulfilled</code> and <code>$onRejected</code> will never be called more
-than once.</li>
-</ol>
-<h4 id="see-also">See also</h4>
+<p><code>$onFulfilled</code>&#x6216;<code>$onRejected</code>&#x7684;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;promise&#xFF0C;&#x65E0;&#x8BBA;&#x54EA;&#x4E2A;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x6216;&#x8005;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x5219;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002;</p>
+<p>promise &#x5BF9;&#x5728;<code>then()</code>&#x7684;&#x540C;&#x4E00;&#x8C03;&#x7528;&#x4E2D;&#x6CE8;&#x518C;&#x7684;&#x5904;&#x7406;&#x56DE;&#x8C03;&#x505A;&#x51FA;&#x4EE5;&#x4E0B;&#x4FDD;&#x8BC1;&#xFF1A;</p>
+<p>  1.&#x4EC5;&#x4F1A;&#x8C03;&#x7528;<code>$onFulfilled</code> &#x6216; <code>$onRejected</code>&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#xFF0C;&#x4E24;&#x8005;&#x4E0D;&#x4F1A;&#x90FD;&#x8C03;&#x7528;&#x3002;</p>
+<p>  2.<code>$onFulfilled</code> &#x548C; <code>$onRejected</code> &#x4E0D;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#x4EE5;&#x4E0A;&#x3002;</p>
+<h4 id="&#x53E6;&#x8BF7;&#x53C2;&#x89C1;">&#x53E6;&#x8BF7;&#x53C2;&#x89C1;</h4>
 <ul>
-<li><a href="#resolve">resolve()</a> - Creating a resolved promise</li>
-<li><a href="#reject">reject()</a> - Creating a rejected promise</li>
+<li><a href="#resolve">resolve()</a> - &#x521B;&#x9020;&#x627F;&#x8BFA;</li>
+<li><a href="#reject">reject()</a> - &#x521B;&#x5EFA;&#x62D2;&#x7EDD;&#x7684;&#x627F;&#x8BFA;</li>
 <li><a href="#promiseinterfacedone">PromiseInterface::done()</a></li>
 <li><a href="#done-vs-then">done() vs. then()</a></li>
 </ul>
 <h4 id="promiseinterfacedone">PromiseInterface::done()</h4>
 <pre><code class="lang-php">$promise-&gt;done(callable $onFulfilled = <span class="hljs-keyword">null</span>, callable $onRejected = <span class="hljs-keyword">null</span>);
 </code></pre>
-<p>Consumes the promise&apos;s ultimate value if the promise fulfills, or handles the
-ultimate error.</p>
-<p>It will cause a fatal error (<code>E_USER_ERROR</code>) if either <code>$onFulfilled</code> or
-<code>$onRejected</code> throw or return a rejected promise.</p>
-<p>Since the purpose of <code>done()</code> is consumption rather than transformation,
-<code>done()</code> always returns <code>null</code>.</p>
-<h4 id="see-also">See also</h4>
+<p>&#x5982;&#x679C;&#x627F;&#x8BFA;&#x5C65;&#x884C;&#x6216;&#x62D2;&#x7EDD;&#xFF0C;&#x5219;&#x8017;&#x8D39;&#x627F;&#x8BFA;&#x7684;&#x6700;&#x7EC8;&#x7ED3;&#x679C;&#x3002;</p>
+<p>&#x5982;&#x679C; <code>$onFulfilled</code> &#x6216; <code>$onRejected</code>&#x629B;&#x51FA;&#x6216;&#x8FD4;&#x56DE;&#x88AB;&#x62D2;&#x7EDD;&#x7684;&#x8BFA;&#x8A00;&#xFF0C;&#x5C06;&#x5BFC;&#x81F4;&#x81F4;&#x547D;&#x9519;&#x8BEF;(<code>E_USER_ERROR</code>)</p>
+<p>&#x7531;&#x4E8E;<code>done()</code>&#x7684;&#x76EE;&#x7684;&#x662F;&#x6D88;&#x8D39;&#x800C;&#x4E0D;&#x662F;&#x8F6C;&#x6362;&#xFF0C;&#x6240;&#x4EE5;<code>done()</code>&#x603B;&#x662F;&#x8FD4;&#x56DE;<code>null</code>&#x3002;</p>
+<h4 id="&#x53E6;&#x8BF7;&#x53C2;&#x89C1;">&#x53E6;&#x8BF7;&#x53C2;&#x89C1;</h4>
 <ul>
 <li><a href="#promiseinterfacethen">PromiseInterface::then()</a></li>
 <li><a href="#done-vs-then">done() vs. then()</a></li>
@@ -519,11 +487,10 @@ ultimate error.</p>
 <h4 id="promiseinterfaceotherwise">PromiseInterface::otherwise()</h4>
 <pre><code class="lang-php">$promise-&gt;otherwise(callable $onRejected);
 </code></pre>
-<p>Registers a rejection handler for promise. It is a shortcut for:</p>
+<p>&#x6CE8;&#x518C;&#x62D2;&#x7EDD;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x4EE5;&#x8FDB;&#x884C;&#x627F;&#x8BFA;&#x3002; &#x5FEB;&#x6377;&#x64CD;&#x4F5C;&#x65B9;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre><code class="lang-php">$promise-&gt;then(<span class="hljs-keyword">null</span>, $onRejected);
 </code></pre>
-<p>Additionally, you can type hint the <code>$reason</code> argument of <code>$onRejected</code> to catch
-only specific errors.</p>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x4F20;&#x5165;&#x63D0;&#x793A;<code>$onRejected</code>&#x7684;<code>$reason</code>&#x53C2;&#x6570;&#xFF0C;&#x4EC5;&#x6355;&#x83B7;&#x7279;&#x5B9A;&#x7684;&#x9519;&#x8BEF;&#x3002;</p>
 <pre><code class="lang-php">$promise
     -&gt;otherwise(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(\RuntimeException $reason)</span> </span>{
         <span class="hljs-comment">// Only catch \RuntimeException instances</span>
@@ -536,25 +503,16 @@ only specific errors.</p>
 <h4 id="promiseinterfacealways">PromiseInterface::always()</h4>
 <pre><code class="lang-php">$newPromise = $promise-&gt;always(callable $onFulfilledOrRejected);
 </code></pre>
-<p>Allows you to execute &quot;cleanup&quot; type tasks in a promise chain.</p>
-<p>It arranges for <code>$onFulfilledOrRejected</code> to be called, with no arguments,
-when the promise is either fulfilled or rejected.</p>
+<p>&#x5141;&#x8BB8;&#x60A8;&#x5728;&#x627F;&#x8BFA;&#x94FE;&#x4E2D;&#x6267;&#x884C;&#x201C;&#x6E05;&#x7406;&#x201D;&#x7C7B;&#x578B;&#x7684;&#x4EFB;&#x52A1;&#x3002;</p>
+<p>&#x5F53;<code>promise</code>&#x88AB;&#x5C65;&#x884C;&#x6216;&#x88AB;&#x62D2;&#x7EDD;&#x65F6;&#x8C03;&#x7528;<code>$onFulfilledOrRejected</code>(&#x4E0D;&#x5E26;&#x4EFB;&#x4F55;&#x53C2;&#x6570;)&#x56DE;&#x8C03;</p>
 <ul>
-<li>If <code>$promise</code> fulfills, and <code>$onFulfilledOrRejected</code> returns successfully,
-<code>$newPromise</code> will fulfill with the same value as <code>$promise</code>.</li>
-<li>If <code>$promise</code> fulfills, and <code>$onFulfilledOrRejected</code> throws or returns a
-rejected promise, <code>$newPromise</code> will reject with the thrown exception or
-rejected promise&apos;s reason.</li>
-<li>If <code>$promise</code> rejects, and <code>$onFulfilledOrRejected</code> returns successfully,
-<code>$newPromise</code> will reject with the same reason as <code>$promise</code>.</li>
-<li>If <code>$promise</code> rejects, and <code>$onFulfilledOrRejected</code> throws or returns a
-rejected promise, <code>$newPromise</code> will reject with the thrown exception or
-rejected promise&apos;s reason.</li>
+<li>&#x5982;&#x679C;<code>$promise</code>&#x5C65;&#x884C;&#xFF0C;&#x5E76;&#x4E14;<code>$onFulfilledOrRejected</code>&#x6210;&#x529F;&#x8FD4;&#x56DE;&#xFF0C;&#x5219;<code>$newPromise</code>&#x5C65;&#x884C;&#x4E0E;<code>$promise</code>&#x76F8;&#x540C;&#x7684;&#x503C;&#x3002;</li>
+<li>&#x5982;&#x679C;<code>$promise</code>&#x5C65;&#x884C;&#xFF0C;&#x5E76;&#x4E14;<code>$onFulfilledOrRejected</code>&#x629B;&#x51FA;&#x6216;&#x8FD4;&#x56DE;&#x88AB;&#x62D2;&#x7EDD;&#x7684;&#x627F;&#x8BFA;&#xFF0C;<code>$newPromise</code>&#x5C06;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x6216;&#x62D2;&#x7EDD;&#x7684;&#x627F;&#x8BFA;&#x7684;&#x539F;&#x56E0;&#x3002;</li>
+<li>&#x5982;&#x679C;<code>$promise</code>&#x62D2;&#x7EDD;&#xFF0C;&#x5E76;&#x4E14;<code>$onFulfilledOrRejected</code>&#x6210;&#x529F;&#x8FD4;&#x56DE;&#xFF0C;&#x5219;<code>$newPromise</code>&#x4E0E;<code>$promise</code>&#x4EE5;&#x76F8;&#x540C;&#x7684;&#x539F;&#x56E0;&#x62D2;&#x7EDD;&#x3002;</li>
+<li>&#x5982;&#x679C;<code>$promise</code>&#x62D2;&#x7EDD;&#xFF0C;&#x5E76;&#x4E14;<code>$onFulfilledOrRejected</code>&#x629B;&#x51FA;&#x6216;&#x8FD4;&#x56DE;&#x88AB;&#x62D2;&#x7EDD;&#x7684;&#x627F;&#x8BFA;&#xFF0C;<code>$newPromise</code>&#x5C06;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x6216;&#x62D2;&#x7EDD;&#x7684;&#x627F;&#x8BFA;&#x7684;&#x539F;&#x56E0;&#x3002;</li>
 </ul>
-<p><code>always()</code> behaves similarly to the synchronous finally statement. When combined
-with <code>otherwise()</code>, <code>always()</code> allows you to write code that is similar to the familiar
-synchronous catch/finally pair.</p>
-<p>Consider the following synchronous code:</p>
+<p><code>always()</code>&#x7684;&#x884C;&#x4E3A;&#x4E8E;synchronous finally&#x8BED;&#x53E5;&#x7C7B;&#x4F3C;&#x3002;&#x5F53;&#x4E0E;<code>otherwise()</code>&#x7ED3;&#x5408;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;<code>always()</code>&#x5141;&#x8BB8;&#x60A8;&#x7F16;&#x5199;&#x4E8E;&#x719F;&#x6089;&#x7684;&#x540C;&#x6B65;catch/finally&#x7C7B;&#x4F3C;&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
+<p>&#x8003;&#x8651;&#x4EE5;&#x4E0B;&#x540C;&#x6B65;&#x4EE3;&#x7801;&#xFF1A;</p>
 <pre><code class="lang-php"><span class="hljs-keyword">try</span> {
   <span class="hljs-keyword">return</span> doSomething();
 } <span class="hljs-keyword">catch</span> (\Throwable $e) {
@@ -563,8 +521,7 @@ synchronous catch/finally pair.</p>
     cleanup();
 }
 </code></pre>
-<p>Similar asynchronous code (with <code>doSomething()</code> that returns a promise) can be
-written:</p>
+<p>&#x53EF;&#x4EE5;&#x7F16;&#x5199;&#x7C7B;&#x4F3C;&#x7684;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#xFF08;<code>doSomething()</code>&#x8FD4;&#x56DE;&#x627F;&#x8BFA;&#xFF09;&#xFF1A;</p>
 <pre><code class="lang-php"><span class="hljs-keyword">return</span> doSomething()
     -&gt;otherwise(<span class="hljs-string">&apos;handleError&apos;</span>)
     -&gt;always(<span class="hljs-string">&apos;cleanup&apos;</span>);
@@ -572,13 +529,10 @@ written:</p>
 <h4 id="promiseinterfacecancel">PromiseInterface::cancel()</h4>
 <pre><code class="lang-php">$promise-&gt;cancel();
 </code></pre>
-<p>The <code>cancel()</code> method notifies the creator of the promise that there is no
-further interest in the results of the operation.</p>
-<p>Once a promise is settled (either fulfilled or rejected), calling <code>cancel()</code> on
-a promise has no effect.</p>
+<p><code>cancel()</code> &#x65B9;&#x6CD5;&#x901A;&#x77E5;&#x627F;&#x8BFA;&#x521B;&#x5EFA;&#x8005;&#x5BF9;&#x64CD;&#x4F5C;&#x7684;&#x7ED3;&#x679C;&#x4E0D;&#x518D;&#x611F;&#x5174;&#x8DA3;&#x3002;</p>
+<p>&#x4E00;&#x65E6;&#x5151;&#x73B0;&#x4E86;&#x627F;&#x8BFA;&#xFF08;&#x65E0;&#x8BBA;&#x662F;&#x5C65;&#x884C;&#x8FD8;&#x662F;&#x62D2;&#x7EDD;&#xFF09;&#xFF0C;&#x5BF9;&#x627F;&#x8BFA;&#x8C03;&#x7528;<code>cancel()</code>&#x65E0;&#x6548;&#x3002;</p>
 <h3 id="promise">Promise</h3>
-<p>Creates a promise whose state is controlled by the functions passed to
-<code>$resolver</code>.</p>
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;<code>promise</code>&#xFF0C;&#x5176;&#x72B6;&#x6001;&#x7531;&#x4F20;<code>$resolver</code>&#x51FD;&#x6570;&#x63A7;&#x5236;&#x3002;</p>
 <pre><code class="lang-php">$resolver = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(callable $resolve, callable $reject)</span> </span>{
     <span class="hljs-comment">// Do some work, possibly asynchronously, and then</span>
     <span class="hljs-comment">// resolve or reject.</span>
@@ -598,104 +552,82 @@ $canceller = <span class="hljs-function"><span class="hljs-keyword">function</sp
 
 $promise = <span class="hljs-keyword">new</span> React\Promise\Promise($resolver, $canceller);
 </code></pre>
-<p>The promise constructor receives a resolver function and an optional canceller
-function which both will be called with 3 arguments:</p>
+<p><code>promise</code>&#x6784;&#x9020;&#x51FD;&#x6570;&#x5C06;&#x63A5;&#x6536;&#x4E00;&#x4E2A;<code>resolver</code>&#x51FD;&#x6570;&#x548C;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684;<code>canceller</code>&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#x90FD;&#x5C06;&#x4F7F;&#x7528;3&#x4E2A;&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x8C03;&#x7528;&#xFF1A;</p>
 <ul>
-<li><code>$resolve($value)</code> - Primary function that seals the fate of the
-returned promise. Accepts either a non-promise value, or another promise.
-When called with a non-promise value, fulfills promise with that value.
-When called with another promise, e.g. <code>$resolve($otherPromise)</code>, promise&apos;s
-fate will be equivalent to that of <code>$otherPromise</code>.</li>
-<li><code>$reject($reason)</code> - Function that rejects the promise. It is recommended to
-just throw an exception instead of using <code>$reject()</code>.</li>
+<li><code>$resolve($value)</code> - &#x5305;&#x88C5;&#x8FD4;&#x56DE;&#x7684;<code>promise</code>&#x7684;&#x4E3B;&#x8981;&#x51FD;&#x6570;&#x3002; &#x63A5;&#x53D7;&#x975E;&#x627F;&#x8BFA;&#x503C;&#x6216;&#x5176;&#x4ED6;&#x627F;&#x8BFA;&#x3002;
+&#x5F53;&#x7528;&#x975E;&#x627F;&#x8BFA;&#x503C;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x7528;&#x8BE5;&#x503C;&#x5B9E;&#x73B0;&#x627F;&#x8BFA;&#x3002;&#x5F53;&#x4EE5;&#x53E6;&#x4E00;&#x4E2A;&#x627F;&#x8BFA;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C;
+&#x4F8B;&#x5982; <code>$resolve($otherPromise)</code>&#xFF0C;&#x5305;&#x88C5;&#x8FD4;&#x56DE;&#x7684;<code>promise</code>&#x7B49;&#x540C;&#x4E8E;<code>$otherPromise</code>&#x3002;<ul>
+<li><code>$rejec($reason)</code> - &#x62D2;&#x7EDD;&#x627F;&#x8BFA;&#x7684;&#x51FD;&#x6570;&#x3002;&#x5EFA;&#x8BAE;&#x53EA;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF0C;&#x800C;&#x4E0D;&#x8981;&#x4F7F;&#x7528;<code>$reject()</code>&#x3002;</li>
 </ul>
-<p>If the resolver or canceller throw an exception, the promise will be rejected
-with that thrown exception as the rejection reason.</p>
-<p>The resolver function will be called immediately, the canceller function only
-once all consumers called the <code>cancel()</code> method of the promise.</p>
+</li>
+</ul>
+<p>&#x5982;&#x679C;<code>resolver</code>&#x6216;<code>canceller</code>&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF0C;&#x5219;&#x5C06;&#x4EE5;&#x8BE5;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x4F5C;&#x4E3A;&#x62D2;&#x7EDD;&#x539F;&#x56E0;&#x6765;&#x62D2;&#x7EDD;&#x627F;&#x8BFA;&#x3002;</p>
+<p><code>resolver</code>&#x51FD;&#x6570;&#x5C06;&#x7ACB;&#x5373;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x53EA;&#x6709;&#x5F53;&#x6240;&#x6709;&#x4F7F;&#x7528;&#x8005;&#x8C03;&#x7528;<code>promise</code>&#x7684;<code>cancel()</code>&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;<code>canceller</code>&#x51FD;&#x6570;&#x624D;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x3002;</p>
 <h3 id="functions">Functions</h3>
-<p>Useful functions for creating, joining, mapping and reducing collections of
-promises.</p>
-<p>All functions working on promise collections (like <code>all()</code>, <code>race()</code>, <code>some()</code>
-etc.) support cancellation. This means, if you call <code>cancel()</code> on the returned
-promise, all promises in the collection are cancelled.</p>
+<p>&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x3001;&#x8FDE;&#x63A5;&#x3001;&#x6620;&#x5C04;&#x548C;&#x51CF;&#x5C11;&#x627F;&#x8BFA;&#x96C6;&#x5408;&#x7684;&#x6709;&#x7528;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x6240;&#x6709;&#x5904;&#x7406;&#x627F;&#x8BFA;&#x96C6;&#x5408;&#x7684;&#x529F;&#x80FD;&#xFF08;&#x4F8B;&#x5982;all()&#xFF0C;race()&#xFF0C;some()&#x7B49;&#xFF09;&#x90FD;&#x652F;&#x6301;&#x53D6;&#x6D88;&#x3002; 
+&#x8FD9;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x5982;&#x679C;&#x60A8;&#x5BF9;&#x8FD4;&#x56DE;&#x7684;&#x8BFA;&#x8A00;&#x8C03;&#x7528;<code>cancel()</code>&#xFF0C;&#x5219;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x8BFA;&#x8A00;&#x90FD;&#x4F1A;&#x88AB;&#x53D6;&#x6D88;&#x3002;</p>
 <h4 id="resolve">resolve()</h4>
 <pre><code class="lang-php">$promise = React\Promise\resolve(mixed $promiseOrValue);
 </code></pre>
-<p>Creates a promise for the supplied <code>$promiseOrValue</code>.</p>
-<p>If <code>$promiseOrValue</code> is a value, it will be the resolution value of the
-returned promise.</p>
-<p>If <code>$promiseOrValue</code> is a thenable (any object that provides a <code>then()</code> method),
-a trusted promise that follows the state of the thenable is returned.</p>
-<p>If <code>$promiseOrValue</code> is a promise, it will be returned as is.</p>
+<p>&#x4E3A;<code>$promiseOrValue</code>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x627F;&#x8BFA;&#x3002;</p>
+<p>&#x5982;&#x679C;<code>$promiseOrValue</code>&#x662F;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x5B83;&#x5C06;&#x662F;&#x8FD4;&#x56DE;&#x627F;&#x8BFA;</p>
+<p>&#x5982;&#x679C;<code>$promiseOrValue</code>&#x62E5;&#x6709;<code>thenable</code>&#x80FD;&#x529B;&#xFF08;&#x63D0;&#x4F9B;<code>then()</code>&#x65B9;&#x6CD5;&#x7684;&#x5BF9;&#x8C61;&#xFF09;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x8DDF;&#x968F;<code>thenable</code>&#x72B6;&#x6001;&#x7684;&#x53EF;&#x4FE1;&#x627F;&#x8BFA;&#x3002;</p>
+<p>&#x5982;&#x679C;<code>$promiseOrValue</code>&#x662F;&#x4E00;&#x4E2A;&#x627F;&#x8BFA;&#xFF0C;&#x5B83;&#x5C06;&#x6309;&#x539F;&#x6837;&#x8FD4;&#x56DE;&#x3002;</p>
 <h4 id="reject">reject()</h4>
 <pre><code class="lang-php">$promise = React\Promise\reject(\Throwable $reason);
 </code></pre>
-<p>Creates a rejected promise for the supplied <code>$reason</code>.</p>
-<p>Note that the <a href="https://www.php.net/manual/en/class.throwable.php" target="_blank"><code>\Throwable</code></a> interface introduced in PHP 7 covers 
-both user land <a href="https://www.php.net/manual/en/class.exception.php" target="_blank"><code>\Exception</code></a>&apos;s and 
-<a href="https://www.php.net/manual/en/class.error.php" target="_blank"><code>\Error</code></a> internal PHP errors. By enforcing <code>\Throwable</code> as reason to 
-reject a promise, any language error or user land exception can be used to reject a promise.</p>
+<p>&#x4E3A;<code>$reason</code>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x62D2;&#x7EDD;&#x7684;<code>promise</code>&#x3002;</p>
+<p>&#x6CE8;&#x610F;<a href="https://www.php.net/manual/en/class.throwable.php" target="_blank"><code>\Throwable</code></a> 
+PHP7&#x4E2D;&#x5F15;&#x5165;&#x7684;&#x63A5;&#x53E3;&#x5305;&#x62EC;&#x4E24;&#x4E2A;&#x7528;&#x6237;&#x533A;&#x57DF;
+<a href="https://www.php.net/manual/en/class.exception.php" target="_blank"><code>\Exception</code></a> &#x548C;
+<a href="https://www.php.net/manual/en/class.error.php" target="_blank"><code>\Error</code></a> &#x5185;&#x90E8;PHP&#x9519;&#x8BEF;&#x3002;
+&#x901A;&#x8FC7;&#x5F3A;&#x5236;&#x4F7F;&#x7528;<code>\Throwable</code>&#x4F5C;&#x4E3A;&#x62D2;&#x7EDD;&#x627F;&#x8BFA;&#x7684;&#x7406;&#x7531;&#xFF0C;&#x4EFB;&#x4F55;&#x8BED;&#x8A00;&#x9519;&#x8BEF;&#x6216;&#x7528;&#x6237;&#x5730;&#x5F02;&#x5E38;&#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x62D2;&#x7EDD;&#x627F;&#x8BFA;&#x3002;</p>
 <h4 id="all">all()</h4>
 <pre><code class="lang-php">$promise = React\Promise\all(<span class="hljs-keyword">array</span> $promisesOrValues);
 </code></pre>
-<p>Returns a promise that will resolve only once all the items in
-<code>$promisesOrValues</code> have resolved. The resolution value of the returned promise
-will be an array containing the resolution values of each of the items in
-<code>$promisesOrValues</code>.</p>
+<p>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x627F;&#x8BFA;&#xFF0C;&#x8BE5;&#x627F;&#x8BFA;&#x4EC5;&#x5728;<code>$promisesOrValues</code>&#x4E2D;&#x7684;&#x6240;&#x6709;&#x9879;&#x90FD;&#x5DF2;&#x89E3;&#x6790;&#x65F6;&#x624D;&#x4F1A;&#x89E3;&#x6790;&#x3002;
+&#x8FD4;&#x56DE;&#x7684;&#x627F;&#x8BFA;&#x7684;&#x89E3;&#x6790;&#x503C;&#x5C06;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B;<code>$promisesOrValues</code>&#x4E2D;&#x6BCF;&#x4E2A;&#x9879;&#x7684;&#x89E3;&#x6790;&#x503C;&#x3002;</p>
 <h4 id="race">race()</h4>
 <pre><code class="lang-php">$promise = React\Promise\race(<span class="hljs-keyword">array</span> $promisesOrValues);
 </code></pre>
-<p>Initiates a competitive race that allows one winner. Returns a promise which is
-resolved in the same way the first settled promise resolves.</p>
-<p>The returned promise will become <strong>infinitely pending</strong> if  <code>$promisesOrValues</code>
-contains 0 items.</p>
+<p>&#x53D1;&#x8D77;&#x4E00;&#x573A;&#x5141;&#x8BB8;&#x4E00;&#x540D;&#x83B7;&#x80DC;&#x8005;&#x53C2;&#x52A0;&#x7684;&#x7ADE;&#x8D5B;&#x3002;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x627F;&#x8BFA;&#xFF0C;&#x8BE5;&#x627F;&#x8BFA;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x5F0F;&#x4E0E;&#x7B2C;&#x4E00;&#x4E2A;&#x5C65;&#x884C;&#x7684;&#x627F;&#x8BFA;&#x89E3;&#x51B3;&#x65B9;&#x5F0F;&#x76F8;&#x540C;&#x3002;</p>
+<p>&#x5982;&#x679C;<code>$promisesOrValues</code>&#x5305;&#x542B;0&#x9879;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x7684;&#x627F;&#x8BFA;&#x5C06;<strong>&#x65E0;&#x9650;&#x6302;&#x8D77;</strong>&#x3002;</p>
 <h4 id="any">any()</h4>
 <pre><code class="lang-php">$promise = React\Promise\any(<span class="hljs-keyword">array</span> $promisesOrValues);
 </code></pre>
-<p>Returns a promise that will resolve when any one of the items in
-<code>$promisesOrValues</code> resolves. The resolution value of the returned promise
-will be the resolution value of the triggering item.</p>
-<p>The returned promise will only reject if <em>all</em> items in <code>$promisesOrValues</code> are
-rejected. The rejection value will be a <code>React\Promise\Exception\CompositeException</code>
-which holds all rejection reasons. The rejection reasons can be obtained with
-<code>CompositeException::getThrowables()</code>.</p>
-<p>The returned promise will also reject with a <code>React\Promise\Exception\LengthException</code>
-if <code>$promisesOrValues</code> contains 0 items.</p>
+<p>&#x8FD4;&#x56DE;&#x5C06;&#x5728;<code>$promisesOrValues</code>&#x4E2D;&#x7684;&#x4EFB;&#x4F55;&#x4E00;&#x9879;&#x5151;&#x73B0;&#x7684;&#x627F;&#x8BFA;&#x3002;&#x8FD4;&#x56DE;&#x7684;&#x627F;&#x8BFA;&#x7684;&#x503C;&#x5C06;&#x662F;&#x89E6;&#x53D1;&#x9879;&#x7684;&#x503C;&#x3002;</p>
+<p>&#x53EA;&#x6709;&#x5728;<code>$promisesOrValues</code>&#x4E2D;&#x7684; <em>&#x6240;&#x6709;</em> &#x9879;&#x88AB;&#x62D2;&#x7EDD;&#x65F6;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x627F;&#x8BFA;&#x624D;&#x4F1A;&#x88AB;&#x62D2;&#x7EDD;&#x3002;
+&#x62D2;&#x7EDD;&#x503C;&#x5C06;&#x662F;<code>React\Promise\Exception\CompositeException</code>&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B;&#x6240;&#x6709;&#x62D2;&#x7EDD;&#x539F;&#x56E0;&#x3002;
+&#x62D2;&#x7EDD;&#x539F;&#x56E0;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>CompositeException::getThrowables()</code>&#x83B7;&#x5F97;&#x3002;</p>
+<p>&#x5982;&#x679C;<code>$promisesOrValues</code>&#x5305;&#x542B;0&#x9879;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x7684;&#x627F;&#x8BFA;&#x4E5F;&#x5C06;&#x62D2;&#x7EDD;&#xFF0C;
+&#x5E76;&#x5E26;&#x6709;<code>React\Promise\Exception\LengthException</code></p>
 <h4 id="some">some()</h4>
 <pre><code class="lang-php">$promise = React\Promise\some(<span class="hljs-keyword">array</span> $promisesOrValues, integer $howMany);
 </code></pre>
-<p>Returns a promise that will resolve when at least <code>$howMany</code> of the supplied items in
-<code>$promisesOrValues</code> fulfill. The resolution value of the returned promise
-will be an array of length <code>$howMany</code> containing the resolution values of
-<code>$howMany</code> fulfilled promises that were resolved first.</p>
-<p>The returned promise will reject if it becomes impossible for <code>$howMany</code> items
-to resolve (that is, when <code>(count($promisesOrValues) - $howMany) + 1</code> items
-reject). The rejection value will be a <code>React\Promise\Exception\CompositeException</code>
-which holds <code>(count($promisesOrValues) - $howMany) + 1</code> rejection reasons.
-The rejection reasons can be obtained with <code>CompositeException::getExceptions()</code>.</p>
-<p>The returned promise will also reject with a <code>React\Promise\Exception\LengthException</code>
-if <code>$promisesOrValues</code> contains less items than <code>$howMany</code>.</p>
+<p>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x627F;&#x8BFA;&#xFF0C;&#x5F53;<code>$promisesOrValues</code>&#x4E2D;&#x81F3;&#x5C11;&#x6709;<code>$howMany</code>&#x4E2A;&#x63D0;&#x4F9B;&#x7684;&#x9879;&#x5151;&#x73B0;&#x65F6;&#xFF0C;&#x8BE5;&#x627F;&#x8BFA;&#x5C06;&#x88AB;&#x5151;&#x73B0;&#x3002;
+&#x8FD4;&#x56DE;&#x7684;&#x627F;&#x8BFA;&#x7684;&#x503C;&#x5C06;&#x662F;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A;<code>$howMany</code>&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x8BE5;&#x6570;&#x7EC4;&#x5305;&#x542B;&#x9996;&#x5148;&#x89E3;&#x6790;&#x7684;<code>$howMany</code>&#x5DF2;&#x5151;&#x73B0;&#x627F;&#x8BFA;&#x7684;&#x503C;&#x3002;</p>
+<p>&#x5982;&#x679C;<code>$howMany</code>&#x9879;&#x65E0;&#x6CD5;&#x5151;&#x73B0;&#xFF08;&#x5373;<code>(count($promisesOrValues)-$howMany)+1</code>&#x9879;&#x62D2;&#x7EDD;&#xFF09;&#xFF0C;
+&#x5219;&#x8FD4;&#x56DE;&#x7684;&#x627F;&#x8BFA;&#x5C06;&#x62D2;&#x7EDD;&#x3002;&#x62D2;&#x7EDD;&#x503C;&#x5C06;&#x662F;&#x4E00;&#x4E2A;<code>React\Promise\Exception\CompositeException</code>,
+&#x5176;&#x4E2D;&#x5305;&#x542B;<code>(count($promisesOrValues)-$howMany)+1</code>&#x62D2;&#x7EDD;&#x539F;&#x56E0;&#x3002;</p>
+<p>&#x62D2;&#x7EDD;&#x539F;&#x56E0;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>CompositeException::getExceptions()</code>&#x83B7;&#x5F97;&#x3002;</p>
+<p>&#x5982;&#x679C;<code>$promisesOrValues</code>&#x5305;&#x542B;&#x7684;&#x9879;&#x76EE;&#x5C11;&#x4E8E;<code>$howMany</code>&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x7684;&#x627F;&#x8BFA;&#x4E5F;&#x5C06;&#x88AB;&#x62D2;&#x7EDD;&#xFF0C;
+&#x5E76;&#x5E26;&#x6709;<code>React\Promise\Exception\LengthException</code>&#x3002;</p>
 <h4 id="map">map()</h4>
 <pre><code class="lang-php">$promise = React\Promise\map(<span class="hljs-keyword">array</span> $promisesOrValues, callable $mapFunc);
 </code></pre>
-<p>Traditional map function, similar to <code>array_map()</code>, but allows input to contain
-promises and/or values, and <code>$mapFunc</code> may return either a value or a promise.</p>
-<p>The map function receives each item as argument, where item is a fully resolved
-value of a promise or value in <code>$promisesOrValues</code>.</p>
+<p>&#x4F20;&#x7EDF;&#x7684;map&#x51FD;&#x6570;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;<code>array_map()</code>&#xFF0C;&#x4F46;&#x5141;&#x8BB8;&#x8F93;&#x5165;&#x5305;&#x542B;&#x627F;&#x8BFA; &#x548C;/&#x6216; &#x503C;&#xFF0C;<code>$mapFunc</code>&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x503C;&#x6216;&#x627F;&#x8BFA;&#x3002;</p>
+<p>map&#x51FD;&#x6570;&#x63A5;&#x6536;&#x6BCF;&#x4E2A;&#x9879;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x5176;&#x4E2D;item&#x662F;<code>$promisesOrValues</code>&#x4E2D;&#x7684;promise&#x6216;value&#x7684;&#x5B8C;&#x5168;&#x89E3;&#x6790;&#x503C;&#x3002;</p>
 <h4 id="reduce">reduce()</h4>
 <pre><code class="lang-php">$promise = React\Promise\reduce(<span class="hljs-keyword">array</span> $promisesOrValues, callable $reduceFunc, $initialValue = <span class="hljs-keyword">null</span>);
 </code></pre>
-<p>Traditional reduce function, similar to <code>array_reduce()</code>, but input may contain
-promises and/or values, and <code>$reduceFunc</code> may return either a value or a
-promise, <em>and</em> <code>$initialValue</code> may be a promise or a value for the starting
-value.</p>
+<p>&#x4F20;&#x7EDF;&#x7684;reduce&#x51FD;&#x6570;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;<code>array_reduce()</code>&#xFF0C;&#x4F46;&#x8F93;&#x5165;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x627F;&#x8BFA; &#x548C;/&#x6216; &#x503C;&#xFF0C;
+<code>$reduceFunc</code>&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x503C;&#x6216;&#x627F;&#x8BFA; <em>&#x548C;</em> <code>$initialValue</code>&#x53EF;&#x4EE5;&#x662F;&#x627F;&#x8BFA;&#x6216;&#x8D77;&#x59CB;&#x503C;&#x3002;</p>
 <h3 id="promisorinterface">PromisorInterface</h3>
-<p>The <code>React\Promise\PromisorInterface</code> provides a common interface for objects
-that provide a promise. <code>React\Promise\Deferred</code> implements it, but since it
-is part of the public API anyone can implement it.</p>
-<h2 id="examples">Examples</h2>
-<h3 id="how-to-use-deferred">How to use Deferred</h3>
+<p><code>React\Promise\PromisorInterface</code>&#x63D0;&#x4F9B;&#x5B9E;&#x73B0;&#x627F;&#x8BFA;&#x7684;&#x516C;&#x5171;&#x63A5;&#x53E3;&#x3002;
+<code>React\Promise\Deferred</code>&#x5B9E;&#x73B0;&#x4E86;&#x5B83;&#xFF0C;&#x4F46;&#x662F;&#x7531;&#x4E8E;&#x5B83;&#x662F;&#x516C;&#x5171;API&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x4EFB;&#x4F55;&#x4EBA;&#x90FD;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x5B83;&#x3002;</p>
+<h2 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h2>
+<h3 id="&#x5982;&#x4F55;&#x4F7F;&#x7528;deferred">&#x5982;&#x4F55;&#x4F7F;&#x7528;Deferred</h3>
 <pre><code class="lang-php"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getAwesomeResultPromise</span><span class="hljs-params">()</span>
 </span>{
     $deferred = <span class="hljs-keyword">new</span> React\Promise\Deferred();
@@ -723,17 +655,13 @@ getAwesomeResultPromise()
         }
     );
 </code></pre>
-<h3 id="how-promise-forwarding-works">How promise forwarding works</h3>
-<p>A few simple examples to show how the mechanics of Promises/A forwarding works.
-These examples are contrived, of course, and in real usage, promise chains will
-typically be spread across several function calls, or even several levels of
-your application architecture.</p>
-<h4 id="resolution-forwarding">Resolution forwarding</h4>
-<p>Resolved promises forward resolution values to the next promise.
-The first promise, <code>$deferred-&gt;promise()</code>, will resolve with the value passed
-to <code>$deferred-&gt;resolve()</code> below.</p>
-<p>Each call to <code>then()</code> returns a new promise that will resolve with the return
-value of the previous handler. This creates a promise &quot;pipeline&quot;.</p>
+<h3 id="&#x627F;&#x8BFA;&#x8F6C;&#x53D1;&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;">&#x627F;&#x8BFA;&#x8F6C;&#x53D1;&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;</h3>
+<p>&#x51E0;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;&#x6765;&#x5C55;&#x793A;<code>promise/A</code>&#x8F6C;&#x53D1;&#x673A;&#x5236;&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#x3002;
+&#x5F53;&#x7136;&#xFF0C;&#x8FD9;&#x4E9B;&#x793A;&#x4F8B;&#x662F;&#x7CBE;&#x5FC3;&#x8BBE;&#x8BA1;&#x7684;&#xFF0C;&#x5728;&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x4E2D;&#xFF0C;&#x627F;&#x8BFA;&#x94FE;&#x901A;&#x5E38;&#x4F1A;&#x5206;&#x5E03;&#x5728;&#x51E0;&#x4E2A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x4E2D;&#xFF0C;&#x751A;&#x81F3;&#x662F;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x67B6;&#x6784;&#x7684;&#x51E0;&#x4E2A;&#x7EA7;&#x522B;&#x3002;</p>
+<h4 id="&#x8F6C;&#x53D1;&#x5C65;&#x884C;">&#x8F6C;&#x53D1;&#x5C65;&#x884C;</h4>
+<p>&#x5DF2;&#x5C65;&#x884C;&#x627F;&#x8BFA;&#x5C06;&#x503C;&#x8F6C;&#x53D1;&#x7ED9;&#x4E0B;&#x4E00;&#x4E2A;&#x627F;&#x8BFA;&#x3002;
+&#x7B2C;&#x4E00;&#x4E2A;&#x627F;&#x8BFA;<code>$deferred-&gt;promise()</code>&#x5C06;&#x7528;&#x4E0B;&#x9762;&#x4F20;&#x9012;&#x7ED9;<code>$deferred-&gt;resolve()</code>&#x7684;&#x503C;&#x6765;&#x8FDB;&#x884C;&#x89E3;&#x6790;&#x3002;</p>
+<p>&#x6BCF;&#x6B21;&#x8C03;&#x7528;<code>then()</code>&#x90FD;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x627F;&#x8BFA;&#xFF0C;&#x8BE5;&#x627F;&#x8BFA;&#x5C06;&#x4F7F;&#x7528;&#x524D;&#x4E00;&#x4E2A;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x8FDB;&#x884C;&#x89E3;&#x6790;&#x3002;&#x8FD9;&#x91CC;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x627F;&#x8BFA;&#x201C;&#x7BA1;&#x9053;&#x201D;&#x3002;</p>
 <pre><code class="lang-php">$deferred = <span class="hljs-keyword">new</span> React\Promise\Deferred();
 
 $deferred-&gt;promise()
@@ -763,12 +691,9 @@ $deferred-&gt;promise()
 
 $deferred-&gt;resolve(<span class="hljs-number">1</span>); <span class="hljs-comment">// Prints &quot;Resolve 4&quot;</span>
 </code></pre>
-<h4 id="rejection-forwarding">Rejection forwarding</h4>
-<p>Rejected promises behave similarly, and also work similarly to try/catch:
-When you catch an exception, you must rethrow for it to propagate.</p>
-<p>Similarly, when you handle a rejected promise, to propagate the rejection,
-&quot;rethrow&quot; it by either returning a rejected promise, or actually throwing
-(since promise translates thrown exceptions into rejections)</p>
+<h4 id="&#x8F6C;&#x53D1;&#x62D2;&#x7EDD;">&#x8F6C;&#x53D1;&#x62D2;&#x7EDD;</h4>
+<p>&#x88AB;&#x62D2;&#x7EDD;&#x7684;&#x627F;&#x8BFA;&#x7684;&#x884C;&#x4E3A;&#x4E0E;<code>try/catch</code>&#x7C7B;&#x4F3C;&#xFF0C;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#x4E5F;&#x4E0E;&#x6B64;&#x7C7B;&#x4F3C;:&#x5F53;&#x4F60;&#x6355;&#x83B7;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#x65F6;&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x91CD;&#x65B0;&#x629B;&#x51FA;&#x8FDB;&#x800C;&#x7EE7;&#x7EED;&#x5411;&#x4E0B;&#x4F20;&#x64AD;&#x3002;</p>
+<p>&#x540C;&#x6837;&#xFF0C;&#x5F53;&#x60A8;&#x5904;&#x7406;&#x88AB;&#x62D2;&#x7EDD;&#x7684;&#x627F;&#x8BFA;&#x65F6;&#x4E14;&#x4F20;&#x64AD;&#x62D2;&#x7EDD;&#xFF0C;&#x9700;&#x901A;&#x8FC7;&#x8FD4;&#x56DE;&#x88AB;&#x62D2;&#x7EDD;&#x7684;&#x627F;&#x8BFA;&#x6216;&#x5B9E;&#x9645;&#x629B;&#x51FA;&#x201C;&#x91CD;&#x65B0;&#x629B;&#x51FA;&#x201D;&#x5B83;&#xFF08;&#x56E0;&#x4E3A;promise&#x5C06;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x8F6C;&#x6362;&#x4E3A;&#x62D2;&#x7EDD;&#xFF09;</p>
 <pre><code class="lang-php">$deferred = <span class="hljs-keyword">new</span> React\Promise\Deferred();
 
 $deferred-&gt;promise()
@@ -791,9 +716,8 @@ $deferred-&gt;promise()
 
 $deferred-&gt;resolve(<span class="hljs-number">1</span>);  <span class="hljs-comment">// Prints &quot;Reject 3&quot;</span>
 </code></pre>
-<h4 id="mixed-resolution-and-rejection-forwarding">Mixed resolution and rejection forwarding</h4>
-<p>Just like try/catch, you can choose to propagate or not. Mixing resolutions and
-rejections will still forward handler results in a predictable way.</p>
+<h4 id="&#x8F6C;&#x53D1;&#x5C65;&#x884C;&#x548C;&#x62D2;&#x7EDD;">&#x8F6C;&#x53D1;&#x5C65;&#x884C;&#x548C;&#x62D2;&#x7EDD;</h4>
+<p>&#x5C31;&#x50CF;<code>try/catch</code>&#x4E00;&#x6837;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x662F;&#x5426;&#x4F20;&#x64AD;&#x3002;&#x8F6C;&#x53D1;&#x5C65;&#x884C;&#x548C;&#x62D2;&#x7EDD;&#x4ECD;&#x5C06;&#x4EE5;&#x53EF;&#x9884;&#x6D4B;&#x7684;&#x65B9;&#x5F0F;&#x8F6C;&#x53D1;&#x56DE;&#x8C03;&#x7ED3;&#x679C;&#x3002;</p>
 <pre><code class="lang-php">$deferred = <span class="hljs-keyword">new</span> React\Promise\Deferred();
 
 $deferred-&gt;promise()
@@ -815,21 +739,15 @@ $deferred-&gt;promise()
 $deferred-&gt;resolve(<span class="hljs-number">1</span>);  <span class="hljs-comment">// Prints &quot;Mixed 4&quot;</span>
 </code></pre>
 <h3 id="done-vs-then">done() vs. then()</h3>
-<p>The golden rule is:</p>
-<pre><code>Either return your promise, or call done() on it.
-</code></pre><p>At a first glance, <code>then()</code> and <code>done()</code> seem very similar. However, there are
-important distinctions.</p>
-<p>The intent of <code>then()</code> is to transform a promise&apos;s value and to pass or return
-a new promise for the transformed value along to other parts of your code.</p>
-<p>The intent of <code>done()</code> is to consume a promise&apos;s value, transferring
-responsibility for the value to your code.</p>
-<p>In addition to transforming a value, <code>then()</code> allows you to recover from, or
-propagate intermediate errors. Any errors that are not handled will be caught
-by the promise machinery and used to reject the promise returned by <code>then()</code>.</p>
-<p>Calling <code>done()</code> transfers all responsibility for errors to your code. If an
-error (either a thrown exception or returned rejection) escapes the
-<code>$onFulfilled</code> or <code>$onRejected</code> callbacks you provide to <code>done()</code>, it will cause
-a fatal error.</p>
+<p>&#x9EC4;&#x91D1;&#x6CD5;&#x5219;&#x662F;&#xFF1A;</p>
+<pre><code>&#x8FD4;&#x56DE;&#x60A8;&#x7684;&#x8BFA;&#x8A00;&#xFF0C;&#x6216;&#x8C03;&#x7528;done()&#x65B9;&#x6CD5;.
+</code></pre><p>&#x4E4D;&#x4E00;&#x770B;&#xFF0C;<code>then()</code> &#x548C; <code>done()</code>&#x770B;&#x8D77;&#x6765;&#x975E;&#x5E38;&#x76F8;&#x4F3C;&#x3002; &#x4F46;&#x662F;&#xFF0C;&#x6709;&#x91CD;&#x8981;&#x7684;&#x533A;&#x522B;&#x3002;</p>
+<p><code>then()</code>&#x7684;&#x76EE;&#x7684;&#x662F;&#x8F6C;&#x6362;<code>promise</code>&#x7684;&#x503C;&#xFF0C;&#x5E76;&#x5C06;&#x8F6C;&#x6362;&#x540E;&#x7684;&#x503C;&#x4F20;&#x9012;&#x6216;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684;<code>promise</code>&#x5230;&#x4EE3;&#x7801;&#x7684;&#x5176;&#x4ED6;&#x90E8;&#x5206;&#x3002;</p>
+<p><code>done()</code>&#x7684;&#x76EE;&#x7684;&#x662F;&#x6D88;&#x8D39;<code>promise</code>&#x7684;&#x503C;&#xFF0C;&#x5E76;&#x5C06;&#x8F6C;&#x6362;&#x540E;&#x7684;&#x503C;&#x8F6C;&#x79FB;&#x5230;&#x4EE3;&#x7801;&#x4E2D;&#x3002;</p>
+<p>&#x9664;&#x4E86;&#x8F6C;&#x6362;&#x503C;&#x4E4B;&#x5916;&#xFF0C;<code>then()</code>&#x8FD8;&#x5141;&#x8BB8;&#x60A8;&#x4ECE;&#x4E2D;&#x95F4;&#x9519;&#x8BEF;&#x4E2D;&#x6062;&#x590D;&#x6216;&#x4F20;&#x64AD;&#x3002; 
+&#x672A;&#x5904;&#x7406;&#x7684;&#x4EFB;&#x4F55;&#x9519;&#x8BEF;&#x90FD;&#x5C06;&#x7531;Promise&#x673A;&#x5236;&#x6355;&#x83B7;&#xFF0C;&#x5E76;&#x7528;&#x4E8E;&#x62D2;&#x7EDD;<code>then()</code>&#x8FD4;&#x56DE;&#x7684;&#x627F;&#x8BFA;&#x3002;</p>
+<p>&#x8C03;&#x7528;<code>done()</code>&#x5C06;&#x9519;&#x8BEF;&#x7684;&#x6240;&#x6709;&#x8D23;&#x4EFB;&#x8F6C;&#x79FB;&#x5230;&#x4EE3;&#x7801;&#x4E2D;&#x3002;
+&#x5982;&#x679C;&#x9519;&#x8BEF;&#xFF08;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x6216;&#x8FD4;&#x56DE;&#x7684;&#x62D2;&#x7EDD;&#xFF09;&#x672A;&#x80FD;&#x5728;&#x60A8;&#x63D0;&#x4F9B;<code>done()</code>&#x7684;<code>$onFulfilled</code> &#x6216; <code>$onRejected</code>&#x56DE;&#x8C03;&#x4E2D;&#x6355;&#x83B7;&#xFF0C;&#x5B83;&#x5C06;&#x5BFC;&#x81F4;&#x81F4;&#x547D;&#x9519;&#x8BEF;&#x3002;</p>
 <pre><code class="lang-php"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getJsonResult</span><span class="hljs-params">()</span>
 </span>{
     <span class="hljs-keyword">return</span> queryApi()
@@ -873,10 +791,9 @@ getJsonResult()
     );
 </code></pre>
 <h2 id="credits">Credits</h2>
-<p>Promise is a port of <a href="https://github.com/cujojs/when" target="_blank">when.js</a>
-by <a href="https://github.com/briancavalier" target="_blank">Brian Cavalier</a>.</p>
-<p>Also, large parts of the documentation have been ported from the when.js
-<a href="https://github.com/cujojs/when/wiki" target="_blank">Wiki</a> and the
+<p>&#x627F;&#x8BFA;&#x662F; <a href="https://github.com/cujojs/when" target="_blank">when.js</a> &#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x4F5C;&#x8005;<a href="https://github.com/briancavalier" target="_blank">Brian Cavalier</a>.</p>
+<p>&#x800C;&#x4E14;&#xFF0C;&#x5927;&#x90E8;&#x5206;&#x6587;&#x6863;&#x90FD;&#x662F;&#x6765;&#x6E90;&#x4E8E;<code>when.js</code>
+<a href="https://github.com/cujojs/when/wiki" target="_blank">Wiki</a> &#x548C;
 <a href="https://github.com/cujojs/when/blob/master/docs/api.md" target="_blank">API docs</a>.</p>
 <h2 id="license">License</h2>
 <p>Released under the <a href="LICENSE">MIT</a> license.</p>
@@ -939,7 +856,7 @@ by <a href="https://github.com/briancavalier" target="_blank">Brian Cavalier</a>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Promise","level":"2.2","depth":1,"next":{"title":"Stream","level":"2.3","depth":1,"path":"1.Core-Components/Stream.md","ref":"1.Core-Components/Stream.md","articles":[]},"previous":{"title":"EventLoop","level":"2.1","depth":1,"path":"1.Core-Components/EventLoop.md","ref":"1.Core-Components/EventLoop.md","articles":[]},"dir":"ltr"},"config":{"plugins":["- summary","toggle-chapters","theme-comscore","highlight","search-plus","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"search-plus":{}},"theme":"default","author":"Imparting","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactPHP 中文文档","language":"zh-hans","gitbook":"*","description":"ReactPHP 中文文档","theme-default":{"showLevel":true}},"file":{"path":"1.Core-Components/Promise.md","mtime":"2021-01-27T06:24:57.933Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-28T10:57:33.309Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Promise","level":"2.2","depth":1,"next":{"title":"Stream","level":"2.3","depth":1,"path":"1.Core-Components/Stream.md","ref":"1.Core-Components/Stream.md","articles":[]},"previous":{"title":"EventLoop","level":"2.1","depth":1,"path":"1.Core-Components/EventLoop.md","ref":"1.Core-Components/EventLoop.md","articles":[]},"dir":"ltr"},"config":{"plugins":["- summary","toggle-chapters","theme-comscore","highlight","search-plus","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"search-plus":{}},"theme":"default","author":"Imparting","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactPHP 中文文档","language":"zh-hans","gitbook":"*","description":"ReactPHP 中文文档","theme-default":{"showLevel":true}},"file":{"path":"1.Core-Components/Promise.md","mtime":"2021-01-29T07:51:35.437Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-29T02:54:19.796Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
