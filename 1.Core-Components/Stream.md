@@ -175,36 +175,30 @@ $stream->on('close', function () {
 ```
 
 根据流是否终止，这个事件应该被触发一次，或者根本不触发。
-它不应该在前一个' close '事件之后触发。
+它不应该在前一个`close`事件之后触发。
 
-After the stream is closed, it MUST switch to non-readable mode,
-see also `isReadable()`.
+流关闭后，必须切换到不可读模式，
+另请参见[`isReadable()`](#isreadable)。
 
-Unlike the `end` event, this event SHOULD be emitted whenever the stream
-closes, irrespective of whether this happens implicitly due to an
-unrecoverable error or explicitly when either side closes the stream.
-If you only want to detect a *successful* end, you should use the `end`
-event instead.
+与`end`事件不同，每当流关闭时都应触发此事件，而不管此事件是由于不可恢复的错误隐式发生的，还是在任何一方关闭流时显式发生的。
 
-Many common streams (such as a TCP/IP connection or a file-based stream)
-will likely choose to emit this event after reading a *successful* `end`
-event or after a fatal transmission `error` event.
+如果只想检测*成功*结束，则应改用`end`事件。
 
-If this stream is a `DuplexStreamInterface`, you should also notice
-how the writable side of the stream also implements a `close` event.
-In other words, after receiving this event, the stream MUST switch into
-non-writable AND non-readable mode, see also `isWritable()`.
-Note that this event should not be confused with the `end` event.
+许多常见的流（例如TCP / IP连接或基于文件的流）很可能在读取*成功*结束事件或致命的传输错误事件之后选择触发此事件。
+
+如果此流是`DuplexStreamInterface`，则您还应该注意该流的可写端`close`事件的实现。
+
+换句话说，在接收到该事件之后，流必须切换到不可写和不可读取模式，另请参见 [`isWritable()`](#iswritable)。
+
+注意，该事件不应与`end`事件混淆。
 
 #### isReadable()
 
-The `isReadable(): bool` method can be used to
-check whether this stream is in a readable state (not closed already).
+`isReadable(): bool`方法可用于检查此流是否处于可读状态（尚未关闭）。
 
-This method can be used to check if the stream still accepts incoming
-data events or if it is ended or closed already.
-Once the stream is non-readable, no further `data` or `end` events SHOULD
-be emitted.
+此方法可用于检查流是否仍然接受传入的数据事件，或者它是否已结束或关闭。
+
+一旦流不可读，就不再发出`data`或`end`事件。
 
 ```php
 assert($stream->isReadable() === false);
@@ -213,32 +207,27 @@ $stream->on('data', assertNeverCalled());
 $stream->on('end', assertNeverCalled());
 ```
 
-A successfully opened stream always MUST start in readable mode.
+成功打开的流始终必须以可读模式启动。
 
-Once the stream ends or closes, it MUST switch to non-readable mode.
-This can happen any time, explicitly through `close()` or
-implicitly due to a remote close or an unrecoverable transmission error.
-Once a stream has switched to non-readable mode, it MUST NOT transition
-back to readable mode.
+一旦流结束或关闭，它必须切换到非可读模式。
 
-If this stream is a `DuplexStreamInterface`, you should also notice
-how the writable side of the stream also implements an `isWritable()`
-method. Unless this is a half-open duplex stream, they SHOULD usually
-have the same return value.
+这可以随时发生，通过`close()`显式地发生，或者由于远程关闭或不可恢复的传输错误而隐式地发生。
+
+流一旦切换到非可读模式，就绝不能回到可读模式。
+
+如果此流是`DuplexStreamInterface`，则您还应该注意该流的可写端`isWritable()`方法的实现。
+
+除非这是一个半开双工流，否则它们通常应该具有相同的返回值。
 
 #### pause()
 
-The `pause(): void` method can be used to
-pause reading incoming data events.
+`pause(): void`方法可用于暂停读取传入的数据事件。 
 
-Removes the data source file descriptor from the event loop. This
-allows you to throttle incoming data.
+从事件循环中删除数据源文件描述符。 这使您可以限制传入的数据。
 
-Unless otherwise noted, a successfully opened stream SHOULD NOT start
-in paused state.
+除非另有说明，否则成功打开的流不应暂停。
 
-Once the stream is paused, no futher `data` or `end` events SHOULD
-be emitted.
+流暂停后，就不应再触发`data`或`end`事件
 
 ```php
 $stream->pause();
@@ -247,22 +236,19 @@ $stream->on('data', assertShouldNeverCalled());
 $stream->on('end', assertShouldNeverCalled());
 ```
 
-This method is advisory-only, though generally not recommended, the
-stream MAY continue emitting `data` events.
+该方法仅是建议性的，通常不建议调用，但该流可以继续`emit`(发出)`data`事件。
 
-You can continue processing events by calling `resume()` again.
+您可以通过再次调用`resume()`来继续处理事件。
 
-Note that both methods can be called any number of times, in particular
-calling `pause()` more than once SHOULD NOT have any effect.
+注意，这两种方法都可以被调用多次，多次调用`pause()`无效。
 
-See also `resume()`.
+另见[`resume()`](#resume)
 
 #### resume()
 
-The `resume(): void` method can be used to
-resume reading incoming data events.
+`resume(): void` 方法可用于恢复`data`事件。 
 
-Re-attach the data source after a previous `pause()`.
+在`pause()`之后重新连接数据源。
 
 ```php
 $stream->pause();
@@ -272,48 +258,39 @@ $loop->addTimer(1.0, function () use ($stream) {
 });
 ```
 
-Note that both methods can be called any number of times, in particular
-calling `resume()` without a prior `pause()` SHOULD NOT have any effect.
+请注意，这两个方法都可以被调用任意次数，在没有`pause()`的情况下调用`resume()`无效。
  
-See also `pause()`.
+请参见[`pause()`](#pause)
 
 #### pipe()
 
-The `pipe(WritableStreamInterface $dest, array $options = [])` method can be used to
-pipe all the data from this readable source into the given writable destination.
+`pipe(WritableStreamInterface $dest, array $options = [])` 方法可将此可读源中的所有数据通过管道传输到给定的可写目标源。
 
-Automatically sends all incoming data to the destination.
-Automatically throttles the source based on what the destination can handle.
+自动将所有传入数据发送到目标源。根据目标源可以处理的内容自动限制源。
 
 ```php
 $source->pipe($dest);
 ```
 
-Similarly, you can also pipe an instance implementing `DuplexStreamInterface`
-into itself in order to write back all the data that is received.
-This may be a useful feature for a TCP/IP echo service:
+同样，您也可以通过管道将实现`DuplexStreamInterface`的实例导入自身，以便回写接收到的所有数据。
+
+对于TCP/IP `echo`服务，这是一个有用的特性:
 
 ```php
 $connection->pipe($connection);
 ```
-
-This method returns the destination stream as-is, which can be used to
-set up chains of piped streams:
+这个方法按原样返回目标流，可以用来建立管道流链:
 
 ```php
 $source->pipe($decodeGzip)->pipe($filterBadWords)->pipe($dest);
 ```
-
-By default, this will call `end()` on the destination stream once the
-source stream emits an `end` event. This can be disabled like this:
+默认情况下，一旦源流发出`end()`事件，就会对目标流调用`end()`。可以这样禁用：
 
 ```php
 $source->pipe($dest, array('end' => false));
 ```
-
-Note that this only applies to the `end` event.
-If an `error` or explicit `close` event happens on the source stream,
-you'll have to manually close the destination stream:
+请注意，这只适用于`end`事件。
+如果源流上发生 `error` 或显式`close`事件，则您必须手动关闭目标流：
 
 ```php
 $source->pipe($dest);
@@ -322,50 +299,42 @@ $source->on('close', function () use ($dest) {
 });
 ```
 
-If the source stream is not readable (closed state), then this is a NO-OP.
+如果源流不可读（关闭状态），则这是不可操作的。
 
 ```php
 $source->close();
-$source->pipe($dest); // NO-OP
+$source->pipe($dest); // 禁止操作
 ```
 
-If the destinantion stream is not writable (closed state), then this will simply
-throttle (pause) the source stream:
+如果目标流不可写（关闭状态），则这将简单地限制（暂停）源流：
 
 ```php
 $dest->close();
 $source->pipe($dest); // calls $source->pause()
 ```
 
-Similarly, if the destination stream is closed while the pipe is still
-active, it will also throttle (pause) the source stream:
+同样，如果目标流在管道仍处于活动状态时关闭，它还将限制（暂停）源流：
 
 ```php
 $source->pipe($dest);
 $dest->close(); // calls $source->pause()
 ```
 
-Once the pipe is set up successfully, the destination stream MUST emit
-a `pipe` event with this source stream an event argument.
+一旦管道成功设置，目标流必须发出一个`pipe`事件，源流必须有一个 event 参数。
 
 #### close()
 
-The `close(): void` method can be used to
-close the stream (forcefully).
-
-This method can be used to (forcefully) close the stream.
+`close(): void` 方法可以用来关闭流(强制)。
 
 ```php
 $stream->close();
 ```
 
-Once the stream is closed, it SHOULD emit a `close` event.
-Note that this event SHOULD NOT be emitted more than once, in particular
-if this method is called multiple times.
+一旦流被关闭，它应该触发一个`close`事件。
+请注意，此事件不应触发多次。
 
-After calling this method, the stream MUST switch into a non-readable
-mode, see also `isReadable()`.
-This means that no further `data` or `end` events SHOULD be emitted.
+调用此方法后，流必须切换到不可读模式，另请参见[`isReadable()`](#isreadable)。
+这意味着不应再触发`data`或`end`事件。
 
 ```php
 $stream->close();
@@ -374,63 +343,50 @@ assert($stream->isReadable() === false);
 $stream->on('data', assertNeverCalled());
 $stream->on('end', assertNeverCalled());
 ```
+如果此流是`DuplexStreamInterface`，则还应该注意流的可写端`close()`方法的实现。
 
-If this stream is a `DuplexStreamInterface`, you should also notice
-how the writable side of the stream also implements a `close()` method.
-In other words, after calling this method, the stream MUST switch into
-non-writable AND non-readable mode, see also `isWritable()`.
-Note that this method should not be confused with the `end()` method.
+换句话说，调用此方法后，流必须切换到不可写和不可读模式，另请参见[`iswriteable()`](#iswritable)。
+
+请注意，此方法不应与`end()`方法混淆。
 
 ### WritableStreamInterface
 
-The `WritableStreamInterface` is responsible for providing an interface for
-write-only streams and the writable side of duplex streams.
+`WritableStreamInterface` 为只写流和双工流的可写端接口。
 
-Besides defining a few methods, this interface also implements the
-`EventEmitterInterface` which allows you to react to certain events.
+除了定义一些方法外，这个接口还实现了`EventEmitterInterface`，它允许您对某些事件做出反应。
 
-The event callback functions MUST be a valid `callable` that obeys strict
-parameter definitions and MUST accept event parameters exactly as documented.
-The event callback functions MUST NOT throw an `Exception`.
-The return value of the event callback functions will be ignored and has no
-effect, so for performance reasons you're recommended to not return any
-excessive data structures.
+事件回调函数必须是一个有效的`callable`，它遵循严格的参数定义，并且必须完全按照文档所述接受事件参数。
 
-Every implementation of this interface MUST follow these event semantics in
-order to be considered a well-behaving stream.
+事件回调函数不能抛出`Exception`。
 
-> Note that higher-level implementations of this interface may choose to
-  define additional events with dedicated semantics not defined as part of
-  this low-level stream specification. Conformance with these event semantics
-  is out of scope for this interface, so you may also have to refer to the
-  documentation of such a higher-level implementation.
+事件回调函数的返回值将被忽略并且没有任何影响，因此出于性能原因，建议您不要返回任何过多的数据结构。
+
+此接口的每个实现都必须遵循这些事件语义，才能被视为合法的流。
+
+> 请注意，此接口的更高级别的实现可以选择使用未定义为该底层级别流规范一部分的专用语义来定义其他事件。
+  与这些事件语义的一致性超出了此接口的范围，因此您可能还必须参考此类更高级别的实现的文档。
 
 #### drain事件
 
-The `drain` event will be emitted whenever the write buffer became full
-previously and is now ready to accept more data.
+每写入缓冲区满时且有更多数据到达时，就会发出`drain`事件。
 
 ```php
 $stream->on('drain', function () use ($stream) {
     echo 'Stream is now ready to accept more data';
 });
 ```
+每写入缓冲区满时且有更多数据到达时，就会发出`drain`事件。
 
-This event SHOULD be emitted once every time the buffer became full
-previously and is now ready to accept more data.
-In other words, this event MAY be emitted any number of times, which may
-be zero times if the buffer never became full in the first place.
-This event SHOULD NOT be emitted if the buffer has not become full
-previously.
+换句话说，这个事件可以被触发多次，如果缓冲区不满，则该事件可能是零次。
 
-This event is mostly used internally, see also `write()` for more details.
+如果缓冲区不满，则不应触发此事件。
+
+该事件主要在内部使用，有关更多详细信息，请参见[`write()`](#write)
 
 #### pipe事件
 
-The `pipe` event will be emitted whenever a readable stream is `pipe()`d
-into this stream.
-The event receives a single `ReadableStreamInterface` argument for the
-source stream.
+当一个可读流`pipe()`进入数据时，`pipe`事件将被触发。
+事件接收源流的一个`ReadableStreamInterface`参数。
 
 ```php
 $stream->on('pipe', function (ReadableStreamInterface $source) use ($stream) {
@@ -445,50 +401,40 @@ $stream->on('pipe', function (ReadableStreamInterface $source) use ($stream) {
 $source->pipe($stream);
 ```
 
-This event MUST be emitted once for each readable stream that is
-successfully piped into this destination stream.
-In other words, this event MAY be emitted any number of times, which may
-be zero times if no stream is ever piped into this stream.
-This event MUST NOT be emitted if either the source is not readable
-(closed already) or this destination is not writable (closed already).
+对于每个成功导入目标流的可读流，此事件必须触发一次。
 
-This event is mostly used internally, see also `pipe()` for more details.
+换句话说，这个事件可以被触发多次，如果没有数据流通过管道进入这个流，则可能是零次。
+
+如果源不可读(已经关闭)或目标不可写(已经关闭)，则绝不能触发此事件。
+
+此事件主要在内部使用，请参阅[`pipe()`](#pipe)了解更多细节。
 
 #### error 事件
 
-The `error` event will be emitted once a fatal error occurs, usually while
-trying to write to this stream.
-The event receives a single `Exception` argument for the error instance.
+一旦发生致命错误，则会触发`error`事件，通常是在试图写入该流时。
+事件为错误实例接收一个`Exception`对象参数。
 
 ```php
 $stream->on('error', function (Exception $e) {
     echo 'Error: ' . $e->getMessage() . PHP_EOL;
 });
 ```
+一旦流检测到致命错误(例如致命传输错误)，就会触发此事件。
 
-This event SHOULD be emitted once the stream detects a fatal error, such
-as a fatal transmission error.
-It SHOULD NOT be emitted after a previous `error` or `close` event.
-It MUST NOT be emitted if this is not a fatal error condition, such as
-a temporary network issue that did not cause any data to be lost.
+它不应该在前一个`error` 或 `close`事件之后触发。
 
-After the stream errors, it MUST close the stream and SHOULD thus be
-followed by a `close` event and then switch to non-writable mode, see
-also `close()` and `isWritable()`.
+如果不出现一个致命的错误情况，例如没有导致任何数据丢失的临时网络问题，则不会触发。
 
-Many common streams (such as a TCP/IP connection or a file-based stream)
-only deal with data transmission and may choose
-to only emit this for a fatal transmission error once and will then
-close (terminate) the stream in response.
+在流出错后，它必须关闭流，因此应该紧跟着一个`close`事件，然后切换到非可写模式，参见[`close()`](#close)和[`isWritable()`](#iswritable)。
 
-If this stream is a `DuplexStreamInterface`, you should also notice
-how the readable side of the stream also implements an `error` event.
-In other words, an error may occur while either reading or writing the
-stream which should result in the same error processing.
+许多常见流（例如TCP / IP连接或基于文件的流）仅处理数据传输，并且可能会选择仅针对致命的传输错误触发一次，然后将其关闭（终止）作为响应。
+
+如果这个流是一个`DuplexStreamInterface`，您还应该注意流的可读端`error`事件的实现。
+换句话说，在读取或写入流时可能发生错误，这将导致相同的错误处理。
 
 #### close 事件
 
-The `close` event will be emitted once the stream closes (terminates).
+一旦流关闭（终止），将发出`close`事件。
 
 ```php
 $stream->on('close', function () {
@@ -496,36 +442,28 @@ $stream->on('close', function () {
 });
 ```
 
-This event SHOULD be emitted once or never at all, depending on whether
-the stream ever terminates.
-It SHOULD NOT be emitted after a previous `close` event.
+根据流是否终止，此事件应触发一次或从不触发。
+它不会在前一个`close`事件之后触发。
 
-After the stream is closed, it MUST switch to non-writable mode,
-see also `isWritable()`.
+流关闭后，必须切换到不可写模式，
+另请参见[`isWritable()`](#iswritable)
 
-This event SHOULD be emitted whenever the stream closes, irrespective of
-whether this happens implicitly due to an unrecoverable error or
-explicitly when either side closes the stream.
+无论是由于不可恢复的错误而隐式触发还是在任何一方关闭流时显式触发，只要流关闭，都应触发此事件。
 
-Many common streams (such as a TCP/IP connection or a file-based stream)
-will likely choose to emit this event after flushing the buffer from
-the `end()` method, after receiving a *successful* `end` event or after
-a fatal transmission `error` event.
+许多常见的流(例如TCP/IP连接或基于文件的流)可能会选择在`end()`方法刷新缓冲区后、在接收到*成功* `end` 事件或致命的传输`error`事件后触发此事件。
 
-If this stream is a `DuplexStreamInterface`, you should also notice
-how the readable side of the stream also implements a `close` event.
-In other words, after receiving this event, the stream MUST switch into
-non-writable AND non-readable mode, see also `isReadable()`.
-Note that this event should not be confused with the `end` event.
+如果此流是`DuplexStreamInterface`，则还应注意该流的可读端`close`事件的实现。
+
+换句话说，接收到该事件后，流必须切换到不可写和不可读取模式，另请参见[`isReadable()`](#isreadable)。
+
+注意，该事件不应与`end`事件混淆。
 
 #### isWritable()
 
-The `isWritable(): bool` method can be used to
-check whether this stream is in a writable state (not closed already).
+`isWritable(): bool`方法可用于检查此流是否处于可写状态（尚未关闭）。
 
-This method can be used to check if the stream still accepts writing
-any data or if it is ended or closed already.
-Writing any data to a non-writable stream is a NO-OP:
+此方法可用于检查流是否仍接受写入数据，或者是否已结束或关闭。
+将数据写入不可写流是不可操作的：
 
 ```php
 assert($stream->isWritable() === false);
@@ -534,100 +472,65 @@ $stream->write('end'); // NO-OP
 $stream->end('end'); // NO-OP
 ```
 
-A successfully opened stream always MUST start in writable mode.
+成功打开的流必须始终以可写模式。
 
-Once the stream ends or closes, it MUST switch to non-writable mode.
-This can happen any time, explicitly through `end()` or `close()` or
-implicitly due to a remote close or an unrecoverable transmission error.
-Once a stream has switched to non-writable mode, it MUST NOT transition
-back to writable mode.
+一旦流结束或关闭，它必须切换到不可写模式。
 
-If this stream is a `DuplexStreamInterface`, you should also notice
-how the readable side of the stream also implements an `isReadable()`
-method. Unless this is a half-open duplex stream, they SHOULD usually
-have the same return value.
+这种情况随时可能发生，可以通过`end()`或`close()`显式发生，也可以由于远程关闭或不可恢复的传输错误而隐式发生。
+
+一旦流切换到不可写模式，它就不能转换回可写模式。
+
+如果此流是`DuplexStreamInterface`实现，则还应该注意流的可读端`isReadable()`方法的实现。除非这是半开放双工流，否则它们通常应该具有相同的返回值。
 
 #### write()
 
-The `write(mixed $data): bool` method can be used to
-write some data into the stream.
+使用`write(mixed $data): bool`方法将数据写入流。
 
-A successful write MUST be confirmed with a boolean `true`, which means
-that either the data was written (flushed) immediately or is buffered and
-scheduled for a future write. Note that this interface gives you no
-control over explicitly flushing the buffered data, as finding the
-appropriate time for this is beyond the scope of this interface and left
-up to the implementation of this interface.
+必须使用布尔值`true`来确认成功写入，这意味着要么立即写入（刷新）数据，要么对数据进行缓冲和调度以备将来写入。
 
-Many common streams (such as a TCP/IP connection or file-based stream)
-may choose to buffer all given data and schedule a future flush by using
-an underlying EventLoop to check when the resource is actually writable.
+请注意，这个接口无法控制显式刷新缓冲数据，因为寻找合适的刷新时间超出了这个接口的范围，要由这个接口的实现来决定。
 
-If a stream cannot handle writing (or flushing) the data, it SHOULD emit
-an `error` event and MAY `close()` the stream if it can not recover from
-this error.
+许多常见的流（例如TCP / IP连接或基于文件的流）可以选择缓冲所有给定的数据，并通过使用底层的`EventLoop`来检查资源何时实际可写来计划将来的刷新。
 
-If the internal buffer is full after adding `$data`, then `write()`
-SHOULD return `false`, indicating that the caller should stop sending
-data until the buffer drains.
-The stream SHOULD send a `drain` event once the buffer is ready to accept
-more data.
+如果流不能处理写入（或刷新）数据的操作，它应该发出一个`error`事件，如果流不能从这个错误中恢复，则可能`close()`该流。
 
-Similarly, if the the stream is not writable (already in a closed state)
-it MUST NOT process the given `$data` and SHOULD return `false`,
-indicating that the caller should stop sending data.
+如果在添加`$data`后内部缓冲区已满，那么`write()`应该返回`false`，表明调用者应该停止发送数据，直到缓冲区耗尽。
 
-The given `$data` argument MAY be of mixed type, but it's usually
-recommended it SHOULD be a `string` value or MAY use a type that allows
-representation as a `string` for maximum compatibility.
+一旦缓冲区准备好接受更多数据，流应该发送`drain`事件。
 
-Many common streams (such as a TCP/IP connection or a file-based stream)
-will only accept the raw (binary) payload data that is transferred over
-the wire as chunks of `string` values.
+同样，如果流是不可写的(已经处于关闭状态)，它一定不能处理给定的`$data`，并且应该返回`false`，表明调用者应该停止发送数据。
 
-Due to the stream-based nature of this, the sender may send any number
-of chunks with varying sizes. There are no guarantees that these chunks
-will be received with the exact same framing the sender intended to send.
-In other words, many lower-level protocols (such as TCP/IP) transfer the
-data in chunks that may be anywhere between single-byte values to several
-dozens of kilobytes. You may want to apply a higher-level protocol to
-these low-level data chunks in order to achieve proper message framing.
+给定的`$data`参数可能是混合类型，但通常建议它应该是一个`string`值，或者使用允许转化为`string`的类型，以最大限度地兼容。
+
+许多常见的流（例如TCP / IP连接或基于文件的流）仅接受原始（二进制）有效载荷数据，这些数据通过网络作为`string`值的块传输。
+
+由于这种基于流的特性，发送方可以发送任意数量大小不同的块。无法保证这些数据块将以发送方打算发送的完全相同的顺序接收。
+
+换言之，许多较底层的协议（如TCP/IP）以块的形式传输数据，这些块的大小可能介于单个字节到几十千字节之间。
+您需要对这些数据块应用更高级的协议，以便实现正确的消息帧。
 
 #### end()
 
-The `end(mixed $data = null): void` method can be used to
-successfully end the stream (after optionally sending some final data).
+`end(mixed $data = null): void`方法可用于成功结束流（可选地发送一些最终数据）。
 
-This method can be used to successfully end the stream, i.e. close
-the stream after sending out all data that is currently buffered.
+这个方法可以用来成功地结束流，例如，在发送出所有当前缓存的数据后关闭流。
 
 ```php
 $stream->write('hello');
 $stream->write('world');
 $stream->end();
 ```
+如果当前没有缓冲的数据，也没有需要刷新的数据，那么这个方法可以立即`close()`流。
 
-If there's no data currently buffered and nothing to be flushed, then
-this method MAY `close()` the stream immediately.
+如果缓冲区中仍有需要首先刷新的数据，则该方法应该尝试写出这些数据，然后才使用`close()`关闭流。
 
-If there's still data in the buffer that needs to be flushed first, then
-this method SHOULD try to write out this data and only then `close()`
-the stream.
-Once the stream is closed, it SHOULD emit a `close` event.
+一旦流关闭，它会触发`close`事件。
 
-Note that this interface gives you no control over explicitly flushing
-the buffered data, as finding the appropriate time for this is beyond the
-scope of this interface and left up to the implementation of this
-interface.
+请注意，这个接口无法控制显式刷新缓冲数据，因为寻找合适的刷新时间超出了这个接口的范围，要由这个接口的实现来决定。
 
-Many common streams (such as a TCP/IP connection or file-based stream)
-may choose to buffer all given data and schedule a future flush by using
-an underlying EventLoop to check when the resource is actually writable.
+许多常见的流（例如TCP / IP连接或基于文件的流）可以选择缓冲所有给定的数据，并通过使用底层的`EventLoop`来检查资源何时实际可写来计划将来的刷新。
 
-You can optionally pass some final data that is written to the stream
-before ending the stream. If a non-`null` value is given as `$data`, then
-this method will behave just like calling `write($data)` before ending
-with no data.
+您可以选择在结束流之前将一些最终数据传递给流。 如果将非`null`值指定为`$data`，则此方法的行为就像在没有结束之前调用`write($data)`一样。
 
 ```php
 // shorter version
@@ -638,10 +541,9 @@ $stream->write('bye');
 $stream->end();
 ```
 
-After calling this method, the stream MUST switch into a non-writable
-mode, see also `isWritable()`.
-This means that no further writes are possible, so any additional
-`write()` or `end()` calls have no effect.
+调用此方法后，流必须切换到不可写模式，另请参见[`isWritable()`](#iswritable)。
+
+这意味着不可能再进行写操作，因此任何其他的`write()`或`end()`调用均无效。
 
 ```php
 $stream->end();
@@ -650,40 +552,31 @@ assert($stream->isWritable() === false);
 $stream->write('nope'); // NO-OP
 $stream->end(); // NO-OP
 ```
+如果此流是`DuplexStreamInterface`实现，则调用此方法也应结束其可读端，除非该流支持半开模式。
 
-If this stream is a `DuplexStreamInterface`, calling this method SHOULD
-also end its readable side, unless the stream supports half-open mode.
-In other words, after calling this method, these streams SHOULD switch
-into non-writable AND non-readable mode, see also `isReadable()`.
-This implies that in this case, the stream SHOULD NOT emit any `data`
-or `end` events anymore.
-Streams MAY choose to use the `pause()` method logic for this, but
-special care may have to be taken to ensure a following call to the
-`resume()` method SHOULD NOT continue emitting readable events.
+换句话说，调用此方法后，这些流应该切换到不可写和不可读取的模式，另请参见[`isReadable()`](#isreadable)
 
-Note that this method should not be confused with the `close()` method.
+这意味着在这种情况下，流不再应该发出任何`data`或`end`事件。 
+流可能会选择使用`pause()`方法逻辑，但必须特别注意确保对`resume()`方法的后续调用不应继续发出可读事件。
+
+注意，该方法不应与`close()`方法混淆。
 
 #### close()
 
-The `close(): void` method can be used to
-close the stream (forcefully).
+`close(): void` 方法可用于（强制）关闭流。
 
-This method can be used to forcefully close the stream, i.e. close
-the stream without waiting for any buffered data to be flushed.
-If there's still data in the buffer, this data SHOULD be discarded.
+此方法可用于强制关闭流，即在不等待刷新任何缓冲数据的情况下关闭流。
+如果缓冲区中仍有数据，则会丢弃此数据。
 
 ```php
 $stream->close();
 ```
 
-Once the stream is closed, it SHOULD emit a `close` event.
-Note that this event SHOULD NOT be emitted more than once, in particular
-if this method is called multiple times.
+一旦流关闭，它应该发出一个`close`事件。
+请注意，不应多次触发此事件。
 
-After calling this method, the stream MUST switch into a non-writable
-mode, see also `isWritable()`.
-This means that no further writes are possible, so any additional
-`write()` or `end()` calls have no effect.
+调用此方法后，流必须切换到不可写模式，另请参见[`isWritable()`](#iswritable)。
+这意味着不可能再进行写操作，因此任何其他的`write()`或`end()`调用均无效。
 
 ```php
 $stream->close();
@@ -693,11 +586,13 @@ $stream->write('nope'); // NO-OP
 $stream->end(); // NO-OP
 ```
 
-Note that this method should not be confused with the `end()` method.
-Unlike the `end()` method, this method does not take care of any existing
-buffers and simply discards any buffer contents.
-Likewise, this method may also be called after calling `end()` on a
-stream in order to stop waiting for the stream to flush its final data.
+注意，该方法不应与`end()`方法混淆。
+
+与`end()`方法不同，此方法不处理任何现有缓冲区，而只是丢弃缓冲区内容。
+
+同样，也可以在对流调用`end()`之后调用此方法，以停止等待流刷新其最终数据。
+
+同样，为了停止等待流刷新其最终数据，也可以在流上调用`end()`之后调用此方法。
 
 ```php
 $stream->end();
@@ -706,83 +601,63 @@ $loop->addTimer(1.0, function () use ($stream) {
 });
 ```
 
-If this stream is a `DuplexStreamInterface`, you should also notice
-how the readable side of the stream also implements a `close()` method.
-In other words, after calling this method, the stream MUST switch into
-non-writable AND non-readable mode, see also `isReadable()`.
+如果此流是`DuplexStreamInterface`，则还应该注意流的可读端如何实现`close()` 方法。
+
+换句话说，调用此方法后，流必须切换到不可写和不可读模式，另请参见[`isReadable()`](#isreadable)。
 
 ### DuplexStreamInterface
 
-The `DuplexStreamInterface` is responsible for providing an interface for
-duplex streams (both readable and writable).
+`DuplexStreamInterface`为双工流（可读写）提供接口。
 
-It builds on top of the existing interfaces for readable and writable streams
-and follows the exact same method and event semantics.
-If you're new to this concept, you should look into the
-`ReadableStreamInterface` and `WritableStreamInterface` first.
+它建立在用于可读和可写流的现有接口之上，并遵循完全相同的方法和事件语义。
 
-Besides defining a few methods, this interface also implements the
-`EventEmitterInterface` which allows you to react to the same events defined
-on the `ReadbleStreamInterface` and `WritableStreamInterface`.
+如果您是这个概念的新手，则应该先阅读`ReadableStreamInterface`和`WritableStreamInterface`。
 
-The event callback functions MUST be a valid `callable` that obeys strict
-parameter definitions and MUST accept event parameters exactly as documented.
-The event callback functions MUST NOT throw an `Exception`.
-The return value of the event callback functions will be ignored and has no
-effect, so for performance reasons you're recommended to not return any
-excessive data structures.
+除了定义一些方法外，该接口还实现了`EventEmitterInterface`，
+它使您能够对`ReadbleStreamInterface`和`WritableStreamInterface`上定义的相同事件做出反应。
 
-Every implementation of this interface MUST follow these event semantics in
-order to be considered a well-behaving stream.
+事件回调函数必须是一个有效的`callable`，遵守严格的参数定义，并且必须完全按照文档中描述接受事件参数。
 
-> Note that higher-level implementations of this interface may choose to
-  define additional events with dedicated semantics not defined as part of
-  this low-level stream specification. Conformance with these event semantics
-  is out of scope for this interface, so you may also have to refer to the
-  documentation of such a higher-level implementation.
+事件回调函数绝不能抛出`Exception`。
 
-See also [`ReadableStreamInterface`](#readablestreaminterface) and
-[`WritableStreamInterface`](#writablestreaminterface) for more details.
+事件回调函数的返回值将被忽略，并且没有任何效果，因此出于性能原因，建议您不要返回任何过多的数据结构。
+
+这个接口的每个实现都必须遵循这些事件语义，才能被认为是合法流。
+
+> 请注意，此接口的高级实现可能会选择使用专用语义来定义附加事件，
+  这些专用语义未定义为此低级流规范的一部分。
+  与这些事件语义的一致性超出了此接口的范围，
+  因此您可能还必须参考此类更高级别实现的文档。
+
+另请参阅 [`ReadableStreamInterface`](#readablestreaminterface)和[`WritableStreamInterface`](#writablestreaminterface)。
 
 ## Creating streams
 
-ReactPHP uses the concept of "streams" throughout its ecosystem, so that
-many higher-level consumers of this package only deal with
-[stream usage](#stream-usage).
-This implies that stream instances are most often created within some
-higher-level components and many consumers never actually have to deal with
-creating a stream instance.
+ * ReactPHP在其整个生态系统中都使用`streams`的概念，所以这个包的许多高级用户只处理[流使用](#stream-usage)。
+   流实例通常是在一些更高级别的组件中创建的，许多用户实际上从来不需要处理创建流实例的问题。
 
-* Use [react/socket](https://github.com/reactphp/socket)
-  if you want to accept incoming or establish outgoing plaintext TCP/IP or
-  secure TLS socket connection streams.
-* Use [react/http](https://github.com/reactphp/http)
-  if you want to receive an incoming HTTP request body streams.
-* Use [react/child-process](https://github.com/reactphp/child-process)
-  if you want to communicate with child processes via process pipes such as
-  STDIN, STDOUT, STDERR etc.
-* Use experimental [react/filesystem](https://github.com/reactphp/filesystem)
-  if you want to read from / write to the filesystem.
-* See also the last chapter for [more real-world applications](#more).
+ * 如果你想接受传入或建立传出的明文TCP/IP或安全TLS socket连接流，使用[react/socket](2.Network-Components/Socket.md) 
 
-However, if you are writing a lower-level component or want to create a stream
-instance from a stream resource, then the following chapter is for you.
+ * 如果你想接收一个http请求体流，请使用[react/http](3.Protocol-Components/Http.md)
 
-> Note that the following examples use `fopen()` and `stream_socket_client()`
-  for illustration purposes only.
-  These functions SHOULD NOT be used in a truly async program because each call
-  may take several seconds to complete and would block the EventLoop otherwise.
-  Additionally, the `fopen()` call will return a file handle on some platforms
-  which may or may not be supported by all EventLoop implementations.
-  As an alternative, you may want to use higher-level libraries listed above.
+ * 如果你想通过诸如STDIN, STDOUT, STDERR等进程管道与子进程通信，请使用[react/child-process](4.Utility-Components/ChildProcess.md)
+
+ * 如果你想对文件系统进行读写操作，请使用 [react/filesystem](https://github.com/reactphp/filesystem)
+
+ * 参见最后一章[更多真实应用](#more)。
+
+但是，如果您正在编写一个底层组件，或者想要从一个流资源创建一个流实例，那么下面的章节就是为您准备的。
+
+>请注意，以下示例使用`fopen()`和`stream_socket_client()`只是为了说明。
+ 这些函数不应该在真正的异步程序中使用，因为每个调用可能需要几秒钟才能完成，否则将阻塞`EventLoop`。
+ 此外，`fopen()` 调用将在某些平台上返回一个文件句柄，这可能是所有`EventLoop`实现所支持的，也可能不是。
+ 作为一种替代方案，您可能希望使用上面列出的高级库。 
 
 ### ReadableResourceStream
 
-The `ReadableResourceStream` is a concrete implementation of the
-[`ReadableStreamInterface`](#readablestreaminterface) for PHP's stream resources.
+`ReadableResourceStream`是PHP流资源[`ReadableStreamInterface`](#readablestreaminterface)的具体实现。
 
-This can be used to represent a read-only resource like a file stream opened in
-readable mode or a stream such as `STDIN`:
+这可以用来表示只读资源，比如以可读模式打开的文件流，或者像`STDIN`这样的流:
 
 ```php
 $stream = new ReadableResourceStream(STDIN, $loop);
@@ -794,66 +669,57 @@ $stream->on('end', function () {
 });
 ```
 
-See also [`ReadableStreamInterface`](#readablestreaminterface) for more details.
+请参阅[`ReadableStreamInterface`](#readablestreaminterface).
 
-The first parameter given to the constructor MUST be a valid stream resource
-that is opened in reading mode (e.g. `fopen()` mode `r`).
-Otherwise, it will throw an `InvalidArgumentException`:
+构造函数的第一个参数必须是一个以读取模式打开的有效的流资源(例如:`fopen()`的模式`r`)。
+
+否则，它将抛出一个`InvalidArgumentException`:
 
 ```php
 // throws InvalidArgumentException
 $stream = new ReadableResourceStream(false, $loop);
 ```
+另请参阅[`DuplexResourceStream`](#readableresourcestream)了解读写流资源。
 
-See also the [`DuplexResourceStream`](#readableresourcestream) for read-and-write
-stream resources otherwise.
+该类内部试图在流资源上启用非阻塞模式，这可能不支持所有的流资源。
 
-Internally, this class tries to enable non-blocking mode on the stream resource
-which may not be supported for all stream resources.
-Most notably, this is not supported by pipes on Windows (STDIN etc.).
-If this fails, it will throw a `RuntimeException`:
+最值得注意的是，Windows上的管道(STDIN等)不支持这一点。
+
+如果失败，它将抛出`RuntimeException`:
 
 ```php
 // throws RuntimeException on Windows
 $stream = new ReadableResourceStream(STDIN, $loop);
 ```
+一旦使用有效的流资源调用构造函数，该类将负责底层的流资源。
 
-Once the constructor is called with a valid stream resource, this class will
-take care of the underlying stream resource.
-You SHOULD only use its public API and SHOULD NOT interfere with the underlying
-stream resource manually.
+您应该只使用它的公共API，而不应该手动干扰底层的流资源。
 
-This class takes an optional `int|null $readChunkSize` parameter that controls
-the maximum buffer size in bytes to read at once from the stream.
-You can use a `null` value here in order to apply its default value.
-This value SHOULD NOT be changed unless you know what you're doing.
-This can be a positive number which means that up to X bytes will be read
-at once from the underlying stream resource. Note that the actual number
-of bytes read may be lower if the stream resource has less than X bytes
-currently available.
-This can be `-1` which means "read everything available" from the
-underlying stream resource.
-This should read until the stream resource is not readable anymore
-(i.e. underlying buffer drained), note that this does not neccessarily
-mean it reached EOF.
+该类接受一个可选参数`int|null $readChunkSize`，该参数控制一次从流中读取的最大缓冲区大小(以字节为单位)。
+
+您可以在这里使用`null`值来应用其默认值。
+
+除非您知道自己在做什么，否则不应该更改此值。
+
+这可以是一个正数，这意味着一次最多可以从底层流资源读取X个字节。注意，如果流资源当前可用的字节数小于X字节，则实际读取的字节数可能更低。
+
+这可以是`-1`，表示从底层流资源中`读取所有可用的内容`。
+
+这应该读取直到流资源不再可读(即底层缓冲区耗尽)，注意这并不一定意味着它到达了`EOF`。
 
 ```php
 $stream = new ReadableResourceStream(STDIN, $loop, 8192);
 ```
-
-> PHP bug warning: If the PHP process has explicitly been started without a
-  `STDIN` stream, then trying to read from `STDIN` may return data from
-  another stream resource. This does not happen if you start this with an empty
-  stream like `php test.php < /dev/null` instead of `php test.php <&-`.
-  See [#81](https://github.com/reactphp/stream/issues/81) for more details.
+>PHP bug警告:如果PHP进程在没有`STDIN`流的情况下显式启动，
+ 那么尝试从`STDIN`读取数据可能会从其他流资源返回数据。
+ 如果以空流(如`php test.php < /dev/null`而不是`php test.php <&-`)开始，则不会发生这种情况。
+ 请参阅[#81](https://github.com/reactphp/stream/issues/81) 了解更多细节。
 
 ### WritableResourceStream
 
-The `WritableResourceStream` is a concrete implementation of the
-[`WritableStreamInterface`](#writablestreaminterface) for PHP's stream resources.
+`WritableResourceStream`是PHP流资源的[`WritableStreamInterface`](#writablestreaminterface)的具体实现。
 
-This can be used to represent a write-only resource like a file stream opened in
-writable mode or a stream such as `STDOUT` or `STDERR`:
+这可以用来表示只写的资源，比如以可写模式打开的文件流，或者像`STDOUT`或`STDERR`这样的流:
 
 ```php
 $stream = new WritableResourceStream(STDOUT, $loop);
@@ -861,75 +727,69 @@ $stream->write('hello!');
 $stream->end();
 ```
 
-See also [`WritableStreamInterface`](#writablestreaminterface) for more details.
+请参阅[`WritableStreamInterface`](#writablestreaminterface)
 
-The first parameter given to the constructor MUST be a valid stream resource
-that is opened for writing.
-Otherwise, it will throw an `InvalidArgumentException`:
+构造函数的第一个参数必须是打开用于写入的有效流资源。
+否则，它将抛出一个`InvalidArgumentException`:
 
 ```php
 // throws InvalidArgumentException
 $stream = new WritableResourceStream(false, $loop);
 ```
 
-See also the [`DuplexResourceStream`](#readableresourcestream) for read-and-write
-stream resources otherwise.
+另请参阅[`DuplexResourceStream`](#readableresourcestream)了解读写流资源。
 
-Internally, this class tries to enable non-blocking mode on the stream resource
-which may not be supported for all stream resources.
-Most notably, this is not supported by pipes on Windows (STDOUT, STDERR etc.).
-If this fails, it will throw a `RuntimeException`:
+该类内部试图在流资源上启用非阻塞模式，这可能不支持所有的流资源。
+
+最值得注意的是，Windows上的管道(STDOUT、STDERR等)不支持这一点。
+
+如果失败，它将抛出`RuntimeException`:
 
 ```php
 // throws RuntimeException on Windows
 $stream = new WritableResourceStream(STDOUT, $loop);
 ```
 
-Once the constructor is called with a valid stream resource, this class will
-take care of the underlying stream resource.
-You SHOULD only use its public API and SHOULD NOT interfere with the underlying
-stream resource manually.
+一旦使用有效的流资源调用构造函数，该类将负责底层的流资源。
 
-Any `write()` calls to this class will not be performed instantly, but will
-be performed asynchronously, once the EventLoop reports the stream resource is
-ready to accept data.
-For this, it uses an in-memory buffer string to collect all outstanding writes.
-This buffer has a soft-limit applied which defines how much data it is willing
-to accept before the caller SHOULD stop sending further data.
+您应该只使用它的公共API，而不应该手动干扰底层的流资源。
 
-This class takes an optional `int|null $writeBufferSoftLimit` parameter that controls
-this maximum buffer size in bytes.
-You can use a `null` value here in order to apply its default value.
-This value SHOULD NOT be changed unless you know what you're doing.
+对这个类的任何`write()`调用都不会立即执行，而是在`EventLoop`报告流资源准备好接受数据后异步执行。
+
+为此，它使用一个内存缓冲区字符串来收集所有未完成的写操作。
+
+这个缓冲区应用了一个软限制，它定义了在调用者停止发送进一步数据之前，它愿意接受多少数据。
+
+该类接受一个可选参数`int|null $writeBufferSoftLimit`，以字节为单位控制最大缓冲区大小。
+
+您可以在这里使用`null`值来应用其默认值。
+
+否则不应该更改此值，除非您知道自己在做什么。
 
 ```php
 $stream = new WritableResourceStream(STDOUT, $loop, 8192);
 ```
 
-This class takes an optional `int|null $writeChunkSize` parameter that controls
-this maximum buffer size in bytes to write at once to the stream.
-You can use a `null` value here in order to apply its default value.
-This value SHOULD NOT be changed unless you know what you're doing.
-This can be a positive number which means that up to X bytes will be written
-at once to the underlying stream resource. Note that the actual number
-of bytes written may be lower if the stream resource has less than X bytes
-currently available.
-This can be `-1` which means "write everything available" to the
-underlying stream resource.
+该类接受一个可选参数`int|null $writeChunkSize`，该参数以字节为单位控制一次写入流的最大缓冲区大小。
+
+您可以在这里使用`null`值来应用其默认值。
+
+除非您知道自己在做什么，否则不应该更改此值。
+
+这可以是一个正数，这意味着一次最多将写入X个字节到底层流资源。注意，如果流资源当前可用的字节数小于X字节，则实际写入的字节数可能更低。
+
+这可以是`-1`，意思是`将所有可用的内容写入底层流资源`。
 
 ```php
 $stream = new WritableResourceStream(STDOUT, $loop, null, 8192);
 ```
-
-See also [`write()`](#write) for more details.
+请参阅[`write()`](#write)了解更多细节。
 
 ### DuplexResourceStream
 
-The `DuplexResourceStream` is a concrete implementation of the
-[`DuplexStreamInterface`](#duplexstreaminterface) for PHP's stream resources.
+` DuplexResourceStream `是PHP流资源[`DuplexStreamInterface`](#duplexstreaminterface)的具体实现。
 
-This can be used to represent a read-and-write resource like a file stream opened
-in read and write mode mode or a stream such as a TCP/IP connection:
+用来表示读写资源，比如以读写模式打开的文件流，或者像TCP/IP连接这样的流:
 
 ```php
 $conn = stream_socket_client('tcp://google.com:80');
@@ -938,83 +798,74 @@ $stream->write('hello!');
 $stream->end();
 ```
 
-See also [`DuplexStreamInterface`](#duplexstreaminterface) for more details.
+请参阅[`DuplexStreamInterface`](#duplexstreaminterface) 了解更多细节。
 
-The first parameter given to the constructor MUST be a valid stream resource
-that is opened for reading *and* writing.
-Otherwise, it will throw an `InvalidArgumentException`:
+构造函数的第一个参数必须是一个有效的流资源，该流资源被打开用于读取*和*写入。
+
+否则，它将抛出一个`InvalidArgumentException`:
 
 ```php
 // throws InvalidArgumentException
 $stream = new DuplexResourceStream(false, $loop);
 ```
 
-See also the [`ReadableResourceStream`](#readableresourcestream) for read-only
-and the [`WritableResourceStream`](#writableresourcestream) for write-only
-stream resources otherwise.
+另请参阅只读的[`ReadableResourceStream`](#readableresourcestream)和只写流资源的[`WritableResourceStream`](#writableresourcestream)。
 
-Internally, this class tries to enable non-blocking mode on the stream resource
-which may not be supported for all stream resources.
-Most notably, this is not supported by pipes on Windows (STDOUT, STDERR etc.).
-If this fails, it will throw a `RuntimeException`:
+该类内部试图在流资源上启用非阻塞模式，这可能不支持所有的流资源。
+
+最值得注意的是，Windows上的管道(STDOUT、STDERR等)不支持这一点。
+
+如果失败，它将抛出`RuntimeException`:
 
 ```php
 // throws RuntimeException on Windows
 $stream = new DuplexResourceStream(STDOUT, $loop);
 ```
+一旦使用有效的流资源调用构造函数，该类将负责底层的流资源。
 
-Once the constructor is called with a valid stream resource, this class will
-take care of the underlying stream resource.
-You SHOULD only use its public API and SHOULD NOT interfere with the underlying
-stream resource manually.
+您应该只使用它的公共API，而不应该手动干扰底层的流资源。
 
-This class takes an optional `int|null $readChunkSize` parameter that controls
-the maximum buffer size in bytes to read at once from the stream.
-You can use a `null` value here in order to apply its default value.
-This value SHOULD NOT be changed unless you know what you're doing.
-This can be a positive number which means that up to X bytes will be read
-at once from the underlying stream resource. Note that the actual number
-of bytes read may be lower if the stream resource has less than X bytes
-currently available.
-This can be `-1` which means "read everything available" from the
-underlying stream resource.
-This should read until the stream resource is not readable anymore
-(i.e. underlying buffer drained), note that this does not neccessarily
-mean it reached EOF.
+该类接受一个可选参数`int|null $readChunkSize`，该参数控制一次从流中读取的最大缓冲区大小(以字节为单位)。
+
+您可以在这里使用`null`值来应用其默认值。
+
+除非您知道自己在做什么，否则不应该更改此值。
+
+这可以是一个正数，这意味着一次最多可以从底层流资源读取X个字节。注意，如果流资源当前可用的字节数小于X字节，则实际读取的字节数可能更低。
+
+这可以是`-1`，表示从底层流资源中`读取所有可用的内容`。
+
+这应该读取直到流资源不再可读(即底层缓冲区耗尽)，注意这并不一定意味着它到达了`EOF`。
 
 ```php
 $conn = stream_socket_client('tcp://google.com:80');
 $stream = new DuplexResourceStream($conn, $loop, 8192);
 ```
 
-Any `write()` calls to this class will not be performed instantly, but will
-be performed asynchronously, once the EventLoop reports the stream resource is
-ready to accept data.
-For this, it uses an in-memory buffer string to collect all outstanding writes.
-This buffer has a soft-limit applied which defines how much data it is willing
-to accept before the caller SHOULD stop sending further data.
+对这个类的任何`write()`调用都不会立即执行，而是在`EventLoop`报告流资源准备好接受数据后异步执行。
 
-This class takes another optional `WritableStreamInterface|null $buffer` parameter
-that controls this write behavior of this stream.
-You can use a `null` value here in order to apply its default value.
-This value SHOULD NOT be changed unless you know what you're doing.
+为此，它使用一个内存缓冲区字符串来收集所有未完成的写操作。
 
-If you want to change the write buffer soft limit, you can pass an instance of
-[`WritableResourceStream`](#writableresourcestream) like this:
+这个缓冲区应用了一个软限制，它定义了在调用者停止发送进一步数据之前，它愿意接受多少数据。
+
+这个类接受另一个可选参数`WritableStreamInterface|null $buffer`，控制这个流的写行为。
+
+您可以在这里使用`null`值来应用其默认值。
+
+除非您知道自己在做什么，否则不应该更改此值。
+
+如果你想改变写缓冲区软限制，你可以传递一个[`WritableResourceStream`](#writableresourcestream) 的实例，像这样:
 
 ```php
 $conn = stream_socket_client('tcp://google.com:80');
 $buffer = new WritableResourceStream($conn, $loop, 8192);
 $stream = new DuplexResourceStream($conn, $loop, null, $buffer);
 ```
-
-See also [`WritableResourceStream`](#writableresourcestream) for more details.
+参见 [`WritableResourceStream`](#writableresourcestream) 了解更多细节。
 
 ### ThroughStream
 
-The `ThroughStream` implements the
-[`DuplexStreamInterface`](#duplexstreaminterface) and will simply pass any data
-you write to it through to its readable end.
+` ThroughStream `实现了[`DuplexStreamInterface`](#duplexstreaminterface) ，并将任何你写入它的数据传递到它的可读端。
 
 ```php
 $through = new ThroughStream();
@@ -1023,30 +874,25 @@ $through->on('data', $this->expectCallableOnceWith('hello'));
 $through->write('hello');
 ```
 
-Similarly, the [`end()` method](#end) will end the stream and emit an
-[`end` event](#end-event) and then [`close()`](#close-1) the stream.
-The [`close()` method](#close-1) will close the stream and emit a
-[`close` event](#close-event).
-Accordingly, this is can also be used in a [`pipe()`](#pipe) context like this:
+同样，[`end()` 方法](#end)将结束流并触发[`end`](#end-event)，然后[`close()`](#close-1)流。
+
+[`close()` 方法](#close-1) 将关闭流并发出[`close`](#close-event).
+
+相应地，这也可以像这样在[`pipe()`](#pipe)上下文中使用:
 
 ```php
 $through = new ThroughStream();
 $source->pipe($through)->pipe($dest);
 ```
 
-Optionally, its constructor accepts any callable function which will then be
-used to *filter* any data written to it. This function receives a single data
-argument as passed to the writable side and must return the data as it will be
-passed to its readable end:
+可选，它的构造函数接受任何可调用的函数，然后这些函数将被用来 *filter（过滤）* 任何写入它的数据。
+此函数在传递到可写端时接收单个数据参数，并且在传递到可读端时必须返回数据：
 
 ```php
 $through = new ThroughStream('strtoupper');
 $source->pipe($through)->pipe($dest);
 ```
-
-Note that this class makes no assumptions about any data types. This can be
-used to convert data, for example for transforming any structured data into
-a newline-delimited JSON (NDJSON) stream like this:
+请注意，这个类不假设任何数据类型。这可用于转换数据，例如将任何结构化数据转换为换行符分隔的JSON（NDJSON）流，如下所示：
 
 ```php
 $through = new ThroughStream(function ($data) {
@@ -1057,8 +903,7 @@ $through->on('data', $this->expectCallableOnceWith("[2, true]\n"));
 $through->write(array(2, true));
 ```
 
-The callback function is allowed to throw an `Exception`. In this case,
-the stream will emit an `error` event and then [`close()`](#close-1) the stream.
+允许回调函数抛出`Exception`。在这种情况下，流将发出一个`error`事件，然后[`close()`](#close-1)流。
 
 ```php
 $through = new ThroughStream(function ($data) {
@@ -1076,15 +921,12 @@ $through->write(2);
 
 ### CompositeStream
 
-The `CompositeStream` implements the
-[`DuplexStreamInterface`](#duplexstreaminterface) and can be used to create a
-single duplex stream from two individual streams implementing
-[`ReadableStreamInterface`](#readablestreaminterface) and
-[`WritableStreamInterface`](#writablestreaminterface) respectively.
+` CompositeStream `实现了[`DuplexStreamInterface`](#duplexstreaminterface)，
+并可用于从两个分别实现[`ReadableStreamInterface`](#readablestreaminterface)和
+[`WritableStreamInterface`](#writablestreaminterface)的单独流中创建一个双工流。
 
-This is useful for some APIs which may require a single
-[`DuplexStreamInterface`](#duplexstreaminterface) or simply because it's often
-more convenient to work with a single stream instance like this:
+这对于一些可能需要单个[`DuplexStreamInterface`](#duplexstreaminterface) 的api很有用，
+或者只是因为像这样使用单个流实例通常更方便:
 
 ```php
 $stdin = new ReadableResourceStream(STDIN, $loop);
@@ -1096,26 +938,21 @@ $stdio->on('data', function ($chunk) use ($stdio) {
     $stdio->write('You said: ' . $chunk);
 });
 ```
+这是一个合法流，它从底层流转发所有的流事件，并将所有的流调用转发给底层流。
 
-This is a well-behaving stream which forwards all stream events from the
-underlying streams and forwards all streams calls to the underlying streams.
+如果你 `write()` 写入双工流，它将简单地将 `write()` 写入可写端并返回其状态。
 
-If you `write()` to the duplex stream, it will simply `write()` to the
-writable side and return its status.
+如果` end() `双工流，则可写流将` end() `，可读流将` pause() `。
 
-If you `end()` the duplex stream, it will `end()` the writable side and will
-`pause()` the readable side.
+如果` close() `双工流，两个输入流都将被关闭。
 
-If you `close()` the duplex stream, both input streams will be closed.
-If either of the two input streams emits a `close` event, the duplex stream
-will also close.
-If either of the two input streams is already closed while constructing the
-duplex stream, it will `close()` the other side and return a closed stream.
+如果两个输入流中的任何一个发出` close `事件，双工流也将关闭。
+
+如果两个输入流中的任何一个在构造双工流时已经关闭，它将` close() `另一端并返回一个关闭的流。
 
 ## 用法
 
-The following example can be used to pipe the contents of a source file into
-a destination file without having to ever read the whole file into memory:
+下面的例子可以用来将源文件的内容管道到目标文件中，而不必将整个文件读入内存:
 
 ```php
 $loop = new React\EventLoop\StreamSelectLoop;
@@ -1127,50 +964,43 @@ $source->pipe($dest);
 
 $loop->run();
 ```
-
-> Note that this example uses `fopen()` for illustration purposes only.
-  This should not be used in a truly async program because the filesystem is
-  inherently blocking and each call could potentially take several seconds.
-  See also [creating streams](#creating-streams) for more sophisticated
-  examples.
+>注意，这个例子使用` fopen() `只是为了说明。
+ 在真正的异步程序中不应该使用这种方法，因为文件系统本身就是阻塞的，而且每次调用都可能需要几秒钟的时间。
+ 参见[创建流](#creating-streams)获取更复杂的示例。
 
 ## 安装
 
-The recommended way to install this library is [through Composer](https://getcomposer.org).
-[New to Composer?](https://getcomposer.org/doc/00-intro.md)
+推荐的安装这个库的方法是[通过Composer](https://getcomposer.org)。
+[Composer 新手?](https://getcomposer.org/doc/00-intro.md)
 
-This project follows [SemVer](https://semver.org/).
-This will install the latest supported version:
+该项目遵循[SemVer](https://semver.org/) ，
+默认安装最新支持的版本:
 
 ```bash
 $ composer require react/stream:^1.1.1
 ```
 
-See also the [CHANGELOG](CHANGELOG.md) for details about version upgrades.
+有关版本升级的详细信息，请参见[CHANGELOG](https://reactphp.org/stream/changelog.html) 。
 
-This project aims to run on any platform and thus does not require any PHP
-extensions and supports running on legacy PHP 5.3 through current PHP 7+ and HHVM.
-It's *highly recommended to use PHP 7+* for this project due to its vast
-performance improvements.
+该项目旨在在任何平台上运行，因此不需要任何PHP扩展，并支持通过 `PHP 7+`和`HHVM在旧版PHP 5.3`上运行。
+
+强烈推荐在这个项目中使用*PHP 7+*，因为它有巨大的性能改进。
 
 ## 测试
 
-To run the test suite, you first need to clone this repo and then install all
-dependencies [through Composer](https://getcomposer.org):
+要运行测试套件，首先需要克隆这个存储库，然后安装所有依赖项[通过Composer](https://getcomposer.org):
 
 ```bash
 $ composer install
 ```
-
-To run the test suite, go to the project root and run:
+要运行测试套件，请转到项目根目录并运行:
 
 ```bash
 $ php vendor/bin/phpunit
 ```
 
-The test suite also contains a number of functional integration tests that rely
-on a stable internet connection.
-If you do not want to run these, they can simply be skipped like this:
+该测试套件还包含许多依赖稳定internet连接的功能集成测试。
+如果您不想运行这些，则可以像这样跳过它们：
 
 ```bash
 $ php vendor/bin/phpunit --exclude-group internet
@@ -1178,12 +1008,11 @@ $ php vendor/bin/phpunit --exclude-group internet
 
 ## License
 
-MIT, see [LICENSE file](LICENSE).
+MIT, see [LICENSE file](https://reactphp.org/stream/license.html).
 
 ## More
 
-* See [creating streams](#creating-streams) for more information on how streams
-  are created in real-world applications.
-* See our [users wiki](https://github.com/reactphp/react/wiki/Users) and the
-  [dependents on Packagist](https://packagist.org/packages/react/stream/dependents)
-  for a list of packages that use streams in real-world applications.
+* 有关在实际应用程序中如何创建流的更多信息，请参见[创建流](#creating-streams)。
+* 请参阅我们的[用户Wiki](https://github.com/reactphp/react/wiki/Users) 
+和[Packagist依赖项](https://packagist.org/packages/react/stream/dependents) 
+在实际应用程序中使用流的软件包列表。
