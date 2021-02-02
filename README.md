@@ -14,7 +14,7 @@
     <a href="https://github.com/reactphp/reactphp/actions"><img src="https://github.com/reactphp/reactphp/workflows/CI/badge.svg" alt="Build Status"></a>
 </div>
 
->ReactPHP是PHP中用于事件驱动编程的底层库。它的核心是一个事件循环，在此基础上它提供了底层实用程序，例如：流抽象、异步DNS解析器、网络客户端/服务器、HTTP客户端/服务器以及与进程通信。第三方库可以使用这些组件创建异步网络客户端/服务器等。
+>ReactPHP是PHP中用于事件驱动编程的底层库。它的核心是一个事件循环，在此基础上它提供了底层实用程序，例如：流抽象、异步DNS解析器、网络客户端/服务器、HTTP客户端/服务器以及进程间通信。第三方库可以使用这些组件创建异步网络客户端/服务器等。
 
 <br>
 

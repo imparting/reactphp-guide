@@ -1,4 +1,4 @@
-# EventLoop组件
+# EventLoop
 
 [![Build Status](https://travis-ci.org/reactphp/event-loop.svg?branch=master)](https://travis-ci.org/reactphp/event-loop)
 
@@ -152,7 +152,7 @@ $loop = React\EventLoop\Factory::create();
 这意味着在同时处理数千个流时，您可能会遇到问题，并且在这种情况下，您可能想研究使用下面列出的事件循环实现之一替代。
 如果您的用例属于仅涉及一次处理数十个或几百个流，则此事件循环实现的执行效果非常好。 
 
-如果要使用信号处理（另请参见下面的[`addSignal()`](#addsignal) ），此事件循环实现需要安装`ext-pcntl`扩展。 
+如果要使用信号处理（另请参阅下面的[`addSignal()`](#addsignal) ），此事件循环实现需要安装`ext-pcntl`扩展。 
 
 此扩展仅适用于类Unix平台，不支持Windows, 该扩展通常作为许多PHP发行版的一部分安装。
 
@@ -162,7 +162,7 @@ PHP 7.3之前的版本，该事件循环都依赖于时钟时间来安排将来�
 
 尽管这并不影响大部分应用程序，但这对于依赖于高时间精度的程序或受不连续时间调整（时间跳跃）影响的系统而言，是一个重要的区别。
 这意味着，如果您安排一个定时器在PHP <7.3上的30秒内触发，然后将系统时间向前调整20秒，则该定时器可能会在10秒内触发。
-另请参见[`addTimer()`](#addtimer)。
+另请参阅[`addTimer()`](#addtimer)。
 
 #### ExtEventLoop
 
@@ -207,7 +207,7 @@ PHP 7.3之前的版本，该事件循环都依赖于时钟时间来安排将来�
 这也意味着，当数据仍留在PHP的内部流缓冲区中时，该流可能不被视为可读。 
 
 因此，在这种情况下，建议使用`stream_set_read_buffer($stream, 0);`禁用PHP的内部读取缓冲区。
-另请参见[`addReadStream()`](#addreadstream)。 
+另请参阅[`addReadStream()`](#addreadstream)。 
 
 #### ExtLibevLoop
 
@@ -303,7 +303,7 @@ hello('Tester', $loop);
 
 这意味着如果你安排一个定时器在30秒后触发，然后调整你的系统时间向前20秒，定时器仍应在30秒后触发。
 
-有关详细信息，请参见[事件循环实现](#loop-implementations) 
+有关详细信息，请参阅[事件循环实现](#loop-implementations) 
 
 #### addPeriodicTimer()
 
@@ -363,7 +363,7 @@ hello('Tester', $loop);
 
 这意味着如果你安排一个定时器在30秒后触发，然后调整你的系统时间向前20秒，定时器仍应在30秒后触发。
 
-有关详细信息，请参见[事件循环实现](#loop-implementations) 
+有关详细信息，请参阅[事件循环实现](#loop-implementations) 
 
 此外，由于每次调用后都要进行重新调度，周期性定时器可能会发生定时器漂移。 因此，通常不建议在毫秒级或以下的高精度间隔中使用此方法。
 
@@ -540,14 +540,14 @@ $loop->addWriteStream($stream, function ($stream) use ($name) {
 $ composer require react/event-loop:^1.1.1
 ```
 
-另请参见 [CHANGELOG](https://reactphp.org/event-loop/changelog.html) ，以获取有关版本升级的详细信息。
+另请参阅 [CHANGELOG](https://reactphp.org/event-loop/changelog.html) ，以获取有关版本升级的详细信息。
 
 该项目旨在在任何平台上运行，因此不需要任何PHP扩展，并支持通过 `PHP 7+`和`HHVM在旧版PHP 5.3`上运行。
 
 强烈建议在这个项目中使用PHP7+。
 
 建议安装任何一个事件循环扩展，但完全是可选的。
-有关详细信息，请参见[事件循环实现](#loop-implementations)
+有关详细信息，请参阅[事件循环实现](#loop-implementations)
 
 ## 测试
 

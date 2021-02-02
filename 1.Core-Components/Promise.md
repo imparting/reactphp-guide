@@ -91,7 +91,7 @@ $deferred->reject(\Throwable $reason);
 
 `resolve`和`reject` 方法控制延迟状态。
 
-`Deferred`的构造函数接受一个可选的`$canceller`参数。有关更多信息，请参见[Promise](#promise-2)
+`Deferred`的构造函数接受一个可选的`$canceller`参数。有关更多信息，请参阅[Promise](#promise-2)
 
 #### Deferred::promise()
 
@@ -151,7 +151,7 @@ promise 对在`then()`的同一调用中注册的处理回调做出以下保证�
   
   2.`$onFulfilled` 和 `$onRejected` 不会被调用一次以上。
 
-#### 另请参见
+#### 另请参阅
 
 * [resolve()](#resolve) - 创造承诺
 * [reject()](#reject) - 创建拒绝的承诺
@@ -170,7 +170,7 @@ $promise->done(callable $onFulfilled = null, callable $onRejected = null);
 
 由于`done()`的目的是消费而不是转换，所以`done()`总是返回`null`。
 
-#### 另请参见
+#### 另请参阅
 
 * [PromiseInterface::then()](#promiseinterfacethen)
 * [done() vs. then()](#done-vs-then)
