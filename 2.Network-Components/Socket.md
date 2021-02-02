@@ -4,8 +4,8 @@
 
 [ReactPHP](https://reactphp.org/) 的异步，流式纯文本TCP / IP以及安全的TLS套接字服务器和客户端连接。
 
-套接字库基于[`EventLoop`](https://github.com/reactphp/event-loop) 
-和 [` Stream `](https://github.com/reactphp/stream) 组件为套接字层服务器和客户端提供了可重用的接口。
+套接字库基于[`EventLoop`](1.Core-Components/EventLoop.md) 
+和 [` Stream `](1.Core-Components/Stream.md) 组件为套接字层服务器和客户端提供了可重用的接口。
 
 服务器组件允许您构建接受来自网络客户端连接的网络服务器(如HTTP服务器)。
 
@@ -94,14 +94,14 @@ $loop->run();
 
 `ConnectionInterface` 用于表示任何传入和传出的连接，例如普通的TCP / IP连接。
 
-传入或传出连接是实现React [`DuplexStreamInterface`](https://github.com/reactphp/stream#duplexstreaminterface) 的双工流（可读和可写）。
+传入或传出连接是实现React [`DuplexStreamInterface`](1.Core-Components/Stream.md#duplexstreaminterface) 的双工流（可读和可写）。
 
 它包含已建立到/来自此连接的本地和远程地址（客户端IP）的附加属性。
 
 最常见的情况是，所有实现[`ServerInterface`](#serverinterface)的类都会触发实现这个`ConnectionInterface`的实例，
 并由所有实现[`ConnectorInterface`](#connectorinterface)的类使用。
 
-因为` ConnectionInterface `实现了底层的[`DuplexStreamInterface`](https://github.com/reactphp/stream#duplexstreaminterface)
+因为` ConnectionInterface `实现了底层的[`DuplexStreamInterface`](1.Core-Components/Stream.md#duplexstreaminterface)
 所以你可以像往常一样使用它的所有事件和方法:
 
 ```php
@@ -127,7 +127,7 @@ $connection->close();
 // …
 ```
 
-更多细节，请参阅[`DuplexStreamInterface`](https://github.com/reactphp/stream#duplexstreaminterface).
+更多细节，请参阅[`DuplexStreamInterface`](1.Core-Components/Stream.md#duplexstreaminterface).
 
 #### getRemoteAddress()
 
@@ -697,7 +697,7 @@ foreach ($server->getConnection() as $connection) {
 
 `connect(string $uri): PromiseInterface<ConnectionInterface,Exception>`方法可用于创建到给定远程地址的流式连接。
 
-返回一个[Promise](https://github.com/reactphp/promise) ，
+返回一个[Promise](1.Core-Components/Promise.md) ，
 它在成功时以实现[`ConnectionInterface`](#connectioninterface)的流来实现，
 或者在连接不成功时以`Exception`拒绝。 ：
 
@@ -960,7 +960,7 @@ $tcpConnector->connect('127.0.0.1:80')->then(function (React\Socket\ConnectionIn
 $loop->run();
 ```
 
-参阅 [examples](https://github.com/reactphp/socket/blob/v1.6.0/examples).
+参阅 [示例](https://github.com/reactphp/socket/blob/v1.6.0/examples).
 
 挂起的连接可以通过取消其挂起的承诺来取消，如下所示：
 ```php
@@ -995,7 +995,7 @@ $tcpConnector = new React\Socket\TcpConnector($loop, array(
 ` HappyEyeBallsConnector `类实现了[`ConnectorInterface`](#connectorinterface)，
 并允许您创建到任何主机名-端口组合的纯文本TCP/IP连接。
 内部实现了happy eyeballs算法[`RFC6555`](https://tools.ietf.org/html/rfc6555)
-和[`RFC8305`](https://tools.ietf.org/html/rfc8305)来支持IPv6和IPv4主机名。
+和[`RFC8305`](https://tools.ietf.org/html/rfc8305) 来支持IPv6和IPv4主机名。
 
 它通过装饰给定的`TcpConnector`实例来实现，
 首先通过DNS(如果适用的话)查找给定的域名，然后建立到已解析的目标IP地址的底层TCP/IP连接。
@@ -1016,7 +1016,7 @@ $dnsConnector->connect('www.google.com:80')->then(function (React\Socket\Connect
 $loop->run();
 ```
 
-参阅 [examples](https://github.com/reactphp/socket/blob/v1.6.0/examples).
+参阅 [示例](https://github.com/reactphp/socket/blob/v1.6.0/examples).
 
 挂起的连接可以通过取消其挂起的承诺来取消，如下所示：
 
@@ -1056,7 +1056,7 @@ $dnsConnector->connect('www.google.com:80')->then(function (React\Socket\Connect
 $loop->run();
 ```
 
-参阅 [examples](https://github.com/reactphp/socket/blob/v1.6.0/examples).
+参阅 [示例](https://github.com/reactphp/socket/blob/v1.6.0/examples).
 
 挂起的连接可以通过取消其挂起的承诺来取消，如下所示：
 
@@ -1089,7 +1089,7 @@ $secureConnector->connect('www.google.com:443')->then(function (React\Socket\Con
 $loop->run();
 ```
 
-参阅 [examples](https://github.com/reactphp/socket/blob/v1.6.0/examples).
+参阅 [示例](https://github.com/reactphp/socket/blob/v1.6.0/examples).
 
 挂起的连接可以通过取消其挂起的承诺来取消，如下所示：
 
@@ -1136,7 +1136,7 @@ $timeoutConnector->connect('google.com:80')->then(function (React\Socket\Connect
 });
 ```
 
-另请参阅 [examples](https://github.com/reactphp/socket/blob/v1.6.0/examples).
+另请参阅 [示例](https://github.com/reactphp/socket/blob/v1.6.0/examples).
 
 挂起的连接可以通过取消其挂起的承诺来取消，如下所示：
 

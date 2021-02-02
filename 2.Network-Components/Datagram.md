@@ -2,12 +2,11 @@
 
 [![Build Status](https://travis-ci.org/reactphp/datagram.svg?branch=master)](https://travis-ci.org/reactphp/datagram)
 
-Event-driven UDP datagram socket client and server for [ReactPHP](https://reactphp.org).
+[ReactPHP](https://reactphp.org)的事件驱动UDP数据报套接字客户端和服务器。 
 
-## Quickstart example
+## 快速开始
 
-Once [installed](#install), you can use the following code to connect to an UDP server listening on
-`localhost:1234` and send and receive UDP datagrams:  
+[安装](#安装)后，可以使用以下代码连接到正在侦听`localhost：1234`的UDP服务器，发送和接收UDP数据报：
 
 ```php
 $loop = React\EventLoop\Factory::create();
@@ -24,42 +23,38 @@ $factory->createClient('localhost:1234')->then(function (React\Datagram\Socket $
 $loop->run();
 ```
 
-See also the [examples](examples).
+参阅 [示例](https://github.com/reactphp/datagram/blob/v1.5.0/examples).
 
-## Usage
+## 用法
 
-This library's API is modelled after node.js's API for
-[UDP / Datagram Sockets (dgram.Socket)](https://nodejs.org/api/dgram.html).
+这个库的API是按照node建模的。[UDP / Datagram Sockets (dgram.Socket)](https://nodejs.org/api/dgram.html)
 
-## Install
+## 安装
 
-The recommended way to install this library is [through Composer](https://getcomposer.org).
-[New to Composer?](https://getcomposer.org/doc/00-intro.md)
+推荐的安装这个库的方法是[通过Composer](https://getcomposer.org)。
+[Composer 新手?](https://getcomposer.org/doc/00-intro.md)
 
-This project follows [SemVer](https://semver.org/).
-This will install the latest supported version:
+该项目遵循[SemVer](https://semver.org/) ，
+默认安装最新支持的版本:
 
 ```bash
 $ composer require react/datagram:^1.5
 ```
 
-See also the [CHANGELOG](CHANGELOG.md) for details about version upgrades.
+有关版本升级的详细信息，请参阅[CHANGELOG](https://reactphp.org/datagram/changelog.html)
 
-This project aims to run on any platform and thus does not require any PHP
-extensions and supports running on legacy PHP 5.3 through current PHP 7+ and
-HHVM.
-It's *highly recommended to use PHP 7+* for this project.
+该项目旨在在任何平台上运行，因此不需要任何PHP扩展，并支持通过当前*PHP 7+*和*HHVM在旧版PHP 5.3*上运行。
+强烈建议对此项目使用*PHP 7+*。
 
-## Tests
+## 测试
 
-To run the test suite, you first need to clone this repo and then install all
-dependencies [through Composer](https://getcomposer.org):
+要运行测试套件，首先需要克隆这个存储库，然后安装所有依赖项[通过Composer](https://getcomposer.org):
 
 ```bash
 $ composer install
 ```
 
-To run the test suite, go to the project root and run:
+要运行测试套件，请转到项目根目录并运行:
 
 ```bash
 $ php vendor/bin/phpunit
@@ -67,4 +62,4 @@ $ php vendor/bin/phpunit
 
 ## License
 
-MIT, see [LICENSE file](LICENSE).
+MIT, see [LICENSE file](https://reactphp.org/datagram/license.html).
