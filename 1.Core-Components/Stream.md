@@ -284,13 +284,13 @@ $connection->pipe($connection);
 ```php
 $source->pipe($decodeGzip)->pipe($filterBadWords)->pipe($dest);
 ```
-默认情况下，一旦源流发出`end()`事件，就会对目标流调用`end()`。可以这样禁用：
+默认情况下，一旦源流发出`end()`事件，就会对目标流调用`end()`。可以这样禁用:
 
 ```php
 $source->pipe($dest, array('end' => false));
 ```
 请注意，这只适用于`end`事件。
-如果源流上发生 `error` 或显式`close`事件，则您必须手动关闭目标流：
+如果源流上发生 `error` 或显式`close`事件，则您必须手动关闭目标流:
 
 ```php
 $source->pipe($dest);
@@ -306,14 +306,14 @@ $source->close();
 $source->pipe($dest); // 禁止操作
 ```
 
-如果目标流不可写（关闭状态），则这将简单地限制（暂停）源流：
+如果目标流不可写（关闭状态），则这将简单地限制（暂停）源流:
 
 ```php
 $dest->close();
 $source->pipe($dest); // calls $source->pause()
 ```
 
-同样，如果目标流在管道仍处于活动状态时关闭，它还将限制（暂停）源流：
+同样，如果目标流在管道仍处于活动状态时关闭，它还将限制（暂停）源流:
 
 ```php
 $source->pipe($dest);
@@ -355,7 +355,7 @@ $stream->on('end', assertNeverCalled());
 
 除了定义一些方法外，这个接口还实现了`EventEmitterInterface`，它允许您对某些事件做出反应。
 
-事件回调函数必须是一个有效的`callable`，它遵循严格的参数定义，并且必须完全按照文档所述接受事件参数。
+事件回调函数必须是一个有效的`callable`，它遵循严格的参数定义，并且必须完全按照文档所示接受事件参数。
 
 事件回调函数不能抛出`Exception`。
 
@@ -463,7 +463,7 @@ $stream->on('close', function () {
 `isWritable(): bool`方法可用于检查此流是否处于可写状态（尚未关闭）。
 
 此方法可用于检查流是否仍接受写入数据，或者是否已结束或关闭。
-将数据写入不可写流是不可操作的：
+将数据写入不可写流是不可操作的:
 
 ```php
 assert($stream->isWritable() === false);
@@ -886,13 +886,13 @@ $source->pipe($through)->pipe($dest);
 ```
 
 可选，它的构造函数接受任何可调用的函数，然后这些函数将被用来 *filter（过滤）* 任何写入它的数据。
-此函数在传递到可写端时接收单个数据参数，并且在传递到可读端时必须返回数据：
+此函数在传递到可写端时接收单个数据参数，并且在传递到可读端时必须返回数据:
 
 ```php
 $through = new ThroughStream('strtoupper');
 $source->pipe($through)->pipe($dest);
 ```
-请注意，这个类不假设任何数据类型。这可用于转换数据，例如将任何结构化数据转换为换行符分隔的JSON（NDJSON）流，如下所示：
+请注意，这个类不假设任何数据类型。这可用于转换数据，例如将任何结构化数据转换为换行符分隔的JSON（NDJSON）流，如下所示:
 
 ```php
 $through = new ThroughStream(function ($data) {
@@ -984,7 +984,7 @@ $ composer require react/stream:^1.1.1
 
 该项目旨在在任何平台上运行，因此不需要任何PHP扩展，并支持通过 `PHP 7+`和`HHVM在旧版PHP 5.3`上运行。
 
-强烈推荐在这个项目中使用*PHP 7+*，因为它有巨大的性能改进。
+强烈推荐在这个项目中使用*PHP 7+*。
 
 ## 测试
 
@@ -1000,7 +1000,7 @@ $ php vendor/bin/phpunit
 ```
 
 该测试套件还包含许多依赖稳定internet连接的功能集成测试。
-如果您不想运行这些，则可以像这样跳过它们：
+如果您不想运行这些，则可以像这样跳过它们:
 
 ```bash
 $ php vendor/bin/phpunit --exclude-group internet

@@ -6,7 +6,7 @@
 
 ## 快速开始
 
-[安装](#安装)后，可以使用以下代码连接到正在侦听`localhost：1234`的UDP服务器，发送和接收UDP数据报：
+[安装](#安装)后，可以使用以下代码连接到正在侦听`localhost:1234`的UDP服务器，发送和接收UDP数据报:
 
 ```php
 $loop = React\EventLoop\Factory::create();

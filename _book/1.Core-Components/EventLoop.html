@@ -420,7 +420,7 @@ $loop-&gt;run();
 </code></pre>
 <p>&#x67E5;&#x770B;<a href="https://github.com/reactphp/event-loop/blob/v1.1.1/examples" target="_blank">&#x793A;&#x4F8B;</a>.</p>
 <h2 id="&#x7528;&#x6CD5;">&#x7528;&#x6CD5;</h2>
-<p>&#x5178;&#x578B;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF1A;&#x5F00;&#x59CB;&#x65F6;&#x521B;&#x5EFA;&#x7684;&#x5355;&#x4E2A;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#xFF0C;&#x7A0B;&#x5E8F;&#x7ED3;&#x675F;&#x65F6;&#x8FD0;&#x884C;&#x3002;</p>
+<p>&#x5178;&#x578B;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;:&#x5F00;&#x59CB;&#x65F6;&#x521B;&#x5EFA;&#x7684;&#x5355;&#x4E2A;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#xFF0C;&#x7A0B;&#x5E8F;&#x7ED3;&#x675F;&#x65F6;&#x8FD0;&#x884C;&#x3002;</p>
 <pre><code class="lang-php"><span class="hljs-comment">// [1]</span>
 $loop = React\EventLoop\Factory::create();
 
@@ -450,7 +450,7 @@ $loop-&gt;run();
 <p><code>Factory</code> &#x7C7B;&#x662F;&#x4E00;&#x4E2A;&#x63D0;&#x4F9B;&#x4FBF;&#x6377;&#x521B;&#x5EFA;&#x5FAA;&#x73AF;&#x5B9E;&#x4F8B;&#x7684;&#x6700;&#x4F73;&#x7C7B;
 <a href="#loop-implementations">&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x5B9E;&#x73B0;</a>.</p>
 <h4 id="create">create()</h4>
-<p><code>create()&#xFF1A;LoopInterface</code> &#x65B9;&#x6CD5;&#x53EF;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;
+<p><code>create():LoopInterface</code> &#x65B9;&#x6CD5;&#x53EF;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;
 &#x4F8B;&#x5B50;:</p>
 <pre><code class="lang-php">$loop = React\EventLoop\Factory::create();
 </code></pre>
@@ -458,7 +458,7 @@ $loop-&gt;run();
 <p>&#x8BE5;&#x65B9;&#x6CD5;&#x901A;&#x5E38;&#x53EA;&#x80FD;&#x5728;&#x7A0B;&#x5E8F;&#x5F00;&#x59CB;&#x65F6;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#x3002;</p>
 <h3 id="loop-implementations">Loop implementations</h3>
 <p>&#x9664;&#x4E86;<a href="#loopinterface"><code>LoopInterface</code></a>&#x4E4B;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x63D0;&#x4F9B;&#x4E86;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x5B9E;&#x73B0;&#x3002;</p>
-<p>&#x6240;&#x6709;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x90FD;&#x652F;&#x6301;&#x4EE5;&#x4E0B;&#x529F;&#x80FD;&#xFF1A;</p>
+<p>&#x6240;&#x6709;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x90FD;&#x652F;&#x6301;&#x4EE5;&#x4E0B;&#x529F;&#x80FD;:</p>
 <ul>
 <li>&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x8F6E;&#x8BE2;</li>
 <li>&#x4E00;&#x6B21;&#x6027;&#x5B9A;&#x65F6;&#x5668;</li>
@@ -503,7 +503,7 @@ $loop-&gt;run();
 <code>libevent</code> &#x672C;&#x8EAB;&#x652F;&#x6301;&#x8BB8;&#x591A;&#x7279;&#x5B9A;&#x4E8E;&#x7CFB;&#x7EDF;&#x7684;&#x540E;&#x7AEF;&#xFF08;epoll&#xFF0C;kqueue&#xFF09;&#x3002; </p>
 <p>&#x6B64;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4EC5;&#x9002;&#x7528;&#x4E8E;PHP 5&#x3002; </p>
 <p>&#x5B58;&#x5728;&#x7528;&#x4E8E;PHP 7 &#x7684;&#x7248;&#x672C; <a href="https://github.com/php/pecl-event-libevent/pull/2" target="_blank">&#x975E;&#x6B63;&#x5F0F;&#x66F4;&#x65B0;</a> &#xFF0C;&#x4F46;&#x5DF2;&#x77E5;&#x7531;&#x4E8E;SEGFAULT&#x5BFC;&#x81F4;&#x5B9A;&#x671F;&#x5D29;&#x6E83;&#x3002;</p>
-<p>&#x91CD;&#x7533;&#x4E00;&#x4E0B;&#xFF1A;&#x4E0D;&#x5EFA;&#x8BAE;&#x5728;PHP 7&#x4E0A;&#x4F7F;&#x7528;&#x6B64;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x3002;
+<p>&#x91CD;&#x7533;&#x4E00;&#x4E0B;:&#x4E0D;&#x5EFA;&#x8BAE;&#x5728;PHP 7&#x4E0A;&#x4F7F;&#x7528;&#x6B64;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x3002;
 &#x56E0;&#x6B64;<a href="#factory"><code>Factory</code></a>&#x5C06;&#x4E0D;&#x4F1A;&#x5C1D;&#x8BD5;&#x5728;PHP 7&#x4E0A;&#x4F7F;&#x7528;&#x6B64;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x3002; </p>
 <p>&#x5DF2;&#x77E5;&#x53EA;&#x6709;&#x5728;&#x6D41;&#x53D8;&#x5F97;&#x53EF;&#x8BFB;&#xFF08;&#x8FB9;&#x7F18;&#x89E6;&#x53D1;&#xFF09;&#x65F6;&#x624D;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#x4FA6;&#x542C;&#x5668;&#xFF0C;&#x5E76;&#x4E14;&#x5982;&#x679C;&#x4ECE;&#x4E00;&#x5F00;&#x59CB;&#x5C31;&#x5DF2;&#x7ECF;&#x53EF;&#x8BFB;&#x8BE5;&#x6D41;&#xFF0C;&#x5219;&#x53EF;&#x80FD;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1;&#x3002; </p>
 <p>&#x8FD9;&#x4E5F;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x5F53;&#x6570;&#x636E;&#x4ECD;&#x7559;&#x5728;PHP&#x7684;&#x5185;&#x90E8;&#x6D41;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x65F6;&#xFF0C;&#x8BE5;&#x6D41;&#x53EF;&#x80FD;&#x4E0D;&#x88AB;&#x89C6;&#x4E3A;&#x53EF;&#x8BFB;&#x3002; </p>
@@ -521,13 +521,13 @@ PHP 7&#x7684;&#x66F4;&#x65B0;<a href="https://github.com/m4rw3r/php-libev/issues
 <p>&#x6839;&#x636E;&#x7ECF;&#x9A8C;&#xFF0C;&#x901A;&#x5E38;&#x5EFA;&#x8BAE;&#x5C06;&#x6240;&#x6709;&#x5185;&#x5BB9;&#x9644;&#x52A0;&#x5230;&#x540C;&#x4E00;&#x5FAA;&#x73AF;&#x5B9E;&#x4F8B;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x6700;&#x5E95;&#x7AEF;&#x8FD0;&#x884C;&#x4E00;&#x6B21;&#x5FAA;&#x73AF;&#x3002;</p>
 <pre><code class="lang-php">$loop-&gt;run();
 </code></pre>
-<p>&#x6B64;&#x65B9;&#x6CD5;&#x5C06;&#x4F7F;&#x5FAA;&#x73AF;&#x4FDD;&#x6301;&#x8FD0;&#x884C;&#x72B6;&#x6001;&#xFF0C;&#x76F4;&#x5230;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x4EFB;&#x52A1;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#x4E3A;&#x6B62;&#x3002; &#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF1A;&#x6B64;&#x65B9;&#x6CD5;&#x5C06;&#x963B;&#x585E;&#x76F4;&#x5230;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5B9A;&#x65F6;&#x5668;&#xFF0C;&#x6D41; &#x548C;/&#x6216; &#x4FE1;&#x53F7;&#x88AB;&#x5220;&#x9664;&#x4E3A;&#x6B62;&#x3002;</p>
+<p>&#x6B64;&#x65B9;&#x6CD5;&#x5C06;&#x4F7F;&#x5FAA;&#x73AF;&#x4FDD;&#x6301;&#x8FD0;&#x884C;&#x72B6;&#x6001;&#xFF0C;&#x76F4;&#x5230;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x4EFB;&#x52A1;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#x4E3A;&#x6B62;&#x3002; &#x6362;&#x53E5;&#x8BDD;&#x8BF4;:&#x6B64;&#x65B9;&#x6CD5;&#x5C06;&#x963B;&#x585E;&#x76F4;&#x5230;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5B9A;&#x65F6;&#x5668;&#xFF0C;&#x6D41; &#x548C;/&#x6216; &#x4FE1;&#x53F7;&#x88AB;&#x5220;&#x9664;&#x4E3A;&#x6B62;&#x3002;</p>
 <p>&#x540C;&#x6837;&#xFF0C;&#x5FC5;&#x987B;&#x786E;&#x4FDD;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5B9E;&#x9645;&#x8C03;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#x4E00;&#x6B21;&#x3002;&#x5982;&#x679C;&#x5C06;&#x4FA6;&#x542C;&#x5668;&#x6DFB;&#x52A0;&#x5230;&#x5FAA;&#x73AF;&#x4E2D;&#x800C;&#x6CA1;&#x6709;&#x6267;&#x884C;&#x8BE5;&#x65B9;&#x6CD5;&#xFF0C;&#x4EFB;&#x4F55;&#x9644;&#x52A0;&#x7684;&#x76D1;&#x542C;&#x5668;&#x5C06;&#x4E0D;&#x518D;&#x7B49;&#x5F85;&#xFF0C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4F1A;&#x76F4;&#x63A5;&#x9000;&#x51FA;&#x3002;</p>
 <p>&#x5FAA;&#x73AF;&#x5DF2;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x4E0D;&#x80FD;&#x8C03;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#x3002;&#x6B64;&#x65B9;&#x6CD5;&#x5728;&#x663E;&#x5F0F;&#x8C03;&#x7528;<a href="#stop"><code>stop()</code>ped</a>&#x540E;&#x6216;&#x7531;&#x4E8E;&#x4EE5;&#x524D;&#x4E0D;&#x518D;&#x6709;&#x4EFB;&#x4F55;&#x64CD;&#x4F5C;&#x800C;&#x81EA;&#x52A8;&#x505C;&#x6B62;&#x540E;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x88AB;&#x591A;&#x6B21;&#x8C03;&#x7528;&#x3002;</p>
 <h4 id="stop">stop()</h4>
 <p>&#x8FD0;&#x884C;<code>stop(): void</code>&#x65B9;&#x6CD5;&#x5C06;&#x505C;&#x6B62;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x3002;</p>
 <p>&#x6B64;&#x65B9;&#x6CD5;&#x4E3A;&#x9AD8;&#x7EA7;&#x7528;&#x6CD5;&#xFF0C;&#x5E94;&#x5C0F;&#x5FC3;&#x4F7F;&#x7528;&#x3002;&#x901A;&#x5E38;&#x5EFA;&#x8BAE;&#x4EC5;&#x5F53;&#x5FAA;&#x73AF;&#x4E0D;&#x518D;&#x6709;&#x4EFB;&#x4F55;&#x4E8B;&#x60C5;&#x8981;&#x505A;&#x65F6;&#x624D;&#x81EA;&#x52A8;&#x505C;&#x6B62;&#x3002;</p>
-<p>&#x6B64;&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x663E;&#x5F0F;&#x6307;&#x793A;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x505C;&#x6B62;&#xFF1A;</p>
+<p>&#x6B64;&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x663E;&#x5F0F;&#x6307;&#x793A;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x505C;&#x6B62;:</p>
 <pre><code class="lang-php">$loop-&gt;addTimer(<span class="hljs-number">3.0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($loop)</span> </span>{
     $loop-&gt;stop();
 });
@@ -549,7 +549,7 @@ $loop-&gt;addTimer(<span class="hljs-number">0.3</span>, <span class="hljs-funct
 });
 </code></pre>
 <p><a href="https://github.com/reactphp/event-loop/blob/v1.1.1/examples" target="_blank">&#x793A;&#x4F8B;#1</a>.</p>
-<p>&#x5982;&#x679C;&#x8981;&#x5728;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;&#x8BBF;&#x95EE;&#x53D8;&#x91CF;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x4EFB;&#x610F;&#x6570;&#x636E;&#x53D8;&#x91CF;&#x901A;&#x8FC7; <code>use</code> &#x7ED1;&#x5B9A;&#x5230;&#x56DE;&#x8C03;&#x95ED;&#x5305;&#x4E2D;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<p>&#x5982;&#x679C;&#x8981;&#x5728;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;&#x8BBF;&#x95EE;&#x53D8;&#x91CF;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x4EFB;&#x610F;&#x6570;&#x636E;&#x53D8;&#x91CF;&#x901A;&#x8FC7; <code>use</code> &#x7ED1;&#x5B9A;&#x5230;&#x56DE;&#x8C03;&#x95ED;&#x5305;&#x4E2D;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
 <pre><code class="lang-php"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">hello</span><span class="hljs-params">($name, LoopInterface $loop)</span>
 </span>{
     $loop-&gt;addTimer(<span class="hljs-number">1.0</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($name)</span> </span>{
@@ -583,7 +583,7 @@ $loop-&gt;addTimer(<span class="hljs-number">1.0</span>, <span class="hljs-funct
 });
 </code></pre>
 <p><a href="https://github.com/reactphp/event-loop/blob/v1.1.1/examples" target="_blank">&#x793A;&#x4F8B;#2</a>.</p>
-<p>&#x5982;&#x679C;&#x8981;&#x9650;&#x5236;&#x6267;&#x884C;&#x6B21;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x63A7;&#x5236;&#x53D8;&#x91CF;&#x901A;&#x8FC7;<code>use</code>&#x7ED1;&#x5B9A;&#x7684;&#x56DE;&#x8C03;&#x95ED;&#x5305;&#x4E2D;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<p>&#x5982;&#x679C;&#x8981;&#x9650;&#x5236;&#x6267;&#x884C;&#x6B21;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x63A7;&#x5236;&#x53D8;&#x91CF;&#x901A;&#x8FC7;<code>use</code>&#x7ED1;&#x5B9A;&#x7684;&#x56DE;&#x8C03;&#x95ED;&#x5305;&#x4E2D;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
 <pre><code class="lang-php"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">hello</span><span class="hljs-params">($name, LoopInterface $loop)</span>
 </span>{
     $n = <span class="hljs-number">3</span>;
@@ -616,7 +616,7 @@ hello(<span class="hljs-string">&apos;Tester&apos;</span>, $loop);
 <p>&#x8FD9;&#x4E0E;&#x95F4;&#x9694;&#x4E3A; <code>0</code> &#x79D2;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#x975E;&#x5E38;&#x76F8;&#x4F3C;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x4E0D;&#x4F1A;&#x88AB;&#x63D2;&#x5165;&#x5B9A;&#x65F6;&#x5668;&#x961F;&#x5217;&#x4E2D;&#xFF0C;&#x8FDB;&#x800C;&#x51CF;&#x5C11;&#x961F;&#x5217;&#x5F00;&#x9500;&#x3002; </p>
 <p>tick&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5FC5;&#x987B;&#x80FD;&#x591F;&#x63A5;&#x53D7;&#x96F6;&#x53C2;&#x6570;&#x3002;tick&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E0D;&#x629B;&#x51FA;<code>Exception</code>&#x3002;
 tick&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x5C06;&#x88AB;&#x5FFD;&#x7565;&#x5E76;&#x4E14;&#x4E0D;&#x8D77;&#x4F5C;&#x7528;&#xFF0C;&#x56E0;&#x6B64;&#x51FA;&#x4E8E;&#x6027;&#x80FD;&#x539F;&#x56E0;&#xFF0C;&#x5EFA;&#x8BAE;&#x60A8;&#x4E0D;&#x8981;&#x8FD4;&#x56DE;&#x4EFB;&#x4F55;&#x8FC7;&#x591A;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;</p>
-<p>&#x5982;&#x679C;&#x8981;&#x5728;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;&#x8BBF;&#x95EE;&#x53D8;&#x91CF;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x4EFB;&#x610F;&#x6570;&#x636E;&#x53D8;&#x91CF;&#x901A;&#x8FC7; <code>use</code> &#x7ED1;&#x5B9A;&#x5230;&#x56DE;&#x8C03;&#x95ED;&#x5305;&#x4E2D;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<p>&#x5982;&#x679C;&#x8981;&#x5728;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;&#x8BBF;&#x95EE;&#x53D8;&#x91CF;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x4EFB;&#x610F;&#x6570;&#x636E;&#x53D8;&#x91CF;&#x901A;&#x8FC7; <code>use</code> &#x7ED1;&#x5B9A;&#x5230;&#x56DE;&#x8C03;&#x95ED;&#x5305;&#x4E2D;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
 <pre><code class="lang-php"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">hello</span><span class="hljs-params">($name, LoopInterface $loop)</span>
 </span>{
     $loop-&gt;futureTick(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> <span class="hljs-title">use</span> <span class="hljs-params">($name)</span> </span>{
@@ -650,7 +650,7 @@ $loop-&gt;futureTick(<span class="hljs-function"><span class="hljs-keyword">func
 <p><a href="https://github.com/reactphp/event-loop/blob/v1.1.1/examples" target="_blank">&#x793A;&#x4F8B;#4</a>.</p>
 <p>&#x4FE1;&#x53F7;&#x4EC5;&#x5728;&#x7C7B;&#x4F3C;Unix&#x7684;&#x5E73;&#x53F0;&#x4E0A;&#x53EF;&#x7528;&#xFF0C;&#x7531;&#x4E8E;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x9650;&#x5236;&#xFF0C;&#x4E0D;&#x652F;&#x6301;Windows&#x3002;
 &#x5982;&#x679C;&#x6B64;&#x5E73;&#x53F0;&#x4E0D;&#x652F;&#x6301;&#x4FE1;&#x53F7;&#xFF0C;&#x4F8B;&#x5982;&#x7F3A;&#x5C11;&#x6240;&#x9700;&#x7684;&#x6269;&#x5C55;&#x540D;&#xFF0C;&#x5219;&#x6B64;&#x65B9;&#x6CD5;&#x53EF;&#x80FD;&#x629B;&#x51FA;<code>BadMethodCallException</code>&#x3002;</p>
-<p><strong>&#x6CE8;&#x610F; &#xFF1A;&#x4E00;&#x4E2A;&#x76D1;&#x542C;&#x5668;&#x53EA;&#x80FD;&#x6DFB;&#x52A0;&#x5230;&#x540C;&#x4E00;&#x4FE1;&#x53F7;&#x4E00;&#x6B21;&#xFF0C;&#x591A;&#x6B21;&#x6DFB;&#x52A0;&#x5C06;&#x88AB;&#x5FFD;&#x7565;&#x3002;</strong></p>
+<p><strong>&#x6CE8;&#x610F; :&#x4E00;&#x4E2A;&#x76D1;&#x542C;&#x5668;&#x53EA;&#x80FD;&#x6DFB;&#x52A0;&#x5230;&#x540C;&#x4E00;&#x4FE1;&#x53F7;&#x4E00;&#x6B21;&#xFF0C;&#x591A;&#x6B21;&#x6DFB;&#x52A0;&#x5C06;&#x88AB;&#x5FFD;&#x7565;&#x3002;</strong></p>
 <h4 id="removesignal">removeSignal()</h4>
 <p><code>removeSignal(int $signal, callable $listener): void</code> &#x65B9;&#x6CD5;&#x53EF;&#x7528;&#x4E8E;&#x5220;&#x9664;&#x5148;&#x524D;&#x6DFB;&#x52A0;&#x7684;&#x4FE1;&#x53F7;&#x76D1;&#x542C;&#x5668;&#x3002; </p>
 <pre><code class="lang-php">$loop-&gt;removeSignal(SIGINT, $listener);
@@ -667,7 +667,7 @@ $loop-&gt;futureTick(<span class="hljs-function"><span class="hljs-keyword">func
 <p>&#x6DFB;&#x52A0;&#x7684;&#x6D41;&#x8D44;&#x6E90;&#x4FA6;&#x542C;&#x5668;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5FC5;&#x987B;&#x80FD;&#x591F;&#x63A5;&#x53D7;&#x5355;&#x4E2A;&#x53C2;&#x6570;&#x6216;&#x8005;&#x60A8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5B8C;&#x5168;&#x6CA1;&#x6709;&#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;&#x3002;</p>
 <p>&#x4FA6;&#x542C;&#x5668;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E0D;&#x80FD;&#x629B;&#x51FA;<code>Exception</code></p>
 <p>&#x4FA6;&#x542C;&#x5668;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x5C06;&#x88AB;&#x5FFD;&#x7565;&#xFF0C;&#x5E76;&#x4E14;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5F71;&#x54CD;&#xFF0C;&#x56E0;&#x6B64;&#x51FA;&#x4E8E;&#x6027;&#x80FD;&#x539F;&#x56E0;&#xFF0C;&#x5EFA;&#x8BAE;&#x60A8;&#x4E0D;&#x8981;&#x8FD4;&#x56DE;&#x4EFB;&#x4F55;&#x8FC7;&#x591A;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;</p>
-<p>&#x5982;&#x679C;&#x8981;&#x5728;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;&#x8BBF;&#x95EE;&#x53D8;&#x91CF;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x4EFB;&#x610F;&#x6570;&#x636E;&#x53D8;&#x91CF;&#x901A;&#x8FC7; <code>use</code> &#x7ED1;&#x5B9A;&#x5230;&#x56DE;&#x8C03;&#x95ED;&#x5305;&#x4E2D;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<p>&#x5982;&#x679C;&#x8981;&#x5728;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;&#x8BBF;&#x95EE;&#x53D8;&#x91CF;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x4EFB;&#x610F;&#x6570;&#x636E;&#x53D8;&#x91CF;&#x901A;&#x8FC7; <code>use</code> &#x7ED1;&#x5B9A;&#x5230;&#x56DE;&#x8C03;&#x95ED;&#x5305;&#x4E2D;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
 <pre><code class="lang-php">$loop-&gt;addReadStream($stream, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($stream)</span> <span class="hljs-title">use</span> <span class="hljs-params">($name)</span> </span>{
     <span class="hljs-keyword">echo</span> $name . <span class="hljs-string">&apos; said: &apos;</span> . fread($stream);
 });
@@ -690,7 +690,7 @@ $loop-&gt;futureTick(<span class="hljs-function"><span class="hljs-keyword">func
 <p>&#x6DFB;&#x52A0;&#x7684;&#x6D41;&#x8D44;&#x6E90;&#x4FA6;&#x542C;&#x5668;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5FC5;&#x987B;&#x80FD;&#x591F;&#x63A5;&#x53D7;&#x5355;&#x4E2A;&#x53C2;&#x6570;&#x6216;&#x8005;&#x60A8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5B8C;&#x5168;&#x6CA1;&#x6709;&#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;&#x3002;</p>
 <p>&#x4FA6;&#x542C;&#x5668;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E0D;&#x5F97;&#x629B;&#x51FA;<code>Exception</code></p>
 <p>&#x76D1;&#x542C;&#x5668;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x5C06;&#x88AB;&#x5FFD;&#x7565;&#x5E76;&#x4E14;&#x4E0D;&#x8D77;&#x4F5C;&#x7528;&#xFF0C;&#x56E0;&#x6B64;&#x51FA;&#x4E8E;&#x6027;&#x80FD;&#x539F;&#x56E0;&#xFF0C;&#x5EFA;&#x8BAE;&#x60A8;&#x4E0D;&#x8981;&#x8FD4;&#x56DE;&#x4EFB;&#x4F55;&#x8FC7;&#x591A;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;</p>
-<p>&#x5982;&#x679C;&#x8981;&#x5728;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;&#x8BBF;&#x95EE;&#x53D8;&#x91CF;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x4EFB;&#x610F;&#x6570;&#x636E;&#x53D8;&#x91CF;&#x901A;&#x8FC7; <code>use</code> &#x7ED1;&#x5B9A;&#x5230;&#x56DE;&#x8C03;&#x95ED;&#x5305;&#x4E2D;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<p>&#x5982;&#x679C;&#x8981;&#x5728;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;&#x8BBF;&#x95EE;&#x53D8;&#x91CF;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x4EFB;&#x610F;&#x6570;&#x636E;&#x53D8;&#x91CF;&#x901A;&#x8FC7; <code>use</code> &#x7ED1;&#x5B9A;&#x5230;&#x56DE;&#x8C03;&#x95ED;&#x5305;&#x4E2D;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
 <pre><code class="lang-php">$loop-&gt;addWriteStream($stream, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($stream)</span> <span class="hljs-title">use</span> <span class="hljs-params">($name)</span> </span>{
     fwrite($stream, <span class="hljs-string">&apos;Hello &apos;</span> . $name);
 });
@@ -708,7 +708,7 @@ $loop-&gt;futureTick(<span class="hljs-function"><span class="hljs-keyword">func
 <p>&#x63A8;&#x8350;&#x5B89;&#x88C5; <a href="https://getcomposer.org" target="_blank">&#x901A;&#x8FC7;Composer</a>.
 <a href="https://getcomposer.org/doc/00-intro.md" target="_blank">Composer&#x65B0;&#x624B;?</a></p>
 <p>&#x8BE5;&#x9879;&#x76EE;&#x9075;&#x5FAA; <a href="https://semver.org/" target="_blank">SemVer</a>.
-&#x8FD9;&#x5C06;&#x5B89;&#x88C5;&#x6700;&#x65B0;&#x7684;&#x53D7;&#x652F;&#x6301;&#x7248;&#x672C;&#xFF1A;</p>
+&#x8FD9;&#x5C06;&#x5B89;&#x88C5;&#x6700;&#x65B0;&#x7684;&#x53D7;&#x652F;&#x6301;&#x7248;&#x672C;:</p>
 <pre><code class="lang-bash">$ composer require react/event-loop:^1.1.1
 </code></pre>
 <p>&#x53E6;&#x8BF7;&#x53C2;&#x9605; <a href="https://reactphp.org/event-loop/changelog.html" target="_blank">CHANGELOG</a> &#xFF0C;&#x4EE5;&#x83B7;&#x53D6;&#x6709;&#x5173;&#x7248;&#x672C;&#x5347;&#x7EA7;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#x3002;</p>
@@ -720,7 +720,7 @@ $loop-&gt;futureTick(<span class="hljs-function"><span class="hljs-keyword">func
 <p>&#x8981;&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#xFF0C;&#x9996;&#x5148;&#x9700;&#x8981;&#x514B;&#x9686;&#x6B64;&#x5B58;&#x50A8;&#x5E93;&#xFF0C;&#x7136;&#x540E;&#x5B89;&#x88C5;&#x6240;&#x6709;&#x4F9D;&#x8D56;&#x9879; <a href="https://getcomposer.org" target="_blank">&#x901A;&#x8FC7;Composer</a>:</p>
 <pre><code class="lang-bash">$ composer install
 </code></pre>
-<p>&#x8981;&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#xFF0C;&#x8BF7;&#x8F6C;&#x5230;&#x9879;&#x76EE;&#x6839;&#x76EE;&#x5F55;&#x5E76;&#x8FD0;&#x884C;&#xFF1A;</p>
+<p>&#x8981;&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#xFF0C;&#x8BF7;&#x8F6C;&#x5230;&#x9879;&#x76EE;&#x6839;&#x76EE;&#x5F55;&#x5E76;&#x8FD0;&#x884C;:</p>
 <pre><code class="lang-bash">$ php vendor/bin/phpunit
 </code></pre>
 <h2 id="license">License</h2>
@@ -784,7 +784,7 @@ $loop-&gt;futureTick(<span class="hljs-function"><span class="hljs-keyword">func
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"EventLoop","level":"2.1","depth":1,"next":{"title":"Promise","level":"2.2","depth":1,"path":"1.Core-Components/Promise.md","ref":"1.Core-Components/Promise.md","articles":[]},"previous":{"title":"简介","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["- summary","toggle-chapters","theme-comscore","highlight","search-plus","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"search-plus":{}},"theme":"default","author":"Imparting","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactPHP 中文文档","language":"zh-hans","gitbook":"*","description":"ReactPHP是PHP中用于事件驱动编程的底层库。它的核心是一个事件循环，在此基础上它提供了底层实用程序，例如：流抽象、异步DNS解析器、网络客户端/服务器、HTTP客户端/服务器以及与进程通信。第三方库可以使用这些组件创建异步网络客户端/服务器等。","theme-default":{"showLevel":true}},"file":{"path":"1.Core-Components/EventLoop.md","mtime":"2021-02-02T04:06:09.800Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-02T04:22:20.890Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"EventLoop","level":"2.1","depth":1,"next":{"title":"Promise","level":"2.2","depth":1,"path":"1.Core-Components/Promise.md","ref":"1.Core-Components/Promise.md","articles":[]},"previous":{"title":"简介","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["- summary","toggle-chapters","theme-comscore","highlight","search-plus","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"search-plus":{}},"theme":"default","author":"Imparting","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactPHP 中文文档","language":"zh-hans","gitbook":"*","description":"ReactPHP是PHP中用于事件驱动编程的底层库。它的核心是一个事件循环，在此基础上它提供了底层实用程序，例如：流抽象、异步DNS解析器、网络客户端/服务器、HTTP客户端/服务器以及与进程通信。第三方库可以使用这些组件创建异步网络客户端/服务器等。","theme-default":{"showLevel":true}},"file":{"path":"1.Core-Components/EventLoop.md","mtime":"2021-02-03T09:18:36.082Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-03T09:17:07.562Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

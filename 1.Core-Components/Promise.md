@@ -138,14 +138,14 @@ $transformedPromise = $promise->then(callable $onFulfilled = null, callable $onR
 ```
 通过对承诺的履行或拒绝的结果，应用函数来转换承诺的状态值并返回转换结果的新承诺。
 
-`then()` 方法用于一个promise注册新的已完成和拒绝处理程序（所有参数都是可选的）：
+`then()` 方法用于一个promise注册新的已完成和拒绝处理程序（所有参数都是可选的）:
 
   * 一旦承诺实现，其结果将作为第一个参数传递，就会调用`$onFulfilled`
   * 一旦承诺被拒绝，其原因作为第一个参数传递，就会调用`$onRejected`
 
 `$onFulfilled`或`$onRejected`的返回一个新的promise，无论哪个被调用，或者其中一个抛出异常则抛出异常。
 
-promise 对在`then()`的同一调用中注册的处理回调做出以下保证：
+promise 对在`then()`的同一调用中注册的处理回调做出以下保证:
 
   1.仅会调用`$onFulfilled` 或 `$onRejected`中的一个，两者不会都调用。
   
@@ -181,7 +181,7 @@ $promise->done(callable $onFulfilled = null, callable $onRejected = null);
 $promise->otherwise(callable $onRejected);
 ```
 
-注册拒绝处理程序以进行承诺。 快捷操作方式如下：
+注册拒绝处理程序以进行承诺。 快捷操作方式如下:
 
 ```php
 $promise->then(null, $onRejected);
@@ -217,7 +217,7 @@ $newPromise = $promise->always(callable $onFulfilledOrRejected);
 
 `always()`的行为于synchronous finally语句类似。当与`otherwise()`结合使用时，`always()`允许您编写于熟悉的同步catch/finally类似的代码。
 
-考虑以下同步代码：
+考虑以下同步代码:
 
 ```php
 try {
@@ -229,7 +229,7 @@ try {
 }
 ```
 
-可以编写类似的异步代码（`doSomething()`返回承诺）：
+可以编写类似的异步代码（`doSomething()`返回承诺）:
 
 ```php
 return doSomething()
@@ -272,7 +272,7 @@ $canceller = function () {
 $promise = new React\Promise\Promise($resolver, $canceller);
 ```
 
-`promise`构造函数将接收一个`resolver`函数和一个可选的`canceller`函数，这两个函数都将使用3个参数进行调用：
+`promise`构造函数将接收一个`resolver`函数和一个可选的`canceller`函数，这两个函数都将使用3个参数进行调用:
 
   * `$resolve($value)` - 包装返回的`promise`的主要函数。 接受非承诺值或其他承诺。
 当用非承诺值调用时，用该值实现承诺。当以另一个承诺被调用时，
@@ -528,7 +528,7 @@ $deferred->resolve(1);  // Prints "Mixed 4"
 
 ### done() vs. then()
 
-黄金法则是：
+黄金法则是:
 
     返回您的诺言，或调用done()方法.
 

@@ -348,13 +348,12 @@
                                 
                                 <h1 id="dns">Dns</h1>
 <p><a href="https://travis-ci.org/reactphp/dns" target="_blank"><img src="https://travis-ci.org/reactphp/dns.svg?branch=master" alt="Build Status"></a></p>
-<p>Async DNS resolver for <a href="https://reactphp.org/" target="_blank">ReactPHP</a>.</p>
-<p>The main point of the DNS component is to provide async DNS resolution.
-However, it is really a toolkit for working with DNS messages, and could
-easily be used to create a DNS server.</p>
-<p><strong>Table of contents</strong></p>
+<p>&#x7528;&#x4E8E;<a href="https://reactphp.org/" target="_blank">ReactPHP</a> &#x7684;&#x5F02;&#x6B65;DNS&#x89E3;&#x6790;&#x5668;&#x3002; </p>
+<p>DNS&#x7EC4;&#x4EF6;&#x7684;&#x91CD;&#x70B9;&#x662F;&#x63D0;&#x4F9B;&#x5F02;&#x6B65;DNS&#x89E3;&#x6790;&#x3002;
+&#x4F46;&#x662F;&#xFF0C;&#x5B83;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x7528;&#x4E8E;&#x5904;&#x7406;DNS&#x6D88;&#x606F;&#x7684;&#x5DE5;&#x5177;&#x5305;&#xFF0C;&#x53EF;&#x4EE5;&#x8F7B;&#x677E;&#x5730;&#x7528;&#x4E8E;&#x521B;&#x5EFA;DNS&#x670D;&#x52A1;&#x5668;&#x3002;</p>
+<p><strong>&#x76EE;&#x5F55;</strong></p>
 <ul>
-<li><a href="#basic-usage">Basic usage</a></li>
+<li><a href="#&#x57FA;&#x672C;&#x7528;&#x6CD5;">&#x57FA;&#x672C;&#x7528;&#x6CD5;</a></li>
 <li><a href="#caching">Caching</a><ul>
 <li><a href="#custom-cache-adapter">Custom cache adapter</a></li>
 </ul>
@@ -364,22 +363,20 @@ easily be used to create a DNS server.</p>
 <li><a href="#resolveall">resolveAll()</a></li>
 </ul>
 </li>
-<li><a href="#advanced-usage">Advanced usage</a><ul>
+<li><a href="#&#x9AD8;&#x7EA7;&#x7528;&#x6CD5;">&#x9AD8;&#x7EA7;&#x7528;&#x6CD5;</a><ul>
 <li><a href="#udptransportexecutor">UdpTransportExecutor</a></li>
 <li><a href="#tcptransportexecutor">TcpTransportExecutor</a></li>
 <li><a href="#selectivetransportexecutor">SelectiveTransportExecutor</a></li>
 <li><a href="#hostsfileexecutor">HostsFileExecutor</a></li>
 </ul>
 </li>
-<li><a href="#install">Install</a></li>
-<li><a href="#tests">Tests</a></li>
+<li><a href="#&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</a></li>
+<li><a href="#&#x6D4B;&#x8BD5;">&#x6D4B;&#x8BD5;</a></li>
 <li><a href="#license">License</a></li>
-<li><a href="#references">References</a></li>
+<li><a href="#&#x53C2;&#x8003;&#x6587;&#x732E;">&#x53C2;&#x8003;&#x6587;&#x732E;</a></li>
 </ul>
-<h2 id="basic-usage">Basic usage</h2>
-<p>The most basic usage is to just create a resolver through the resolver
-factory. All you need to give it is a nameserver, then you can start resolving
-names, baby!</p>
+<h2 id="&#x57FA;&#x672C;&#x7528;&#x6CD5;">&#x57FA;&#x672C;&#x7528;&#x6CD5;</h2>
+<p>&#x6700;&#x57FA;&#x672C;&#x7684;&#x7528;&#x6CD5;&#x662F;&#x901A;&#x8FC7;&#x89E3;&#x6790;&#x5668;&#x5DE5;&#x5382;&#x521B;&#x5EFA;&#x89E3;&#x6790;&#x5668;&#x3002;&#x4F60;&#x53EA;&#x9700;&#x8981;&#x7ED9;&#x5B83;&#x4E00;&#x4E2A;<code>nameserver</code>&#xFF0C;&#x7136;&#x540E;&#x4F60;&#x5C31;&#x53EF;&#x4EE5;&#x5F00;&#x59CB;&#x89E3;&#x6790;&#x4E86;&#x3002;</p>
 <pre><code class="lang-php">$loop = React\EventLoop\Factory::create();
 
 $config = React\Dns\Config\Config::loadSystemConfigBlocking();
@@ -394,23 +391,17 @@ $dns-&gt;resolve(<span class="hljs-string">&apos;igor.io&apos;</span>)-&gt;then(
 
 $loop-&gt;run();
 </code></pre>
-<p>See also the <a href="examples">first example</a>.</p>
-<p>The <code>Config</code> class can be used to load the system default config. This is an
-operation that may access the filesystem and block. Ideally, this method should
-thus be executed only once before the loop starts and not repeatedly while it is
-running.
-Note that this class may return an <em>empty</em> configuration if the system config
-can not be loaded. As such, you&apos;ll likely want to apply a default nameserver
-as above if none can be found.</p>
+<p>&#x8BF7;&#x53C2;&#x9605;<a href="https://github.com/reactphp/dns/blob/v1.4.0/examples" target="_blank">&#x793A;&#x4F8B;</a></p>
+<p><code>Config</code>&#x7C7B;&#x53EF;&#x7528;&#x4E8E;&#x52A0;&#x8F7D;&#x7CFB;&#x7EDF;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x3002;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x548C;&#x5757;&#x7684;&#x64CD;&#x4F5C;&#x3002;
+&#x7406;&#x60F3;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5E94;&#x8BE5;&#x5728;&#x5FAA;&#x73AF;&#x5F00;&#x59CB;&#x524D;&#x53EA;&#x6267;&#x884C;&#x4E00;&#x6B21;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5728;&#x5FAA;&#x73AF;&#x8FD0;&#x884C;&#x65F6;&#x91CD;&#x590D;&#x6267;&#x884C;&#x3002;
+&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x5982;&#x679C;&#x65E0;&#x6CD5;&#x52A0;&#x8F7D;&#x7CFB;&#x7EDF;&#x914D;&#x7F6E;&#xFF0C;&#x5219;&#x6B64;&#x7C7B;&#x53EF;&#x80FD;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;<em>empty</em>&#x914D;&#x7F6E;&#x3002;
+&#x56E0;&#x6B64;&#xFF0C;&#x5982;&#x679C;&#x627E;&#x4E0D;&#x5230;&#x9ED8;&#x8BA4;<code>nameserver</code>&#xFF0C;&#x60A8;&#x53EF;&#x80FD;&#x5E0C;&#x671B;&#x50CF;&#x4E0A;&#x9762;&#x90A3;&#x6837;&#x5E94;&#x7528;&#x9ED8;&#x8BA4;<code>nameserver</code>&#x3002;</p>
 <blockquote>
-<p>Note that the factory loads the hosts file from the filesystem once when
-  creating the resolver instance.
-  Ideally, this method should thus be executed only once before the loop starts
-  and not repeatedly while it is running.</p>
+<p>&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x5DE5;&#x5382;&#x5728;&#x521B;&#x5EFA;&#x89E3;&#x6790;&#x5668;&#x5B9E;&#x4F8B;&#x65F6;&#x4F1A;&#x4ECE;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x52A0;&#x8F7D;hosts&#x6587;&#x4EF6;&#x4E00;&#x6B21;&#x3002;
+  &#x7406;&#x60F3;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5E94;&#x8BE5;&#x5728;&#x5FAA;&#x73AF;&#x5F00;&#x59CB;&#x524D;&#x53EA;&#x6267;&#x884C;&#x4E00;&#x6B21;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5728;&#x5FAA;&#x73AF;&#x8FD0;&#x884C;&#x65F6;&#x91CD;&#x590D;&#x6267;&#x884C;&#x3002;</p>
 </blockquote>
-<p>But there&apos;s more.</p>
 <h2 id="caching">Caching</h2>
-<p>You can cache results by configuring the resolver to use a <code>CachedExecutor</code>:</p>
+<p>&#x901A;&#x8FC7;&#x5C06;&#x89E3;&#x6790;&#x7A0B;&#x5E8F;&#x914D;&#x7F6E;&#x4E3A;&#x4F7F;&#x7528;<code>CachedExecutor</code>&#x6765;&#x7F13;&#x5B58;&#x7ED3;&#x679C;:</p>
 <pre><code class="lang-php">$loop = React\EventLoop\Factory::create();
 
 $config = React\Dns\Config\Config::loadSystemConfigBlocking();
@@ -431,50 +422,38 @@ $dns-&gt;resolve(<span class="hljs-string">&apos;igor.io&apos;</span>)-&gt;then(
 
 $loop-&gt;run();
 </code></pre>
-<p>If the first call returns before the second, only one query will be executed.
-The second result will be served from an in memory cache.
-This is particularly useful for long running scripts where the same hostnames
-have to be looked up multiple times.</p>
-<p>See also the <a href="examples">third example</a>.</p>
+<p>&#x5982;&#x679C;&#x7B2C;&#x4E00;&#x4E2A;&#x8C03;&#x7528;&#x5728;&#x7B2C;&#x4E8C;&#x4E2A;&#x8C03;&#x7528;&#x4E4B;&#x524D;&#x8FD4;&#x56DE;&#xFF0C;&#x5219;&#x5C06;&#x4EC5;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x67E5;&#x8BE2;&#x3002;
+&#x7B2C;&#x4E8C;&#x4E2A;&#x7ED3;&#x679C;&#x5C06;&#x4ECE;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x7F13;&#x5B58;&#x4E2D;&#x63D0;&#x4F9B;&#x3002;
+&#x8FD9;&#x5BF9;&#x4E8E;&#x9700;&#x8981;&#x591A;&#x6B21;&#x67E5;&#x627E;&#x76F8;&#x540C;&#x4E3B;&#x673A;&#x540D;&#x7684;&#x957F;&#x65F6;&#x95F4;&#x8FD0;&#x884C;&#x7684;&#x811A;&#x672C;&#x7279;&#x522B;&#x6709;&#x7528;&#x3002;</p>
+<p>&#x8BF7;&#x53C2;&#x9605;<a href="https://github.com/reactphp/dns/blob/v1.4.0/examples" target="_blank">&#x793A;&#x4F8B;3</a>.</p>
 <h3 id="custom-cache-adapter">Custom cache adapter</h3>
-<p>By default, the above will use an in memory cache.</p>
-<p>You can also specify a custom cache implementing <a href="https://github.com/reactphp/cache" target="_blank"><code>CacheInterface</code></a> to handle the record cache instead:</p>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E0A;&#x8FF0;&#x64CD;&#x4F5C;&#x5C06;&#x4F7F;&#x7528;&#x5185;&#x5B58;&#x7F13;&#x5B58;&#x3002;</p>
+<p>&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7F13;&#x5B58;&#x5B9E;&#x73B0;<a href="4.Utility-Components/Cache.md"><code>CacheInterface</code></a>&#x6765;&#x7F13;&#x5B58;:</p>
 <pre><code class="lang-php">$cache = <span class="hljs-keyword">new</span> React\Cache\ArrayCache();
 $loop = React\EventLoop\Factory::create();
 $factory = <span class="hljs-keyword">new</span> React\Dns\Resolver\Factory();
 $dns = $factory-&gt;createCached(<span class="hljs-string">&apos;8.8.8.8&apos;</span>, $loop, $cache);
 </code></pre>
-<p>See also the wiki for possible <a href="https://github.com/reactphp/react/wiki/Users#cache-implementations" target="_blank">cache implementations</a>.</p>
+<p>&#x53E6;&#x8BF7;&#x53C2;&#x9605;wiki&#x4E86;&#x89E3;&#x66F4;&#x591A;&#x5176;&#x4ED6;&#x7F13;&#x5B58;&#x5B9E;&#x73B0; <a href="https://github.com/reactphp/react/wiki/Users#cache-implementations" target="_blank">cache&#x4E8B;&#x9879;</a>.</p>
 <h2 id="resolverinterface">ResolverInterface</h2>
-<p><a id="resolver"><!-- legacy reference --></a></p>
 <h3 id="resolve">resolve()</h3>
-<p>The <code>resolve(string $domain): PromiseInterface&lt;string,Exception&gt;</code> method can be used to
-resolve the given $domain name to a single IPv4 address (type <code>A</code> query).</p>
+<p><code>resolve(string $domain): PromiseInterface&lt;string,Exception&gt;</code> &#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x5C06;&#x7ED9;&#x5B9A;&#x7684;<code>$domain</code>&#x89E3;&#x6790;&#x4E3A;&#x5355;&#x4E2A;IPv4&#x5730;&#x5740;(&#x952E;&#x5165;<code>A</code>&#x67E5;&#x8BE2;)&#x3002;</p>
 <pre><code class="lang-php">$resolver-&gt;resolve(<span class="hljs-string">&apos;reactphp.org&apos;</span>)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($ip)</span> </span>{
     <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;IP for reactphp.org is &apos;</span> . $ip . PHP_EOL;
 });
 </code></pre>
-<p>This is one of the main methods in this package. It sends a DNS query
-for the given $domain name to your DNS server and returns a single IP
-address on success.</p>
-<p>If the DNS server sends a DNS response message that contains more than
-one IP address for this query, it will randomly pick one of the IP
-addresses from the response. If you want the full list of IP addresses
-or want to send a different type of query, you should use the
-<a href="#resolveall"><code>resolveAll()</code></a> method instead.</p>
-<p>If the DNS server sends a DNS response message that indicates an error
-code, this method will reject with a <code>RecordNotFoundException</code>. Its
-message and code can be used to check for the response code.</p>
-<p>If the DNS communication fails and the server does not respond with a
-valid response message, this message will reject with an <code>Exception</code>.</p>
-<p>Pending DNS queries can be cancelled by cancelling its pending promise like so:</p>
+<p>&#x5411;DNS&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;&#x7ED9;&#x5B9A;<code>$domain</code>&#x7684;DNS&#x67E5;&#x8BE2;&#xFF0C;&#x6210;&#x529F;&#x540E;&#x8FD4;&#x56DE;&#x5355;&#x4E2A;IP&#x5730;&#x5740;&#x3002;</p>
+<p>&#x5982;&#x679C;DNS&#x670D;&#x52A1;&#x5668;&#x4E3A;&#x8BE5;&#x67E5;&#x8BE2;&#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x591A;&#x4E2A;IP&#x5730;&#x5740;&#x7684;DNS&#x54CD;&#x5E94;&#x6D88;&#x606F;&#xFF0C;&#x5B83;&#x5C06;&#x4ECE;&#x54CD;&#x5E94;&#x4E2D;&#x968F;&#x673A;&#x9009;&#x62E9;&#x4E00;&#x4E2A;IP&#x5730;&#x5740;&#x3002;
+&#x5982;&#x679C;&#x4F60;&#x60F3;&#x8981;&#x5B8C;&#x6574;&#x7684;IP&#x5730;&#x5740;&#x5217;&#x8868;&#x6216;&#x8005;&#x60F3;&#x8981;&#x53D1;&#x9001;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x67E5;&#x8BE2;&#xFF0C;&#x4F60;&#x53EF;&#x4F7F;&#x7528;<a href="#resolveall"><code>resolveAll()</code></a> &#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x5982;&#x679C;DNS&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;&#x6307;&#x793A;&#x9519;&#x8BEF;&#x4EE3;&#x7801;&#x7684;DNS&#x54CD;&#x5E94;&#x6D88;&#x606F;&#xFF0C;&#x5219;&#x6B64;&#x65B9;&#x6CD5;&#x5C06;&#x62D2;&#x7EDD;&#x5E76;&#x8FD4;&#x56DE;<code>RecordNotFoundException</code>&#x3002; &#x5B83;&#x7684;&#x6D88;&#x606F;&#x548C;&#x4EE3;&#x7801;&#x53EF;&#x7528;&#x4E8E;&#x68C0;&#x67E5;&#x54CD;&#x5E94;&#x4EE3;&#x7801;&#x3002;</p>
+<p>&#x5982;&#x679C;DNS&#x901A;&#x4FE1;&#x5931;&#x8D25;&#xFF0C;&#x5E76;&#x4E14;&#x670D;&#x52A1;&#x5668;&#x6CA1;&#x6709;&#x4EE5;&#x6709;&#x6548;&#x7684;&#x54CD;&#x5E94;&#x6D88;&#x606F;&#x8FDB;&#x884C;&#x54CD;&#x5E94;&#xFF0C;&#x5219;&#x8BE5;&#x6D88;&#x606F;&#x5C06;&#x4EE5;<code>Exception</code>&#x62D2;&#x7EDD;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x53D6;&#x6D88;&#x5176;&#x5F85;&#x5904;&#x7406;&#x7684;&#x627F;&#x8BFA;&#x6765;&#x53D6;&#x6D88;&#x5F85;&#x5904;&#x7406;&#x7684;DNS&#x67E5;&#x8BE2;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
 <pre><code class="lang-php">$promise = $resolver-&gt;resolve(<span class="hljs-string">&apos;reactphp.org&apos;</span>);
 
 $promise-&gt;cancel();
 </code></pre>
 <h3 id="resolveall">resolveAll()</h3>
-<p>The <code>resolveAll(string $host, int $type): PromiseInterface&lt;array,Exception&gt;</code> method can be used to
-resolve all record values for the given $domain name and query $type.</p>
+<p><code>resolveAll(string $host, int $type): PromiseInterface&lt;array,Exception&gt;</code>&#x65B9;&#x6CD5;&#x53EF;&#x7528;&#x4E8E;&#x89E3;&#x6790;&#x7ED9;&#x5B9A;<code>$domain</code>&#x7684;&#x6240;&#x6709;&#x8BB0;&#x5F55;&#x503C;&#x5E76;&#x67E5;&#x8BE2;$type&#x3002;</p>
 <pre><code class="lang-php">$resolver-&gt;resolveAll(<span class="hljs-string">&apos;reactphp.org&apos;</span>, Message::TYPE_A)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">($ips)</span> </span>{
     <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;IPv4 addresses for reactphp.org &apos;</span> . implode(<span class="hljs-string">&apos;, &apos;</span>, $ips) . PHP_EOL;
 });
@@ -483,36 +462,26 @@ $resolver-&gt;resolveAll(<span class="hljs-string">&apos;reactphp.org&apos;</spa
     <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;IPv6 addresses for reactphp.org &apos;</span> . implode(<span class="hljs-string">&apos;, &apos;</span>, $ips) . PHP_EOL;
 });
 </code></pre>
-<p>This is one of the main methods in this package. It sends a DNS query
-for the given $domain name to your DNS server and returns a list with all
-record values on success.</p>
-<p>If the DNS server sends a DNS response message that contains one or more
-records for this query, it will return a list with all record values
-from the response. You can use the <code>Message::TYPE_*</code> constants to control
-which type of query will be sent. Note that this method always returns a
-list of record values, but each record value type depends on the query
-type. For example, it returns the IPv4 addresses for type <code>A</code> queries,
-the IPv6 addresses for type <code>AAAA</code> queries, the hostname for type <code>NS</code>,
-<code>CNAME</code> and <code>PTR</code> queries and structured data for other queries. See also
-the <code>Record</code> documentation for more details.</p>
-<p>If the DNS server sends a DNS response message that indicates an error
-code, this method will reject with a <code>RecordNotFoundException</code>. Its
-message and code can be used to check for the response code.</p>
-<p>If the DNS communication fails and the server does not respond with a
-valid response message, this message will reject with an <code>Exception</code>.</p>
-<p>Pending DNS queries can be cancelled by cancelling its pending promise like so:</p>
+<p>&#x8FD9;&#x662F;&#x6B64;&#x7A0B;&#x5E8F;&#x5305;&#x4E2D;&#x7684;&#x4E3B;&#x8981;&#x65B9;&#x6CD5;&#x4E4B;&#x4E00;&#x3002;&#x5B83;&#x4F1A;&#x5C06;&#x7ED9;&#x5B9A;<code>$domain</code>&#x7684;DNS&#x67E5;&#x8BE2;&#x53D1;&#x9001;&#x5230;&#x60A8;&#x7684;DNS&#x670D;&#x52A1;&#x5668;&#xFF0C;
+&#x5E76;&#x5728;&#x6210;&#x529F;&#x540E;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x6240;&#x6709;&#x8BB0;&#x5F55;&#x503C;&#x7684;&#x5217;&#x8868;&#x3002;</p>
+<p>&#x5982;&#x679C;DNS&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;&#x7684;DNS&#x54CD;&#x5E94;&#x6D88;&#x606F;&#x5305;&#x542B;&#x6B64;&#x67E5;&#x8BE2;&#x7684;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x8BB0;&#x5F55;&#xFF0C;&#x5B83;&#x5C06;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5217;&#x8868;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B;&#x54CD;&#x5E94;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x8BB0;&#x5F55;&#x503C;&#x3002;
+&#x60A8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>Message :: TYPE_ *</code>&#x5E38;&#x91CF;&#x6765;&#x63A7;&#x5236;&#x5C06;&#x53D1;&#x9001;&#x54EA;&#x79CD;&#x67E5;&#x8BE2;&#x7C7B;&#x578B;&#x3002;
+&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x6B64;&#x65B9;&#x6CD5;&#x59CB;&#x7EC8;&#x8FD4;&#x56DE;&#x8BB0;&#x5F55;&#x503C;&#x5217;&#x8868;&#xFF0C;&#x4F46;&#x662F;&#x6BCF;&#x79CD;&#x8BB0;&#x5F55;&#x503C;&#x7C7B;&#x578B;&#x53D6;&#x51B3;&#x4E8E;&#x67E5;&#x8BE2;&#x7C7B;&#x578B;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x5B83;&#x8FD4;&#x56DE;&#x7528;&#x4E8E;A&#x578B;&#x67E5;&#x8BE2;&#x7684;IPv4&#x5730;&#x5740;&#xFF0C;&#x7528;&#x4E8E;AAAA&#x578B;&#x67E5;&#x8BE2;&#x7684;IPv6&#x5730;&#x5740;&#xFF0C;&#x7528;&#x4E8E;NS&#x578B;&#xFF0C;CNAME&#x548C;PTR&#x578B;&#x67E5;&#x8BE2;&#x7684;&#x4E3B;&#x673A;&#x540D;&#x4EE5;&#x53CA;&#x7528;&#x4E8E;&#x5176;&#x4ED6;&#x67E5;&#x8BE2;&#x7684;&#x7ED3;&#x6784;&#x5316;&#x6570;&#x636E;&#x3002;
+&#x6709;&#x5173;&#x66F4;&#x591A;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x89C1;<code>Record</code>&#x6587;&#x6863;&#x3002;</p>
+<p>&#x5982;&#x679C;DNS&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;&#x6307;&#x793A;&#x9519;&#x8BEF;&#x4EE3;&#x7801;&#x7684;DNS&#x54CD;&#x5E94;&#x6D88;&#x606F;&#xFF0C;&#x5219;&#x6B64;&#x65B9;&#x6CD5;&#x5C06;&#x62D2;&#x7EDD;&#x5E76;&#x8FD4;&#x56DE;<code>RecordNotFoundException</code>&#x3002;&#x5B83;&#x7684;&#x6D88;&#x606F;&#x548C;&#x4EE3;&#x7801;&#x53EF;&#x7528;&#x4E8E;&#x68C0;&#x67E5;&#x54CD;&#x5E94;&#x4EE3;&#x7801;&#x3002;</p>
+<p>&#x5982;&#x679C;DNS&#x901A;&#x4FE1;&#x5931;&#x8D25;&#xFF0C;&#x5E76;&#x4E14;&#x670D;&#x52A1;&#x5668;&#x6CA1;&#x6709;&#x4EE5;&#x6709;&#x6548;&#x7684;&#x54CD;&#x5E94;&#x6D88;&#x606F;&#x8FDB;&#x884C;&#x54CD;&#x5E94;&#xFF0C;&#x5219;&#x8BE5;&#x6D88;&#x606F;&#x5C06;&#x4EE5;<code>Exception</code>&#x62D2;&#x7EDD;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x53D6;&#x6D88;&#x5176;&#x5F85;&#x5904;&#x7406;&#x7684;&#x627F;&#x8BFA;&#x6765;&#x53D6;&#x6D88;&#x5F85;&#x5904;&#x7406;&#x7684;DNS&#x67E5;&#x8BE2;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
 <pre><code class="lang-php">$promise = $resolver-&gt;resolveAll(<span class="hljs-string">&apos;reactphp.org&apos;</span>, Message::TYPE_AAAA);
 
 $promise-&gt;cancel();
 </code></pre>
-<h2 id="advanced-usage">Advanced Usage</h2>
+<h2 id="&#x9AD8;&#x7EA7;&#x7528;&#x6CD5;">&#x9AD8;&#x7EA7;&#x7528;&#x6CD5;</h2>
 <h3 id="udptransportexecutor">UdpTransportExecutor</h3>
-<p>The <code>UdpTransportExecutor</code> can be used to
-send DNS queries over a UDP transport.</p>
-<p>This is the main class that sends a DNS query to your DNS server and is used
-internally by the <code>Resolver</code> for the actual message transport.</p>
-<p>For more advanced usages one can utilize this class directly.
-The following example looks up the <code>IPv6</code> address for <code>igor.io</code>.</p>
+<p><code>UdpTransportExecutor</code>&#x53EF;&#x7528;&#x4E8E;&#x901A;&#x8FC7;UDP&#x4F20;&#x8F93;&#x53D1;&#x9001;DNS&#x67E5;&#x8BE2;&#x3002;</p>
+<p>&#x8FD9;&#x662F;&#x53D1;&#x9001;&#x4E00;&#x4E2A;DNS&#x67E5;&#x8BE2;&#x5230;&#x60A8;&#x7684;DNS&#x670D;&#x52A1;&#x5668;&#x7684;&#x4E3B;&#x7C7B;&#xFF0C;&#x7531;<code>Resolver</code>&#x5185;&#x90E8;&#x7528;&#x4E8E;&#x5B9E;&#x9645;&#x7684;&#x6D88;&#x606F;&#x4F20;&#x8F93;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x66F4;&#x9AD8;&#x7EA7;&#x7684;&#x7528;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x7C7B;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x67E5;&#x627E;<code>igor.io</code>&#x7684;<code>IPv6</code>&#x5730;&#x5740;&#x3002;</p>
 <pre><code class="lang-php">$loop = Factory::create();
 $executor = <span class="hljs-keyword">new</span> UdpTransportExecutor(<span class="hljs-string">&apos;8.8.8.8:53&apos;</span>, $loop);
 
@@ -526,18 +495,15 @@ $executor-&gt;query(
 
 $loop-&gt;run();
 </code></pre>
-<p>See also the <a href="examples">fourth example</a>.</p>
-<p>Note that this executor does not implement a timeout, so you will very likely
-want to use this in combination with a <code>TimeoutExecutor</code> like this:</p>
+<p>&#x8BF7;&#x53C2;&#x9605; <a href="https://github.com/reactphp/dns/blob/v1.4.0/examples" target="_blank">&#x793A;&#x4F8B;4</a>.</p>
+<p>&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x6B64;&#x6267;&#x884C;&#x5668;&#x672A;&#x5B9E;&#x73B0;&#x8D85;&#x65F6;&#x673A;&#x5236;&#xFF0C;&#x60A8;&#x53EF;&#x80FD;&#x5E0C;&#x671B;&#x4E0E;<code>TimeoutExecutor</code>&#x7ED3;&#x5408;&#x4F7F;&#x7528;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
 <pre><code class="lang-php">$executor = <span class="hljs-keyword">new</span> TimeoutExecutor(
     <span class="hljs-keyword">new</span> UdpTransportExecutor($nameserver, $loop),
     <span class="hljs-number">3.0</span>,
     $loop
 );
 </code></pre>
-<p>Also note that this executor uses an unreliable UDP transport and that it
-does not implement any retry logic, so you will likely want to use this in
-combination with a <code>RetryExecutor</code> like this:</p>
+<p>&#x53E6;&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x6B64;&#x6267;&#x884C;&#x5668;&#x4F7F;&#x7528;&#x4E0D;&#x53EF;&#x9760;&#x7684;UDP&#x4F20;&#x8F93;&#xFF0C;&#x5E76;&#x4E14;&#x5B83;&#x4E0D;&#x5B9E;&#x73B0;&#x4EFB;&#x4F55;&#x91CD;&#x8BD5;&#x903B;&#x8F91;&#xFF0C;&#x56E0;&#x6B64;&#x60A8;&#x53EF;&#x80FD;&#x5E0C;&#x671B;&#x4E0E;<code>RetryExecutor</code>&#x7ED3;&#x5408;&#x4F7F;&#x7528;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
 <pre><code class="lang-php">$executor = <span class="hljs-keyword">new</span> RetryExecutor(
     <span class="hljs-keyword">new</span> TimeoutExecutor(
         <span class="hljs-keyword">new</span> UdpTransportExecutor($nameserver, $loop),
@@ -546,13 +512,10 @@ combination with a <code>RetryExecutor</code> like this:</p>
     )
 );
 </code></pre>
-<p>Note that this executor is entirely async and as such allows you to execute
-any number of queries concurrently. You should probably limit the number of
-concurrent queries in your application or you&apos;re very likely going to face
-rate limitations and bans on the resolver end. For many common applications,
-you may want to avoid sending the same query multiple times when the first
-one is still pending, so you will likely want to use this in combination with
-a <code>CoopExecutor</code> like this:</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x4E2A;&#x6267;&#x884C;&#x5668;&#x662F;&#x5B8C;&#x5168;&#x5F02;&#x6B65;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x5141;&#x8BB8;&#x5E76;&#x53D1;&#x6267;&#x884C;&#x4EFB;&#x610F;&#x6570;&#x91CF;&#x7684;&#x67E5;&#x8BE2;&#x3002;
+&#x60A8;&#x5E94;&#x8BE5;&#x9650;&#x5236;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x5E76;&#x53D1;&#x67E5;&#x8BE2;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x5426;&#x5219;&#x5F88;&#x53EF;&#x80FD;&#x4F1A;&#x5728;&#x89E3;&#x6790;&#x5668;&#x7AEF;&#x9762;&#x4E34;&#x901F;&#x7387;&#x9650;&#x5236;&#x548C;&#x7981;&#x4EE4;&#x3002;
+&#x5BF9;&#x4E8E;&#x8BB8;&#x591A;&#x5E38;&#x89C1;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x5F53;&#x7B2C;&#x4E00;&#x4E2A;&#x67E5;&#x8BE2;&#x4ECD;&#x7136;&#x6302;&#x8D77;&#x65F6;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x60F3;&#x8981;&#x907F;&#x514D;&#x591A;&#x6B21;&#x53D1;&#x9001;&#x76F8;&#x540C;&#x7684;&#x67E5;&#x8BE2;&#xFF0C;
+&#x6240;&#x4EE5;&#x4F60;&#x53EF;&#x80FD;&#x60F3;&#x8981;&#x7ED3;&#x5408;&#x4F7F;&#x7528;<code>CoopExecutor</code>:</p>
 <pre><code class="lang-php">$executor = <span class="hljs-keyword">new</span> CoopExecutor(
     <span class="hljs-keyword">new</span> RetryExecutor(
         <span class="hljs-keyword">new</span> TimeoutExecutor(
@@ -564,18 +527,14 @@ a <code>CoopExecutor</code> like this:</p>
 );
 </code></pre>
 <blockquote>
-<p>Internally, this class uses PHP&apos;s UDP sockets and does not take advantage
-  of <a href="https://github.com/reactphp/datagram" target="_blank">react/datagram</a> purely for
-  organizational reasons to avoid a cyclic dependency between the two
-  packages. Higher-level components should take advantage of the Datagram
-  component instead of reimplementing this socket logic from scratch.</p>
+<p>&#x6B64;&#x7C7B;&#x4EC5;&#x51FA;&#x4E8E;&#x7EC4;&#x7EC7;&#x539F;&#x56E0;&#x800C;&#x4F7F;&#x7528;PHP&#x7684;UDP&#x5957;&#x63A5;&#x5B57;&#xFF0C;&#x5E76;&#x4E14;&#x6CA1;&#x6709;&#x5229;&#x7528; <a href="2.Network-Components/Datagram.md">react/datagram</a>
+ &#x7684;&#x4F18;&#x52BF;&#xFF0C;&#x4EE5;&#x907F;&#x514D;&#x4E24;&#x4E2A;&#x5305;&#x4E4B;&#x95F4;&#x7684;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x3002; &#x9AD8;&#x7EA7;&#x7EC4;&#x4EF6;&#x5E94;&#x8BE5;&#x5229;&#x7528;&#x6570;&#x636E;&#x62A5;&#x7EC4;&#x4EF6;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4ECE;&#x5934;&#x91CD;&#x65B0;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x5957;&#x63A5;&#x5B57;&#x903B;&#x8F91;&#x3002;</p>
 </blockquote>
 <h3 id="tcptransportexecutor">TcpTransportExecutor</h3>
-<p>The <code>TcpTransportExecutor</code> class can be used to
-send DNS queries over a TCP/IP stream transport.</p>
-<p>This is one of the main classes that send a DNS query to your DNS server.</p>
-<p>For more advanced usages one can utilize this class directly.
-The following example looks up the <code>IPv6</code> address for <code>reactphp.org</code>.</p>
+<p><code>TcpTransportExecutor</code>&#x7C7B;&#x53EF;&#x7528;&#x4E8E;&#x901A;&#x8FC7;TCP / IP&#x6D41;&#x4F20;&#x8F93;&#x53D1;&#x9001;DNS&#x67E5;&#x8BE2;&#x3002;</p>
+<p>&#x8FD9;&#x662F;&#x5C06;DNS&#x67E5;&#x8BE2;&#x53D1;&#x9001;&#x5230;DNS&#x670D;&#x52A1;&#x5668;&#x7684;&#x4E3B;&#x8981;&#x7C7B;&#x4E4B;&#x4E00;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x66F4;&#x9AD8;&#x7EA7;&#x7684;&#x7528;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x6B64;&#x7C7B;&#x3002;
+&#x4EE5;&#x4E0B;&#x793A;&#x4F8B;&#x67E5;&#x8BE2;<code>reactphp.org</code>&#x7684;<code>IPv6</code>&#x5730;&#x5740;&#x3002;</p>
 <pre><code class="lang-php">$loop = Factory::create();
 $executor = <span class="hljs-keyword">new</span> TcpTransportExecutor(<span class="hljs-string">&apos;8.8.8.8:53&apos;</span>, $loop);
 
@@ -589,32 +548,21 @@ $executor-&gt;query(
 
 $loop-&gt;run();
 </code></pre>
-<p>See also <a href="examples">example #92</a>.</p>
-<p>Note that this executor does not implement a timeout, so you will very likely
-want to use this in combination with a <code>TimeoutExecutor</code> like this:</p>
+<p>&#x8BF7;&#x53C2;&#x9605;<a href="https://github.com/reactphp/dns/blob/v1.4.0/examples" target="_blank">&#x793A;&#x4F8B;#92</a></p>
+<p>&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x6B64;&#x6267;&#x884C;&#x5668;&#x672A;&#x5B9E;&#x73B0;&#x8D85;&#x65F6;&#x673A;&#x5236;&#xFF0C;&#x60A8;&#x53EF;&#x80FD;&#x5E0C;&#x671B;&#x4E0E;<code>TimeoutExecutor</code>&#x7ED3;&#x5408;&#x4F7F;&#x7528;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
 <pre><code class="lang-php">$executor = <span class="hljs-keyword">new</span> TimeoutExecutor(
     <span class="hljs-keyword">new</span> TcpTransportExecutor($nameserver, $loop),
     <span class="hljs-number">3.0</span>,
     $loop
 );
 </code></pre>
-<p>Unlike the <code>UdpTransportExecutor</code>, this class uses a reliable TCP/IP
-transport, so you do not necessarily have to implement any retry logic.</p>
-<p>Note that this executor is entirely async and as such allows you to execute
-queries concurrently. The first query will establish a TCP/IP socket
-connection to the DNS server which will be kept open for a short period.
-Additional queries will automatically reuse this existing socket connection
-to the DNS server, will pipeline multiple requests over this single
-connection and will keep an idle connection open for a short period. The
-initial TCP/IP connection overhead may incur a slight delay if you only send
-occasional queries &#x2013; when sending a larger number of concurrent queries over
-an existing connection, it becomes increasingly more efficient and avoids
-creating many concurrent sockets like the UDP-based executor. You may still
-want to limit the number of (concurrent) queries in your application or you
-may be facing rate limitations and bans on the resolver end. For many common
-applications, you may want to avoid sending the same query multiple times
-when the first one is still pending, so you will likely want to use this in
-combination with a <code>CoopExecutor</code> like this:</p>
+<p>&#x4E0E;<code>UdpTransportExecutor</code>&#x4E0D;&#x540C;&#xFF0C;&#x8BE5;&#x7C7B;&#x4F7F;&#x7528;&#x53EF;&#x9760;&#x7684;TCP/IP&#x4F20;&#x8F93;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x5FC5;&#x5B9E;&#x73B0;&#x4EFB;&#x4F55;&#x91CD;&#x8BD5;&#x903B;&#x8F91;&#x3002;
+&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x4E2A;&#x6267;&#x884C;&#x5668;&#x662F;&#x5B8C;&#x5168;&#x5F02;&#x6B65;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x5141;&#x8BB8;&#x5E76;&#x53D1;&#x6267;&#x884C;&#x67E5;&#x8BE2;&#x3002;&#x7B2C;&#x4E00;&#x4E2A;&#x67E5;&#x8BE2;&#x5C06;&#x5EFA;&#x7ACB;&#x5230;DNS&#x670D;&#x52A1;&#x5668;&#x7684;TCP/IP&#x5957;&#x63A5;&#x5B57;&#x8FDE;&#x63A5;&#xFF0C;&#x8BE5;&#x8FDE;&#x63A5;&#x5C06;&#x5728;&#x77ED;&#x65F6;&#x95F4;&#x5185;&#x4FDD;&#x6301;&#x6253;&#x5F00;&#x72B6;&#x6001;&#x3002;</p>
+<p>&#x5176;&#x4ED6;&#x67E5;&#x8BE2;&#x5C06;&#x81EA;&#x52A8;&#x91CD;&#x7528;&#x5230;DNS&#x670D;&#x52A1;&#x5668;&#x7684;&#x8FD9;&#x4E2A;&#x73B0;&#x6709;&#x5957;&#x63A5;&#x5B57;&#x8FDE;&#x63A5;&#xFF0C;&#x5C06;&#x5728;&#x8FD9;&#x4E2A;&#x8FDE;&#x63A5;&#x4E0A;&#x7BA1;&#x9053;&#x591A;&#x4E2A;&#x8BF7;&#x6C42;&#xFF0C;&#x5E76;&#x5C06;&#x5728;&#x77ED;&#x65F6;&#x95F4;&#x5185;&#x4FDD;&#x6301;&#x7A7A;&#x95F2;&#x8FDE;&#x63A5;&#x6253;&#x5F00;&#x3002;
+&#x5982;&#x679C;&#x60A8;&#x53EA;&#x662F;&#x5076;&#x5C14;&#x53D1;&#x9001;&#x67E5;&#x8BE2;&#xFF0C;&#x521D;&#x59CB;TCP/IP&#x8FDE;&#x63A5;&#x5F00;&#x9500;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x8F7B;&#x5FAE;&#x7684;&#x5EF6;&#x8FDF; - &#x5F53;&#x5728;&#x73B0;&#x6709;&#x8FDE;&#x63A5;&#x4E0A;&#x53D1;&#x9001;&#x5927;&#x91CF;&#x5E76;&#x53D1;&#x67E5;&#x8BE2;&#x65F6;&#xFF0C;
+&#x5B83;&#x4F1A;&#x53D8;&#x5F97;&#x8D8A;&#x6765;&#x8D8A;&#x9AD8;&#x6548;&#xFF0C;&#x5E76;&#x907F;&#x514D;&#x521B;&#x5EFA;&#x8BB8;&#x591A;&#x5E76;&#x53D1;&#x5957;&#x63A5;&#x5B57;(&#x5982;&#x57FA;&#x4E8E;udp&#x7684;executor)&#x3002;
+&#x60A8;&#x53EF;&#x80FD;&#x4ECD;&#x7136;&#x5E0C;&#x671B;&#x9650;&#x5236;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;(&#x5E76;&#x53D1;)&#x67E5;&#x8BE2;&#x6570;&#x91CF;&#xFF0C;&#x6216;&#x8005;&#x60A8;&#x53EF;&#x80FD;&#x9762;&#x4E34;&#x89E3;&#x6790;&#x5668;&#x7AEF;&#x7684;&#x901F;&#x7387;&#x9650;&#x5236;&#x548C;&#x7981;&#x4EE4;&#x3002;
+&#x5BF9;&#x4E8E;&#x8BB8;&#x591A;&#x5E38;&#x89C1;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x5F53;&#x7B2C;&#x4E00;&#x4E2A;&#x67E5;&#x8BE2;&#x4ECD;&#x7136;&#x6302;&#x8D77;&#x65F6;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x60F3;&#x8981;&#x907F;&#x514D;&#x591A;&#x6B21;&#x53D1;&#x9001;&#x76F8;&#x540C;&#x7684;&#x67E5;&#x8BE2;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x53EF;&#x80FD;&#x60F3;&#x8981;&#x7ED3;&#x5408;&#x4F7F;&#x7528;<code>CoopExecutor</code>:</p>
 <pre><code class="lang-php">$executor = <span class="hljs-keyword">new</span> CoopExecutor(
     <span class="hljs-keyword">new</span> TimeoutExecutor(
         <span class="hljs-keyword">new</span> TcpTransportExecutor($nameserver, $loop),
@@ -624,21 +572,15 @@ combination with a <code>CoopExecutor</code> like this:</p>
 );
 </code></pre>
 <blockquote>
-<p>Internally, this class uses PHP&apos;s TCP/IP sockets and does not take advantage
-  of <a href="https://github.com/reactphp/socket" target="_blank">react/socket</a> purely for
-  organizational reasons to avoid a cyclic dependency between the two
-  packages. Higher-level components should take advantage of the Socket
-  component instead of reimplementing this socket logic from scratch.</p>
+<p>&#x8FD9;&#x4E2A;&#x7C7B;&#x4F7F;&#x7528;PHP&#x7684;TCP/IP&#x5957;&#x63A5;&#x5B57;&#xFF0C;&#x5E76;&#x4E14;&#x6CA1;&#x6709;&#x5229;&#x7528; <a href="2.Network-Components/Socket.md">react/socket</a>
+&#x7684;&#x4F18;&#x52BF;&#xFF0C;&#x4EE5;&#x907F;&#x514D;&#x4E24;&#x4E2A;&#x5305;&#x4E4B;&#x95F4;&#x7684;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x3002;&#x9AD8;&#x7EA7;&#x7EC4;&#x4EF6;&#x5E94;&#x8BE5;&#x5229;&#x7528;&#x5957;&#x63A5;&#x5B57;&#x7EC4;&#x4EF6;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4ECE;&#x5934;&#x91CD;&#x65B0;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x5957;&#x63A5;&#x5B57;&#x903B;&#x8F91;&#x3002;</p>
 </blockquote>
 <h3 id="selectivetransportexecutor">SelectiveTransportExecutor</h3>
-<p>The <code>SelectiveTransportExecutor</code> class can be used to
-Send DNS queries over a UDP or TCP/IP stream transport.</p>
-<p>This class will automatically choose the correct transport protocol to send
-a DNS query to your DNS server. It will always try to send it over the more
-efficient UDP transport first. If this query yields a size related issue
-(truncated messages), it will retry over a streaming TCP/IP transport.</p>
-<p>For more advanced usages one can utilize this class directly.
-The following example looks up the <code>IPv6</code> address for <code>reactphp.org</code>.</p>
+<p><code>SelectiveTransportExecutor</code>&#x7C7B;&#x53EF;&#x7528;&#x4E8E;&#x901A;&#x8FC7;UDP&#x6216;TCP/IP&#x6D41;&#x4F20;&#x8F93;&#x53D1;&#x9001;DNS&#x67E5;&#x8BE2;&#x3002;
+&#x6B64;&#x7C7B;&#x5C06;&#x81EA;&#x52A8;&#x9009;&#x62E9;&#x6B63;&#x786E;&#x7684;&#x4F20;&#x8F93;&#x534F;&#x8BAE;&#x5411;DNS&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;DNS&#x67E5;&#x8BE2;&#x3002;&#x5B83;&#x603B;&#x662F;&#x9996;&#x5148;&#x5C1D;&#x8BD5;&#x901A;&#x8FC7;&#x66F4;&#x6709;&#x6548;&#x7684;UDP&#x4F20;&#x8F93;&#x53D1;&#x9001;&#x5B83;&#x3002;
+&#x5982;&#x679C;&#x6B64;&#x67E5;&#x8BE2;&#x4EA7;&#x751F;&#x4E0E;&#x5927;&#x5C0F;&#x76F8;&#x5173;&#x7684;&#x95EE;&#x9898;(&#x622A;&#x65AD;&#x6D88;&#x606F;)&#xFF0C;&#x5219;&#x5B83;&#x5C06;&#x901A;&#x8FC7;TCP/IP&#x4F20;&#x8F93;&#x91CD;&#x8BD5;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x66F4;&#x9AD8;&#x7EA7;&#x7684;&#x7528;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x6B64;&#x7C7B;&#x3002;
+&#x4EE5;&#x4E0B;&#x793A;&#x4F8B;&#x67E5;&#x8BE2;<code>reactphp.org</code>&#x7684;<code>IPv6</code>&#x5730;&#x5740;&#x3002;</p>
 <pre><code class="lang-php">$executor = <span class="hljs-keyword">new</span> SelectiveTransportExecutor($udpExecutor, $tcpExecutor);
 
 $executor-&gt;query(
@@ -649,18 +591,14 @@ $executor-&gt;query(
     }
 }, <span class="hljs-string">&apos;printf&apos;</span>);
 </code></pre>
-<p>Note that this executor only implements the logic to select the correct
-transport for the given DNS query. Implementing the correct transport logic,
-implementing timeouts and any retry logic is left up to the given executors,
-see also <a href="#udptransportexecutor"><code>UdpTransportExecutor</code></a> and
-<a href="#tcptransportexecutor"><code>TcpTransportExecutor</code></a> for more details.</p>
-<p>Note that this executor is entirely async and as such allows you to execute
-any number of queries concurrently. You should probably limit the number of
-concurrent queries in your application or you&apos;re very likely going to face
-rate limitations and bans on the resolver end. For many common applications,
-you may want to avoid sending the same query multiple times when the first
-one is still pending, so you will likely want to use this in combination with
-a <code>CoopExecutor</code> like this:</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x4E2A;&#x6267;&#x884C;&#x5668;&#x4EC5;&#x5B9E;&#x73B0;&#x4E3A;&#x7ED9;&#x5B9A;DNS&#x67E5;&#x8BE2;&#x9009;&#x62E9;&#x6B63;&#x786E;&#x4F20;&#x8F93;&#x7684;&#x903B;&#x8F91;&#x3002;
+&#x5B9E;&#x73B0;&#x6B63;&#x786E;&#x7684;&#x4F20;&#x8F93;&#x903B;&#x8F91;&#x3001;&#x5B9E;&#x73B0;&#x8D85;&#x65F6;&#x548C;&#x4EFB;&#x4F55;&#x91CD;&#x8BD5;&#x903B;&#x8F91;&#x90FD;&#x7531;&#x7ED9;&#x5B9A;&#x7684;executor&#x51B3;&#x5B9A;&#xFF0C;
+&#x66F4;&#x591A;&#x7EC6;&#x8282;&#x8BF7;&#x53C2;&#x89C1; <a href="#udptransportexecutor"><code>UdpTransportExecutor</code></a> &#x548C;
+<a href="#tcptransportexecutor"><code>TcpTransportExecutor</code></a></p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x4E2A;&#x6267;&#x884C;&#x5668;&#x662F;&#x5B8C;&#x5168;&#x5F02;&#x6B65;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x5141;&#x8BB8;&#x5E76;&#x53D1;&#x6267;&#x884C;&#x4EFB;&#x610F;&#x6570;&#x91CF;&#x7684;&#x67E5;&#x8BE2;&#x3002;
+&#x60A8;&#x5E94;&#x8BE5;&#x9650;&#x5236;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x5E76;&#x53D1;&#x67E5;&#x8BE2;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x5426;&#x5219;&#x5F88;&#x53EF;&#x80FD;&#x4F1A;&#x5728;&#x89E3;&#x6790;&#x5668;&#x7AEF;&#x9762;&#x4E34;&#x901F;&#x7387;&#x9650;&#x5236;&#x548C;&#x7981;&#x4EE4;&#x3002;
+&#x5BF9;&#x4E8E;&#x8BB8;&#x591A;&#x5E38;&#x89C1;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x5F53;&#x7B2C;&#x4E00;&#x4E2A;&#x67E5;&#x8BE2;&#x4ECD;&#x7136;&#x6302;&#x8D77;&#x65F6;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x60F3;&#x8981;&#x907F;&#x514D;&#x591A;&#x6B21;&#x53D1;&#x9001;&#x76F8;&#x540C;&#x7684;&#x67E5;&#x8BE2;&#xFF0C;
+&#x6240;&#x4EE5;&#x4F60;&#x53EF;&#x80FD;&#x60F3;&#x8981;&#x50CF;&#x8FD9;&#x6837;&#x7ED3;&#x5408;&#x4F7F;&#x7528;<code>CoopExecutor</code>:</p>
 <pre><code class="lang-php">$executor = <span class="hljs-keyword">new</span> CoopExecutor(
     <span class="hljs-keyword">new</span> SelectiveTransportExecutor(
         $datagramExecutor,
@@ -669,9 +607,8 @@ a <code>CoopExecutor</code> like this:</p>
 );
 </code></pre>
 <h3 id="hostsfileexecutor">HostsFileExecutor</h3>
-<p>Note that the above <code>UdpTransportExecutor</code> class always performs an actual DNS query.
-If you also want to take entries from your hosts file into account, you may
-use this code:</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x4E0A;&#x9762;&#x7684;<code>UdpTransportExecutor</code>&#x7C7B;&#x603B;&#x662F;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x5B9E;&#x9645;&#x7684;DNS&#x67E5;&#x8BE2;&#x3002;
+&#x5982;&#x679C;&#x4F60;&#x8FD8;&#x60F3;&#x4ECE;&#x4F60;&#x7684;hosts&#x6587;&#x4EF6;&#x4E2D;&#x83B7;&#x53D6;&#x6761;&#x76EE;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;:</p>
 <pre><code class="lang-php">$hosts = \React\Dns\Config\HostsFile::loadFromPathBlocking();
 
 $executor = <span class="hljs-keyword">new</span> UdpTransportExecutor(<span class="hljs-string">&apos;8.8.8.8:53&apos;</span>, $loop);
@@ -681,37 +618,33 @@ $executor-&gt;query(
     <span class="hljs-keyword">new</span> Query(<span class="hljs-string">&apos;localhost&apos;</span>, Message::TYPE_A, Message::CLASS_IN)
 );
 </code></pre>
-<h2 id="install">Install</h2>
-<p>The recommended way to install this library is <a href="https://getcomposer.org" target="_blank">through Composer</a>.
-<a href="https://getcomposer.org/doc/00-intro.md" target="_blank">New to Composer?</a></p>
-<p>This project follows <a href="https://semver.org/" target="_blank">SemVer</a>.
-This will install the latest supported version:</p>
+<h2 id="&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</h2>
+<p>&#x63A8;&#x8350;&#x7684;&#x5B89;&#x88C5;&#x8FD9;&#x4E2A;&#x5E93;&#x7684;&#x65B9;&#x6CD5;&#x662F;<a href="https://getcomposer.org" target="_blank">&#x901A;&#x8FC7;Composer</a>&#x3002;
+<a href="https://getcomposer.org/doc/00-intro.md" target="_blank">Composer &#x65B0;&#x624B;?</a></p>
+<p>&#x8BE5;&#x9879;&#x76EE;&#x9075;&#x5FAA;<a href="https://semver.org/" target="_blank">SemVer</a> &#xFF0C;
+&#x9ED8;&#x8BA4;&#x5B89;&#x88C5;&#x6700;&#x65B0;&#x652F;&#x6301;&#x7684;&#x7248;&#x672C;:</p>
 <pre><code class="lang-bash">$ composer require react/dns:^1.4
 </code></pre>
-<p>See also the <a href="CHANGELOG.md">CHANGELOG</a> for details about version upgrades.</p>
-<p>This project aims to run on any platform and thus does not require any PHP
-extensions and supports running on legacy PHP 5.3 through current PHP 7+ and
-HHVM.
-It&apos;s <em>highly recommended to use PHP 7+</em> for this project.</p>
-<h2 id="tests">Tests</h2>
-<p>To run the test suite, you first need to clone this repo and then install all
-dependencies <a href="https://getcomposer.org" target="_blank">through Composer</a>:</p>
+<p>&#x6709;&#x5173;&#x7248;&#x672C;&#x5347;&#x7EA7;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x89C1;<a href="https://reactphp.org/dns/changelog.html" target="_blank">CHANGELOG</a> &#x3002;</p>
+<p>&#x8BE5;&#x9879;&#x76EE;&#x65E8;&#x5728;&#x5728;&#x4EFB;&#x4F55;&#x5E73;&#x53F0;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x9700;&#x8981;&#x4EFB;&#x4F55;PHP&#x6269;&#x5C55;&#xFF0C;&#x5E76;&#x652F;&#x6301;&#x901A;&#x8FC7; <code>PHP 7+</code>&#x548C;<code>HHVM&#x5728;&#x65E7;&#x7248;PHP 5.3</code>&#x4E0A;&#x8FD0;&#x884C;&#x3002;</p>
+<p>&#x5F3A;&#x70C8;&#x63A8;&#x8350;&#x5728;&#x8FD9;&#x4E2A;&#x9879;&#x76EE;&#x4E2D;&#x4F7F;&#x7528;<em>PHP 7+</em>&#x3002;</p>
+<h2 id="&#x6D4B;&#x8BD5;">&#x6D4B;&#x8BD5;</h2>
+<p>&#x8981;&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#xFF0C;&#x9996;&#x5148;&#x9700;&#x8981;&#x514B;&#x9686;&#x8FD9;&#x4E2A;&#x5B58;&#x50A8;&#x5E93;&#xFF0C;&#x7136;&#x540E;&#x5B89;&#x88C5;&#x6240;&#x6709;&#x4F9D;&#x8D56;&#x9879;<a href="https://getcomposer.org" target="_blank">&#x901A;&#x8FC7;Composer</a>:</p>
 <pre><code class="lang-bash">$ composer install
 </code></pre>
-<p>To run the test suite, go to the project root and run:</p>
+<p>&#x8981;&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#xFF0C;&#x8BF7;&#x8F6C;&#x5230;&#x9879;&#x76EE;&#x6839;&#x76EE;&#x5F55;&#x5E76;&#x8FD0;&#x884C;:</p>
 <pre><code class="lang-bash">$ php vendor/bin/phpunit
 </code></pre>
-<p>The test suite also contains a number of functional integration tests that rely
-on a stable internet connection.
-If you do not want to run these, they can simply be skipped like this:</p>
+<p>&#x8BE5;&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x8FD8;&#x5305;&#x542B;&#x8BB8;&#x591A;&#x4F9D;&#x8D56;&#x7A33;&#x5B9A;internet&#x8FDE;&#x63A5;&#x7684;&#x529F;&#x80FD;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x3002;
+&#x5982;&#x679C;&#x60A8;&#x4E0D;&#x60F3;&#x8FD0;&#x884C;&#x8FD9;&#x4E9B;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x50CF;&#x8FD9;&#x6837;&#x8DF3;&#x8FC7;&#x5B83;&#x4EEC;:</p>
 <pre><code class="lang-bash">$ php vendor/bin/phpunit --exclude-group internet
 </code></pre>
 <h2 id="license">License</h2>
-<p>MIT, see <a href="LICENSE">LICENSE file</a>.</p>
-<h2 id="references">References</h2>
+<p>MIT, see <a href="https://reactphp.org/dns/license.html" target="_blank">LICENSE file</a>.</p>
+<h2 id="&#x53C2;&#x8003;&#x6587;&#x732E;">&#x53C2;&#x8003;&#x6587;&#x732E;</h2>
 <ul>
-<li><a href="https://tools.ietf.org/html/rfc1034" target="_blank">RFC 1034</a> Domain Names - Concepts and Facilities</li>
-<li><a href="https://tools.ietf.org/html/rfc1035" target="_blank">RFC 1035</a> Domain Names - Implementation and Specification</li>
+<li><a href="https://tools.ietf.org/html/rfc1034" target="_blank">RFC 1034</a> &#x57DF;&#x540D;-&#x6982;&#x5FF5;&#x548C;&#x8BBE;&#x65BD;</li>
+<li><a href="https://tools.ietf.org/html/rfc1035" target="_blank">RFC 1035</a> &#x57DF;&#x540D;-&#x5B9E;&#x73B0;&#x548C;&#x89C4;&#x8303;</li>
 </ul>
 
                                 
@@ -772,7 +705,7 @@ If you do not want to run these, they can simply be skipped like this:</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Dns","level":"4.1","depth":1,"next":{"title":"Http","level":"4.2","depth":1,"path":"3.Protocol-Components/Http.md","ref":"3.Protocol-Components/Http.md","articles":[]},"previous":{"title":"Socket","level":"3.2","depth":1,"path":"2.Network-Components/Socket.md","ref":"2.Network-Components/Socket.md","articles":[]},"dir":"ltr"},"config":{"plugins":["- summary","toggle-chapters","theme-comscore","highlight","search-plus","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"search-plus":{}},"theme":"default","author":"Imparting","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactPHP 中文文档","language":"zh-hans","gitbook":"*","description":"ReactPHP是PHP中用于事件驱动编程的底层库。它的核心是一个事件循环，在此基础上它提供了底层实用程序，例如：流抽象、异步DNS解析器、网络客户端/服务器、HTTP客户端/服务器以及与进程通信。第三方库可以使用这些组件创建异步网络客户端/服务器等。","theme-default":{"showLevel":true}},"file":{"path":"3.Protocol-Components/Dns.md","mtime":"2021-01-27T06:28:35.121Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-02T04:22:20.890Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Dns","level":"4.1","depth":1,"next":{"title":"Http","level":"4.2","depth":1,"path":"3.Protocol-Components/Http.md","ref":"3.Protocol-Components/Http.md","articles":[]},"previous":{"title":"Socket","level":"3.2","depth":1,"path":"2.Network-Components/Socket.md","ref":"2.Network-Components/Socket.md","articles":[]},"dir":"ltr"},"config":{"plugins":["- summary","toggle-chapters","theme-comscore","highlight","search-plus","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"search-plus":{}},"theme":"default","author":"Imparting","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactPHP 中文文档","language":"zh-hans","gitbook":"*","description":"ReactPHP是PHP中用于事件驱动编程的底层库。它的核心是一个事件循环，在此基础上它提供了底层实用程序，例如：流抽象、异步DNS解析器、网络客户端/服务器、HTTP客户端/服务器以及与进程通信。第三方库可以使用这些组件创建异步网络客户端/服务器等。","theme-default":{"showLevel":true}},"file":{"path":"3.Protocol-Components/Dns.md","mtime":"2021-02-03T09:19:13.069Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-03T09:17:07.562Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -53,7 +53,7 @@
 
 ## 快速开始
 
-如果您发送任何连接，这是一个关闭连接的服务器：
+如果您发送任何连接，这是一个关闭连接的服务器:
 
 ```php
 $loop = React\EventLoop\Factory::create();
@@ -74,7 +74,7 @@ $loop->run();
 
 另请参阅[示例](https://github.com/reactphp/socket/blob/v1.6.0/examples)
 
-这是一个客户端，该客户端输出所述服务器的输出，然后尝试向其发送字符串：
+这是一个客户端，该客户端输出服务器的输出，然后尝试向其发送字符串:
 
 ```php
 $loop = React\EventLoop\Factory::create();
@@ -309,7 +309,7 @@ Unix域套接字也可以接受连接。
 $server = new React\Socket\Server(8080, $loop);
 ```
 
-如上所述，` $uri `参数可以只包含一个端口，在这种情况下，服务器将默认侦听本地主机地址` 127.0.0.1 `，这意味着从系统外部无法访问该地址。
+如上所示，` $uri `参数可以只包含一个端口，在这种情况下，服务器将默认侦听本地主机地址` 127.0.0.1 `，这意味着从系统外部无法访问该地址。
 
 为了使用一个随机的端口分配，你可以使用端口` 0 `:
 
@@ -389,7 +389,7 @@ $server = new React\Socket\Server('tls://127.0.0.1:8080', $loop, array(
 > 注意，证书文件不会在实例化时加载，而是在传入连接初始化其TLS上下文时加载。
   这意味着任何无效的证书文件路径或内容只会在以后的时间导致`error`事件。 
 
-如果您的私钥已使用密码加密，则必须像这样指定它：
+如果您的私钥已使用密码加密，则必须像这样指定它:
 
 ```php
 $server = new React\Socket\Server('tls://127.0.0.1:8000', $loop, array(
@@ -401,7 +401,7 @@ $server = new React\Socket\Server('tls://127.0.0.1:8000', $loop, array(
 ```
 
 默认情况下，此服务器支持TLSv1.0 +，并且不支持旧版SSLv2 / SSLv3。
-从PHP 5.6+开始，您还可以显式选择要与远程端协商的TLS版本：
+从PHP 5.6+开始，您还可以显式选择要与远程端协商的TLS版本:
 
 ```php
 $server = new React\Socket\Server('tls://127.0.0.1:8000', $loop, array(
@@ -415,9 +415,9 @@ $server = new React\Socket\Server('tls://127.0.0.1:8000', $loop, array(
  它们的默认值和更改这些值的效果可能会因您的系统和/或PHP版本而异。
  外部上下文数组允许您同时使用`tcp`（可能还有更多）上下文选项。
  传递未知的上下文选项无效。
- 如果您不使用`tls：//`方案，那么传递`tls`上下文选项将无效。
+ 如果您不使用`tls://`方案，那么传递`tls`上下文选项将无效。
 
-每当客户端连接时，它将通过实现[`ConnectionInterface`](#connectioninterface)的连接实例触发`connection`事件：
+每当客户端连接时，它将通过实现[`ConnectionInterface`](#connectioninterface)的连接实例触发`connection`事件:
 
 ```php
 $server->on('connection', function (React\Socket\ConnectionInterface $connection) {
@@ -443,7 +443,7 @@ $server->on('connection', function (React\Socket\ConnectionInterface $connection
 $server = new React\Socket\TcpServer(8080, $loop);
 ```
 
-如上所述，` $uri `参数可以只包含一个端口，在这种情况下，服务器将默认侦听本地主机地址` 127.0.0.1 `，这意味着从系统外部无法访问该地址。
+如上所示，` $uri `参数可以只包含一个端口，在这种情况下，服务器将默认侦听本地主机地址` 127.0.0.1 `，这意味着从系统外部无法访问该地址。
 
 为了使用一个随机的端口分配，你可以使用端口` 0 `:
 
@@ -464,7 +464,7 @@ $server = new React\Socket\TcpServer('192.168.0.1:8080', $loop);
 $server = new React\Socket\TcpServer('[::1]:8080', $loop);
 ```
 
-如果给定的URI无效，不包含端口，任何其他方案，或者包含主机名，则将抛出`InvalidArgumentException`：
+如果给定的URI无效，不包含端口，任何其他方案，或者包含主机名，则将抛出`InvalidArgumentException`:
 
 ```php
 // throws InvalidArgumentException due to missing port
@@ -472,7 +472,7 @@ $server = new React\Socket\TcpServer('127.0.0.1', $loop);
 ```
 
 如果给定的URI似乎有效，但是对其进行侦听失败（例如，如果端口已在使用中，或者端口低于1024，则可能需要root用户访问权限等），
-它将抛出`RuntimeException`：
+它将抛出`RuntimeException`:
 
 ```php
 $first = new React\Socket\TcpServer(8080, $loop);
@@ -540,7 +540,7 @@ $server = new React\Socket\SecureServer($server, $loop, array(
 ```
 
 默认情况下，此服务器支持TLSv1.0 +，并且不支持旧版SSLv2 / SSLv3。 
-从PHP 5.6+开始，您还可以显式选择要与远程端协商的TLS版本：
+从PHP 5.6+开始，您还可以显式选择要与远程端协商的TLS版本:
 
 ```php
 $server = new React\Socket\TcpServer(8000, $loop);
@@ -554,7 +554,7 @@ $server = new React\Socket\SecureServer($server, $loop, array(
  它们的默认值和更改它们的效果可能会因系统和/或PHP版本而异。
  传递未知的上下文选项无效。
 
-每当客户端完成TLS握手时，它将发出带有实现[`ConnectionInterface`](#connectioninterface)的连接实例的`connection`事件：
+每当客户端完成TLS握手时，它将发出带有实现[`ConnectionInterface`](#connectioninterface)的连接实例的`connection`事件:
 
 ```php
 $server->on('connection', function (React\Socket\ConnectionInterface $connection) {
@@ -565,7 +565,7 @@ $server->on('connection', function (React\Socket\ConnectionInterface $connection
 });
 ```
 
-每当客户端未能成功执行TLS握手时，客户端都会触发`error`事件，然后关闭基础TCP / IP连接：
+每当客户端未能成功执行TLS握手时，客户端都会触发`error`事件，然后关闭基础TCP / IP连接:
 
 ```php
 $server->on('error', function (Exception $e) {
@@ -577,7 +577,7 @@ $server->on('error', function (Exception $e) {
 请注意，` SecureServer `类是TLS套接字的具体实现。
 如果你想在高级协议实现中类型提示，你应该使用通用的[`ServerInterface`](#serverinterface)来代替。
 
->高级用法：尽管允许将任何`ServerInterface`作为第一个参数，但应该将`TcpServer`实例作为第一个参数传递，除非您知道自己在做什么。
+>高级用法:尽管允许将任何`ServerInterface`作为第一个参数，但应该将`TcpServer`实例作为第一个参数传递，除非您知道自己在做什么。
  `SecureServer`内部必须在底层流资源上设置所需的TLS上下文选项。
  这些资源不会通过此包中定义的任何接口，而只能通过内部`Connection`类公开。
  `TcpServer`类保证发出实现`ConnectionInterface`的连接，并使用内部`Connection`类来公开这些底层资源。
@@ -590,7 +590,7 @@ $server->on('error', function (Exception $e) {
 ```php
 $server = new React\Socket\UnixServer('/tmp/server.sock', $loop);
 ```
-如上所述，` $uri `参数只能由一个套接字路径或以` unix:// `方案为前缀的套接字。
+如上所示，` $uri `参数只能由一个套接字路径或以` unix:// `方案为前缀的套接字。
 
 如果给定的URI看起来是有效的，但是监听失败(比如socket已经在使用或者文件不能访问等等)，
 它将抛出一个`RuntimeException`:
@@ -691,7 +691,7 @@ foreach ($server->getConnection() as $connection) {
 
 通常这是通过依赖项注入完成的，便于你将该实现替换为该接口的其他实现。
 
-该接口仅提供一种方法：
+该接口仅提供一种方法:
 
 #### connect()
 
@@ -699,7 +699,7 @@ foreach ($server->getConnection() as $connection) {
 
 返回一个[Promise](1.Core-Components/Promise.md) ，
 它在成功时以实现[`ConnectionInterface`](#connectioninterface)的流来实现，
-或者在连接不成功时以`Exception`拒绝。 ：
+或者在连接不成功时以`Exception`拒绝。 :
 
 ```php
 $connector->connect('google.com:443')->then(
@@ -714,8 +714,8 @@ $connector->connect('google.com:443')->then(
 
 另请参阅[`ConnectionInterface`](#connectioninterface) 
 
-返回的Promise必须以这样的方式实现：在尚待处理时可以将其取消。 
-取消未决的承诺必须以`Exception`拒绝其值。 它应清理所有适用的基础资源和参考：
+返回的Promise必须以这样的方式实现:在尚待处理时可以将其取消。 
+取消未决的承诺必须以`Exception`拒绝其值。 它应清理所有适用的基础资源和参考:
 
 ```php
 $promise = $connector->connect($uri);
@@ -797,7 +797,7 @@ $connector = new React\Socket\Connector($loop, array(
 
 `Connector`类将尝试检测您的系统DNS设置（如果无法确定您的系统设置，并使用Google的公共DNS服务器`8.8.8.8`作为备用），
 默认情况下会将所有公共主机名解析为基础IP地址。
-如果您确定要使用自定义DNS服务器（例如本地DNS中继或公司范围的DNS服务器），则可以按以下方式设置`Connector`：
+如果您确定要使用自定义DNS服务器（例如本地DNS中继或公司范围的DNS服务器），则可以按以下方式设置`Connector`:
 
 ```php
 $connector = new React\Socket\Connector($loop, array(
@@ -810,7 +810,7 @@ $connector->connect('localhost:80')->then(function (React\Socket\ConnectionInter
 });
 ```
 
-如果您想直接连接IP地址，不使用DNS解析器，可以这样设置`Connector`：
+如果您想直接连接IP地址，不使用DNS解析器，可以这样设置`Connector`:
 
 ```php
 $connector = new React\Socket\Connector($loop, array(
@@ -895,7 +895,7 @@ $connector->connect('tls://localhost:443')->then(function (React\Socket\Connecti
 });
 ```
 默认情况下，此连接器支持TLSv1.0 +，并且不支持旧版SSLv2 / SSLv3。 
-从PHP 5.6+开始，您还可以显式选择要与远程端协商的TLS版本：
+从PHP 5.6+开始，您还可以显式选择要与远程端协商的TLS版本:
 
 ```php
 $connector = new React\Socket\Connector($loop, array(
@@ -908,9 +908,9 @@ $connector = new React\Socket\Connector($loop, array(
 >有关上下文选项的更多详细信息，请参阅有关[socket context options](https://www.php.net/manual/en/context.socket.php)
  和[SSL context options](https://www.php.net/manual/en/context.ssl.php)
 
-高级：默认情况下，`Connector`支持`tcp://`, `tls://` 和 `unix://` URI方案。
+高级:默认情况下，`Connector`支持`tcp://`, `tls://` 和 `unix://` URI方案。
 为此，它会自动设置所需的连接器类。如果您想显式传递自定义连接器，
-则可以传递一个实现`ConnectorInterface`的实例，如下所示：
+则可以传递一个实现`ConnectorInterface`的实例，如下所示:
 
 ```php
 $dnsResolverFactory = new React\Dns\Resolver\Factory();
@@ -936,18 +936,18 @@ $connector->connect('google.com:80')->then(function (React\Socket\ConnectionInte
 });
 ```
 
->`tcp：//`连接器将始终由DNS解析器包装，禁用DNS除外。 
- 在这种情况下，` tcp：// `连接器将接收实际的主机名执行查找，而不是仅接收解析的IP地址。
- 在内部，自动创建的` tls：// `连接器始终包装基础的`tcp：//`连接器，
+>`tcp://`连接器将始终由DNS解析器包装，禁用DNS除外。 
+ 在这种情况下，` tcp:// `连接器将接收实际的主机名执行查找，而不是仅接收解析的IP地址。
+ 在内部，自动创建的` tls:// `连接器始终包装基础的`tcp://`连接器，
  以在启用安全TLS模式之前建立基础的纯文本TCP / IP连接。 
- 如果您只想将自定义基础` tcp：//`连接器仅用于安全的TLS连接，则可以像上面那样显式地传递` tls：// `连接器。
- `tcp：//`和`tls：//`连接器将始终由`TimeoutConnector`包装，禁用超时除外。
+ 如果您只想将自定义基础` tcp://`连接器仅用于安全的TLS连接，则可以像上面那样显式地传递` tls:// `连接器。
+ `tcp://`和`tls://`连接器将始终由`TimeoutConnector`包装，禁用超时除外。
 
 ### 高级客户端使用
 
 #### TcpConnector
 
-`TcpConnector`类实现[`ConnectorInterface`](#connectorinterface)，并允许您创建到任何IP端口组合的纯文本TCP / IP连接：
+`TcpConnector`类实现[`ConnectorInterface`](#connectorinterface)，并允许您创建到任何IP端口组合的纯文本TCP / IP连接:
 
 ```php
 $tcpConnector = new React\Socket\TcpConnector($loop);
@@ -962,7 +962,7 @@ $loop->run();
 
 参阅 [示例](https://github.com/reactphp/socket/blob/v1.6.0/examples).
 
-挂起的连接可以通过取消其挂起的承诺来取消，如下所示：
+挂起的连接可以通过取消其挂起的承诺来取消，如下所示:
 ```php
 $promise = $tcpConnector->connect('127.0.0.1:80');
 
@@ -971,7 +971,7 @@ $promise->cancel();
 
 对挂起的承诺调用`cancel()`将关闭底层套接字资源，从而取消挂起的TCP/IP连接，并拒绝生成的承诺。
 
-您可以选择将其他[socket context options](https://www.php.net/manual/en/context.socket.php) 传递给构造函数，如下所示：
+您可以选择将其他[socket context options](https://www.php.net/manual/en/context.socket.php) 传递给构造函数，如下所示:
 
 ```php
 $tcpConnector = new React\Socket\TcpConnector($loop, array(
@@ -980,7 +980,7 @@ $tcpConnector = new React\Socket\TcpConnector($loop, array(
 ```
 
 请注意，此类仅允许您连接到IP端口组合。
-如果给定的URI无效，不包含有效的IP地址和端口或包含任何其他方案，则它将以`InvalidArgumentException`拒绝：
+如果给定的URI无效，不包含有效的IP地址和端口或包含任何其他方案，则它将以`InvalidArgumentException`拒绝:
 
 如果给定的URI似乎有效，但是连接失败（例如，远程主机拒绝连接等），它将以`RuntimeException`拒绝。
 
@@ -1018,7 +1018,7 @@ $loop->run();
 
 参阅 [示例](https://github.com/reactphp/socket/blob/v1.6.0/examples).
 
-挂起的连接可以通过取消其挂起的承诺来取消，如下所示：
+挂起的连接可以通过取消其挂起的承诺来取消，如下所示:
 
 ```php
 $promise = $dnsConnector->connect('www.google.com:80');
@@ -1058,7 +1058,7 @@ $loop->run();
 
 参阅 [示例](https://github.com/reactphp/socket/blob/v1.6.0/examples).
 
-挂起的连接可以通过取消其挂起的承诺来取消，如下所示：
+挂起的连接可以通过取消其挂起的承诺来取消，如下所示:
 
 ```php
 $promise = $dnsConnector->connect('www.google.com:80');
@@ -1091,7 +1091,7 @@ $loop->run();
 
 参阅 [示例](https://github.com/reactphp/socket/blob/v1.6.0/examples).
 
-挂起的连接可以通过取消其挂起的承诺来取消，如下所示：
+挂起的连接可以通过取消其挂起的承诺来取消，如下所示:
 
 ```php
 $promise = $secureConnector->connect('www.google.com:443');
@@ -1101,7 +1101,7 @@ $promise->cancel();
 
 对挂起的承诺调用` cancel() `将取消底层TCP/IP连接和/或SSL/TLS协商，并拒绝产生的承诺。
 
-您可以选择传递额外的[SSL context options](https://www.php.net/manual/en/context.ssl.php) 到构造函数，像这样：
+您可以选择传递额外的[SSL context options](https://www.php.net/manual/en/context.ssl.php) 到构造函数，像这样:
 
 ```php
 $secureConnector = new React\Socket\SecureConnector($dnsConnector, $loop, array(
@@ -1110,7 +1110,7 @@ $secureConnector = new React\Socket\SecureConnector($dnsConnector, $loop, array(
 ));
 ```
 
-默认情况下，此连接器支持TLSv1.0 +，并且不支持旧版SSLv2 / SSLv3。 从PHP 5.6+开始，您还可以显式选择要与远程端协商的TLS版本：
+默认情况下，此连接器支持TLSv1.0 +，并且不支持旧版SSLv2 / SSLv3。 从PHP 5.6+开始，您还可以显式选择要与远程端协商的TLS版本:
 
 ```php
 $secureConnector = new React\Socket\SecureConnector($dnsConnector, $loop, array(
@@ -1118,7 +1118,7 @@ $secureConnector = new React\Socket\SecureConnector($dnsConnector, $loop, array(
 ));
 ```
 
-> 高级用法：` SecureConnector ` 内部依赖于在基础流资源上设置所需的*context options*。
+> 高级用法:` SecureConnector ` 内部依赖于在基础流资源上设置所需的*context options*。
   因此，它应该与连接器堆栈中某处的`TcpConnector`一起使用，以便它可以为每个流资源分配一个空的*context*资源并验证对等名称
   否则所有流资源都将使用单个共享的*default context*资源，可能会导致TLS对等名称不匹配错误或某些难以跟踪的竞争条件。
 
@@ -1138,7 +1138,7 @@ $timeoutConnector->connect('google.com:80')->then(function (React\Socket\Connect
 
 另请参阅 [示例](https://github.com/reactphp/socket/blob/v1.6.0/examples).
 
-挂起的连接可以通过取消其挂起的承诺来取消，如下所示：
+挂起的连接可以通过取消其挂起的承诺来取消，如下所示:
 
 ```php
 $promise = $timeoutConnector->connect('google.com:80');
@@ -1234,7 +1234,7 @@ $ php vendor/bin/phpunit
 ```
 
 该测试套件还包含许多依赖稳定internet连接的功能集成测试。
-如果您不想运行这些，则可以像这样跳过它们：
+如果您不想运行这些，则可以像这样跳过它们:
 
 ```bash
 $ php vendor/bin/phpunit --exclude-group internet

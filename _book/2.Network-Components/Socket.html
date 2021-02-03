@@ -411,7 +411,7 @@
 <li><a href="#license">License</a></li>
 </ul>
 <h2 id="&#x5FEB;&#x901F;&#x5F00;&#x59CB;">&#x5FEB;&#x901F;&#x5F00;&#x59CB;</h2>
-<p>&#x5982;&#x679C;&#x60A8;&#x53D1;&#x9001;&#x4EFB;&#x4F55;&#x8FDE;&#x63A5;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5173;&#x95ED;&#x8FDE;&#x63A5;&#x7684;&#x670D;&#x52A1;&#x5668;&#xFF1A;</p>
+<p>&#x5982;&#x679C;&#x60A8;&#x53D1;&#x9001;&#x4EFB;&#x4F55;&#x8FDE;&#x63A5;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5173;&#x95ED;&#x8FDE;&#x63A5;&#x7684;&#x670D;&#x52A1;&#x5668;:</p>
 <pre><code class="lang-php">$loop = React\EventLoop\Factory::create();
 $socket = <span class="hljs-keyword">new</span> React\Socket\Server(<span class="hljs-string">&apos;127.0.0.1:8080&apos;</span>, $loop);
 
@@ -428,7 +428,7 @@ $socket-&gt;on(<span class="hljs-string">&apos;connection&apos;</span>, <span cl
 $loop-&gt;run();
 </code></pre>
 <p>&#x53E6;&#x8BF7;&#x53C2;&#x9605;<a href="https://github.com/reactphp/socket/blob/v1.6.0/examples" target="_blank">&#x793A;&#x4F8B;</a></p>
-<p>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x8BE5;&#x5BA2;&#x6237;&#x7AEF;&#x8F93;&#x51FA;&#x6240;&#x8FF0;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8F93;&#x51FA;&#xFF0C;&#x7136;&#x540E;&#x5C1D;&#x8BD5;&#x5411;&#x5176;&#x53D1;&#x9001;&#x5B57;&#x7B26;&#x4E32;&#xFF1A;</p>
+<p>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x8BE5;&#x5BA2;&#x6237;&#x7AEF;&#x8F93;&#x51FA;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8F93;&#x51FA;&#xFF0C;&#x7136;&#x540E;&#x5C1D;&#x8BD5;&#x5411;&#x5176;&#x53D1;&#x9001;&#x5B57;&#x7B26;&#x4E32;:</p>
 <pre><code class="lang-php">$loop = React\EventLoop\Factory::create();
 $connector = <span class="hljs-keyword">new</span> React\Socket\Connector($loop);
 
@@ -573,7 +573,7 @@ $server-&gt;close();
 <p>Unix&#x57DF;&#x5957;&#x63A5;&#x5B57;&#x4E5F;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x8FDE;&#x63A5;&#x3002;</p>
 <pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Socket\Server(<span class="hljs-number">8080</span>, $loop);
 </code></pre>
-<p>&#x5982;&#x4E0A;&#x6240;&#x8FF0;&#xFF0C;<code>$uri</code>&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x53EA;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x7AEF;&#x53E3;&#xFF0C;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x5C06;&#x9ED8;&#x8BA4;&#x4FA6;&#x542C;&#x672C;&#x5730;&#x4E3B;&#x673A;&#x5730;&#x5740;<code>127.0.0.1</code>&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4ECE;&#x7CFB;&#x7EDF;&#x5916;&#x90E8;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x8BE5;&#x5730;&#x5740;&#x3002;</p>
+<p>&#x5982;&#x4E0A;&#x6240;&#x793A;&#xFF0C;<code>$uri</code>&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x53EA;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x7AEF;&#x53E3;&#xFF0C;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x5C06;&#x9ED8;&#x8BA4;&#x4FA6;&#x542C;&#x672C;&#x5730;&#x4E3B;&#x673A;&#x5730;&#x5740;<code>127.0.0.1</code>&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4ECE;&#x7CFB;&#x7EDF;&#x5916;&#x90E8;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x8BE5;&#x5730;&#x5740;&#x3002;</p>
 <p>&#x4E3A;&#x4E86;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x7684;&#x7AEF;&#x53E3;&#x5206;&#x914D;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7AEF;&#x53E3;<code>0</code>:</p>
 <pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Socket\Server(<span class="hljs-number">0</span>, $loop);
 $address = $server-&gt;getAddress();
@@ -632,7 +632,7 @@ $second = <span class="hljs-keyword">new</span> React\Socket\Server(<span class=
 <p>&#x6CE8;&#x610F;&#xFF0C;&#x8BC1;&#x4E66;&#x6587;&#x4EF6;&#x4E0D;&#x4F1A;&#x5728;&#x5B9E;&#x4F8B;&#x5316;&#x65F6;&#x52A0;&#x8F7D;&#xFF0C;&#x800C;&#x662F;&#x5728;&#x4F20;&#x5165;&#x8FDE;&#x63A5;&#x521D;&#x59CB;&#x5316;&#x5176;TLS&#x4E0A;&#x4E0B;&#x6587;&#x65F6;&#x52A0;&#x8F7D;&#x3002;
   &#x8FD9;&#x610F;&#x5473;&#x7740;&#x4EFB;&#x4F55;&#x65E0;&#x6548;&#x7684;&#x8BC1;&#x4E66;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x6216;&#x5185;&#x5BB9;&#x53EA;&#x4F1A;&#x5728;&#x4EE5;&#x540E;&#x7684;&#x65F6;&#x95F4;&#x5BFC;&#x81F4;<code>error</code>&#x4E8B;&#x4EF6;&#x3002; </p>
 </blockquote>
-<p>&#x5982;&#x679C;&#x60A8;&#x7684;&#x79C1;&#x94A5;&#x5DF2;&#x4F7F;&#x7528;&#x5BC6;&#x7801;&#x52A0;&#x5BC6;&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x50CF;&#x8FD9;&#x6837;&#x6307;&#x5B9A;&#x5B83;&#xFF1A;</p>
+<p>&#x5982;&#x679C;&#x60A8;&#x7684;&#x79C1;&#x94A5;&#x5DF2;&#x4F7F;&#x7528;&#x5BC6;&#x7801;&#x52A0;&#x5BC6;&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x50CF;&#x8FD9;&#x6837;&#x6307;&#x5B9A;&#x5B83;:</p>
 <pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Socket\Server(<span class="hljs-string">&apos;tls://127.0.0.1:8000&apos;</span>, $loop, <span class="hljs-keyword">array</span>(
     <span class="hljs-string">&apos;tls&apos;</span> =&gt; <span class="hljs-keyword">array</span>(
         <span class="hljs-string">&apos;local_cert&apos;</span> =&gt; <span class="hljs-string">&apos;server.pem&apos;</span>,
@@ -641,7 +641,7 @@ $second = <span class="hljs-keyword">new</span> React\Socket\Server(<span class=
 ));
 </code></pre>
 <p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6B64;&#x670D;&#x52A1;&#x5668;&#x652F;&#x6301;TLSv1.0 +&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x652F;&#x6301;&#x65E7;&#x7248;SSLv2 / SSLv3&#x3002;
-&#x4ECE;PHP 5.6+&#x5F00;&#x59CB;&#xFF0C;&#x60A8;&#x8FD8;&#x53EF;&#x4EE5;&#x663E;&#x5F0F;&#x9009;&#x62E9;&#x8981;&#x4E0E;&#x8FDC;&#x7A0B;&#x7AEF;&#x534F;&#x5546;&#x7684;TLS&#x7248;&#x672C;&#xFF1A;</p>
+&#x4ECE;PHP 5.6+&#x5F00;&#x59CB;&#xFF0C;&#x60A8;&#x8FD8;&#x53EF;&#x4EE5;&#x663E;&#x5F0F;&#x9009;&#x62E9;&#x8981;&#x4E0E;&#x8FDC;&#x7A0B;&#x7AEF;&#x534F;&#x5546;&#x7684;TLS&#x7248;&#x672C;:</p>
 <pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Socket\Server(<span class="hljs-string">&apos;tls://127.0.0.1:8000&apos;</span>, $loop, <span class="hljs-keyword">array</span>(
     <span class="hljs-string">&apos;tls&apos;</span> =&gt; <span class="hljs-keyword">array</span>(
         <span class="hljs-string">&apos;local_cert&apos;</span> =&gt; <span class="hljs-string">&apos;server.pem&apos;</span>,
@@ -654,9 +654,9 @@ $second = <span class="hljs-keyword">new</span> React\Socket\Server(<span class=
  &#x5B83;&#x4EEC;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x548C;&#x66F4;&#x6539;&#x8FD9;&#x4E9B;&#x503C;&#x7684;&#x6548;&#x679C;&#x53EF;&#x80FD;&#x4F1A;&#x56E0;&#x60A8;&#x7684;&#x7CFB;&#x7EDF;&#x548C;/&#x6216;PHP&#x7248;&#x672C;&#x800C;&#x5F02;&#x3002;
  &#x5916;&#x90E8;&#x4E0A;&#x4E0B;&#x6587;&#x6570;&#x7EC4;&#x5141;&#x8BB8;&#x60A8;&#x540C;&#x65F6;&#x4F7F;&#x7528;<code>tcp</code>&#xFF08;&#x53EF;&#x80FD;&#x8FD8;&#x6709;&#x66F4;&#x591A;&#xFF09;&#x4E0A;&#x4E0B;&#x6587;&#x9009;&#x9879;&#x3002;
  &#x4F20;&#x9012;&#x672A;&#x77E5;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x9009;&#x9879;&#x65E0;&#x6548;&#x3002;
- &#x5982;&#x679C;&#x60A8;&#x4E0D;&#x4F7F;&#x7528;<code>tls&#xFF1A;//</code>&#x65B9;&#x6848;&#xFF0C;&#x90A3;&#x4E48;&#x4F20;&#x9012;<code>tls</code>&#x4E0A;&#x4E0B;&#x6587;&#x9009;&#x9879;&#x5C06;&#x65E0;&#x6548;&#x3002;</p>
+ &#x5982;&#x679C;&#x60A8;&#x4E0D;&#x4F7F;&#x7528;<code>tls://</code>&#x65B9;&#x6848;&#xFF0C;&#x90A3;&#x4E48;&#x4F20;&#x9012;<code>tls</code>&#x4E0A;&#x4E0B;&#x6587;&#x9009;&#x9879;&#x5C06;&#x65E0;&#x6548;&#x3002;</p>
 </blockquote>
-<p>&#x6BCF;&#x5F53;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x65F6;&#xFF0C;&#x5B83;&#x5C06;&#x901A;&#x8FC7;&#x5B9E;&#x73B0;<a href="#connectioninterface"><code>ConnectionInterface</code></a>&#x7684;&#x8FDE;&#x63A5;&#x5B9E;&#x4F8B;&#x89E6;&#x53D1;<code>connection</code>&#x4E8B;&#x4EF6;&#xFF1A;</p>
+<p>&#x6BCF;&#x5F53;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x65F6;&#xFF0C;&#x5B83;&#x5C06;&#x901A;&#x8FC7;&#x5B9E;&#x73B0;<a href="#connectioninterface"><code>ConnectionInterface</code></a>&#x7684;&#x8FDE;&#x63A5;&#x5B9E;&#x4F8B;&#x89E6;&#x53D1;<code>connection</code>&#x4E8B;&#x4EF6;:</p>
 <pre><code class="lang-php">$server-&gt;on(<span class="hljs-string">&apos;connection&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(React\Socket\ConnectionInterface $connection)</span> </span>{
     <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;Plaintext connection from &apos;</span> . $connection-&gt;getRemoteAddress() . PHP_EOL;
 
@@ -674,7 +674,7 @@ $second = <span class="hljs-keyword">new</span> React\Socket\Server(<span class=
 <p><code>TcpServer</code>&#x7C7B;&#x5B9E;&#x73B0; <a href="#serverinterface"><code>ServerInterface</code></a>&#xFF0C;&#x5E76;&#x8D1F;&#x8D23;&#x63A5;&#x53D7;&#x660E;&#x6587;TCP/IP&#x8FDE;&#x63A5;&#x3002;</p>
 <pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Socket\TcpServer(<span class="hljs-number">8080</span>, $loop);
 </code></pre>
-<p>&#x5982;&#x4E0A;&#x6240;&#x8FF0;&#xFF0C;<code>$uri</code>&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x53EA;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x7AEF;&#x53E3;&#xFF0C;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x5C06;&#x9ED8;&#x8BA4;&#x4FA6;&#x542C;&#x672C;&#x5730;&#x4E3B;&#x673A;&#x5730;&#x5740;<code>127.0.0.1</code>&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4ECE;&#x7CFB;&#x7EDF;&#x5916;&#x90E8;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x8BE5;&#x5730;&#x5740;&#x3002;</p>
+<p>&#x5982;&#x4E0A;&#x6240;&#x793A;&#xFF0C;<code>$uri</code>&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x53EA;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x7AEF;&#x53E3;&#xFF0C;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x5C06;&#x9ED8;&#x8BA4;&#x4FA6;&#x542C;&#x672C;&#x5730;&#x4E3B;&#x673A;&#x5730;&#x5740;<code>127.0.0.1</code>&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4ECE;&#x7CFB;&#x7EDF;&#x5916;&#x90E8;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x8BE5;&#x5730;&#x5740;&#x3002;</p>
 <p>&#x4E3A;&#x4E86;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x7684;&#x7AEF;&#x53E3;&#x5206;&#x914D;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7AEF;&#x53E3;<code>0</code>:</p>
 <pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Socket\TcpServer(<span class="hljs-number">0</span>, $loop);
 $address = $server-&gt;getAddress();
@@ -685,12 +685,12 @@ $address = $server-&gt;getAddress();
 <p>&#x5982;&#x679C;&#x4F60;&#x60F3;&#x76D1;&#x542C;&#x4E00;&#x4E2A;IPv6&#x5730;&#x5740;&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x7528;&#x65B9;&#x62EC;&#x53F7;&#x62EC;&#x8D77;&#x4E3B;&#x673A;:</p>
 <pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Socket\TcpServer(<span class="hljs-string">&apos;[::1]:8080&apos;</span>, $loop);
 </code></pre>
-<p>&#x5982;&#x679C;&#x7ED9;&#x5B9A;&#x7684;URI&#x65E0;&#x6548;&#xFF0C;&#x4E0D;&#x5305;&#x542B;&#x7AEF;&#x53E3;&#xFF0C;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x65B9;&#x6848;&#xFF0C;&#x6216;&#x8005;&#x5305;&#x542B;&#x4E3B;&#x673A;&#x540D;&#xFF0C;&#x5219;&#x5C06;&#x629B;&#x51FA;<code>InvalidArgumentException</code>&#xFF1A;</p>
+<p>&#x5982;&#x679C;&#x7ED9;&#x5B9A;&#x7684;URI&#x65E0;&#x6548;&#xFF0C;&#x4E0D;&#x5305;&#x542B;&#x7AEF;&#x53E3;&#xFF0C;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x65B9;&#x6848;&#xFF0C;&#x6216;&#x8005;&#x5305;&#x542B;&#x4E3B;&#x673A;&#x540D;&#xFF0C;&#x5219;&#x5C06;&#x629B;&#x51FA;<code>InvalidArgumentException</code>:</p>
 <pre><code class="lang-php"><span class="hljs-comment">// throws InvalidArgumentException due to missing port</span>
 $server = <span class="hljs-keyword">new</span> React\Socket\TcpServer(<span class="hljs-string">&apos;127.0.0.1&apos;</span>, $loop);
 </code></pre>
 <p>&#x5982;&#x679C;&#x7ED9;&#x5B9A;&#x7684;URI&#x4F3C;&#x4E4E;&#x6709;&#x6548;&#xFF0C;&#x4F46;&#x662F;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x4FA6;&#x542C;&#x5931;&#x8D25;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x5982;&#x679C;&#x7AEF;&#x53E3;&#x5DF2;&#x5728;&#x4F7F;&#x7528;&#x4E2D;&#xFF0C;&#x6216;&#x8005;&#x7AEF;&#x53E3;&#x4F4E;&#x4E8E;1024&#xFF0C;&#x5219;&#x53EF;&#x80FD;&#x9700;&#x8981;root&#x7528;&#x6237;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x7B49;&#xFF09;&#xFF0C;
-&#x5B83;&#x5C06;&#x629B;&#x51FA;<code>RuntimeException</code>&#xFF1A;</p>
+&#x5B83;&#x5C06;&#x629B;&#x51FA;<code>RuntimeException</code>:</p>
 <pre><code class="lang-php">$first = <span class="hljs-keyword">new</span> React\Socket\TcpServer(<span class="hljs-number">8080</span>, $loop);
 
 <span class="hljs-comment">// throws RuntimeException because port is already in use</span>
@@ -743,7 +743,7 @@ $server = <span class="hljs-keyword">new</span> React\Socket\SecureServer($serve
 ));
 </code></pre>
 <p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6B64;&#x670D;&#x52A1;&#x5668;&#x652F;&#x6301;TLSv1.0 +&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x652F;&#x6301;&#x65E7;&#x7248;SSLv2 / SSLv3&#x3002; 
-&#x4ECE;PHP 5.6+&#x5F00;&#x59CB;&#xFF0C;&#x60A8;&#x8FD8;&#x53EF;&#x4EE5;&#x663E;&#x5F0F;&#x9009;&#x62E9;&#x8981;&#x4E0E;&#x8FDC;&#x7A0B;&#x7AEF;&#x534F;&#x5546;&#x7684;TLS&#x7248;&#x672C;&#xFF1A;</p>
+&#x4ECE;PHP 5.6+&#x5F00;&#x59CB;&#xFF0C;&#x60A8;&#x8FD8;&#x53EF;&#x4EE5;&#x663E;&#x5F0F;&#x9009;&#x62E9;&#x8981;&#x4E0E;&#x8FDC;&#x7A0B;&#x7AEF;&#x534F;&#x5546;&#x7684;TLS&#x7248;&#x672C;:</p>
 <pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Socket\TcpServer(<span class="hljs-number">8000</span>, $loop);
 $server = <span class="hljs-keyword">new</span> React\Socket\SecureServer($server, $loop, <span class="hljs-keyword">array</span>(
     <span class="hljs-string">&apos;local_cert&apos;</span> =&gt; <span class="hljs-string">&apos;server.pem&apos;</span>,
@@ -755,7 +755,7 @@ $server = <span class="hljs-keyword">new</span> React\Socket\SecureServer($serve
  &#x5B83;&#x4EEC;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x548C;&#x66F4;&#x6539;&#x5B83;&#x4EEC;&#x7684;&#x6548;&#x679C;&#x53EF;&#x80FD;&#x4F1A;&#x56E0;&#x7CFB;&#x7EDF;&#x548C;/&#x6216;PHP&#x7248;&#x672C;&#x800C;&#x5F02;&#x3002;
  &#x4F20;&#x9012;&#x672A;&#x77E5;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x9009;&#x9879;&#x65E0;&#x6548;&#x3002;</p>
 </blockquote>
-<p>&#x6BCF;&#x5F53;&#x5BA2;&#x6237;&#x7AEF;&#x5B8C;&#x6210;TLS&#x63E1;&#x624B;&#x65F6;&#xFF0C;&#x5B83;&#x5C06;&#x53D1;&#x51FA;&#x5E26;&#x6709;&#x5B9E;&#x73B0;<a href="#connectioninterface"><code>ConnectionInterface</code></a>&#x7684;&#x8FDE;&#x63A5;&#x5B9E;&#x4F8B;&#x7684;<code>connection</code>&#x4E8B;&#x4EF6;&#xFF1A;</p>
+<p>&#x6BCF;&#x5F53;&#x5BA2;&#x6237;&#x7AEF;&#x5B8C;&#x6210;TLS&#x63E1;&#x624B;&#x65F6;&#xFF0C;&#x5B83;&#x5C06;&#x53D1;&#x51FA;&#x5E26;&#x6709;&#x5B9E;&#x73B0;<a href="#connectioninterface"><code>ConnectionInterface</code></a>&#x7684;&#x8FDE;&#x63A5;&#x5B9E;&#x4F8B;&#x7684;<code>connection</code>&#x4E8B;&#x4EF6;:</p>
 <pre><code class="lang-php">$server-&gt;on(<span class="hljs-string">&apos;connection&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(React\Socket\ConnectionInterface $connection)</span> </span>{
     <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;Secure connection from&apos;</span> . $connection-&gt;getRemoteAddress() . PHP_EOL;
 
@@ -763,7 +763,7 @@ $server = <span class="hljs-keyword">new</span> React\Socket\SecureServer($serve
     &#x2026;
 });
 </code></pre>
-<p>&#x6BCF;&#x5F53;&#x5BA2;&#x6237;&#x7AEF;&#x672A;&#x80FD;&#x6210;&#x529F;&#x6267;&#x884C;TLS&#x63E1;&#x624B;&#x65F6;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x90FD;&#x4F1A;&#x89E6;&#x53D1;<code>error</code>&#x4E8B;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x5173;&#x95ED;&#x57FA;&#x7840;TCP / IP&#x8FDE;&#x63A5;&#xFF1A;</p>
+<p>&#x6BCF;&#x5F53;&#x5BA2;&#x6237;&#x7AEF;&#x672A;&#x80FD;&#x6210;&#x529F;&#x6267;&#x884C;TLS&#x63E1;&#x624B;&#x65F6;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x90FD;&#x4F1A;&#x89E6;&#x53D1;<code>error</code>&#x4E8B;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x5173;&#x95ED;&#x57FA;&#x7840;TCP / IP&#x8FDE;&#x63A5;:</p>
 <pre><code class="lang-php">$server-&gt;on(<span class="hljs-string">&apos;error&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(Exception $e)</span> </span>{
     <span class="hljs-keyword">echo</span> <span class="hljs-string">&apos;Error&apos;</span> . $e-&gt;getMessage() . PHP_EOL;
 });
@@ -772,7 +772,7 @@ $server = <span class="hljs-keyword">new</span> React\Socket\SecureServer($serve
 <p>&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;<code>SecureServer</code>&#x7C7B;&#x662F;TLS&#x5957;&#x63A5;&#x5B57;&#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x3002;
 &#x5982;&#x679C;&#x4F60;&#x60F3;&#x5728;&#x9AD8;&#x7EA7;&#x534F;&#x8BAE;&#x5B9E;&#x73B0;&#x4E2D;&#x7C7B;&#x578B;&#x63D0;&#x793A;&#xFF0C;&#x4F60;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x901A;&#x7528;&#x7684;<a href="#serverinterface"><code>ServerInterface</code></a>&#x6765;&#x4EE3;&#x66FF;&#x3002;</p>
 <blockquote>
-<p>&#x9AD8;&#x7EA7;&#x7528;&#x6CD5;&#xFF1A;&#x5C3D;&#x7BA1;&#x5141;&#x8BB8;&#x5C06;&#x4EFB;&#x4F55;<code>ServerInterface</code>&#x4F5C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x4F46;&#x5E94;&#x8BE5;&#x5C06;<code>TcpServer</code>&#x5B9E;&#x4F8B;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#xFF0C;&#x9664;&#x975E;&#x60A8;&#x77E5;&#x9053;&#x81EA;&#x5DF1;&#x5728;&#x505A;&#x4EC0;&#x4E48;&#x3002;
+<p>&#x9AD8;&#x7EA7;&#x7528;&#x6CD5;:&#x5C3D;&#x7BA1;&#x5141;&#x8BB8;&#x5C06;&#x4EFB;&#x4F55;<code>ServerInterface</code>&#x4F5C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x4F46;&#x5E94;&#x8BE5;&#x5C06;<code>TcpServer</code>&#x5B9E;&#x4F8B;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#xFF0C;&#x9664;&#x975E;&#x60A8;&#x77E5;&#x9053;&#x81EA;&#x5DF1;&#x5728;&#x505A;&#x4EC0;&#x4E48;&#x3002;
  <code>SecureServer</code>&#x5185;&#x90E8;&#x5FC5;&#x987B;&#x5728;&#x5E95;&#x5C42;&#x6D41;&#x8D44;&#x6E90;&#x4E0A;&#x8BBE;&#x7F6E;&#x6240;&#x9700;&#x7684;TLS&#x4E0A;&#x4E0B;&#x6587;&#x9009;&#x9879;&#x3002;
  &#x8FD9;&#x4E9B;&#x8D44;&#x6E90;&#x4E0D;&#x4F1A;&#x901A;&#x8FC7;&#x6B64;&#x5305;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x4EFB;&#x4F55;&#x63A5;&#x53E3;&#xFF0C;&#x800C;&#x53EA;&#x80FD;&#x901A;&#x8FC7;&#x5185;&#x90E8;<code>Connection</code>&#x7C7B;&#x516C;&#x5F00;&#x3002;
  <code>TcpServer</code>&#x7C7B;&#x4FDD;&#x8BC1;&#x53D1;&#x51FA;&#x5B9E;&#x73B0;<code>ConnectionInterface</code>&#x7684;&#x8FDE;&#x63A5;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x5185;&#x90E8;<code>Connection</code>&#x7C7B;&#x6765;&#x516C;&#x5F00;&#x8FD9;&#x4E9B;&#x5E95;&#x5C42;&#x8D44;&#x6E90;&#x3002;
@@ -782,7 +782,7 @@ $server = <span class="hljs-keyword">new</span> React\Socket\SecureServer($serve
 <p><code>UnixServer</code>&#x7C7B;&#x5B9E;&#x73B0;&#x4E86;<a href="#serverinterface"><code>ServerInterface</code></a>&#xFF0C;&#x5E76;&#x8D1F;&#x8D23;&#x63A5;&#x53D7;Unix&#x57DF;&#x5957;&#x63A5;&#x5B57;(UDS)&#x4E0A;&#x7684;&#x8FDE;&#x63A5;&#x3002;</p>
 <pre><code class="lang-php">$server = <span class="hljs-keyword">new</span> React\Socket\UnixServer(<span class="hljs-string">&apos;/tmp/server.sock&apos;</span>, $loop);
 </code></pre>
-<p>&#x5982;&#x4E0A;&#x6240;&#x8FF0;&#xFF0C;<code>$uri</code>&#x53C2;&#x6570;&#x53EA;&#x80FD;&#x7531;&#x4E00;&#x4E2A;&#x5957;&#x63A5;&#x5B57;&#x8DEF;&#x5F84;&#x6216;&#x4EE5;<code>unix://</code>&#x65B9;&#x6848;&#x4E3A;&#x524D;&#x7F00;&#x7684;&#x5957;&#x63A5;&#x5B57;&#x3002;</p>
+<p>&#x5982;&#x4E0A;&#x6240;&#x793A;&#xFF0C;<code>$uri</code>&#x53C2;&#x6570;&#x53EA;&#x80FD;&#x7531;&#x4E00;&#x4E2A;&#x5957;&#x63A5;&#x5B57;&#x8DEF;&#x5F84;&#x6216;&#x4EE5;<code>unix://</code>&#x65B9;&#x6848;&#x4E3A;&#x524D;&#x7F00;&#x7684;&#x5957;&#x63A5;&#x5B57;&#x3002;</p>
 <p>&#x5982;&#x679C;&#x7ED9;&#x5B9A;&#x7684;URI&#x770B;&#x8D77;&#x6765;&#x662F;&#x6709;&#x6548;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x76D1;&#x542C;&#x5931;&#x8D25;(&#x6BD4;&#x5982;socket&#x5DF2;&#x7ECF;&#x5728;&#x4F7F;&#x7528;&#x6216;&#x8005;&#x6587;&#x4EF6;&#x4E0D;&#x80FD;&#x8BBF;&#x95EE;&#x7B49;&#x7B49;)&#xFF0C;
 &#x5B83;&#x5C06;&#x629B;&#x51FA;&#x4E00;&#x4E2A;<code>RuntimeException</code>:</p>
 <pre><code class="lang-php">$first = <span class="hljs-keyword">new</span> React\Socket\UnixServer(<span class="hljs-string">&apos;/tmp/same.sock&apos;</span>, $loop);
@@ -852,12 +852,12 @@ $server-&gt;on(<span class="hljs-string">&apos;connection&apos;</span>, <span cl
 <p>&#x8FD9;&#x662F;&#x6B64;&#x5305;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x4E3B;&#x8981;&#x63A5;&#x53E3;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x6574;&#x4E2A;React&#x7684;&#x5E7F;&#x9614;&#x751F;&#x6001;&#x7CFB;&#x7EDF;&#x4E2D;&#x4F7F;&#x7528;&#x3002;</p>
 <p>&#x5927;&#x591A;&#x6570;&#x66F4;&#x9AD8;&#x7EA7;&#x522B;&#x7684;&#x7EC4;&#x4EF6;&#xFF08;&#x4F8B;&#x5982;HTTP&#xFF0C;&#x6570;&#x636E;&#x5E93;&#x6216;&#x5176;&#x4ED6;&#x7F51;&#x7EDC;&#x670D;&#x52A1;&#x5BA2;&#x6237;&#x7AEF;&#xFF09;&#x90FD;&#x63A5;&#x53D7;&#x5B9E;&#x73B0;&#x6B64;&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x521B;&#x5EFA;&#x5176;&#x4E0E;&#x57FA;&#x7840;&#x7F51;&#x7EDC;&#x670D;&#x52A1;&#x7684;TCP / IP&#x8FDE;&#x63A5;&#x3002;</p>
 <p>&#x901A;&#x5E38;&#x8FD9;&#x662F;&#x901A;&#x8FC7;&#x4F9D;&#x8D56;&#x9879;&#x6CE8;&#x5165;&#x5B8C;&#x6210;&#x7684;&#xFF0C;&#x4FBF;&#x4E8E;&#x4F60;&#x5C06;&#x8BE5;&#x5B9E;&#x73B0;&#x66FF;&#x6362;&#x4E3A;&#x8BE5;&#x63A5;&#x53E3;&#x7684;&#x5176;&#x4ED6;&#x5B9E;&#x73B0;&#x3002;</p>
-<p>&#x8BE5;&#x63A5;&#x53E3;&#x4EC5;&#x63D0;&#x4F9B;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<p>&#x8BE5;&#x63A5;&#x53E3;&#x4EC5;&#x63D0;&#x4F9B;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;:</p>
 <h4 id="connect">connect()</h4>
 <p><code>connect(string $uri): PromiseInterface&lt;ConnectionInterface,Exception&gt;</code>&#x65B9;&#x6CD5;&#x53EF;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x5230;&#x7ED9;&#x5B9A;&#x8FDC;&#x7A0B;&#x5730;&#x5740;&#x7684;&#x6D41;&#x5F0F;&#x8FDE;&#x63A5;&#x3002;</p>
 <p>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;<a href="1.Core-Components/Promise.md">Promise</a> &#xFF0C;
 &#x5B83;&#x5728;&#x6210;&#x529F;&#x65F6;&#x4EE5;&#x5B9E;&#x73B0;<a href="#connectioninterface"><code>ConnectionInterface</code></a>&#x7684;&#x6D41;&#x6765;&#x5B9E;&#x73B0;&#xFF0C;
-&#x6216;&#x8005;&#x5728;&#x8FDE;&#x63A5;&#x4E0D;&#x6210;&#x529F;&#x65F6;&#x4EE5;<code>Exception</code>&#x62D2;&#x7EDD;&#x3002; &#xFF1A;</p>
+&#x6216;&#x8005;&#x5728;&#x8FDE;&#x63A5;&#x4E0D;&#x6210;&#x529F;&#x65F6;&#x4EE5;<code>Exception</code>&#x62D2;&#x7EDD;&#x3002; :</p>
 <pre><code class="lang-php">$connector-&gt;connect(<span class="hljs-string">&apos;google.com:443&apos;</span>)-&gt;then(
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(React\Socket\ConnectionInterface $connection)</span> </span>{
         <span class="hljs-comment">// connection successfully established</span>
@@ -868,8 +868,8 @@ $server-&gt;on(<span class="hljs-string">&apos;connection&apos;</span>, <span cl
 );
 </code></pre>
 <p>&#x53E6;&#x8BF7;&#x53C2;&#x9605;<a href="#connectioninterface"><code>ConnectionInterface</code></a> </p>
-<p>&#x8FD4;&#x56DE;&#x7684;Promise&#x5FC5;&#x987B;&#x4EE5;&#x8FD9;&#x6837;&#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#xFF1A;&#x5728;&#x5C1A;&#x5F85;&#x5904;&#x7406;&#x65F6;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x53D6;&#x6D88;&#x3002; 
-&#x53D6;&#x6D88;&#x672A;&#x51B3;&#x7684;&#x627F;&#x8BFA;&#x5FC5;&#x987B;&#x4EE5;<code>Exception</code>&#x62D2;&#x7EDD;&#x5176;&#x503C;&#x3002; &#x5B83;&#x5E94;&#x6E05;&#x7406;&#x6240;&#x6709;&#x9002;&#x7528;&#x7684;&#x57FA;&#x7840;&#x8D44;&#x6E90;&#x548C;&#x53C2;&#x8003;&#xFF1A;</p>
+<p>&#x8FD4;&#x56DE;&#x7684;Promise&#x5FC5;&#x987B;&#x4EE5;&#x8FD9;&#x6837;&#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;:&#x5728;&#x5C1A;&#x5F85;&#x5904;&#x7406;&#x65F6;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x53D6;&#x6D88;&#x3002; 
+&#x53D6;&#x6D88;&#x672A;&#x51B3;&#x7684;&#x627F;&#x8BFA;&#x5FC5;&#x987B;&#x4EE5;<code>Exception</code>&#x62D2;&#x7EDD;&#x5176;&#x503C;&#x3002; &#x5B83;&#x5E94;&#x6E05;&#x7406;&#x6240;&#x6709;&#x9002;&#x7528;&#x7684;&#x57FA;&#x7840;&#x8D44;&#x6E90;&#x548C;&#x53C2;&#x8003;:</p>
 <pre><code class="lang-php">$promise = $connector-&gt;connect($uri);
 
 $promise-&gt;cancel();
@@ -931,7 +931,7 @@ like this:
 <p>&#x540C;&#x6837;&#xFF0C;&#x60A8;&#x8FD8;&#x53EF;&#x4EE5;&#x5982;&#x4E0B;&#x5F71;&#x54CD;&#x9ED8;&#x8BA4;&#x7684;DNS&#x884C;&#x4E3A;&#x3002;</p>
 <p><code>Connector</code>&#x7C7B;&#x5C06;&#x5C1D;&#x8BD5;&#x68C0;&#x6D4B;&#x60A8;&#x7684;&#x7CFB;&#x7EDF;DNS&#x8BBE;&#x7F6E;&#xFF08;&#x5982;&#x679C;&#x65E0;&#x6CD5;&#x786E;&#x5B9A;&#x60A8;&#x7684;&#x7CFB;&#x7EDF;&#x8BBE;&#x7F6E;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;Google&#x7684;&#x516C;&#x5171;DNS&#x670D;&#x52A1;&#x5668;<code>8.8.8.8</code>&#x4F5C;&#x4E3A;&#x5907;&#x7528;&#xFF09;&#xFF0C;
 &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x5C06;&#x6240;&#x6709;&#x516C;&#x5171;&#x4E3B;&#x673A;&#x540D;&#x89E3;&#x6790;&#x4E3A;&#x57FA;&#x7840;IP&#x5730;&#x5740;&#x3002;
-&#x5982;&#x679C;&#x60A8;&#x786E;&#x5B9A;&#x8981;&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;DNS&#x670D;&#x52A1;&#x5668;&#xFF08;&#x4F8B;&#x5982;&#x672C;&#x5730;DNS&#x4E2D;&#x7EE7;&#x6216;&#x516C;&#x53F8;&#x8303;&#x56F4;&#x7684;DNS&#x670D;&#x52A1;&#x5668;&#xFF09;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x6309;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x8BBE;&#x7F6E;<code>Connector</code>&#xFF1A;</p>
+&#x5982;&#x679C;&#x60A8;&#x786E;&#x5B9A;&#x8981;&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;DNS&#x670D;&#x52A1;&#x5668;&#xFF08;&#x4F8B;&#x5982;&#x672C;&#x5730;DNS&#x4E2D;&#x7EE7;&#x6216;&#x516C;&#x53F8;&#x8303;&#x56F4;&#x7684;DNS&#x670D;&#x52A1;&#x5668;&#xFF09;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x6309;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x8BBE;&#x7F6E;<code>Connector</code>:</p>
 <pre><code class="lang-php">$connector = <span class="hljs-keyword">new</span> React\Socket\Connector($loop, <span class="hljs-keyword">array</span>(
     <span class="hljs-string">&apos;dns&apos;</span> =&gt; <span class="hljs-string">&apos;127.0.1.1&apos;</span>
 ));
@@ -941,7 +941,7 @@ $connector-&gt;connect(<span class="hljs-string">&apos;localhost:80&apos;</span>
     $connection-&gt;end();
 });
 </code></pre>
-<p>&#x5982;&#x679C;&#x60A8;&#x60F3;&#x76F4;&#x63A5;&#x8FDE;&#x63A5;IP&#x5730;&#x5740;&#xFF0C;&#x4E0D;&#x4F7F;&#x7528;DNS&#x89E3;&#x6790;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x8BBE;&#x7F6E;<code>Connector</code>&#xFF1A;</p>
+<p>&#x5982;&#x679C;&#x60A8;&#x60F3;&#x76F4;&#x63A5;&#x8FDE;&#x63A5;IP&#x5730;&#x5740;&#xFF0C;&#x4E0D;&#x4F7F;&#x7528;DNS&#x89E3;&#x6790;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x8BBE;&#x7F6E;<code>Connector</code>:</p>
 <pre><code class="lang-php">$connector = <span class="hljs-keyword">new</span> React\Socket\Connector($loop, <span class="hljs-keyword">array</span>(
     <span class="hljs-string">&apos;dns&apos;</span> =&gt; <span class="hljs-keyword">false</span>
 ));
@@ -1008,7 +1008,7 @@ $connector-&gt;connect(<span class="hljs-string">&apos;tls://localhost:443&apos;
 });
 </code></pre>
 <p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6B64;&#x8FDE;&#x63A5;&#x5668;&#x652F;&#x6301;TLSv1.0 +&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x652F;&#x6301;&#x65E7;&#x7248;SSLv2 / SSLv3&#x3002; 
-&#x4ECE;PHP 5.6+&#x5F00;&#x59CB;&#xFF0C;&#x60A8;&#x8FD8;&#x53EF;&#x4EE5;&#x663E;&#x5F0F;&#x9009;&#x62E9;&#x8981;&#x4E0E;&#x8FDC;&#x7A0B;&#x7AEF;&#x534F;&#x5546;&#x7684;TLS&#x7248;&#x672C;&#xFF1A;</p>
+&#x4ECE;PHP 5.6+&#x5F00;&#x59CB;&#xFF0C;&#x60A8;&#x8FD8;&#x53EF;&#x4EE5;&#x663E;&#x5F0F;&#x9009;&#x62E9;&#x8981;&#x4E0E;&#x8FDC;&#x7A0B;&#x7AEF;&#x534F;&#x5546;&#x7684;TLS&#x7248;&#x672C;:</p>
 <pre><code class="lang-php">$connector = <span class="hljs-keyword">new</span> React\Socket\Connector($loop, <span class="hljs-keyword">array</span>(
     <span class="hljs-string">&apos;tls&apos;</span> =&gt; <span class="hljs-keyword">array</span>(
         <span class="hljs-string">&apos;crypto_method&apos;</span> =&gt; STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT
@@ -1019,9 +1019,9 @@ $connector-&gt;connect(<span class="hljs-string">&apos;tls://localhost:443&apos;
 <p>&#x6709;&#x5173;&#x4E0A;&#x4E0B;&#x6587;&#x9009;&#x9879;&#x7684;&#x66F4;&#x591A;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x9605;&#x6709;&#x5173;<a href="https://www.php.net/manual/en/context.socket.php" target="_blank">socket context options</a>
  &#x548C;<a href="https://www.php.net/manual/en/context.ssl.php" target="_blank">SSL context options</a></p>
 </blockquote>
-<p>&#x9AD8;&#x7EA7;&#xFF1A;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>Connector</code>&#x652F;&#x6301;<code>tcp://</code>, <code>tls://</code> &#x548C; <code>unix://</code> URI&#x65B9;&#x6848;&#x3002;
+<p>&#x9AD8;&#x7EA7;:&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>Connector</code>&#x652F;&#x6301;<code>tcp://</code>, <code>tls://</code> &#x548C; <code>unix://</code> URI&#x65B9;&#x6848;&#x3002;
 &#x4E3A;&#x6B64;&#xFF0C;&#x5B83;&#x4F1A;&#x81EA;&#x52A8;&#x8BBE;&#x7F6E;&#x6240;&#x9700;&#x7684;&#x8FDE;&#x63A5;&#x5668;&#x7C7B;&#x3002;&#x5982;&#x679C;&#x60A8;&#x60F3;&#x663E;&#x5F0F;&#x4F20;&#x9012;&#x81EA;&#x5B9A;&#x4E49;&#x8FDE;&#x63A5;&#x5668;&#xFF0C;
-&#x5219;&#x53EF;&#x4EE5;&#x4F20;&#x9012;&#x4E00;&#x4E2A;&#x5B9E;&#x73B0;<code>ConnectorInterface</code>&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+&#x5219;&#x53EF;&#x4EE5;&#x4F20;&#x9012;&#x4E00;&#x4E2A;&#x5B9E;&#x73B0;<code>ConnectorInterface</code>&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
 <pre><code class="lang-php">$dnsResolverFactory = <span class="hljs-keyword">new</span> React\Dns\Resolver\Factory();
 $resolver = $dnsResolverFactory-&gt;createCached(<span class="hljs-string">&apos;127.0.1.1&apos;</span>, $loop);
 $tcp = <span class="hljs-keyword">new</span> React\Socket\HappyEyeBallsConnector($loop, <span class="hljs-keyword">new</span> React\Socket\TcpConnector($loop), $resolver);
@@ -1045,16 +1045,16 @@ $connector-&gt;connect(<span class="hljs-string">&apos;google.com:80&apos;</span
 });
 </code></pre>
 <blockquote>
-<p><code>tcp&#xFF1A;//</code>&#x8FDE;&#x63A5;&#x5668;&#x5C06;&#x59CB;&#x7EC8;&#x7531;DNS&#x89E3;&#x6790;&#x5668;&#x5305;&#x88C5;&#xFF0C;&#x7981;&#x7528;DNS&#x9664;&#x5916;&#x3002; 
- &#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>tcp&#xFF1A;//</code>&#x8FDE;&#x63A5;&#x5668;&#x5C06;&#x63A5;&#x6536;&#x5B9E;&#x9645;&#x7684;&#x4E3B;&#x673A;&#x540D;&#x6267;&#x884C;&#x67E5;&#x627E;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4EC5;&#x63A5;&#x6536;&#x89E3;&#x6790;&#x7684;IP&#x5730;&#x5740;&#x3002;
- &#x5728;&#x5185;&#x90E8;&#xFF0C;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x7684;<code>tls&#xFF1A;//</code>&#x8FDE;&#x63A5;&#x5668;&#x59CB;&#x7EC8;&#x5305;&#x88C5;&#x57FA;&#x7840;&#x7684;<code>tcp&#xFF1A;//</code>&#x8FDE;&#x63A5;&#x5668;&#xFF0C;
+<p><code>tcp://</code>&#x8FDE;&#x63A5;&#x5668;&#x5C06;&#x59CB;&#x7EC8;&#x7531;DNS&#x89E3;&#x6790;&#x5668;&#x5305;&#x88C5;&#xFF0C;&#x7981;&#x7528;DNS&#x9664;&#x5916;&#x3002; 
+ &#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>tcp://</code>&#x8FDE;&#x63A5;&#x5668;&#x5C06;&#x63A5;&#x6536;&#x5B9E;&#x9645;&#x7684;&#x4E3B;&#x673A;&#x540D;&#x6267;&#x884C;&#x67E5;&#x627E;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4EC5;&#x63A5;&#x6536;&#x89E3;&#x6790;&#x7684;IP&#x5730;&#x5740;&#x3002;
+ &#x5728;&#x5185;&#x90E8;&#xFF0C;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x7684;<code>tls://</code>&#x8FDE;&#x63A5;&#x5668;&#x59CB;&#x7EC8;&#x5305;&#x88C5;&#x57FA;&#x7840;&#x7684;<code>tcp://</code>&#x8FDE;&#x63A5;&#x5668;&#xFF0C;
  &#x4EE5;&#x5728;&#x542F;&#x7528;&#x5B89;&#x5168;TLS&#x6A21;&#x5F0F;&#x4E4B;&#x524D;&#x5EFA;&#x7ACB;&#x57FA;&#x7840;&#x7684;&#x7EAF;&#x6587;&#x672C;TCP / IP&#x8FDE;&#x63A5;&#x3002; 
- &#x5982;&#x679C;&#x60A8;&#x53EA;&#x60F3;&#x5C06;&#x81EA;&#x5B9A;&#x4E49;&#x57FA;&#x7840;<code>tcp&#xFF1A;//</code>&#x8FDE;&#x63A5;&#x5668;&#x4EC5;&#x7528;&#x4E8E;&#x5B89;&#x5168;&#x7684;TLS&#x8FDE;&#x63A5;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x50CF;&#x4E0A;&#x9762;&#x90A3;&#x6837;&#x663E;&#x5F0F;&#x5730;&#x4F20;&#x9012;<code>tls&#xFF1A;//</code>&#x8FDE;&#x63A5;&#x5668;&#x3002;
- <code>tcp&#xFF1A;//</code>&#x548C;<code>tls&#xFF1A;//</code>&#x8FDE;&#x63A5;&#x5668;&#x5C06;&#x59CB;&#x7EC8;&#x7531;<code>TimeoutConnector</code>&#x5305;&#x88C5;&#xFF0C;&#x7981;&#x7528;&#x8D85;&#x65F6;&#x9664;&#x5916;&#x3002;</p>
+ &#x5982;&#x679C;&#x60A8;&#x53EA;&#x60F3;&#x5C06;&#x81EA;&#x5B9A;&#x4E49;&#x57FA;&#x7840;<code>tcp://</code>&#x8FDE;&#x63A5;&#x5668;&#x4EC5;&#x7528;&#x4E8E;&#x5B89;&#x5168;&#x7684;TLS&#x8FDE;&#x63A5;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x50CF;&#x4E0A;&#x9762;&#x90A3;&#x6837;&#x663E;&#x5F0F;&#x5730;&#x4F20;&#x9012;<code>tls://</code>&#x8FDE;&#x63A5;&#x5668;&#x3002;
+ <code>tcp://</code>&#x548C;<code>tls://</code>&#x8FDE;&#x63A5;&#x5668;&#x5C06;&#x59CB;&#x7EC8;&#x7531;<code>TimeoutConnector</code>&#x5305;&#x88C5;&#xFF0C;&#x7981;&#x7528;&#x8D85;&#x65F6;&#x9664;&#x5916;&#x3002;</p>
 </blockquote>
 <h3 id="&#x9AD8;&#x7EA7;&#x5BA2;&#x6237;&#x7AEF;&#x4F7F;&#x7528;">&#x9AD8;&#x7EA7;&#x5BA2;&#x6237;&#x7AEF;&#x4F7F;&#x7528;</h3>
 <h4 id="tcpconnector">TcpConnector</h4>
-<p><code>TcpConnector</code>&#x7C7B;&#x5B9E;&#x73B0;<a href="#connectorinterface"><code>ConnectorInterface</code></a>&#xFF0C;&#x5E76;&#x5141;&#x8BB8;&#x60A8;&#x521B;&#x5EFA;&#x5230;&#x4EFB;&#x4F55;IP&#x7AEF;&#x53E3;&#x7EC4;&#x5408;&#x7684;&#x7EAF;&#x6587;&#x672C;TCP / IP&#x8FDE;&#x63A5;&#xFF1A;</p>
+<p><code>TcpConnector</code>&#x7C7B;&#x5B9E;&#x73B0;<a href="#connectorinterface"><code>ConnectorInterface</code></a>&#xFF0C;&#x5E76;&#x5141;&#x8BB8;&#x60A8;&#x521B;&#x5EFA;&#x5230;&#x4EFB;&#x4F55;IP&#x7AEF;&#x53E3;&#x7EC4;&#x5408;&#x7684;&#x7EAF;&#x6587;&#x672C;TCP / IP&#x8FDE;&#x63A5;:</p>
 <pre><code class="lang-php">$tcpConnector = <span class="hljs-keyword">new</span> React\Socket\TcpConnector($loop);
 
 $tcpConnector-&gt;connect(<span class="hljs-string">&apos;127.0.0.1:80&apos;</span>)-&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(React\Socket\ConnectionInterface $connection)</span> </span>{
@@ -1065,19 +1065,19 @@ $tcpConnector-&gt;connect(<span class="hljs-string">&apos;127.0.0.1:80&apos;</sp
 $loop-&gt;run();
 </code></pre>
 <p>&#x53C2;&#x9605; <a href="https://github.com/reactphp/socket/blob/v1.6.0/examples" target="_blank">&#x793A;&#x4F8B;</a>.</p>
-<p>&#x6302;&#x8D77;&#x7684;&#x8FDE;&#x63A5;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x53D6;&#x6D88;&#x5176;&#x6302;&#x8D77;&#x7684;&#x627F;&#x8BFA;&#x6765;&#x53D6;&#x6D88;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<p>&#x6302;&#x8D77;&#x7684;&#x8FDE;&#x63A5;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x53D6;&#x6D88;&#x5176;&#x6302;&#x8D77;&#x7684;&#x627F;&#x8BFA;&#x6765;&#x53D6;&#x6D88;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
 <pre><code class="lang-php">$promise = $tcpConnector-&gt;connect(<span class="hljs-string">&apos;127.0.0.1:80&apos;</span>);
 
 $promise-&gt;cancel();
 </code></pre>
 <p>&#x5BF9;&#x6302;&#x8D77;&#x7684;&#x627F;&#x8BFA;&#x8C03;&#x7528;<code>cancel()</code>&#x5C06;&#x5173;&#x95ED;&#x5E95;&#x5C42;&#x5957;&#x63A5;&#x5B57;&#x8D44;&#x6E90;&#xFF0C;&#x4ECE;&#x800C;&#x53D6;&#x6D88;&#x6302;&#x8D77;&#x7684;TCP/IP&#x8FDE;&#x63A5;&#xFF0C;&#x5E76;&#x62D2;&#x7EDD;&#x751F;&#x6210;&#x7684;&#x627F;&#x8BFA;&#x3002;</p>
-<p>&#x60A8;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x5C06;&#x5176;&#x4ED6;<a href="https://www.php.net/manual/en/context.socket.php" target="_blank">socket context options</a> &#x4F20;&#x9012;&#x7ED9;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<p>&#x60A8;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x5C06;&#x5176;&#x4ED6;<a href="https://www.php.net/manual/en/context.socket.php" target="_blank">socket context options</a> &#x4F20;&#x9012;&#x7ED9;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
 <pre><code class="lang-php">$tcpConnector = <span class="hljs-keyword">new</span> React\Socket\TcpConnector($loop, <span class="hljs-keyword">array</span>(
     <span class="hljs-string">&apos;bindto&apos;</span> =&gt; <span class="hljs-string">&apos;192.168.0.1:0&apos;</span>
 ));
 </code></pre>
 <p>&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x6B64;&#x7C7B;&#x4EC5;&#x5141;&#x8BB8;&#x60A8;&#x8FDE;&#x63A5;&#x5230;IP&#x7AEF;&#x53E3;&#x7EC4;&#x5408;&#x3002;
-&#x5982;&#x679C;&#x7ED9;&#x5B9A;&#x7684;URI&#x65E0;&#x6548;&#xFF0C;&#x4E0D;&#x5305;&#x542B;&#x6709;&#x6548;&#x7684;IP&#x5730;&#x5740;&#x548C;&#x7AEF;&#x53E3;&#x6216;&#x5305;&#x542B;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x65B9;&#x6848;&#xFF0C;&#x5219;&#x5B83;&#x5C06;&#x4EE5;<code>InvalidArgumentException</code>&#x62D2;&#x7EDD;&#xFF1A;</p>
+&#x5982;&#x679C;&#x7ED9;&#x5B9A;&#x7684;URI&#x65E0;&#x6548;&#xFF0C;&#x4E0D;&#x5305;&#x542B;&#x6709;&#x6548;&#x7684;IP&#x5730;&#x5740;&#x548C;&#x7AEF;&#x53E3;&#x6216;&#x5305;&#x542B;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x65B9;&#x6848;&#xFF0C;&#x5219;&#x5B83;&#x5C06;&#x4EE5;<code>InvalidArgumentException</code>&#x62D2;&#x7EDD;:</p>
 <p>&#x5982;&#x679C;&#x7ED9;&#x5B9A;&#x7684;URI&#x4F3C;&#x4E4E;&#x6709;&#x6548;&#xFF0C;&#x4F46;&#x662F;&#x8FDE;&#x63A5;&#x5931;&#x8D25;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x8FDC;&#x7A0B;&#x4E3B;&#x673A;&#x62D2;&#x7EDD;&#x8FDE;&#x63A5;&#x7B49;&#xFF09;&#xFF0C;&#x5B83;&#x5C06;&#x4EE5;<code>RuntimeException</code>&#x62D2;&#x7EDD;&#x3002;</p>
 <p>&#x5982;&#x679C;&#x8981;&#x8FDE;&#x63A5;&#x5230;&#x4E3B;&#x673A;&#x540D;-&#x7AEF;&#x53E3;&#x7EC4;&#x5408;&#xFF0C;&#x8BF7;&#x53C2;&#x89C1;&#x4EE5;&#x4E0B;&#x7AE0;&#x8282;&#x3002;</p>
 <blockquote>
@@ -1106,7 +1106,7 @@ $dnsConnector-&gt;connect(<span class="hljs-string">&apos;www.google.com:80&apos
 $loop-&gt;run();
 </code></pre>
 <p>&#x53C2;&#x9605; <a href="https://github.com/reactphp/socket/blob/v1.6.0/examples" target="_blank">&#x793A;&#x4F8B;</a>.</p>
-<p>&#x6302;&#x8D77;&#x7684;&#x8FDE;&#x63A5;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x53D6;&#x6D88;&#x5176;&#x6302;&#x8D77;&#x7684;&#x627F;&#x8BFA;&#x6765;&#x53D6;&#x6D88;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<p>&#x6302;&#x8D77;&#x7684;&#x8FDE;&#x63A5;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x53D6;&#x6D88;&#x5176;&#x6302;&#x8D77;&#x7684;&#x627F;&#x8BFA;&#x6765;&#x53D6;&#x6D88;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
 <pre><code class="lang-php">$promise = $dnsConnector-&gt;connect(<span class="hljs-string">&apos;www.google.com:80&apos;</span>);
 
 $promise-&gt;cancel();
@@ -1136,7 +1136,7 @@ $dnsConnector-&gt;connect(<span class="hljs-string">&apos;www.google.com:80&apos
 $loop-&gt;run();
 </code></pre>
 <p>&#x53C2;&#x9605; <a href="https://github.com/reactphp/socket/blob/v1.6.0/examples" target="_blank">&#x793A;&#x4F8B;</a>.</p>
-<p>&#x6302;&#x8D77;&#x7684;&#x8FDE;&#x63A5;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x53D6;&#x6D88;&#x5176;&#x6302;&#x8D77;&#x7684;&#x627F;&#x8BFA;&#x6765;&#x53D6;&#x6D88;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<p>&#x6302;&#x8D77;&#x7684;&#x8FDE;&#x63A5;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x53D6;&#x6D88;&#x5176;&#x6302;&#x8D77;&#x7684;&#x627F;&#x8BFA;&#x6765;&#x53D6;&#x6D88;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
 <pre><code class="lang-php">$promise = $dnsConnector-&gt;connect(<span class="hljs-string">&apos;www.google.com:80&apos;</span>);
 
 $promise-&gt;cancel();
@@ -1161,25 +1161,25 @@ $secureConnector-&gt;connect(<span class="hljs-string">&apos;www.google.com:443&
 $loop-&gt;run();
 </code></pre>
 <p>&#x53C2;&#x9605; <a href="https://github.com/reactphp/socket/blob/v1.6.0/examples" target="_blank">&#x793A;&#x4F8B;</a>.</p>
-<p>&#x6302;&#x8D77;&#x7684;&#x8FDE;&#x63A5;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x53D6;&#x6D88;&#x5176;&#x6302;&#x8D77;&#x7684;&#x627F;&#x8BFA;&#x6765;&#x53D6;&#x6D88;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<p>&#x6302;&#x8D77;&#x7684;&#x8FDE;&#x63A5;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x53D6;&#x6D88;&#x5176;&#x6302;&#x8D77;&#x7684;&#x627F;&#x8BFA;&#x6765;&#x53D6;&#x6D88;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
 <pre><code class="lang-php">$promise = $secureConnector-&gt;connect(<span class="hljs-string">&apos;www.google.com:443&apos;</span>);
 
 $promise-&gt;cancel();
 </code></pre>
 <p>&#x5BF9;&#x6302;&#x8D77;&#x7684;&#x627F;&#x8BFA;&#x8C03;&#x7528;<code>cancel()</code>&#x5C06;&#x53D6;&#x6D88;&#x5E95;&#x5C42;TCP/IP&#x8FDE;&#x63A5;&#x548C;/&#x6216;SSL/TLS&#x534F;&#x5546;&#xFF0C;&#x5E76;&#x62D2;&#x7EDD;&#x4EA7;&#x751F;&#x7684;&#x627F;&#x8BFA;&#x3002;</p>
-<p>&#x60A8;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x4F20;&#x9012;&#x989D;&#x5916;&#x7684;<a href="https://www.php.net/manual/en/context.ssl.php" target="_blank">SSL context options</a> &#x5230;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x50CF;&#x8FD9;&#x6837;&#xFF1A;</p>
+<p>&#x60A8;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x4F20;&#x9012;&#x989D;&#x5916;&#x7684;<a href="https://www.php.net/manual/en/context.ssl.php" target="_blank">SSL context options</a> &#x5230;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x50CF;&#x8FD9;&#x6837;:</p>
 <pre><code class="lang-php">$secureConnector = <span class="hljs-keyword">new</span> React\Socket\SecureConnector($dnsConnector, $loop, <span class="hljs-keyword">array</span>(
     <span class="hljs-string">&apos;verify_peer&apos;</span> =&gt; <span class="hljs-keyword">false</span>,
     <span class="hljs-string">&apos;verify_peer_name&apos;</span> =&gt; <span class="hljs-keyword">false</span>
 ));
 </code></pre>
-<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6B64;&#x8FDE;&#x63A5;&#x5668;&#x652F;&#x6301;TLSv1.0 +&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x652F;&#x6301;&#x65E7;&#x7248;SSLv2 / SSLv3&#x3002; &#x4ECE;PHP 5.6+&#x5F00;&#x59CB;&#xFF0C;&#x60A8;&#x8FD8;&#x53EF;&#x4EE5;&#x663E;&#x5F0F;&#x9009;&#x62E9;&#x8981;&#x4E0E;&#x8FDC;&#x7A0B;&#x7AEF;&#x534F;&#x5546;&#x7684;TLS&#x7248;&#x672C;&#xFF1A;</p>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6B64;&#x8FDE;&#x63A5;&#x5668;&#x652F;&#x6301;TLSv1.0 +&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x652F;&#x6301;&#x65E7;&#x7248;SSLv2 / SSLv3&#x3002; &#x4ECE;PHP 5.6+&#x5F00;&#x59CB;&#xFF0C;&#x60A8;&#x8FD8;&#x53EF;&#x4EE5;&#x663E;&#x5F0F;&#x9009;&#x62E9;&#x8981;&#x4E0E;&#x8FDC;&#x7A0B;&#x7AEF;&#x534F;&#x5546;&#x7684;TLS&#x7248;&#x672C;:</p>
 <pre><code class="lang-php">$secureConnector = <span class="hljs-keyword">new</span> React\Socket\SecureConnector($dnsConnector, $loop, <span class="hljs-keyword">array</span>(
     <span class="hljs-string">&apos;crypto_method&apos;</span> =&gt; STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT
 ));
 </code></pre>
 <blockquote>
-<p>&#x9AD8;&#x7EA7;&#x7528;&#x6CD5;&#xFF1A;<code>SecureConnector</code> &#x5185;&#x90E8;&#x4F9D;&#x8D56;&#x4E8E;&#x5728;&#x57FA;&#x7840;&#x6D41;&#x8D44;&#x6E90;&#x4E0A;&#x8BBE;&#x7F6E;&#x6240;&#x9700;&#x7684;<em>context options</em>&#x3002;
+<p>&#x9AD8;&#x7EA7;&#x7528;&#x6CD5;:<code>SecureConnector</code> &#x5185;&#x90E8;&#x4F9D;&#x8D56;&#x4E8E;&#x5728;&#x57FA;&#x7840;&#x6D41;&#x8D44;&#x6E90;&#x4E0A;&#x8BBE;&#x7F6E;&#x6240;&#x9700;&#x7684;<em>context options</em>&#x3002;
   &#x56E0;&#x6B64;&#xFF0C;&#x5B83;&#x5E94;&#x8BE5;&#x4E0E;&#x8FDE;&#x63A5;&#x5668;&#x5806;&#x6808;&#x4E2D;&#x67D0;&#x5904;&#x7684;<code>TcpConnector</code>&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#xFF0C;&#x4EE5;&#x4FBF;&#x5B83;&#x53EF;&#x4EE5;&#x4E3A;&#x6BCF;&#x4E2A;&#x6D41;&#x8D44;&#x6E90;&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;<em>context</em>&#x8D44;&#x6E90;&#x5E76;&#x9A8C;&#x8BC1;&#x5BF9;&#x7B49;&#x540D;&#x79F0;
   &#x5426;&#x5219;&#x6240;&#x6709;&#x6D41;&#x8D44;&#x6E90;&#x90FD;&#x5C06;&#x4F7F;&#x7528;&#x5355;&#x4E2A;&#x5171;&#x4EAB;&#x7684;<em>default context</em>&#x8D44;&#x6E90;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;TLS&#x5BF9;&#x7B49;&#x540D;&#x79F0;&#x4E0D;&#x5339;&#x914D;&#x9519;&#x8BEF;&#x6216;&#x67D0;&#x4E9B;&#x96BE;&#x4EE5;&#x8DDF;&#x8E2A;&#x7684;&#x7ADE;&#x4E89;&#x6761;&#x4EF6;&#x3002;</p>
 </blockquote>
@@ -1193,7 +1193,7 @@ $timeoutConnector-&gt;connect(<span class="hljs-string">&apos;google.com:80&apos
 });
 </code></pre>
 <p>&#x53E6;&#x8BF7;&#x53C2;&#x9605; <a href="https://github.com/reactphp/socket/blob/v1.6.0/examples" target="_blank">&#x793A;&#x4F8B;</a>.</p>
-<p>&#x6302;&#x8D77;&#x7684;&#x8FDE;&#x63A5;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x53D6;&#x6D88;&#x5176;&#x6302;&#x8D77;&#x7684;&#x627F;&#x8BFA;&#x6765;&#x53D6;&#x6D88;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<p>&#x6302;&#x8D77;&#x7684;&#x8FDE;&#x63A5;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x53D6;&#x6D88;&#x5176;&#x6302;&#x8D77;&#x7684;&#x627F;&#x8BFA;&#x6765;&#x53D6;&#x6D88;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
 <pre><code class="lang-php">$promise = $timeoutConnector-&gt;connect(<span class="hljs-string">&apos;google.com:80&apos;</span>);
 
 $promise-&gt;cancel();
@@ -1258,7 +1258,7 @@ $promise = $connector-&gt;connect(<span class="hljs-string">&apos;localhost:80&a
 <pre><code class="lang-bash">$ php vendor/bin/phpunit
 </code></pre>
 <p>&#x8BE5;&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x8FD8;&#x5305;&#x542B;&#x8BB8;&#x591A;&#x4F9D;&#x8D56;&#x7A33;&#x5B9A;internet&#x8FDE;&#x63A5;&#x7684;&#x529F;&#x80FD;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x3002;
-&#x5982;&#x679C;&#x60A8;&#x4E0D;&#x60F3;&#x8FD0;&#x884C;&#x8FD9;&#x4E9B;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x50CF;&#x8FD9;&#x6837;&#x8DF3;&#x8FC7;&#x5B83;&#x4EEC;&#xFF1A;</p>
+&#x5982;&#x679C;&#x60A8;&#x4E0D;&#x60F3;&#x8FD0;&#x884C;&#x8FD9;&#x4E9B;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x50CF;&#x8FD9;&#x6837;&#x8DF3;&#x8FC7;&#x5B83;&#x4EEC;:</p>
 <pre><code class="lang-bash">$ php vendor/bin/phpunit --exclude-group internet
 </code></pre>
 <h2 id="license">License</h2>
@@ -1322,7 +1322,7 @@ $promise = $connector-&gt;connect(<span class="hljs-string">&apos;localhost:80&a
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Socket","level":"3.2","depth":1,"next":{"title":"Dns","level":"4.1","depth":1,"path":"3.Protocol-Components/Dns.md","ref":"3.Protocol-Components/Dns.md","articles":[]},"previous":{"title":"Datagram","level":"3.1","depth":1,"path":"2.Network-Components/Datagram.md","ref":"2.Network-Components/Datagram.md","articles":[]},"dir":"ltr"},"config":{"plugins":["- summary","toggle-chapters","theme-comscore","highlight","search-plus","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"search-plus":{}},"theme":"default","author":"Imparting","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactPHP 中文文档","language":"zh-hans","gitbook":"*","description":"ReactPHP是PHP中用于事件驱动编程的底层库。它的核心是一个事件循环，在此基础上它提供了底层实用程序，例如：流抽象、异步DNS解析器、网络客户端/服务器、HTTP客户端/服务器以及与进程通信。第三方库可以使用这些组件创建异步网络客户端/服务器等。","theme-default":{"showLevel":true}},"file":{"path":"2.Network-Components/Socket.md","mtime":"2021-02-02T04:19:36.132Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-02T04:22:20.890Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Socket","level":"3.2","depth":1,"next":{"title":"Dns","level":"4.1","depth":1,"path":"3.Protocol-Components/Dns.md","ref":"3.Protocol-Components/Dns.md","articles":[]},"previous":{"title":"Datagram","level":"3.1","depth":1,"path":"2.Network-Components/Datagram.md","ref":"2.Network-Components/Datagram.md","articles":[]},"dir":"ltr"},"config":{"plugins":["- summary","toggle-chapters","theme-comscore","highlight","search-plus","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"search-plus":{}},"theme":"default","author":"Imparting","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactPHP 中文文档","language":"zh-hans","gitbook":"*","description":"ReactPHP是PHP中用于事件驱动编程的底层库。它的核心是一个事件循环，在此基础上它提供了底层实用程序，例如：流抽象、异步DNS解析器、网络客户端/服务器、HTTP客户端/服务器以及与进程通信。第三方库可以使用这些组件创建异步网络客户端/服务器等。","theme-default":{"showLevel":true}},"file":{"path":"2.Network-Components/Socket.md","mtime":"2021-02-03T09:19:06.885Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-03T09:17:07.562Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
