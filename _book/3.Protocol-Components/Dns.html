@@ -428,13 +428,13 @@ $loop-&gt;run();
 <p>&#x8BF7;&#x53C2;&#x9605;<a href="https://github.com/reactphp/dns/blob/v1.4.0/examples" target="_blank">&#x793A;&#x4F8B;3</a>.</p>
 <h3 id="custom-cache-adapter">Custom cache adapter</h3>
 <p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E0A;&#x8FF0;&#x64CD;&#x4F5C;&#x5C06;&#x4F7F;&#x7528;&#x5185;&#x5B58;&#x7F13;&#x5B58;&#x3002;</p>
-<p>&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7F13;&#x5B58;&#x5B9E;&#x73B0;<a href="4.Utility-Components/Cache.md"><code>CacheInterface</code></a>&#x6765;&#x7F13;&#x5B58;:</p>
+<p>&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7F13;&#x5B58;&#x5B9E;&#x73B0;<a href="../4.Utility-Components/Cache.html"><code>CacheInterface</code></a>&#x6765;&#x7F13;&#x5B58;:</p>
 <pre><code class="lang-php">$cache = <span class="hljs-keyword">new</span> React\Cache\ArrayCache();
 $loop = React\EventLoop\Factory::create();
 $factory = <span class="hljs-keyword">new</span> React\Dns\Resolver\Factory();
 $dns = $factory-&gt;createCached(<span class="hljs-string">&apos;8.8.8.8&apos;</span>, $loop, $cache);
 </code></pre>
-<p>&#x53E6;&#x8BF7;&#x53C2;&#x9605;wiki&#x4E86;&#x89E3;&#x66F4;&#x591A;&#x5176;&#x4ED6;&#x7F13;&#x5B58;&#x5B9E;&#x73B0; <a href="https://github.com/reactphp/react/wiki/Users#cache-implementations" target="_blank">cache&#x4E8B;&#x9879;</a>.</p>
+<p>&#x53E6;&#x8BF7;&#x53C2;&#x9605;wiki&#x4E86;&#x89E3;&#x66F4;&#x591A;&#x5176;&#x4ED6;&#x7F13;&#x5B58;&#x5B9E;&#x73B0; <a href="https://github.com/reactphp/react/wiki/Users#cache-implementations" target="_blank">cache&#x5B9E;&#x73B0;</a>.</p>
 <h2 id="resolverinterface">ResolverInterface</h2>
 <h3 id="resolve">resolve()</h3>
 <p><code>resolve(string $domain): PromiseInterface&lt;string,Exception&gt;</code> &#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x5C06;&#x7ED9;&#x5B9A;&#x7684;<code>$domain</code>&#x89E3;&#x6790;&#x4E3A;&#x5355;&#x4E2A;IPv4&#x5730;&#x5740;(&#x952E;&#x5165;<code>A</code>&#x67E5;&#x8BE2;)&#x3002;</p>
@@ -527,7 +527,7 @@ $loop-&gt;run();
 );
 </code></pre>
 <blockquote>
-<p>&#x6B64;&#x7C7B;&#x4EC5;&#x51FA;&#x4E8E;&#x7EC4;&#x7EC7;&#x539F;&#x56E0;&#x800C;&#x4F7F;&#x7528;PHP&#x7684;UDP&#x5957;&#x63A5;&#x5B57;&#xFF0C;&#x5E76;&#x4E14;&#x6CA1;&#x6709;&#x5229;&#x7528; <a href="2.Network-Components/Datagram.md">react/datagram</a>
+<p>&#x6B64;&#x7C7B;&#x4EC5;&#x51FA;&#x4E8E;&#x7EC4;&#x7EC7;&#x539F;&#x56E0;&#x800C;&#x4F7F;&#x7528;PHP&#x7684;UDP&#x5957;&#x63A5;&#x5B57;&#xFF0C;&#x5E76;&#x4E14;&#x6CA1;&#x6709;&#x5229;&#x7528; <a href="../2.Network-Components/Datagram.html">react/datagram</a>
  &#x7684;&#x4F18;&#x52BF;&#xFF0C;&#x4EE5;&#x907F;&#x514D;&#x4E24;&#x4E2A;&#x5305;&#x4E4B;&#x95F4;&#x7684;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x3002; &#x9AD8;&#x7EA7;&#x7EC4;&#x4EF6;&#x5E94;&#x8BE5;&#x5229;&#x7528;&#x6570;&#x636E;&#x62A5;&#x7EC4;&#x4EF6;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4ECE;&#x5934;&#x91CD;&#x65B0;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x5957;&#x63A5;&#x5B57;&#x903B;&#x8F91;&#x3002;</p>
 </blockquote>
 <h3 id="tcptransportexecutor">TcpTransportExecutor</h3>
@@ -572,7 +572,7 @@ $loop-&gt;run();
 );
 </code></pre>
 <blockquote>
-<p>&#x8FD9;&#x4E2A;&#x7C7B;&#x4F7F;&#x7528;PHP&#x7684;TCP/IP&#x5957;&#x63A5;&#x5B57;&#xFF0C;&#x5E76;&#x4E14;&#x6CA1;&#x6709;&#x5229;&#x7528; <a href="2.Network-Components/Socket.md">react/socket</a>
+<p>&#x8FD9;&#x4E2A;&#x7C7B;&#x4F7F;&#x7528;PHP&#x7684;TCP/IP&#x5957;&#x63A5;&#x5B57;&#xFF0C;&#x5E76;&#x4E14;&#x6CA1;&#x6709;&#x5229;&#x7528; <a href="../2.Network-Components/Socket.html">react/socket</a>
 &#x7684;&#x4F18;&#x52BF;&#xFF0C;&#x4EE5;&#x907F;&#x514D;&#x4E24;&#x4E2A;&#x5305;&#x4E4B;&#x95F4;&#x7684;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x3002;&#x9AD8;&#x7EA7;&#x7EC4;&#x4EF6;&#x5E94;&#x8BE5;&#x5229;&#x7528;&#x5957;&#x63A5;&#x5B57;&#x7EC4;&#x4EF6;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4ECE;&#x5934;&#x91CD;&#x65B0;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x5957;&#x63A5;&#x5B57;&#x903B;&#x8F91;&#x3002;</p>
 </blockquote>
 <h3 id="selectivetransportexecutor">SelectiveTransportExecutor</h3>
@@ -705,7 +705,7 @@ $executor-&gt;query(
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Dns","level":"4.1","depth":1,"next":{"title":"Http","level":"4.2","depth":1,"path":"3.Protocol-Components/Http.md","ref":"3.Protocol-Components/Http.md","articles":[]},"previous":{"title":"Socket","level":"3.2","depth":1,"path":"2.Network-Components/Socket.md","ref":"2.Network-Components/Socket.md","articles":[]},"dir":"ltr"},"config":{"plugins":["- summary","toggle-chapters","theme-comscore","highlight","search-plus","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"search-plus":{}},"theme":"default","author":"Imparting","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactPHP 中文文档","language":"zh-hans","gitbook":"*","description":"ReactPHP是PHP中用于事件驱动编程的底层库。它的核心是一个事件循环，在此基础上它提供了底层实用程序，例如：流抽象、异步DNS解析器、网络客户端/服务器、HTTP客户端/服务器以及与进程通信。第三方库可以使用这些组件创建异步网络客户端/服务器等。","theme-default":{"showLevel":true}},"file":{"path":"3.Protocol-Components/Dns.md","mtime":"2021-02-03T09:19:13.069Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-03T09:17:07.562Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Dns","level":"4.1","depth":1,"next":{"title":"Http","level":"4.2","depth":1,"path":"3.Protocol-Components/Http.md","ref":"3.Protocol-Components/Http.md","articles":[]},"previous":{"title":"Socket","level":"3.2","depth":1,"path":"2.Network-Components/Socket.md","ref":"2.Network-Components/Socket.md","articles":[]},"dir":"ltr"},"config":{"plugins":["- summary","toggle-chapters","theme-comscore","highlight","search-plus","livereload"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"theme-comscore":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"search-plus":{}},"theme":"default","author":"Imparting","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactPHP 中文文档","language":"zh-hans","gitbook":"*","description":"ReactPHP是PHP中用于事件驱动编程的底层库。它的核心是一个事件循环，在此基础上它提供了底层实用程序，例如：流抽象、异步DNS解析器、网络客户端/服务器、HTTP客户端/服务器以及与进程通信。第三方库可以使用这些组件创建异步网络客户端/服务器等。","theme-default":{"showLevel":true}},"file":{"path":"3.Protocol-Components/Dns.md","mtime":"2021-02-03T10:23:08.876Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-03T10:23:15.369Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

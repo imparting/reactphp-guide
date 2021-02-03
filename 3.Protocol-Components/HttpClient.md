@@ -1,6 +1,6 @@
 # 弃用的通知
 
-该软件包现已迁移到[react/http](3.Protocol-Components/Http.md) ，并且仅出于BC原因而存在。
+该软件包现已迁移到[react/http](/3.Protocol-Components/Http.md) ，并且仅出于BC原因而存在。
 
 ```bash
 $ composer require react/http
@@ -28,4 +28,4 @@ $browser->get('https://example.com/')->then(function (Psr\Http\Message\ResponseI
 });
 ```
 
-参阅 [react/http](3.Protocol-Components/Http.md#客户端用法)
+参阅 [react/http](/3.Protocol-Components/Http.md#客户端用法)

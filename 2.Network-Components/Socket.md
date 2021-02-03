@@ -4,8 +4,8 @@
 
 [ReactPHP](https://reactphp.org/) 的异步，流式纯文本TCP / IP以及安全的TLS套接字服务器和客户端连接。
 
-套接字库基于[`EventLoop`](1.Core-Components/EventLoop.md) 
-和 [` Stream `](1.Core-Components/Stream.md) 组件为套接字层服务器和客户端提供了可重用的接口。
+套接字库基于[`EventLoop`](/1.Core-Components/EventLoop.md) 
+和 [` Stream `](/1.Core-Components/Stream.md) 组件为套接字层服务器和客户端提供了可重用的接口。
 
 服务器组件允许您构建接受来自网络客户端连接的网络服务器(如HTTP服务器)。
 
@@ -94,14 +94,14 @@ $loop->run();
 
 `ConnectionInterface` 用于表示任何传入和传出的连接，例如普通的TCP / IP连接。
 
-传入或传出连接是实现React [`DuplexStreamInterface`](1.Core-Components/Stream.md#duplexstreaminterface) 的双工流（可读和可写）。
+传入或传出连接是实现React [`DuplexStreamInterface`](/1.Core-Components/Stream.md#duplexstreaminterface) 的双工流（可读和可写）。
 
 它包含已建立到/来自此连接的本地和远程地址（客户端IP）的附加属性。
 
 最常见的情况是，所有实现[`ServerInterface`](#serverinterface)的类都会触发实现这个`ConnectionInterface`的实例，
 并由所有实现[`ConnectorInterface`](#connectorinterface)的类使用。
 
-因为` ConnectionInterface `实现了底层的[`DuplexStreamInterface`](1.Core-Components/Stream.md#duplexstreaminterface)
+因为` ConnectionInterface `实现了底层的[`DuplexStreamInterface`](/1.Core-Components/Stream.md#duplexstreaminterface)
 所以你可以像往常一样使用它的所有事件和方法:
 
 ```php
@@ -127,7 +127,7 @@ $connection->close();
 // …
 ```
 
-更多细节，请参阅[`DuplexStreamInterface`](1.Core-Components/Stream.md#duplexstreaminterface).
+更多细节，请参阅[`DuplexStreamInterface`](/1.Core-Components/Stream.md#duplexstreaminterface).
 
 #### getRemoteAddress()
 
@@ -697,7 +697,7 @@ foreach ($server->getConnection() as $connection) {
 
 `connect(string $uri): PromiseInterface<ConnectionInterface,Exception>`方法可用于创建到给定远程地址的流式连接。
 
-返回一个[Promise](1.Core-Components/Promise.md) ，
+返回一个[Promise](/1.Core-Components/Promise.md) ，
 它在成功时以实现[`ConnectionInterface`](#connectioninterface)的流来实现，
 或者在连接不成功时以`Exception`拒绝。 :
 

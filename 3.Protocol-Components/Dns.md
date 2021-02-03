@@ -91,7 +91,7 @@ $loop->run();
 
 默认情况下，上述操作将使用内存缓存。
 
-你也可以指定一个自定义缓存实现[`CacheInterface`](4.Utility-Components/Cache.md)来缓存:
+你也可以指定一个自定义缓存实现[`CacheInterface`](/4.Utility-Components/Cache.md)来缓存:
 
 ```php
 $cache = new React\Cache\ArrayCache();
@@ -233,7 +233,7 @@ $executor = new CoopExecutor(
 );
 ```
 
->此类仅出于组织原因而使用PHP的UDP套接字，并且没有利用 [react/datagram](2.Network-Components/Datagram.md)
+>此类仅出于组织原因而使用PHP的UDP套接字，并且没有利用 [react/datagram](/2.Network-Components/Datagram.md)
  的优势，以避免两个包之间的循环依赖。 高级组件应该利用数据报组件，而不是从头重新实现这个套接字逻辑。
 
 ### TcpTransportExecutor
@@ -291,7 +291,7 @@ $executor = new CoopExecutor(
 );
 ```
 
->这个类使用PHP的TCP/IP套接字，并且没有利用 [react/socket](2.Network-Components/Socket.md)
+>这个类使用PHP的TCP/IP套接字，并且没有利用 [react/socket](/2.Network-Components/Socket.md)
 的优势，以避免两个包之间的循环依赖。高级组件应该利用套接字组件，而不是从头重新实现这个套接字逻辑。
 
 ### SelectiveTransportExecutor

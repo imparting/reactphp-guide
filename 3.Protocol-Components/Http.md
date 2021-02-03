@@ -4,8 +4,8 @@
 
 [ReactPHP](https://reactphp.org/) 的事件驱动的流HTTP客户端和服务器实现。 
 
-HTTP库是基于ReactPHP的[` Socket `](2.Network-Components/Socket.md)组件和
- [` EventLoop `](1.Core-Components/EventLoop.md) 组件为HTTP客户端和服务器提供了可重用的实现。
+HTTP库是基于ReactPHP的[` Socket `](/2.Network-Components/Socket.md)组件和
+ [` EventLoop `](/1.Core-Components/EventLoop.md) 组件为HTTP客户端和服务器提供了可重用的实现。
 
 它的客户端组件允许您并发发送任意数量的异步HTTP/HTTPS请求。
 
@@ -152,7 +152,7 @@ $browser->patch($url, array $headers = array(), string|ReadableStreamInterface $
 
 以上每种方法都支持异步操作，并且使用[PSR-7 `ResponseInterface`](https://www.php-fig.org/psr/psr-7/#33-psrhttpmessageresponseinterface)
 *实现*或*`Exception`拒绝*。
-有关更多详细信息，请参见以下有关[Promises](1.Core-Components/Promises.md)的章节。
+有关更多详细信息，请参见以下有关[Promises](/1.Core-Components/Promises.md)的章节。
 
 ### Promises
 
@@ -161,7 +161,7 @@ $browser->patch($url, array $headers = array(), string|ReadableStreamInterface $
 `Browser`将用[PSR-7 `ResponseInterface`](https://www.php-fig.org/psr/psr-7/#33-psrhttpmessageresponseinterface)
 消息响应每个请求，但不能保证顺序。
 
-发送请求使用[Promises](1.Core-Components/Promises.md) 的接口，
+发送请求使用[Promises](/1.Core-Components/Promises.md) 的接口，
 该接口可以轻松响应HTTP请求完成时（即成功完成或因错误而被拒绝）:
 
 ```php
@@ -418,7 +418,7 @@ foreach ($urls as $url) {
 
 您可以使用[`requestStreaming()`](#requeststreaming) 方法发送任意HTTP请求并接收流式响应。 
 它使用相同的HTTP消息API，但不将响应主体缓存在内存中。 它仅在接收到数据时以小块形式处理响应主体，
-并通过[ReactPHP's Stream API](1.Core-Components/Stream.md) 转发此数据。 
+并通过[ReactPHP's Stream API](/1.Core-Components/Stream.md) 转发此数据。 
 这适用于（任意数量）任意大小的响应。
 
 这意味着它使用一个正常的
@@ -485,7 +485,7 @@ $body->getContents(); // throws BadMethodCallException
 特别是，超时值不考虑接收（可能很大）的响应主体。
 
 如果要将流响应集成到更高级别的API中，则使用由Stream对象解析的Promise对象通常很不方便。
-考虑考虑也使用[react/promise-stream](4.Utility-Components/PromiseStream.md)
+考虑考虑也使用[react/promise-stream](/4.Utility-Components/PromiseStream.md)
 
 生成的流代码可能看起来像这样:
 
@@ -513,7 +513,7 @@ $stream->on('data', function ($data) {
 除了流化响应体之外，您还可以流化请求体。
 如果你想发送较大的POST请求(上传文件等)或同时处理许多传出的流，这将非常有用。
 不需要将body作为字符串传递，你可以简单地将一个实现
-[ReactPHP's `ReadableStreamInterface`](1.Core-Components/Stream.md#readablestreaminterface)
+[ReactPHP's `ReadableStreamInterface`](/1.Core-Components/Stream.md#readablestreaminterface)
 的实例传递给[request methods](#request-methods) ，如下所示:
 
 ```php
@@ -667,10 +667,10 @@ $server = new React\Http\Server($loop, function (Psr\Http\Message\ServerRequestI
 有关更多详细信息，请参见下面的 [response](#server-response) 章节。
 
 需要通过[' listen() '](#listen)方法将` Server `附加到
-[' React\Socket\ServerInterface '](2.Network-Components/Socket.md#serverinterface)
+[' React\Socket\ServerInterface '](/2.Network-Components/Socket.md#serverinterface)
 的实例上开始监听任何传入的连接，这将在下一章中描述。
 在最简单的形式中，你可以将它附加到
-[' React\Socket\Server '](2.Network-Components/Socket.md#server) ，
+[' React\Socket\Server '](/2.Network-Components/Socket.md#server) ，
 以便启动一个明文HTTP服务器，如下所示:
 
 ```php
@@ -764,9 +764,9 @@ $server = new React\Http\Server(
 
 使用 `listen(React\Socket\ServerInterface $socket): void` 方法侦听给定Socket服务器实例上的HTTP请求。
 
-给定的[`React\Socket\ServerInterface`](2.Network-Components/Socket.md#serverinterface) 负责发出基础的流连接。 
+给定的[`React\Socket\ServerInterface`](/2.Network-Components/Socket.md#serverinterface) 负责发出基础的流连接。 
 需要将此HTTP服务器连接到该服务器，以便处理任何连接并将传入的流数据作为传入的HTTP请求消息进行处理。 
-您可以将其以最常见的形式附加到[`React\Socket\Server`](2.Network-Components/Socket.md#server)
+您可以将其以最常见的形式附加到[`React\Socket\Server`](/2.Network-Components/Socket.md#server)
 以便启动纯文本HTTP服务器:
 
 ```php
@@ -783,7 +783,7 @@ $server->listen($socket);
 这样，您可以将应用程序托管在默认的HTTP端口`80`上，并且仅将特定的请求路由到此HTTP服务器。
 
 同样，通常建议使用反向代理设置来接受默认HTTPS端口`443`（TLS终止）上的安全HTTPS请求，并且仅将纯文本请求路由到此HTTP服务器。 
-另外，您也可以使用安全的TLS侦听地址将此HTTP服务器附加到[`React\Socket\Server`](2.Network-Components/Socket.md#server) 上，
+另外，您也可以使用安全的TLS侦听地址将此HTTP服务器附加到[`React\Socket\Server`](/2.Network-Components/Socket.md#server) 上，
 从而对此HTTP服务器接受安全的HTTPS请求，证书文件和可选的`passphrase`，如下所示:
 
 ```php
@@ -1070,7 +1070,7 @@ $server = new React\Http\Server(
 
 ` close `事件将在` error `或` end `事件之后触发。
 
-有关请求体流的更多细节，请参阅[ReactPHP ` ReadableStreamInterface `](1.Core-Components/Stream.md#readablestreaminterface)
+有关请求体流的更多细节，请参阅[ReactPHP ` ReadableStreamInterface `](/1.Core-Components/Stream.md#readablestreaminterface)
 
 `getSize(): ?int`方法可以用来获取请求体的大小，类似于PHP的`$_SERVER['CONTENT_LENGTH']`变量。
 
@@ -1200,7 +1200,7 @@ $server->on('error', function (Exception $e) {
 
 这个函数必须要返回一个实例实现
 [PSR-7 `ResponseInterface`](https://www.php-fig.org/psr/psr-7/#33-psrhttpmessageresponseinterface)
-对象或(ReactPHP承诺)(1.Core-Components/Promise.md),解决了用
+对象或(ReactPHP承诺)(/1.Core-Components/Promise.md),解决了用
 [PSR-7 `ResponseInterface`](https://www.php-fig.org/psr/psr-7/#33-psrhttpmessageresponseinterface) 对象。
 
 这个项目提供了一个[`Response` class](#response)，它实现了
@@ -1494,8 +1494,8 @@ $server = new React\Http\Server($loop, function (ServerRequestInterface $request
   的实例作为第一个参数和一个可选的`callable`作为第二个参数。
 
 * 它返回以下任意一个:
- * 一个实例实现[`Promise\resolve()`](1.Core-Components/Promise.md#resolve) 直接消费。
- * 任何可以被[`Promise\resolve()`](1.Core-Components/Promise.md#resolve) 消费的承诺，
+ * 一个实例实现[`Promise\resolve()`](/1.Core-Components/Promise.md#resolve) 直接消费。
+ * 任何可以被[`Promise\resolve()`](/1.Core-Components/Promise.md#resolve) 消费的承诺，
    解析为[PSR-7 `ResponseInterface`](https://www.php-fig.org/psr/psr-7/#33-psrhttpmessageresponseinterface) 延迟消费。
  * 它可能会抛出一个` Exception `(或者返回一个被拒绝的promise)来表示一个错误条件并中止。
 
@@ -1539,7 +1539,7 @@ $server = new React\Http\Server(
 请注意，根据上面的文档，` $next `中间件请求处理程序可以直接返回
 [PSR-7 `ResponseInterface`](https://www.php-fig.org/psr/psr-7/#33-psrhttpmessageresponseinterface)
 或者返回一个包装在延迟解决承诺中的。
-为了简化这两个路径的处理，你可以简单地把它包装在[`Promise\resolve()`](1.Core-Components/Promise.md/#resolve)
+为了简化这两个路径的处理，你可以简单地把它包装在[`Promise\resolve()`](/1.Core-Components/Promise.md/#resolve)
 调用中，像这样:
 
 ```php
@@ -1560,7 +1560,7 @@ $server = new React\Http\Server(
 请注意，` $next `中间件请求处理程序也可能抛出一个` Exception `(或返回一个被拒绝的承诺)，如上所示。
 前面的例子没有捕获任何异常，因此会向`Server`发出一个错误条件信号。
 另外，你也可以捕获任何`Exception`来实现自定义错误处理逻辑(或日志记录等)，方法是将其包装在
-[` Promise `](1.Core-Components/Promise.md/#promise)中，如下所示:
+[` Promise `](/1.Core-Components/Promise.md/#promise)中，如下所示:
 
 ```php
 $server = new React\Http\Server(
@@ -1612,7 +1612,7 @@ $server = new React\Http\Server(
 ### Browser
 
 `React\Http\Browser` 负责发送Http请求到您的Http服务器，并保持跟踪等待返回的Http响应。
-它还将所有内容注册到主[`EventLoop`](1.Core-Components/EventLoop.md#用法)
+它还将所有内容注册到主[`EventLoop`](/1.Core-Components/EventLoop.md#用法)
 
 ```php
 $loop = React\EventLoop\Factory::create();
@@ -1832,7 +1832,7 @@ $browser->request('POST', $url, array('Content-Length' => '11'), $body);
 您可以使用此方法发送任意HTTP请求并接收流式响应。
 它使用相同的HTTP消息API，但不将响应主体缓存在内存中。 
 它仅在接收到数据时以小块形式处理响应主体，并通过
-[ReactPHP的Stream API](1.Core-Components/Stream.md)
+[ReactPHP的Stream API](/1.Core-Components/Stream.md)
 转发此数据。这适用于（任意数量）任意大小的响应。
 
 ```php
@@ -1854,7 +1854,7 @@ $browser->requestStreaming('GET', $url)->then(function (Psr\Http\Message\Respons
     });
 });
 ```
-另请参见[ReactPHP's `ReadableStreamInterface`](1.Core-Components/Stream.md#readablestreaminterface)
+另请参见[ReactPHP's `ReadableStreamInterface`](/1.Core-Components/Stream.md#readablestreaminterface)
 和[streaming response](#streaming-response) ，以获取更多详细信息，示例和可能的用例。
 
 如果传出请求主体的大小已知且非空，则此方法将自动添加匹配的`Content-Length`请求标头。
@@ -2117,7 +2117,7 @@ $response = new React\Http\Message\Response(
 
 这允许您处理任意大小的请求，而无需将请求体缓冲在内存中。
 相反，它将把请求体表示为
-[`ReadableStreamInterface`](1.Core-Components/Stream.md#readablestreaminterface) ，
+[`ReadableStreamInterface`](/1.Core-Components/Stream.md#readablestreaminterface) ，
 它会在接收到数据时发出数据块:
 
 ```php

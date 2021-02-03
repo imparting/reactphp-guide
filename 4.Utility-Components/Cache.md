@@ -54,7 +54,7 @@ $cache
     ->then('var_dump');
 ```
 
-本例获取键` foo `的值并将其传递给` var_dump `函数。您可以使用 [promises](1.Core-Components/Promise.md) 提供的任何组合。
+本例获取键` foo `的值并将其传递给` var_dump `函数。您可以使用 [promises](/1.Core-Components/Promise.md) 提供的任何组合。
 
 #### set()
 
@@ -109,7 +109,7 @@ $cache->getMultiple(array('name', 'age'))->then(function (array $values) {
 ```
 
 此示例获取`name`和`age`键的缓存项，并打印一些示例输出。 您可以使用
-[promises](1.Core-Components/Promise.md) 提供的任何组合。 
+[promises](/1.Core-Components/Promise.md) 提供的任何组合。 
 
 #### setMultiple()
 
@@ -167,7 +167,7 @@ $cache
 ```
 
 下面的例子检查键` foo `的值是否设置在缓存中，并将结果传递给` var_dump `函数。您可以使用
-[promises](1.Core-Components/Promise.md) 提供的任何组合。
+[promises](/1.Core-Components/Promise.md) 提供的任何组合。
 注意:建议`has()`仅用于缓存预热类型的目的，而不要在`get/set`的实时应用程序操作中使用，
 因为此方法受竞态条件的限制，在竞态条件下，`has()`将立即返回`true`，
 然后另一个脚本可以将其删除，从而使应用程序的状态过期。

@@ -636,11 +636,11 @@ $loop->addTimer(1.0, function () use ($stream) {
  * ReactPHP在其整个生态系统中都使用`streams`的概念，所以这个包的许多高级用户只处理[流使用](#stream-usage)。
    流实例通常是在一些更高级别的组件中创建的，许多用户实际上从来不需要处理创建流实例的问题。
 
- * 如果你想接受传入或建立传出的明文TCP/IP或安全TLS socket连接流，使用[react/socket](2.Network-Components/Socket.md) 
+ * 如果你想接受传入或建立传出的明文TCP/IP或安全TLS socket连接流，使用[react/socket](/2.Network-Components/Socket.md) 
 
- * 如果你想接收一个http请求体流，请使用[react/http](3.Protocol-Components/Http.md)
+ * 如果你想接收一个http请求体流，请使用[react/http](/3.Protocol-Components/Http.md)
 
- * 如果你想通过诸如STDIN, STDOUT, STDERR等进程管道与子进程通信，请使用[react/child-process](4.Utility-Components/ChildProcess.md)
+ * 如果你想通过诸如STDIN, STDOUT, STDERR等进程管道与子进程通信，请使用[react/child-process](/4.Utility-Components/ChildProcess.md)
 
  * 如果你想对文件系统进行读写操作，请使用 [react/filesystem](https://github.com/reactphp/filesystem)
 
