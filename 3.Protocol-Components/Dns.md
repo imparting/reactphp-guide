@@ -100,7 +100,7 @@ $factory = new React\Dns\Resolver\Factory();
 $dns = $factory->createCached('8.8.8.8', $loop, $cache);
 ```
 
-另请参阅wiki了解更多其他缓存实现 [cache事项](https://github.com/reactphp/react/wiki/Users#cache-implementations).
+另请参阅wiki了解更多其他缓存实现 [cache实现](https://github.com/reactphp/react/wiki/Users#cache-implementations).
 
 ## ResolverInterface
 
