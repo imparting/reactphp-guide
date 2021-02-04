@@ -5,7 +5,7 @@
 [ReactPHP](https://reactphp.org/)的核心事件循环，用于事件I/O
 
 为了使基于异步的库可互操作，它们需要使用相同的事件循环。 该组件提供了一个任何库都可以定位的通用公共`LoopInterface`，
-这使它们可以在同一循环中使用，并由用户控制一个 [`run()`](#run)调用。
+这使它们可以在同一循环中使用，并由开发者控制一个 [`run()`](#run)调用。
 
 **目录**
 
@@ -457,7 +457,7 @@ $loop->removeSignal(SIGINT, $listener);
 
 单个流资源不能添加多次。
 
-但可以先调用[`removeReadStream()`](#removereadstream)，或者使用单个侦听器对此事件做出反应，然后从此侦听器中进行调度。如果循环实现不支持给定的资源类型，则此方法可能引发`Exception`
+但可以先调用[`removeReadStream()`](#removereadstream)，或者使用单个侦听器对此事件做出反应，然后从此侦听器中进行调度。如果循环实现不支持的资源类型，则此方法可能引发`Exception`
 
 添加的流资源侦听器回调函数必须能够接受单个参数或者您可以使用完全没有参数的函数。
 
@@ -494,7 +494,7 @@ $loop->addReadStream($stream, function ($stream) use ($name) {
 
 单个流资源不得多次添加。
 相反，请先调用[`removeWriteStream()`](#removewritestream)或使用单个侦听器对此事件做出反应，然后从该事件进行分派监听。
-如果此循环实现不支持给定的资源类型，则此方法可以抛出 `Exception`
+如果此循环实现不支持的资源类型，则此方法可以抛出 `Exception`
 
 添加的流资源侦听器回调函数必须能够接受单个参数或者您可以使用完全没有参数的函数。
 
@@ -518,13 +518,13 @@ $loop->addWriteStream($stream, function ($stream) use ($name) {
 
 #### removeReadStream()
 
-`removeReadStream(resource $stream): void` 方法可用于删除给定流的可读事件监听器。 
+`removeReadStream(resource $stream): void` 方法可用于删除流的可读事件监听器。 
 
 从循环中删除已删除的流，或尝试删除从未添加过或无效的流时此方法无效。
 
 #### removeWriteStream()
 
-`removeWriteStream(resource $stream): void` 方法可用于删除给定流的可写事件监听器。 
+`removeWriteStream(resource $stream): void` 方法可用于删除流的可写事件监听器。 
 
 从循环中删除已删除的流，或尝试删除从未添加过或无效的流时此方法无效。
 

@@ -642,7 +642,7 @@ $client->get('http://localhost/info')->then(function (Psr\Http\Message\ResponseI
 
 `React\Http\Server`类负责处理传入的连接，然后处理每个传入的Http请求。
 
-当接收到一个完整的HTTP请求时，它将调用给定的请求处理程序函数。
+当接收到一个完整的HTTP请求时，它将调用请求处理程序函数。
 这个请求处理函数需要传递给构造函数，并将被相应的 [request](#server-request) 对象调用，
 并期望返回一个 [response](#server-response) 对象:
 
@@ -684,7 +684,7 @@ $server->listen($socket);
 [hello world server 示例](https://github.com/reactphp/http/blob/v1.2.0/examples/51-server-hello-world.php)
 
 默认情况下，` Server `会在内存中缓冲并解析完整的传入HTTP请求。
-当接收到完整的请求头和请求体时，它将调用给定的请求处理程序函数。
+当接收到完整的请求头和请求体时，它将调用请求处理程序函数。
 这意味着传递给请求处理函数的[request](#server-request)对象将与PSR-7 (http-message)完全兼容。
 这为80%的用例提供了正常的默认值，并且推荐使用这个库，除非您确定自己知道自己在做什么。
 
@@ -762,9 +762,9 @@ $server = new React\Http\Server(
 
 ### listen()
 
-使用 `listen(React\Socket\ServerInterface $socket): void` 方法侦听给定Socket服务器实例上的HTTP请求。
+使用 `listen(React\Socket\ServerInterface $socket): void` 方法侦听Socket服务器实例上的HTTP请求。
 
-给定的[`React\Socket\ServerInterface`](/2.Network-Components/Socket.md#serverinterface) 负责发出基础的流连接。 
+[`React\Socket\ServerInterface`](/2.Network-Components/Socket.md#serverinterface) 负责发出基础的流连接。 
 需要将此HTTP服务器连接到该服务器，以便处理任何连接并将传入的流数据作为传入的HTTP请求消息进行处理。 
 您可以将其以最常见的形式附加到[`React\Socket\Server`](/2.Network-Components/Socket.md#server)
 以便启动纯文本HTTP服务器:
@@ -899,7 +899,7 @@ $server = new React\Http\Server($loop, function (Psr\Http\Message\ServerRequestI
 
 #### Request body
 
-默认情况下，[`Server`](#server)将在内存中缓冲并解析完整的请求体。这意味着给定的请求对象包括已解析的请求主体和上传的文件。
+默认情况下，[`Server`](#server)将在内存中缓冲并解析完整的请求体。这意味着请求对象包括已解析的请求主体和上传的文件。
 
 >作为默认缓冲逻辑的替代，你也可以使用
  [`StreamingRequestMiddleware`](#streamingrequestmiddleware) 。
@@ -1123,7 +1123,7 @@ $server = new React\Http\Server(
 
 `getUri(): UriInterface`方法可以用来获得有效的请求URI，它提供了对各个URI组件的访问。
 
-注意(取决于给定的`request-target(请求目标)`)某些URI组件可能存在也可能不存在，
+注意(取决于`request-target(请求目标)`)某些URI组件可能存在也可能不存在，
 例如，`getPath(): string`方法将为`asterisk-form`或`authority-form`的请求返回一个空字符串。
 
 `getHost(): string`方法将返回由有效请求URI确定的主机，如果HTTP/1.0客户端没有指定，则默认为本地套接字地址(即没有` host `报头)。
@@ -1898,7 +1898,7 @@ $browser = $browser->withTimeout(true);
 另请参阅 [timeouts](#timeouts) 了解有关超时处理的更多详细信息。
 
 请注意，[`Browser`](#browser)是一个不可变的对象，
-即此方法实际上返回一个* 新的 * [`Browser`](#browser) 实例，并应用了给定的超时值。
+即此方法实际上返回一个* 新的 * [`Browser`](#browser) 实例，并应用了设定的超时值。
 
 #### withFollowRedirects()
 
@@ -1943,7 +1943,7 @@ $browser = $browser->withFollowRedirects(true);
 另请参阅[redirects](#redirects) ，以获取有关重定向处理的更多详细信息。
 
 请注意，[`Browser`](#browser)是一个不可变的对象，
-即该方法实际上返回一个*新的* [`Browser`](#browser)实例，并应用了给定的重定向设置。
+即该方法实际上返回一个*新的* [`Browser`](#browser)实例，并应用了设定的重定向设置。
 
 #### withRejectErrorResponse()
 
@@ -1982,13 +1982,13 @@ $browser->get($url)->then(function (Psr\Http\Message\ResponseInterface $response
 ```
 
 请注意，[`Browser`](#browser)是一个不可变的对象，
-即该方法实际上返回一个*新的* [`Browser`](#browser)实例，并应用了给定的设置。
+即该方法实际上返回一个*新的* [`Browser`](#browser)实例，并应用了设定的设置。
 
 #### withBase()
 
 `withBase(string|null $baseUrl): Browser` 方法可用于更改解析相对URL的基本URL。 
 
-如果您配置了一个基本URL，那么对相对URL的任何请求都将首先通过相对于给定的绝对基本URL解析这个请求来处理。
+如果您配置了一个基本URL，那么对相对URL的任何请求都将首先通过相对于绝对基本URL解析这个请求来处理。
 这支持解析相对路径引用（如`../`等）。
 这对于所有端点（URL）都位于公共基URL下的（RESTful）API调用特别有用。
 
@@ -2006,10 +2006,10 @@ $browser = $browser->withBase(null);
 
 因此，任何使用相对URL的请求都无法完成，并且在不发送请求的情况下将被拒绝。
 
-如果给定的` $baseUrl `参数不是一个有效的URL，这个方法将抛出一个` InvalidArgumentException `。
+如果` $baseUrl `参数不是一个有效的URL，这个方法将抛出一个` InvalidArgumentException `。
 
 注意，[`Browser`](#browser)是一个不可变对象，也就是说，
-` withBase() `方法实际上会返回一个*新的* [` Browser `](#browser)实例，其中应用了给定的base URL。
+` withBase() `方法实际上会返回一个*新的* [` Browser `](#browser)实例，其中应用了设定的base URL。
 
 #### withProtocolVersion()
 
@@ -2057,7 +2057,7 @@ $browser->get($url)->then(function (Psr\Http\Message\ResponseInterface $response
 接收任意大小的响应而无需缓冲。 因此，此最大缓冲区大小设置对流响应没有影响。
 
 注意，[`Browser`](#browser)是一个不可变对象，也就是说，
-` withBase() `方法实际上会返回一个*新的* [` Browser `](#browser)实例，其中应用了给定的设置。
+` withBase() `方法实际上会返回一个*新的* [` Browser `](#browser)实例，其中应用了设定的设置。
 
 ### React\Http\Message
 
@@ -2228,7 +2228,7 @@ $server = new React\Http\Server(
 所有请求将被缓冲在内存中，直到到达请求主体末尾，然后使用完整的缓冲请求调用下一个中间件处理程序。
 类似地，这将立即为具有空请求主体的请求（例如简单的`GET`请求）和已经缓冲的请求（例如由于其他中间件）调用下一个中间件处理程序。
 
-请注意，给定的缓冲区大小限制将分别应用于每个请求。
+请注意，缓冲区大小限制将分别应用于每个请求。
 这意味着，如果您允许2 MiB限制，然后接收1000个并发请求，则仅为这些缓冲区最多可以分配2000 MiB。
 因此，强烈建议将其与[`LimitConcurrentRequestsMiddleware`](#limitconcurrentrequestsmiddleware)
 （请参阅上文）一起使用，以限制并发请求的总数。

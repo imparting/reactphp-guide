@@ -2,31 +2,32 @@
 
 [![Build Status](https://travis-ci.org/reactphp/child-process.svg?branch=master)](https://travis-ci.org/reactphp/child-process)
 
-Event-driven library for executing child processes with
-[ReactPHP](https://reactphp.org/).
+使用[ReactPHP](https://reactphp.org/)
+执行子进程的事件驱动库。
 
-This library integrates [Program Execution](http://php.net/manual/en/book.exec.php)
-with the [EventLoop](https://github.com/reactphp/event-loop).
-Child processes launched may be signaled and will emit an
-`exit` event upon termination.
-Additionally, process I/O streams (i.e. STDIN, STDOUT, STDERR) are exposed
-as [Streams](https://github.com/reactphp/stream).
+该库将 [Program Execution](http://php.net/manual/en/book.exec.php)
+与[EventLoop](https://github.com/reactphp/event-loop)
+集成在一起。
 
-**Table of contents**
+已启动的子进程可能会发出信号，并在终止时发出`exit`事件。
 
-* [Quickstart example](#quickstart-example)
+此外，进程I / O流（即`STDIN`，`STDOUT`，`STDERR`）公开为[Streams](https://github.com/reactphp/stream)
+
+**目录**
+
+* [快速开始](#快速开始)
 * [Process](#process)
-  * [Stream Properties](#stream-properties)
+  * [Stream特性](#stream特性)
   * [Command](#command)
   * [Termination](#termination)
-  * [Custom pipes](#custom-pipes)
-  * [Sigchild Compatibility](#sigchild-compatibility)
-  * [Windows Compatibility](#windows-compatibility)
-* [Install](#install)
-* [Tests](#tests)
+  * [自定义pipes](#自定义pipes)
+  * [Sigchild兼容性](#sigchild兼容性)
+  * [Windows兼容性](#windows兼容性)
+* [安装](#安装)
+* [测试](#测试)
 * [License](#license)
 
-## Quickstart example
+## 快速开始
 
 ```php
 $loop = React\EventLoop\Factory::create();
@@ -45,38 +46,31 @@ $process->on('exit', function($exitCode, $termSignal) {
 $loop->run();
 ```
 
-See also the [examples](examples).
+请参阅[示例](https://github.com/reactphp/child-process/blob/v0.6.1/examples)
 
 ## Process
 
-### Stream Properties
+### Stream特性
 
-Once a process is started, its I/O streams will be constructed as instances of
-`React\Stream\ReadableStreamInterface` and `React\Stream\WritableStreamInterface`. 
-Before `start()` is called, these properties are not set. Once a process terminates, 
-the streams will become closed but not unset.
+进程一旦启动，它的I/O流将被构造为`React\Stream\ReadableStreamInterface`和`React\Stream\WritableStreamInterface`的实例。
+在调用`start（）`之前，未设置这些属性。 进程终止后，流将关闭但不会取消设置。
 
-Following common Unix conventions, this library will start each child process
-with the three pipes matching the standard I/O streams as given below by default.
-You can use the named references for common use cases or access these as an
-array with all three pipes.
+遵循通用的Unix约定，该库将使用匹配标准I / O流的三个管道（默认情况下如下）启动每个子进程。
+您可以对常用用例使用命名引用，也可以将它们作为具有所有三个管道的数组访问。
 
-* `$stdin`  or `$pipes[0]` is a `WritableStreamInterface`
-* `$stdout` or `$pipes[1]` is a `ReadableStreamInterface`
-* `$stderr` or `$pipes[2]` is a `ReadableStreamInterface`
+* `$stdin`  或 `$pipes[0]` 是 `WritableStreamInterface`
+* `$stdout` 或 `$pipes[1]` 是 `ReadableStreamInterface`
+* `$stderr` 或 `$pipes[2]` 是 `ReadableStreamInterface`
 
-Note that this default configuration may be overridden by explicitly passing
-[custom pipes](#custom-pipes), in which case they may not be set or be assigned
-different values. In particular, note that [Windows support](#windows-compatibility)
-is limited in that it doesn't support non-blocking STDIO pipes. The `$pipes`
-array will always contain references to all pipes as configured and the standard
-I/O references will always be set to reference the pipes matching the above
-conventions. See [custom pipes](#custom-pipes) for more details.
+请注意，可以通过显式传递[自定义管道](#custom-pipes) 来覆盖此默认配置，
+所以您可以不设置它们或为它们分配不同的值。
+特别要注意的是，[Windows支持](#windows-compatibility) 受限制，因为它不支持非阻塞`STDIO`管道。
+`$pipes`数组将始终包含对所有已配置管道的引用，并且始终将标准I / O引用设置为引用符合上述约定的管道。 
+有关更多详细信息，请参见[自定义管道](#custom-pipes) 。
 
-Because each of these implement the underlying
-[`ReadableStreamInterface`](https://github.com/reactphp/stream#readablestreaminterface) or 
-[`WritableStreamInterface`](https://github.com/reactphp/stream#writablestreaminterface), 
-you can use any of their events and methods as usual:
+因为它们都实现了底层的[`ReadableStreamInterface`](https://github.com/reactphp/stream#readablestreaminterface)
+或[`WritableStreamInterface`](https://github.com/reactphp/stream#writablestreaminterface) ，
+你可以像往常一样使用它们的事件和方法:
 
 ```php
 $process = new Process($command);
@@ -103,26 +97,24 @@ $process->stdin->end($data = null);
 // …
 ```
 
-For more details, see the
-[`ReadableStreamInterface`](https://github.com/reactphp/stream#readablestreaminterface) and 
-[`WritableStreamInterface`](https://github.com/reactphp/stream#writablestreaminterface).
+要了解更多信息，请参阅
+[`ReadableStreamInterface`](https://github.com/reactphp/stream#readablestreaminterface)
+和 
+[`WritableStreamInterface`](https://github.com/reactphp/stream#writablestreaminterface)
 
 ### Command
 
-The `Process` class allows you to pass any kind of command line string:
+` Process `类允许你传递任何类型的命令行字符串:
 
 ```php
 $process = new Process('echo test');
 $process->start($loop);
 ```
 
-The command line string usually consists of a whitespace-separated list with
-your main executable bin and any number of arguments. Special care should be
-taken to escape or quote any arguments, escpecially if you pass any user input
-along. Likewise, keep in mind that especially on Windows, it is rather common to
-have path names containing spaces and other special characters. If you want to
-run a binary like this, you will have to ensure this is quoted as a single
-argument using `escapeshellarg()` like this:
+命令行字符串通常由一个以空格分隔的列表组成，其中包含主可执行文件bin和任意数量的参数。
+需要注意转义或引用参数，特别是在传递用户输入时。
+同样，请记住，尤其是在Windows上，路径名包含空格和其他特殊字符是很常见的。
+如果要运行这样的二进制文件，则必须确保使用`escapeshellarg()`将其作为单个参数引用，如下所示：
 
 ```php
 $bin = 'C:\\Program files (x86)\\PHP\\php.exe';
@@ -132,48 +124,35 @@ $process = new Process(escapeshellarg($bin) . ' ' . escapeshellarg($file));
 $process->start($loop);
 ```
 
-By default, PHP will launch processes by wrapping the given command line string
-in a `sh` command on Unix, so that the first example will actually execute
-`sh -c echo test` under the hood on Unix. On Windows, it will not launch
-processes by wrapping them in a shell.
+默认情况下，在Unix上，PHP将通过将命令行字符串包装在`sh`命令中来启动进程，
+因此第一个示例将在Unix上的引擎盖下实际执行`sh-c echo test`。
+在Windows上，它不会通过将进程包装在shell中来启动进程。
 
-This is a very useful feature because it does not only allow you to pass single
-commands, but actually allows you to pass any kind of shell command line and
-launch multiple sub-commands using command chains (with `&&`, `||`, `;` and
-others) and allows you to redirect STDIO streams (with `2>&1` and family).
-This can be used to pass complete command lines and receive the resulting STDIO
-streams from the wrapping shell command like this:
+这是一个非常有用的特性，因为它不仅允许您传递单个命令，而且实际上还允许您传递任何类型的shell命令行，
+并且可以使用命令链（使用`&&`、`||`、`;`和其他命令）启动多个子命令，
+并允许您重定向`STDIO`流（使用`2>&1`和家族命令）。
+这可用于传递完整的命令行，并从包装shell命令接收生成的`STDIO`流，如下所示：
 
 ```php
 $process = new Process('echo run && demo || echo failed');
 $process->start($loop);
 ```
 
-> Note that [Windows support](#windows-compatibility) is limited in that it
-  doesn't support STDIO streams at all and also that processes will not be run
-  in a wrapping shell by default. If you want to run a shell built-in function
-  such as `echo hello` or `sleep 10`, you may have to prefix your command line
-  with an explicit shell like `cmd /c echo hello`.
+>请注意，[Windows支持](#windows-compatibility)受到限制，因为它根本不支持`STDIO`流，
+ 而且默认情况下进程不会在包装shell中运行。如果要运行shell内置函数，如`echo hello`或`sleep 10`，
+ 可能需要在命令行前面加上一个显式shell，如`cmd/c echo hello`。
 
-In other words, the underlying shell is responsible for managing this command
-line and launching the individual sub-commands and connecting their STDIO
-streams as appropriate.
-This implies that the `Process` class will only receive the resulting STDIO
-streams from the wrapping shell, which will thus contain the complete
-input/output with no way to discern the input/output of single sub-commands.
-
-If you want to discern the output of single sub-commands, you may want to
-implement some higher-level protocol logic, such as printing an explicit
-boundary between each sub-command like this:
+换句话说，底层shell负责管理此命令行并启动各个子命令，并适当地连接其`STDIO`流。
+这意味着`Process`类将仅从包装shell接收生成的`STDIO`流，因此它将包含完整的输入/输出，而无法辨别单个子命令的输入/输出。
+如果要识别单个子命令的输出，则可能需要实现一些更高级别的协议逻辑，例如在每个子命令之间打印显式边界，如下所示：
 
 ```php
 $process = new Process('cat first && echo --- && cat second');
 $process->start($loop);
 ```
 
-As an alternative, considering launching one process at a time and listening on
-its `exit` event to conditionally start the next process in the chain.
-This will give you an opportunity to configure the subsequent process I/O streams:
+另一种办法是，考虑一次启动一个进程，监听其`exit`事件，有条件地启动链中的下一个进程。
+这将给你一个机会来配置后续的进程I/O流:
 
 ```php
 $first = new Process('cat first');
@@ -185,16 +164,15 @@ $first->on('exit', function () use ($loop) {
 });
 ```
 
-Keep in mind that PHP uses the shell wrapper for ALL command lines on Unix.
-While this may seem reasonable for more complex command lines, this actually
-also applies to running the most simple single command:
+请记住，PHP对Unix上的所有命令行都使用shell包装器。
+虽然这对于更复杂的命令行似乎是合理的，但实际上这也适用于运行最简单的单个命令：
 
 ```php
 $process = new Process('yes');
 $process->start($loop);
 ```
 
-This will actually spawn a command hierarchy similar to this on Unix:
+实际上，这将产生一个类似于Unix上的命令层次结构：
 
 ```
 5480 … \_ php example.php
@@ -202,45 +180,35 @@ This will actually spawn a command hierarchy similar to this on Unix:
 5482 …        \_ yes
 ```
 
-This means that trying to get the underlying process PID or sending signals
-will actually target the wrapping shell, which may not be the desired result
-in many cases.
+这意味着获取底层进程PID或发送信号，实际上目标却是shell包装器，这种情况下可能不是您期望的结果。
 
-If you do not want this wrapping shell process to show up, you can simply
-prepend the command string with `exec` on Unix platforms, which will cause the
-wrapping shell process to be replaced by our process:
+如果你不想显示这个shell包装器进程，在Unix平台上你可以在命令串前加上` exec `，这将导致shell包装器进程被我们的进程所取代:
 
 ```php
 $process = new Process('exec yes');
 $process->start($loop);
 ```
 
-This will show a resulting command hierarchy similar to this:
+这将显示与以下类似的结果命令层次结构：
 
 ```
 5480 … \_ php example.php
 5481 …    \_ yes
 ```
 
-This means that trying to get the underlying process PID and sending signals
-will now target the actual command as expected.
+这样获取底层进程PID和发送信号现在将以预期的实际命令为目标。
 
-Note that in this case, the command line will not be run in a wrapping shell.
-This implies that when using `exec`, there's no way to pass command lines such
-as those containing command chains or redirected STDIO streams.
+注意，在这种情况下，命令行不会在shell包装器中运行。
+这意味着在使用` exec `时，无法传递命令行，比如那些包含命令链或重定向`STDIO`流的命令行。
 
-As a rule of thumb, most commands will likely run just fine with the wrapping
-shell.
-If you pass a complete command line (or are unsure), you SHOULD most likely keep
-the wrapping shell.
-If you're running on Unix and you want to pass an invidual command only, you MAY
-want to consider prepending the command string with `exec` to avoid the wrapping shell.
+根据经验，大多数命令都可以在shell包装器中正常运行。
+如果您传递了一个完整的命令行(或者不确定)，您很可能会保留shell包装器。
+如果您运行在Unix上，并且希望只传递一个单独的命令，您可能需要考虑在命令字符串前面加上` exec `，以避免shell包装器。
 
 ### Termination
 
-The `exit` event will be emitted whenever the process is no longer running.
-Event listeners will receive the exit code and termination signal as two
-arguments:
+每当进程不再运行时，都会发出`exit`事件。
+事件侦听器将接收退出代码和终止信号作为两个参数：
 
 ```php
 $process = new Process('sleep 10');
@@ -254,41 +222,28 @@ $process->on('exit', function ($code, $term) {
     }
 });
 ```
+注意，如果进程已经终止，则` $code `为` null `，但无法确定退出码(例如[sigchild compatibility](#sigchild-compatibility)被禁用)。
+同样，除非进程响应发送给它的未捕获信号而终止，否则`$term`为`null`。
+这并不是这个项目的限制，而是在POSIX系统上如何公开退出码和信号的实际限制，更多细节请参阅
+[这里](https://unix.stackexchange.com/questions/99112/default-exit-code-when-process-is-terminated)
 
-Note that `$code` is `null` if the process has terminated, but the exit
-code could not be determined (for example
-[sigchild compatibility](#sigchild-compatibility) was disabled).
-Similarly, `$term` is `null` unless the process has terminated in response to
-an uncaught signal sent to it.
-This is not a limitation of this project, but actual how exit codes and signals
-are exposed on POSIX systems, for more details see also
-[here](https://unix.stackexchange.com/questions/99112/default-exit-code-when-process-is-terminated).
+还值得注意的是，进程终止取决于事先关闭的所有文件描述符。
+这意味着所有 [process pipes](#stream-properties) 将在` exit `事件之前触发` close `事件，
+而在` exit `事件之后不会再有` data `事件到达。
+因此如果这些管道中的任何一个处于暂停状态(` pause() `方法或内部由于` pipe() `调用)，
+此检测可能不会触发。
 
-It's also worth noting that process termination depends on all file descriptors
-being closed beforehand.
-This means that all [process pipes](#stream-properties) will emit a `close`
-event before the `exit` event and that no more `data` events will arrive after
-the `exit` event.
-Accordingly, if either of these pipes is in a paused state (`pause()` method
-or internally due to a `pipe()` call), this detection may not trigger.
-
-The `terminate(?int $signal = null): bool` method can be used to send the
-process a signal (SIGTERM by default).
-Depending on which signal you send to the process and whether it has a signal
-handler registered, this can be used to either merely signal a process or even
-forcefully terminate it.
+可以使用`terminate(?int $signal = null): bool`方法向进程发送信号（默认为SIGTERM）。
+根据您向进程发送的信号以及它是否已注册信号处理程序，这可以用于仅向进程发送信号，甚至可以强制终止它。 
 
 ```php
 $process->terminate(SIGUSR1);
 ```
 
-Keep the above section in mind if you want to forcefully terminate a process.
-If your process spawn sub-processes or implicitly uses the
-[wrapping shell mentioned above](#command), its file descriptors may be
-inherited to child processes and terminating the main process may not
-necessarily terminate the whole process tree.
-It is highly suggested that you explicitly `close()` all process pipes
-accordingly when terminating a process:
+如果要强制终止进程，请记住上面的部分。
+如果您的进程生成子进程或隐式使用[shell包装器](#command) ，
+则其文件描述符可能会继承给子进程，终止主进程不一定会终止整个进程树。
+强烈建议您在终止进程时相应地将所有进程管道显式`close()`：
 
 ```php
 $process = new Process('sleep 10');
@@ -302,9 +257,8 @@ $loop->addTimer(2.0, function () use ($process) {
 });
 ```
 
-For many simple programs these seamingly complicated steps can also be avoided
-by prefixing the command line with `exec` to avoid the wrapping shell and its
-inherited process pipes as [mentioned above](#command).
+对于许多简单的程序，这些极其复杂的步骤也可以通过在命令行前面加上`exec`来避免，
+以避免包装shell及其继承的进程管道[如上所述](#command)
 
 ```php
 $process = new Process('exec sleep 10');
@@ -315,9 +269,8 @@ $loop->addTimer(2.0, function () use ($process) {
 });
 ```
 
-Many command line programs also wait for data on `STDIN` and terminate cleanly
-when this pipe is closed.
-For example, the following can be used to "soft-close" a `cat` process:
+许多命令行程序需要等待` STDIN `上的数据，并在此管道关闭时干净地终止。
+例如，下面的方法可以用来`软关闭`一个`cat`进程:
 
 ```php
 $process = new Process('cat');
@@ -328,39 +281,32 @@ $loop->addTimer(2.0, function () use ($process) {
 });
 ```
 
-While process pipes and termination may seem confusing to newcomers, the above
-properties actually allow some fine grained control over process termination,
-such as first trying a soft-close and then applying a force-close after a
-timeout.
+虽然进程管道和终止可能会让新手感到困惑，但上面的属性实际上允许对进程终止进行一些细粒度的控制，
+比如首先尝试软关闭，然后在超时后应用强制关闭。
 
-### Custom pipes
+### 自定义pipes
 
-Following common Unix conventions, this library will start each child process
-with the three pipes matching the standard I/O streams by default. For more
-advanced use cases it may be useful to pass in custom pipes, such as explicitly
-passing additional file descriptors (FDs) or overriding default process pipes.
+按照常见的Unix约定，默认情况下，这个库将使用匹配标准I/O流的三个管道启动每个子进程。
+对于更高级的用例，传入自定义管道可能很有用，例如显式地传入额外的文件描述符(FDs)或覆盖默认进程管道。
 
-Note that passing custom pipes is considered advanced usage and requires a
-more in-depth understanding of Unix file descriptors and how they are inherited
-to child processes and shared in multi-processing applications.
+注意，传递自定义管道被认为是高级用法，需要更深入地理解Unix文件描述符，
+以及它们如何继承到子进程并在多处理应用程序中共享。
 
-If you do not want to use the default standard I/O pipes, you can explicitly
-pass an array containing the file descriptor specification to the constructor
-like this:
+如果你不想使用默认的标准I/O管道，你可以像这样显式地将一个包含文件描述符规范的数组传递给构造函数:
 
 ```php
 $fds = array(
-    // standard I/O pipes for stdin/stdout/stderr
+    // 标准输入输出管道用于stdin/stdout/stderr
     0 => array('pipe', 'r'),
     1 => array('pipe', 'w'),
     2 => array('pipe', 'w'),
 
-    // example FDs for files or open resources
+    // 使用实例文件或开放资源的FDs
     4 => array('file', '/dev/null', 'r'),
     6 => fopen('log.txt','a'),
     8 => STDERR,
 
-    // example FDs for sockets
+    // socket的FDs示例
     10 => fsockopen('localhost', 8080),
     12 => stream_socket_server('tcp://0.0.0.0:4711')
 );
@@ -369,82 +315,62 @@ $process = new Process($cmd, null, null, $fds);
 $process->start($loop);
 ```
 
-Unless your use case has special requirements that demand otherwise, you're
-highly recommended to (at least) pass in the standard I/O pipes as given above.
-The file descriptor specification accepts arguments in the exact same format
-as the underlying [`proc_open()`](http://php.net/proc_open) function.
+除非您的用例有其他特殊需求，否则强烈建议您（至少）传入上面给出的标准I/O管道。
+文件描述符规范接受与基础[`proc_open()`](http://php.net/proc_open)格式完全相同的参数。
 
-Once the process is started, the `$pipes` array will always contain references to
-all pipes as configured and the standard I/O references will always be set to
-reference the pipes matching common Unix conventions. This library supports any
-number of pipes and additional file descriptors, but many common applications
-being run as a child process will expect that the parent process properly
-assigns these file descriptors.
+一旦进程启动，`$pipes`数组将始终包含对配置的所有管道的引用，
+并且标准I/O引用将始终设置为引用与常见Unix约定匹配的管道。
+此库支持任意数量的管道和附加的文件描述符，
+但是许多作为子进程运行的常见应用程序都希望父进程正确地分配这些文件描述符。
 
-### Sigchild Compatibility
+### Sigchild兼容性
 
-Internally, this project uses a work-around to improve compatibility when PHP
-has been compiled with the `--enable-sigchild` option. This should not affect most
-installations as this configure option is not used by default and many
-distributions (such as Debian and Ubuntu) are known to not use this by default.
-Some installations that use [Oracle OCI8](http://php.net/manual/en/book.oci8.php)
-may use this configure option to circumvent `defunct` processes.
+该项目使用了一种变通方法来提高PHP在使用`--enable-sigchild`选项编译时的兼容性。
+这应该不会影响大多数安装，因为默认情况下这个配置选项并没有被使用，
+而且许多发行版(如Debian和Ubuntu)默认情况下都不使用这个选项。
+一些使用[Oracle OCI8](http://php.net/manual/en/book.oci8.php)
+的安装可能会使用这个配置选项来绕过` defunct `进程。
 
-When PHP has been compiled with the `--enable-sigchild` option, a child process'
-exit code cannot be reliably determined via `proc_close()` or `proc_get_status()`.
-To work around this, we execute the child process with an additional pipe and
-use that to retrieve its exit code.
+当PHP使用`--enable-sigchild`选项编译时，子进程的退出码不能通过` proc_close() `或` proc_get_status() `可靠地确定。
+为了解决这个问题，我们使用附加管道执行子进程，并使用该管道检索其退出代码。
 
-This work-around incurs some overhead, so we only trigger this when necessary
-and when we detect that PHP has been compiled with the `--enable-sigchild` option.
-Because PHP does not provide a way to reliably detect this option, we try to
-inspect output of PHP's configure options from the `phpinfo()` function.
+这个方法会带来一些开销，所以我们只在必要的时候触发它，并且当我们检测到PHP已经使用`--enable-sigchild`选项编译时触发它。
+因为PHP没有提供一种可靠的方法来检测这个选项，所以我们尝试检查` phpinfo() `函数的PHP配置选项的输出。
 
-The static `setSigchildEnabled(bool $sigchild): void` method can be used to
-explicitly enable or disable this behavior like this:
+`setSigchildEnabled(bool $sigchild): void`静态方法可以像这样显式地启用或禁用这种行为:
 
 ```php
-// advanced: not recommended by default
+// 高级:默认不推荐
 Process::setSigchildEnabled(true);
 ```
 
-Note that all processes instantiated after this method call will be affected.
-If this work-around is disabled on an affected PHP installation, the `exit`
-event may receive `null` instead of the actual exit code as described above.
-Similarly, some distributions are known to omit the configure options from
-`phpinfo()`, so automatic detection may fail to enable this work-around in some
-cases. You may then enable this  explicitly as given above.
+请注意，在此方法调用之后实例化的所有进程都将受到影响。
+如果在受影响的PHP安装上禁用了此解决方案，` exit `事件可能接收到` null `，而不是如上所述的实际退出代码。
 
-**Note:** The original functionality was taken from Symfony's
-[Process](https://github.com/symfony/process) compoment.
+一些发行版会忽略` phpinfo() `中的配置选项，所以自动检测在某些情况下可能无法启用这个解决方案。
+然后，您可以像上面所给出的那样显式地启用它。
 
-### Windows Compatibility
+**注意:** 最初的功能来自Symfony的 [Process](https://github.com/symfony/process) 组件。
 
-Due to platform constraints, this library provides only limited support for
-spawning child processes on Windows. In particular, PHP does not allow accessing
-standard I/O pipes without blocking. As such, this project will not allow
-constructing a child process with the default process pipes and will instead
-throw a `LogicException` on Windows by default:
+### Windows兼容性
+
+由于平台限制，此库仅为Windows上的派生子进程提供有限的支持。
+特别是，PHP不允许在没有阻塞的情况下访问标准I/O管道。因此，
+此项目不允许使用默认进程管道构造子进程，在Windows上默认情况下抛出`LogicException`：
 
 ```php
-// throws LogicException on Windows
+// 在Windows上抛出`LogicException`
 $process = new Process('ping example.com');
 $process->start($loop);
 ```
 
-There are a number of alternatives and workarounds as detailed below if you want
-to run a child process on Windows, each with its own set of pros and cons:
+如果要在Windows上运行子进程，有许多替代方法和解决方法，如下所述，每种方法都有自己的优缺点：
 
-*   This package does work on
-    [`Windows Subsystem for Linux`](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux)
-    (or WSL) without issues. When you are in control over how your application is
-    deployed, we recommend [installing WSL](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide)
-    when you want to run this package on Windows.
+* 该软件包可以在[`Linux的Windows子系统(WSL)`](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) 上正常运行。
+  当您控制应用程序的部署方式时，如果要在Windows上运行此程序包，
+  建议使用[安装WSL](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide)
 
-*   If you only care about the exit code of a child process to check if its
-    execution was successful, you can use [custom pipes](#custom-pipes) to omit
-    any standard I/O pipes like this:
-
+* 如果只关心子进程的退出代码以检查其执行是否成功，则可以使用[自定义pipes](#自定义pipes)省略任何标准的I / O管道，如下所示：
     ```php
     $process = new Process('ping example.com', null, null, array());
     $process->start($loop);
@@ -453,16 +379,12 @@ to run a child process on Windows, each with its own set of pros and cons:
         echo 'exit with ' . $exitcode . PHP_EOL;
     });
     ```
+    同样，如果您的子进程使用[Socket组件](/2.Network-Components/Socket.md)
+    通过套接字与远程服务器甚至是父进程进行通信，这也很有用。 
+    如果您可以控制子进程与父进程之间的通信方式这是最佳选择。
 
-    Similarly, this is also useful if your child process communicates over
-    sockets with remote servers or even your parent process using the
-    [Socket component](https://github.com/reactphp/socket). This is usually
-    considered the best alternative if you have control over how your child
-    process communicates with the parent process.
-
-*   If you only care about command output after the child process has been
-    executed, you can use [custom pipes](#custom-pipes) to configure file
-    handles to be passed to the child process instead of pipes like this:
+*   如果你只关心子进程执行后的命令输出，你可以使用[自定义pipes](#自定义pipes)
+    来配置传递给子进程的文件句柄，而不是像这样的管道:
 
     ```php
     $process = new Process('ping example.com', null, null, array(
@@ -484,16 +406,13 @@ to run a child process on Windows, each with its own set of pros and cons:
     });
     ```
 
-    Note that this example uses `tmpfile()`/`fopen()` for illustration purposes only.
-    This should not be used in a truly async program because the filesystem is
-    inherently blocking and each call could potentially take several seconds.
-    See also the [Filesystem component](https://github.com/reactphp/filesystem) as an
-    alternative.
+    注意，这个例子使用` tmpfile() ` / ` fopen() `只是为了说明。
+    在真正的异步程序中不应该使用这种方法，因为文件系统本身就是阻塞的，而且每次调用都可能需要几秒钟的时间。
+    另一个替代方案是[Filesystem component](https://github.com/reactphp/filesystem)
 
-*   If you want to access command output as it happens in a streaming fashion,
-    you can use redirection to spawn an additional process to forward your
-    standard I/O streams to a socket and use [custom pipes](#custom-pipes) to
-    omit any actual standard I/O pipes like this:
+*   如果你想以流方式访问命令输出，你可以使用重定向生成一个额外的进程，
+    将你的标准I/O流转发到套接字，并使用[自定义pipes](#custom pipes)
+    来省略任何实际的标准I/O管道，就像这样:
 
     ```php
     $server = new React\Socket\Server('127.0.0.1:0', $loop);
@@ -513,14 +432,10 @@ to run a child process on Windows, each with its own set of pros and cons:
     });
     ```
 
-    Note how this will spawn another fictional `foobar` helper program to consume
-    the standard output from the actual child process. This is in fact similar
-    to the above recommendation of using socket connections in the child process,
-    but in this case does not require modification of the actual child process.
+    请注意，这将产生另一个虚构的`foobar`助手程序，以使用实际子进程的标准输出。
+    这实际上类似于上面建议的在子进程中使用套接字连接，但是在这种情况下不需要修改实际的子进程。
 
-    In this example, the fictional `foobar` helper program can be implemented by
-    simply consuming all data from standard input and forwarding it to a socket
-    connection like this:
+    在本例中，虚构的`foobar`助手程序可以通过使用标准输入并将所有数据转发到如下套接字连接中：
 
     ```php
     $socket = stream_socket_client($argv[1]);
@@ -529,8 +444,7 @@ to run a child process on Windows, each with its own set of pros and cons:
     } while (isset($data[0]));
     ```
 
-    Accordingly, this example can also be run with plain PHP without having to
-    rely on any external helper program like this:
+    因此，此示例也可以使用普通PHP运行，而不必依赖任何外部帮助程序，如：
 
     ```php
     $code = '$s=stream_socket_client($argv[1]);do{fwrite($s,$d=fread(STDIN, 8192));}while(isset($d[0]));';
@@ -539,55 +453,48 @@ to run a child process on Windows, each with its own set of pros and cons:
     $process->start($loop);
     ```
 
-    See also [example #23](examples/23-forward-socket.php).
+    请参阅[example #23](https://github.com/reactphp/child-process/blob/v0.6.1/examples/23-forward-socket.php).
 
-    Note that this is for illustration purposes only and you may want to implement
-    some proper error checks and/or socket verification in actual production use
-    if you do not want to risk other processes connecting to the server socket.
-    In this case, we suggest looking at the excellent
-    [createprocess-windows](https://github.com/cubiclesoft/createprocess-windows).
+    请注意，这只是为了说明，如果您不想让其他进程冒着连接到服务器套接字的风险，那么您可能希望在实际生产使用中实现一些适当的错误检查和/或套接字验证。
+    在这种情况下，我们建议查看优秀的[创建进程-windows](https://github.com/cubiclesoft/createprocess-windows)
 
-Additionally, note that the [command](#command) given to the `Process` will be
-passed to the underlying Windows-API
+此外，请注意，`Process`的[command](#command)将传递给底层的Windows API
 ([`CreateProcess`](https://docs.microsoft.com/en-us/windows/desktop/api/processthreadsapi/nf-processthreadsapi-createprocessa))
-as-is and the process will not be launched in a wrapping shell by default. In
-particular, this means that shell built-in functions such as `echo hello` or
-`sleep 10` may have to be prefixed with an explicit shell command like this:
+默认情况下，进程不会在shell包装器中启动。这意味着诸如`echo hello`或`sleep 10`之类的shell内置函数可能必须以如下显式shell命令作为前缀：
 
 ```php
 $process = new Process('cmd /c echo hello', null, null, $pipes);
 $process->start($loop);
 ```
 
-## Install
+## 安装
 
-The recommended way to install this library is [through Composer](https://getcomposer.org).
-[New to Composer?](https://getcomposer.org/doc/00-intro.md)
+推荐的安装这个库的方法是[通过Composer](https://getcomposer.org)。
+[Composer 新手?](https://getcomposer.org/doc/00-intro.md)
 
-This will install the latest supported version:
+默认安装最新支持的版本:
 
 ```bash
 $ composer require react/child-process:^0.6.1
 ```
 
-See also the [CHANGELOG](CHANGELOG.md) for details about version upgrades.
+有关版本升级的详细信息，请参见[CHANGELOG](https://reactphp.org/child-process/changelog.html)
 
-This project aims to run on any platform and thus does not require any PHP
-extensions and supports running on legacy PHP 5.3 through current PHP 7+ and HHVM.
-It's *highly recommended to use PHP 7+* for this project.
+该项目旨在在任何平台上运行，因此不需要任何PHP扩展，并支持通过 `PHP 7+`和`HHVM在旧版PHP 5.3`上运行。
 
-See above note for limited [Windows Compatibility](#windows-compatibility).
+强烈推荐在这个项目中使用*PHP 7+*。
 
-## Tests
+见上文关于限制的说明[Windows Compatibility](#windows兼容性).
 
-To run the test suite, you first need to clone this repo and then install all
-dependencies [through Composer](https://getcomposer.org):
+## 测试
+
+要运行测试套件，首先需要克隆这个存储库，然后安装所有依赖项[通过Composer](https://getcomposer.org):
 
 ```bash
 $ composer install
 ```
 
-To run the test suite, go to the project root and run:
+要运行测试套件，请转到项目根目录并运行:
 
 ```bash
 $ php vendor/bin/phpunit
@@ -595,4 +502,4 @@ $ php vendor/bin/phpunit
 
 ## License
 
-MIT, see [LICENSE file](LICENSE).
+MIT, see [LICENSE file](https://reactphp.org/child-process/license.html).

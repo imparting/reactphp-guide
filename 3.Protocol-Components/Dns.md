@@ -106,7 +106,7 @@ $dns = $factory->createCached('8.8.8.8', $loop, $cache);
 
 ### resolve()
 
-`resolve(string $domain): PromiseInterface<string,Exception>` 方法可以用于将给定的`$domain`解析为单个IPv4地址(键入`A`查询)。
+`resolve(string $domain): PromiseInterface<string,Exception>` 方法可以用于将`$domain`解析为单个IPv4地址(键入`A`查询)。
 
 ```php
 $resolver->resolve('reactphp.org')->then(function ($ip) {
@@ -114,7 +114,7 @@ $resolver->resolve('reactphp.org')->then(function ($ip) {
 });
 ```
 
-向DNS服务器发送给定`$domain`的DNS查询，成功后返回单个IP地址。
+向DNS服务器发送`$domain`的DNS查询，成功后返回单个IP地址。
 
 如果DNS服务器为该查询发送一个包含多个IP地址的DNS响应消息，它将从响应中随机选择一个IP地址。
 如果你想要完整的IP地址列表或者想要发送不同类型的查询，你可使用[`resolveAll()`](#resolveall) 方法。
@@ -133,7 +133,7 @@ $promise->cancel();
 
 ### resolveAll()
 
-`resolveAll(string $host, int $type): PromiseInterface<array,Exception>`方法可用于解析给定`$domain`的所有记录值并查询$type。
+`resolveAll(string $host, int $type): PromiseInterface<array,Exception>`方法可用于解析`$domain`的所有记录值并查询$type。
 
 ```php
 $resolver->resolveAll('reactphp.org', Message::TYPE_A)->then(function ($ips) {
@@ -145,7 +145,7 @@ $resolver->resolveAll('reactphp.org', Message::TYPE_AAAA)->then(function ($ips) 
 });
 ```
 
-这是此程序包中的主要方法之一。它会将给定`$domain`的DNS查询发送到您的DNS服务器，
+这是此程序包中的主要方法之一。它会将`$domain`的DNS查询发送到您的DNS服务器，
 并在成功后返回一个包含所有记录值的列表。
 
 如果DNS服务器发送的DNS响应消息包含此查询的一个或多个记录，它将返回一个列表，其中包含响应中的所有记录值。
@@ -315,8 +315,8 @@ $executor->query(
 }, 'printf');
 ```
 
-注意，这个执行器仅实现为给定DNS查询选择正确传输的逻辑。
-实现正确的传输逻辑、实现超时和任何重试逻辑都由给定的executor决定，
+注意，这个执行器仅实现为DNS查询选择正确传输的逻辑。
+实现正确的传输逻辑、实现超时和任何重试逻辑都由executor决定，
 更多细节请参见 [`UdpTransportExecutor`](#udptransportexecutor) 和
 [`TcpTransportExecutor`](#tcptransportexecutor)
 

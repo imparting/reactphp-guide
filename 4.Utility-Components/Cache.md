@@ -96,7 +96,7 @@ $cache->delete('foo');
 
 `getMultiple(string[] $keys, mixed $default = null): PromiseInterface<array>`方法可以通过它们唯一的键来检索多个缓存项。
 
-此方法将在成功时使用缓存值数组进行解析，或在找不到项或发生错误时使用给定的`$default`值进行解析。
+此方法将在成功时使用缓存值数组进行解析，或在找不到项或发生错误时使用`$default`值进行解析。
 同样，过期的缓存项（一旦过了有效期）被视为缓存未命中。
 
 ```php

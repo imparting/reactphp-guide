@@ -2,27 +2,26 @@
 
 [![Build Status](https://travis-ci.org/reactphp/promise-stream.svg?branch=master)](https://travis-ci.org/reactphp/promise-stream)
 
-The missing link between Promise-land and Stream-land
-for [ReactPHP](https://reactphp.org/).
+[ReactPHP](https://reactphp.org/) 在Promise-land和Stream-land之间缺少的链接。
 
-**Table of Contents**
+**目录**
 
-* [Usage](#usage)
+* [用法](#用法)
   * [buffer()](#buffer)
   * [first()](#first)
   * [all()](#all)
   * [unwrapReadable()](#unwrapreadable)
   * [unwrapWritable()](#unwrapwritable)
-* [Install](#install)
-* [Tests](#tests)
+* [安装](#安装)
+* [测试](#测试)
 * [License](#license)
 
-## Usage
+## 用法
 
-This lightweight library consists only of a few simple functions.
-All functions reside under the `React\Promise\Stream` namespace.
+这个轻量级的库仅包含一些简单的功能。
+所有功能都位于`React\Promise\Stream`命名空间下。
 
-The below examples assume you use an import statement similar to this:
+以下示例假定您使用与此类似的导入语句：
 
 ```php
 use React\Promise\Stream;
@@ -30,7 +29,7 @@ use React\Promise\Stream;
 Stream\buffer(…);
 ```
 
-Alternatively, you can also refer to them with their fully-qualified name:
+或者，也可以用它们完整的命名空间来引用它们:
 
 ```php
 \React\Promise\Stream\buffer(…);
@@ -38,8 +37,8 @@ Alternatively, you can also refer to them with their fully-qualified name:
 
 ### buffer()
 
-The `buffer(ReadableStreamInterface<string> $stream, ?int $maxLength = null): PromiseInterface<string,Exception>` function can be used to
-create a `Promise` which resolves with the stream data buffer.
+`buffer(ReadableStreamInterface<string> $stream, ?int $maxLength = null): PromiseInterface<string,Exception>`
+函数可用于创建一个`Promise`，它可以用流数据缓冲区解析。
 
 ```php
 $stream = accessSomeJsonStream();
@@ -49,17 +48,16 @@ Stream\buffer($stream)->then(function ($contents) {
 });
 ```
 
-The promise will resolve with all data chunks concatenated once the stream closes.
+流关闭后，`Promise`将与所有连接的数据块一起解析。
 
-The promise will resolve with an empty string if the stream is already closed.
+如果流已经关闭，则`Promise`将以空字符串解析。
 
-The promise will reject if the stream emits an error.
+如果流发出错误，则`Promise`将拒绝。
 
-The promise will reject if it is cancelled.
+如果`Promise`被取消，则`Promise`将被拒绝。
 
-The optional `$maxLength` argument defaults to no limit. In case the maximum
-length is given and the stream emits more data before the end, the promise
-will be rejected with an `\OverflowException`.
+`$maxLength`参数(可选)默认为无限制。 如果设定了最大长度，并且流在结束之前发出更多数据，
+则将通过`OverflowException`拒绝诺言。
 
 ```php
 $stream = accessSomeToLargeStream();
@@ -67,16 +65,15 @@ $stream = accessSomeToLargeStream();
 Stream\buffer($stream, 1024)->then(function ($contents) {
     var_dump(json_decode($contents));
 }, function ($error) {
-    // Reaching here when the stream buffer goes above the max size,
-    // in this example that is 1024 bytes,
-    // or when the stream emits an error.
+    //当流缓冲区超过最大大小时或当流发生错误时触发此处逻辑
+    //在此示例中为1024字节，
 });
 ```
 
 ### first()
 
-The `first(ReadableStreamInterface|WritableStreamInterface $stream, string $event = 'data'): PromiseInterface<mixed,Exception>` function can be used to
-create a `Promise` which resolves once the given event triggers for the first time.
+`first(ReadableStreamInterface|WritableStreamInterface $stream, string $event = 'data'): PromiseInterface<mixed,Exception>`
+函数可用于创建`Promise`，该`Promise`将在设定事件首次触发时解析。 
 
 ```php
 $stream = accessSomeJsonStream();
@@ -86,25 +83,21 @@ Stream\first($stream)->then(function ($chunk) {
 });
 ```
 
-The promise will resolve with whatever the first event emitted or `null` if the
-event does not pass any data.
-If you do not pass a custom event name, then it will wait for the first "data"
-event and resolve with a string containing the first data chunk.
+无论第一个事件发出什么，promise都将解析，如果该事件不传递任何数据，则使用`null`。
+如果不传递自定义事件名称，则它将等待第一个`data`事件，并使用包含第一个数据块的字符串进行解析。
 
-The promise will reject if the stream emits an error – unless you're waiting for
-the "error" event, in which case it will resolve.
+如果流发出错误，则`promise`将拒绝 - 除`error`事件。
 
-The promise will reject once the stream closes – unless you're waiting for the
-"close" event, in which case it will resolve.
+一旦流关闭，`promise`就会被拒绝 - 除`close`事件。
 
-The promise will reject if the stream is already closed.
+如果流已关闭，则`promise`将被拒绝。
 
-The promise will reject if it is cancelled.
+如果`promise`被取消，它将被拒绝。
 
 ### all()
 
-The `all(ReadableStreamInterface|WritableStreamInterface $stream, string $event = 'data'): PromiseInterface<array,Exception>` function can be used to
-create a `Promise` which resolves with an array of all the event data.
+`all(ReadableStreamInterface|WritableStreamInterface $stream, string $event = 'data'): PromiseInterface<array,Exception>`
+函数可用于创建一个`Promise`，该函数用一个包含所有事件数据的数组进行解析。
 
 ```php
 $stream = accessSomeJsonStream();
@@ -114,28 +107,24 @@ Stream\all($stream)->then(function ($chunks) {
 });
 ```
 
-The promise will resolve with an array of whatever all events emitted or `null` if the
-events do not pass any data.
-If you do not pass a custom event name, then it will wait for all the "data"
-events and resolve with an array containing all the data chunks.
+`promise`将使用一个数组来解析所有发出的事件，如果事件不传递任何数据，则使用`null`。
+如果不传递自定义事件名称，则它将等待所有`data`事件，并使用包含所有数据块的数组进行解析。
 
-The promise will resolve with an array once the stream closes.
+一旦流关闭，`promise`将用数组解析。
 
-The promise will resolve with an empty array if the stream is already closed.
+如果流已经关闭，则`promise`将使用空数组解析。
 
-The promise will reject if the stream emits an error.
+如果流发出错误，`promise`将被拒绝。
 
-The promise will reject if it is cancelled.
+如果`promise`被取消，它将被拒绝。
 
 ### unwrapReadable()
 
-The `unwrapReadable(PromiseInterface<ReadableStreamInterface,Exception> $promise): ReadableStreamInterface` function can be used to
-unwrap a `Promise` which resolves with a `ReadableStreamInterface`.
+`unwrapReadable(PromiseInterface<ReadableStreamInterface,Exception> $promise): ReadableStreamInterface`
+函数可用于解包解析为`ReadableStreamInterface`的`promise`。
 
-This function returns a readable stream instance (implementing `ReadableStreamInterface`)
-right away which acts as a proxy for the future promise resolution.
-Once the given Promise resolves with a `ReadableStreamInterface`, its data will
-be piped to the output stream.
+该函数立即返回一个可读的流实例（实现`ReadableStreamInterface`），用作将来的承诺解析的代理。
+一旦Promise通过`ReadableStreamInterface`解析，其数据将通过管道传输到输出流。
 
 ```php
 //$promise = someFunctionWhichResolvesWithAStream();
@@ -152,9 +141,8 @@ $stream->on('end', function () {
 });
 ```
 
-If the given promise is either rejected or fulfilled with anything but an
-instance of `ReadableStreamInterface`, then the output stream will emit
-an `error` event and close:
+如果`promise`被拒绝或通过` ReadableStreamInterface `以外的任何实例实现，
+那么输出流将发出一个` error `事件并关闭:
 
 ```php
 $promise = startDownloadStream($invalidUri);
@@ -166,14 +154,9 @@ $stream->on('error', function (Exception $error) {
 });
 ```
 
-The given `$promise` SHOULD be pending, i.e. it SHOULD NOT be fulfilled or rejected
-at the time of invoking this function.
-If the given promise is already settled and does not resolve with an
-instance of `ReadableStreamInterface`, then you will not be able to receive
-the `error` event.
-
-You can `close()` the resulting stream at any time, which will either try to
-`cancel()` the pending promise or try to `close()` the underlying stream.
+这里的` $promise `应该是挂起的，也就是说，在调用这个函数时，它不应该被履行或拒绝。
+如果给定的承诺已经履行，并且没有使用`ReadableStreamInterface`实例解决，那么您将无法接收到`error`事件。
+您可以随时` close() `结果流，这将尝试` cancel() `未完成的承诺或尝试` close() `基础流。
 
 ```php
 $promise = startDownloadStream($uri);
@@ -187,14 +170,12 @@ $loop->addTimer(2.0, function () use ($stream) {
 
 ### unwrapWritable()
 
-The `unwrapWritable(PromiseInterface<WritableStreamInterface,Exception> $promise): WritableStreamInterface` function can be used to
-unwrap a `Promise` which resolves with a `WritableStreamInterface`.
+`unwrapWritable(PromiseInterface<WritableStreamInterface,Exception> $promise): WritableStreamInterface`
+ 函数可用于解包解析为`WritableStreamInterface`的`promise`。
 
-This function returns a writable stream instance (implementing `WritableStreamInterface`)
-right away which acts as a proxy for the future promise resolution.
-Any writes to this instance will be buffered in memory for when the promise resolves.
-Once the given Promise resolves with a `WritableStreamInterface`, any data you
-have written to the proxy will be forwarded transparently to the inner stream.
+该函数立即返回一个可写的流实例（实现`WritableStreamInterface`），用作将来的承诺解析的代理。
+对`Promise`的解析将在此实例中进行的所有写操作都缓存在内存中。
+一旦Promise通过`WritableStreamInterface`解析，您写入代理的所有数据都将透明地转发到内部流。
 
 ```php
 //$promise = someFunctionWhichResolvesWithAStream();
@@ -210,9 +191,7 @@ $stream->on('close', function () {
 });
 ```
 
-If the given promise is either rejected or fulfilled with anything but an
-instance of `WritableStreamInterface`, then the output stream will emit
-an `error` event and close:
+如果给定的承诺已经履行，并且没有使用`WritableStreamInterface`实例解决，则输出流将发出一个`error`事件并关闭： 
 
 ```php
 $promise = startUploadStream($invalidUri);
@@ -224,14 +203,10 @@ $stream->on('error', function (Exception $error) {
 });
 ```
 
-The given `$promise` SHOULD be pending, i.e. it SHOULD NOT be fulfilled or rejected
-at the time of invoking this function.
-If the given promise is already settled and does not resolve with an
-instance of `WritableStreamInterface`, then you will not be able to receive
-the `error` event.
+给定的` $promise `应该是挂起的，也就是说，在调用这个函数时，它不应该被履行或拒绝。
+如果给定的承诺已经履行，并且没有使用`WritableStreamInterface`实例解决，那么您将无法接收` error `事件。
 
-You can `close()` the resulting stream at any time, which will either try to
-`cancel()` the pending promise or try to `close()` the underlying stream.
+您可以随时` close() `结果流，这将尝试` cancel() `未完成的承诺或尝试` close() `基础流。
 
 ```php
 $promise = startUploadStream($uri);
@@ -243,35 +218,33 @@ $loop->addTimer(2.0, function () use ($stream) {
 });
 ```
 
-## Install
+## 安装
 
-The recommended way to install this library is [through Composer](https://getcomposer.org).
-[New to Composer?](https://getcomposer.org/doc/00-intro.md)
+推荐的安装这个库的方法是[通过Composer](https://getcomposer.org)。
+[Composer 新手?](https://getcomposer.org/doc/00-intro.md)
 
-This project follows [SemVer](https://semver.org/).
-This will install the latest supported version:
+该项目遵循[SemVer](https://semver.org/) ，
+默认安装最新支持的版本:
 
 ```bash
 $ composer require react/promise-stream:^1.2
 ```
 
-See also the [CHANGELOG](CHANGELOG.md) for details about version upgrades.
+有关版本升级的详细信息，请参见[CHANGELOG](https://reactphp.org/promise-stream/changelog.html) 。
 
-This project aims to run on any platform and thus does not require any PHP
-extensions and supports running on legacy PHP 5.3 through current PHP 7+ and
-HHVM.
-It's *highly recommended to use PHP 7+* for this project.
+该项目旨在在任何平台上运行，因此不需要任何PHP扩展，并支持通过 `PHP 7+`和`HHVM在旧版PHP 5.3`上运行。
 
-## Tests
+强烈推荐在这个项目中使用*PHP 7+*。
 
-To run the test suite, you first need to clone this repo and then install all
-dependencies [through Composer](https://getcomposer.org):
+## 测试
+
+要运行测试套件，首先需要克隆这个存储库，然后安装所有依赖项[通过Composer](https://getcomposer.org):
 
 ```bash
 $ composer install
 ```
 
-To run the test suite, go to the project root and run:
+要运行测试套件，请转到项目根目录并运行:
 
 ```bash
 $ php vendor/bin/phpunit
@@ -279,4 +252,4 @@ $ php vendor/bin/phpunit
 
 ## License
 
-MIT, see [LICENSE file](LICENSE).
+MIT, see [LICENSE file](https://reactphp.org/promise-stream/license.html).

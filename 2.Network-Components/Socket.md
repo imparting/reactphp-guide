@@ -336,14 +336,14 @@ $server = new React\Socket\Server('[::1]:8080', $loop);
 $server = new React\Socket\Server('unix:///tmp/server.sock', $loop);
 ```
 
-如果给定的URI无效，不包含端口，任何其他方案，或者包含主机名，它将抛出一个` InvalidArgumentException `:
+如果设定的URI无效，不包含端口，任何其他方案，或者包含主机名，它将抛出一个` InvalidArgumentException `:
 
 ```php
 // throws InvalidArgumentException due to missing port
 $server = new React\Socket\Server('127.0.0.1', $loop);
 ```
 
-如果给定的URI看起来是有效的，但是监听失败(比如端口已经被使用或者端口低于1024可能需要root访问等等)，
+如果设定的URI看起来是有效的，但是监听失败(比如端口已经被使用或者端口低于1024可能需要root访问等等)，
 它将抛出一个` RuntimeException `:
 
 ```php
@@ -464,14 +464,14 @@ $server = new React\Socket\TcpServer('192.168.0.1:8080', $loop);
 $server = new React\Socket\TcpServer('[::1]:8080', $loop);
 ```
 
-如果给定的URI无效，不包含端口，任何其他方案，或者包含主机名，则将抛出`InvalidArgumentException`:
+如果设定的URI无效，不包含端口，任何其他方案，或者包含主机名，则将抛出`InvalidArgumentException`:
 
 ```php
 // throws InvalidArgumentException due to missing port
 $server = new React\Socket\TcpServer('127.0.0.1', $loop);
 ```
 
-如果给定的URI似乎有效，但是对其进行侦听失败（例如，如果端口已在使用中，或者端口低于1024，则可能需要root用户访问权限等），
+如果设定的URI似乎有效，但是对其进行侦听失败（例如，如果端口已在使用中，或者端口低于1024，则可能需要root用户访问权限等），
 它将抛出`RuntimeException`:
 
 ```php
@@ -592,7 +592,7 @@ $server = new React\Socket\UnixServer('/tmp/server.sock', $loop);
 ```
 如上所示，` $uri `参数只能由一个套接字路径或以` unix:// `方案为前缀的套接字。
 
-如果给定的URI看起来是有效的，但是监听失败(比如socket已经在使用或者文件不能访问等等)，
+如果设定的URI看起来是有效的，但是监听失败(比如socket已经在使用或者文件不能访问等等)，
 它将抛出一个`RuntimeException`:
 
 ```php
@@ -621,7 +621,7 @@ $server->on('connection', function (React\Socket\ConnectionInterface $connection
 
 #### LimitingServer
 
-` LimitingServer `装饰器包装了一个给定的` ServerInterface `，并负责限制和跟踪到这个服务器实例的打开连接。
+` LimitingServer `装饰器包装了一个` ServerInterface `，并负责限制和跟踪到这个服务器实例的打开连接。
 
 每当底层服务器发出` connection `事件时，将检查其限制，做出以下两种情况之一
  - 通过将该连接添加到打开的连接列表中来跟踪该连接，然后触发` connection `事件
@@ -695,7 +695,7 @@ foreach ($server->getConnection() as $connection) {
 
 #### connect()
 
-`connect(string $uri): PromiseInterface<ConnectionInterface,Exception>`方法可用于创建到给定远程地址的流式连接。
+`connect(string $uri): PromiseInterface<ConnectionInterface,Exception>`方法可用于创建到远程地址的流式连接。
 
 返回一个[Promise](/1.Core-Components/Promise.md) ，
 它在成功时以实现[`ConnectionInterface`](#connectioninterface)的流来实现，
@@ -775,7 +775,7 @@ $connector->connect('unix:///tmp/demo.sock')->then(function (React\Socket\Connec
     $connection->end();
 });
 ```
->[`getRemoteAddress()`](#getremoteaddress)方法将返回给定给` connect() `方法的目标Unix域套接字(UDS)路径，
+>[`getRemoteAddress()`](#getremoteaddress)方法将返回设定给` connect() `方法的目标Unix域套接字(UDS)路径，
  包括` unix:// `方案，例如` unix:///tmp/demo.sock `。
  [`getLocalAddress()`](#getlocaladdress)方法很可能返回一个` null `值，因为这个值不适用于这里的UDS连接。
 
@@ -980,9 +980,9 @@ $tcpConnector = new React\Socket\TcpConnector($loop, array(
 ```
 
 请注意，此类仅允许您连接到IP端口组合。
-如果给定的URI无效，不包含有效的IP地址和端口或包含任何其他方案，则它将以`InvalidArgumentException`拒绝:
+如果设定的URI无效，不包含有效的IP地址和端口或包含任何其他方案，则它将以`InvalidArgumentException`拒绝:
 
-如果给定的URI似乎有效，但是连接失败（例如，远程主机拒绝连接等），它将以`RuntimeException`拒绝。
+如果设定的URI似乎有效，但是连接失败（例如，远程主机拒绝连接等），它将以`RuntimeException`拒绝。
 
 如果要连接到主机名-端口组合，请参见以下章节。
 
@@ -997,8 +997,8 @@ $tcpConnector = new React\Socket\TcpConnector($loop, array(
 内部实现了happy eyeballs算法[`RFC6555`](https://tools.ietf.org/html/rfc6555)
 和[`RFC8305`](https://tools.ietf.org/html/rfc8305) 来支持IPv6和IPv4主机名。
 
-它通过装饰给定的`TcpConnector`实例来实现，
-首先通过DNS(如果适用的话)查找给定的域名，然后建立到已解析的目标IP地址的底层TCP/IP连接。
+它通过装饰`TcpConnector`实例来实现，
+首先通过DNS(如果适用的话)查找域名，然后建立到已解析的目标IP地址的底层TCP/IP连接。
 
 设置你的DNS解析器和底层TCP连接器:
 
@@ -1028,9 +1028,9 @@ $promise->cancel();
 
 对挂起的承诺调用` cancel() `将取消基础DNS查找和/或基础TCP/IP连接，并拒绝产生的承诺。
 
->高级用法:`HappyEyeBallsConnector`内部依赖于一个`Resolver(解析器)`来查找给定主机名的IP地址。
+>高级用法:`HappyEyeBallsConnector`内部依赖于一个`Resolver(解析器)`来查找主机名的IP地址。
  然后，它将用这个IP的主机名替换目标URI中的主机名，并附加一个`hostname`查询参数，并将这个更新后的URI传递给底层连接器。
- Happy Eye Balls算法描述为给定的主机名查找IPv6和IPv4地址，因此该连接器发送两个DNS查找A和AAAA记录。
+ Happy Eye Balls算法描述为主机名查找IPv6和IPv4地址，因此该连接器发送两个DNS查找A和AAAA记录。
  然后，它使用所有IP地址(包括v6和v4)，并尝试以50ms的间隔连接到所有IP地址。在IPv6和IPv4地址之间切换。
  当连接建立时，所有其他DNS查找和连接尝试都被取消。
 
@@ -1038,7 +1038,7 @@ $promise->cancel();
 
 `DnsConnector`类实现了[`ConnectorInterface`](#connectorinterface)，并允许您创建到任何主机名-端口组合的纯文本TCP/IP连接。
 
-它通过装饰给定的`TcpConnector`实例来实现，首先通过DNS(如果适用的话)查找给定的域名，然后建立到已解析的目标IP地址的底层TCP/IP连接。
+它通过装饰`TcpConnector`实例来实现，首先通过DNS(如果适用的话)查找给定的域名，然后建立到已解析的目标IP地址的底层TCP/IP连接。
 
 这样设置你的DNS解析器和底层TCP连接器:
 
@@ -1068,7 +1068,7 @@ $promise->cancel();
 
 对挂起的承诺调用` cancel() `将取消基础DNS查找和/或基础TCP/IP连接，并拒绝产生的承诺。
 
->高级用法:` DnsConnector `内部依赖于` React\Dns\Resolver\ResolverInterface `来查找给定主机名的IP地址。
+>高级用法:` DnsConnector `内部依赖于` React\Dns\Resolver\ResolverInterface `来查找主机名的IP地址。
  然后，它将用这个IP替换目标URI中的主机名，并附加一个`hostname`查询参数，并将这个更新后的URI传递给底层连接器。
  因此，底层连接器负责创建到目标IP地址的连接，而此查询参数可用于检查原始主机名，并由`TcpConnector`用于设置TLS对等名称。
  如果显式地给出了`hostname`，则不会修改此查询参数，如果您想要自定义TLS对等端名称会，这会很有用。
@@ -1076,7 +1076,7 @@ $promise->cancel();
 #### SecureConnector
 
 `SecureConnector`类实现了[`ConnectorInterface`](#connectorinterface)，并允许您创建到任何主机名-端口组合的安全TLS(以前称为SSL)连接。
-通过装饰给定的`DnsConnector`实例来实现，首先创建一个明文TCP/IP连接，然后在此流上启用TLS加密。
+通过装饰`DnsConnector`实例来实现，首先创建一个明文TCP/IP连接，然后在此流上启用TLS加密。
 
 ```php
 $secureConnector = new React\Socket\SecureConnector($dnsConnector, $loop);
@@ -1126,7 +1126,7 @@ $secureConnector = new React\Socket\SecureConnector($dnsConnector, $loop, array(
 
 `TimeoutConnector`类实现了[`ConnectorInterface`](#connectorinterface)，并允许您将超时处理添加到现有的连接器实例中。
 
-通过装饰给定的 [`ConnectorInterface`](#connectorinterface)实例并启动一个计时器来完成，如果时间太长，该计时器将自动拒绝并中止连接尝试。
+通过装饰 [`ConnectorInterface`](#connectorinterface)实例并启动一个计时器来完成，如果时间太长，该计时器将自动拒绝并中止连接尝试。
 
 ```php
 $timeoutConnector = new React\Socket\TimeoutConnector($connector, 3.0, $loop);
