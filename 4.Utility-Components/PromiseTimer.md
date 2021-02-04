@@ -106,10 +106,10 @@ Timer\timeout($promise, 10.0, $loop)
 如上所述，[`timeout()`](#timeout) 函数花费的时间太长，则会*取消*底层操作。最终的承诺会被[`TimeoutException`](#timeoutexception)拒绝。
 
 然而,底层传入`$promise`发生了什么比较棘手的事情:
-定时器一旦触发后,我们将尝试调用[`$promise->cancel()`](/1.Core-Components/Promise.md#cancellablepromiseinterfacecancel)
+定时器一旦触发后,我们将尝试调用[`$promise->cancel()`](/1.Core-Components/Promise.md#promiseinterfacecancel)
 传入`$promise`依次调用它的[取消处理程序](#cancellation-handler) 。
 
-这意味着实际上是在传入` $promise `来处理[取消支持](/1.Core-Components/Promise.md#cancellablepromiseinterface)。
+这意味着实际上是在传入` $promise `来处理[取消支持](/1.Core-Components/Promise.md#promiseinterface)。
 
 * 常见的用例包括清理资源，如打开的网络套接字或文件句柄，或终止外部进程或计时器。
 * 如果传入的`$promise`不支持取消，这是不允许的。
@@ -148,7 +148,7 @@ function accessSomeRemoteResource()
 如果没有向` Promise `构造函数传递取消处理程序，那么调用它的` cancel() `方法无效。可能是挂起状态，可以继续消耗资源。
 
 有关承诺取消的更多细节，请参阅
-[Promise文档](/1.Core-Components/Promise.md#cancellablepromiseinterface)
+[Promise文档](/1.Core-Components/Promise.md#promiseinterface)
 
 #### Input cancellation
 
